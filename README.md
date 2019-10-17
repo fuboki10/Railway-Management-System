@@ -1,6 +1,3 @@
-# Railway Management System
-
-
 # Project Description
 
 
