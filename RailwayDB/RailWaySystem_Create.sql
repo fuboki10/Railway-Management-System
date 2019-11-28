@@ -6,18 +6,18 @@ use RailWaySystemDB
 
 ------------Table Creation-----------------
 CREATE TABLE [USER] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Username varchar(20) NOT NULL,
-	Password varchar(20) NOT NULL,
+	PasswordHash BINARY(64) NOT NULL,
   CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED
   (
   [ID] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
-
 )
+
 GO
 CREATE TABLE [Employee] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	First_name varchar(50) NOT NULL,
 	Last_name varchar(50) NOT NULL,
 	Age integer NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE [Station Manager] (
 )
 GO
 CREATE TABLE [Station] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Name varchar(50) NOT NULL UNIQUE,
 	City varchar(50) NOT NULL,
 	State varchar(50) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE [Employee_Phone] (
 )
 GO
 CREATE TABLE [Passenger] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	First_name varchar(50) NOT NULL,
 	Last_name varchar(50) NOT NULL,
   CONSTRAINT [PK_PASSENGER] PRIMARY KEY CLUSTERED
@@ -154,7 +154,7 @@ CREATE TABLE [Passenger_Phone] (
 )
 GO
 CREATE TABLE [Ticket] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Class varchar(1) NOT NULL,
 	Price integer NOT NULL,
 	Date date NOT NULL,
@@ -169,7 +169,7 @@ CREATE TABLE [Ticket] (
 )
 GO
 CREATE TABLE [Trip] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Dept_Time integer NOT NULL,
 	Arr_Time integer NOT NULL,
 	Type integer NOT NULL,
@@ -185,9 +185,9 @@ CREATE TABLE [Trip] (
 )
 GO
 CREATE TABLE [Train] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Model varchar(50) NOT NULL,
-	Status boolean NOT NULL,
+	Status BIT NOT NULL,
 	Color varchar(50) NOT NULL,
 	No_Seats integer NOT NULL,
 	Speed integer NOT NULL,
@@ -204,7 +204,7 @@ CREATE TABLE [Train] (
 )
 GO
 CREATE TABLE [Coach_Yard] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Station_ID integer NOT NULL,
 	Size integer NOT NULL,
 	No_Trains integer NOT NULL,
@@ -216,7 +216,7 @@ CREATE TABLE [Coach_Yard] (
 )
 GO
 CREATE TABLE [Repair_Yard] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Station_ID integer NOT NULL,
 	Size integer NOT NULL,
 	No_Trains integer NOT NULL,
@@ -228,7 +228,7 @@ CREATE TABLE [Repair_Yard] (
 )
 GO
 CREATE TABLE [Subscription] (
-	ID integer NOT NULL,
+	ID integer IDENTITY(1,1) NOT NULL,
 	Fees integer NOT NULL,
 	Class varchar(1) NOT NULL,
 	No_Trips integer NOT NULL,
@@ -447,3 +447,8 @@ GO
 ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_fk1]
 GO
 
+
+
+--For Hashing--
+ALTER TABLE [User] ADD Salt UNIQUEIDENTIFIER 
+GO
