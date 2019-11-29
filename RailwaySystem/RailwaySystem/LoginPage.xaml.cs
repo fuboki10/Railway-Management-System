@@ -1,16 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace RailwaySystem
 {
-    public partial class LoginPage : Form
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class LoginPage : Window
     {
         Controller ControllerObj;
         public LoginPage()
@@ -31,7 +39,7 @@ namespace RailwaySystem
                 string title = "Enter Username";
                 MessageBox.Show(msg, title);
             }
-            else if (PasswordTextBox.Text == "")
+            else if (PasswordTextBox.Password.ToString() == "")
             {
                 string msg = "Please Enter your password";
                 string title = "Enter Password";
@@ -39,7 +47,7 @@ namespace RailwaySystem
             }
             else
             {
-                DataTable response = ControllerObj.Login(UserNameTextBox.Text, PasswordTextBox.Text);
+                DataTable response = ControllerObj.Login(UserNameTextBox.Text, PasswordTextBox.Password.ToString());
                 string msg = response.Rows[0]["response"].ToString();
                 int ID;
                 Int32.TryParse(response.Rows[0]["ID"].ToString(), out ID);
