@@ -3,7 +3,7 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertSManager]
+EXEC	@return_value = [dbo].[InsertManager]
 		@fname = N'Ihab',
 		@lname = N'Talkhan',
 		@age = 57,
