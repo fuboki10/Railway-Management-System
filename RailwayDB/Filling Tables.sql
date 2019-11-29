@@ -316,3 +316,63 @@ EXEC	@return_value = [dbo].[InsertPas]
 SELECT	'Return Value' = @return_value
 
 GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = 'Masr',
+		@state = N'Cairo',
+		@city = N'Ramses',
+		@street = 1
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = 'ElRaml',
+		@state = 'Alexandria',
+		@city = 'ElRaml',
+		@street = 2
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = N'ElAiat',
+		@state = N'Giza',
+		@city = N'ElAiat',
+		@street = 5
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = N'Siedy Gaber',
+		@state = N'Alexandria',
+		@city = N'Siedy Gaber',
+		@street = 1
+
+SELECT	'Return Value' = @return_value
+
+GO
