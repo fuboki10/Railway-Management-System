@@ -16,7 +16,8 @@
         <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="3" Margin="131.159,297.789,0,0" Stroke="Black" VerticalAlignment="Top" Width="127.692" Grid.RowSpan="2"/>
         <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="3" Margin="131.159,259.84,0,0" Stroke="Black" VerticalAlignment="Top" Width="127.692"/>
         <Image Source="/Resources/train.png" Margin="106.543,10,106.056,109.738" Width="181" Height="181"></Image>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="131,43.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="128" Click="LoginButton_Click" Background="#7D14E7" Foreground="White" FontStyle="Normal" FontFamily="Roboto"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="131,43.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="128" Click="LoginButton_Click" Background="#7D14E7" 
+                Foreground="White" FontStyle="Normal" FontFamily="Roboto" Height="30"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Image Source="/Resources/user.png" Margin="96,233,267.6,37.8"></Image>
         <Image Source="/Resources/password.png" Margin="96,276,267.6,264.4" Grid.RowSpan="2"></Image>
     </Grid>
