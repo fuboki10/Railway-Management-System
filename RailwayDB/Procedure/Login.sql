@@ -42,6 +42,8 @@ BEGIN
     END
     ELSE
        SET @responseMessage='Invalid login'
+	
+	SELECT @responseMessage as response, @ID as ID
 
 END
 	

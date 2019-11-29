@@ -7,13 +7,14 @@ use RailWaySystemDB
 ------------Table Creation-----------------
 CREATE TABLE [USER] (
 	ID integer IDENTITY(1,1) NOT NULL,
-	Username varchar(20) NOT NULL UNIQUE,
+	Username varchar(20) COLLATE Latin1_General_CS_AS NOT NULL UNIQUE,
 	PasswordHash BINARY(64) NOT NULL,
   CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED
   (
   [ID] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 )
+GO
 
 GO
 CREATE TABLE [Employee] (

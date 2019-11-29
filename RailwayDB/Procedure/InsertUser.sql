@@ -41,4 +41,6 @@ BEGIN
         SET @responseMessage=ERROR_MESSAGE() 
     END CATCH
 
+	SELECT @responseMessage as response
+
 END

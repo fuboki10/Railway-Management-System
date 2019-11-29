@@ -20,5 +20,24 @@ namespace RailwaySystem
         {
             dbMan.CloseConnection();
         }
+
+        public int AddUser(string UserName, string Password)
+        {
+            string StoredProcedureName = StoredProcedures.InsertUser;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@UserName", UserName);
+            Parameters.Add("@Password", Password);
+            
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable Login(string UserName, string Password)
+        {
+            string StoredProcedureName = StoredProcedures.Login;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@UserName", UserName);
+            Parameters.Add("@Password", Password);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
     }
 }
