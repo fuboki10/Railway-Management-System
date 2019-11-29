@@ -7,7 +7,7 @@ use RailWaySystemDB
 ------------Table Creation-----------------
 CREATE TABLE [USER] (
 	ID integer IDENTITY(1,1) NOT NULL,
-	Username varchar(20) NOT NULL,
+	Username varchar(20) NOT NULL UNIQUE,
 	PasswordHash BINARY(64) NOT NULL,
   CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED
   (
@@ -42,7 +42,7 @@ CREATE TABLE [Booking Clerk] (
 )
 GO
 CREATE TABLE [Driver] (
-	ID integer NOT NULL,
+  ID integer NOT NULL UNIQUE,
   CONSTRAINT [PK_DRIVER] PRIMARY KEY CLUSTERED
   (
   [ID] ASC
@@ -51,7 +51,7 @@ CREATE TABLE [Driver] (
 )
 GO
 CREATE TABLE [Manager] (
-	ID integer NOT NULL,
+	ID integer NOT NULL UNIQUE,
 	User_ID integer UNIQUE,
   CONSTRAINT [PK_MANAGER] PRIMARY KEY CLUSTERED
   (
@@ -89,7 +89,8 @@ CREATE TABLE [Route] (
 	Distance integer NOT NULL,
   CONSTRAINT [PK_ROUTE] PRIMARY KEY CLUSTERED
   (
-  [Source_ID] ASC
+  [Source_ID] ASC,
+  [Destination_ID] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
@@ -113,7 +114,9 @@ CREATE TABLE [Employee_Phone] (
 	Number integer NOT NULL,
   CONSTRAINT [PK_EMPLOYEE_PHONE] PRIMARY KEY CLUSTERED
   (
-  [Employee_ID] ASC
+  [Employee_ID] ASC,
+  [Code] ASC,
+  [Number] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
@@ -133,7 +136,7 @@ CREATE TABLE [Passenger_Contact] (
 	Passenger_ID integer NOT NULL,
 	Email varchar(50) UNIQUE,
 	City varchar(50) NOT NULL,
-	State varchar(50) NOT NULL,
+	[State] varchar(50) NOT NULL,
 	Street varchar(50) NOT NULL,
   CONSTRAINT [PK_PASSENGER_CONTACT] PRIMARY KEY CLUSTERED
   (
@@ -148,7 +151,9 @@ CREATE TABLE [Passenger_Phone] (
 	Number integer NOT NULL,
   CONSTRAINT [PK_PASSENGER_PHONE] PRIMARY KEY CLUSTERED
   (
-  [Passenger_ID] ASC
+  [Passenger_ID] ASC,
+  [Code] ASC,
+  [Number] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
@@ -157,7 +162,7 @@ CREATE TABLE [Ticket] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Class varchar(1) NOT NULL,
 	Price integer NOT NULL,
-	Date date NOT NULL,
+	[Date] date NOT NULL,
 	Booking_Clerk_ID integer NOT NULL,
 	Passenger_ID integer NOT NULL,
 	Trip_ID integer NOT NULL,
@@ -172,7 +177,7 @@ CREATE TABLE [Trip] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Dept_Time integer NOT NULL,
 	Arr_Time integer NOT NULL,
-	Type integer NOT NULL,
+	[Type] integer NOT NULL,
 	Source_ID integer NOT NULL,
 	Destintaion_ID integer NOT NULL,
 	Train_ID integer NOT NULL,
@@ -187,12 +192,12 @@ GO
 CREATE TABLE [Train] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Model varchar(50) NOT NULL,
-	Status BIT NOT NULL,
+	[Status] BIT NOT NULL,
 	Color varchar(50) NOT NULL,
 	No_Seats integer NOT NULL,
 	Speed integer NOT NULL,
 	No_Cars integer NOT NULL,
-	Date date NOT NULL,
+	[Date] date NOT NULL,
 	Driver_ID integer NOT NULL UNIQUE,
 	Repair_Yard_ID integer NOT NULL,
 	Coach_Yard_ID integer NOT NULL,
@@ -245,7 +250,9 @@ CREATE TABLE [Passenger_Subscription] (
 	Exp_Date date NOT NULL,
   CONSTRAINT [PK_PASSENGER_SUBSCRIPTION] PRIMARY KEY CLUSTERED
   (
-  [Passenger_ID] ASC
+  [Passenger_ID] ASC,
+  [Subscription_ID] ASC,
+  [Exp_Date] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
@@ -255,7 +262,8 @@ CREATE TABLE [Work_In] (
 	Station_ID integer NOT NULL,
   CONSTRAINT [PK_WORK_IN] PRIMARY KEY CLUSTERED
   (
-  [Employee_ID] ASC
+  [Employee_ID] ASC,
+  [Station_ID] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
@@ -265,7 +273,8 @@ CREATE TABLE [Bought_By] (
 	Train_ID integer NOT NULL,
   CONSTRAINT [PK_BOUGHT_BY] PRIMARY KEY CLUSTERED
   (
-  [Manager_ID] ASC
+  [Manager_ID] ASC,
+  [Train_ID] ASC
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
@@ -446,8 +455,6 @@ ON UPDATE CASCADE
 GO
 ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_fk1]
 GO
-
-
 
 --For Hashing--
 ALTER TABLE [User] ADD Salt UNIQUEIDENTIFIER 
