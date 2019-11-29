@@ -5,9 +5,15 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+-- Inserting a new employee into the Employee table
 CREATE PROCEDURE InsertEmp 
 
-	@id int, @fname varchar(50), @lname varchar(50), @age int, @bd date, @salary int, @working_hours int
+	@fname varchar(50),
+	@lname varchar(50),
+	@age int,
+	@bd date,
+	@salary int,
+	@working_hours int
 
 AS
 BEGIN
@@ -15,8 +21,11 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    -- Insert statements for procedure here
+    -- Inserting the employee into Employee table
 	Insert into Employee 
-	values (@id, @fname, @lname, @age, @bd, @salary, @working_hours);
+	values (@fname, @lname, @age, @bd, @salary, @working_hours);
+
+	-- Returning the id of the inserted employee
+	return @@identity
 END
 GO

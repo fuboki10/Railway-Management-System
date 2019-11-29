@@ -7,21 +7,38 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
+-- Inserting a new clerk into the DB
 Create Procedure [dbo].[InsertClerk]
-	@id int, @fname varchar(50), @lname varchar(50), @age int, @bd date, @salary int, @working_hours int
+	@fname varchar(50), 
+	@lname varchar(50),
+	@age int, 
+	@bd date, 
+	@salary int,
+	@working_hours int,
+	@Username varchar(20), 
+    @Password varchar(20)
 As
 Begin
-	Exec dbo.InsertEmp
-	@id = @id ,
-	@fname = @fname,
-	@lname = @lname,
-	@age = @age,
-	@bd = @bd,
-	@salary = @salary,
-	@working_hours = @working_hours
+
+-- Inserting basic info in employee table
+	declare @id int
+	Exec @id = dbo.InsertEmp
+	@fname,
+	@lname,
+	@age,
+	@bd,
+	@salary,
+	@working_hours
 	
-	insert into [Booking Clerk] values(@id, null)
+	-- Inserting a new user
+	declare @userid int, @response varchar(250)
+	exec @userid = InsertUser
+	@username,
+	@password,
+	@response output
+
+	-- Inserting into the booking clerk table
+	insert into [Booking Clerk] values(@id, @userid)
 End
 
 GO
