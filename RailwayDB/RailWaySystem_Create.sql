@@ -282,181 +282,358 @@ CREATE TABLE [Bought_By] (
 GO
 
 
-ALTER TABLE [Booking Clerk] WITH CHECK ADD CONSTRAINT [Booking Clerk_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Booking Clerk] WITH CHECK ADD CONSTRAINT [Booking Clerk_Update_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON UPDATE no action 
 GO
-ALTER TABLE [Booking Clerk] CHECK CONSTRAINT [Booking Clerk_fk0]
+ALTER TABLE [Booking Clerk] CHECK CONSTRAINT [Booking Clerk_Update_fk0]
 GO
-ALTER TABLE [Booking Clerk] WITH CHECK ADD CONSTRAINT [Booking Clerk_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Booking Clerk] WITH CHECK ADD CONSTRAINT [Booking Clerk_Update_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
+ON UPDATE no action 
 GO
-ALTER TABLE [Booking Clerk] CHECK CONSTRAINT [Booking Clerk_fk1]
-GO
-
-ALTER TABLE [Driver] WITH CHECK ADD CONSTRAINT [Driver_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Driver] CHECK CONSTRAINT [Driver_fk0]
+ALTER TABLE [Booking Clerk] CHECK CONSTRAINT [Booking Clerk_Update_fk1]
 GO
 
-ALTER TABLE [Manager] WITH CHECK ADD CONSTRAINT [Manager_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Driver] WITH CHECK ADD CONSTRAINT [Driver_Update_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON UPDATE no action		
 GO
-ALTER TABLE [Manager] CHECK CONSTRAINT [Manager_fk0]
-GO
-ALTER TABLE [Manager] WITH CHECK ADD CONSTRAINT [Manager_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Manager] CHECK CONSTRAINT [Manager_fk1]
+ALTER TABLE [Driver] CHECK CONSTRAINT [Driver_Update_fk0]
 GO
 
-ALTER TABLE [Station Manager] WITH CHECK ADD CONSTRAINT [Station Manager_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Manager] WITH CHECK ADD CONSTRAINT [Manager_Update_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Station Manager] CHECK CONSTRAINT [Station Manager_fk0]
+ALTER TABLE [Manager] CHECK CONSTRAINT [Manager_Update_fk0]
 GO
-ALTER TABLE [Station Manager] WITH CHECK ADD CONSTRAINT [Station Manager_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Manager] WITH CHECK ADD CONSTRAINT [Manager_Update_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Station Manager] CHECK CONSTRAINT [Station Manager_fk1]
-GO
-
-
-ALTER TABLE [Route] WITH CHECK ADD CONSTRAINT [Route_fk0] FOREIGN KEY ([Source_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Route] CHECK CONSTRAINT [Route_fk0]
-GO
-ALTER TABLE [Route] WITH CHECK ADD CONSTRAINT [Route_fk1] FOREIGN KEY ([Destination_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Route] CHECK CONSTRAINT [Route_fk1]
+ALTER TABLE [Manager] CHECK CONSTRAINT [Manager_Update_fk1]
 GO
 
-ALTER TABLE [Employee_Contact] WITH CHECK ADD CONSTRAINT [Employee_Contact_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Station Manager] WITH CHECK ADD CONSTRAINT [Station Manager_Update_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Employee_Contact] CHECK CONSTRAINT [Employee_Contact_fk0]
+ALTER TABLE [Station Manager] CHECK CONSTRAINT [Station Manager_Update_fk0]
 GO
-
-ALTER TABLE [Employee_Phone] WITH CHECK ADD CONSTRAINT [Employee_Phone_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee_Contact]([Employee_ID])
-ON UPDATE CASCADE
+ALTER TABLE [Station Manager] WITH CHECK ADD CONSTRAINT [Station Manager_Update_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Employee_Phone] CHECK CONSTRAINT [Employee_Phone_fk0]
-GO
-
-
-ALTER TABLE [Passenger_Contact] WITH CHECK ADD CONSTRAINT [Passenger_Contact_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Passenger_Contact] CHECK CONSTRAINT [Passenger_Contact_fk0]
+ALTER TABLE [Station Manager] CHECK CONSTRAINT [Station Manager_Update_fk1]
 GO
 
-ALTER TABLE [Passenger_Phone] WITH CHECK ADD CONSTRAINT [Passenger_Phone_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger_Contact]([Passenger_ID])
-ON UPDATE CASCADE
+ALTER TABLE [Route] WITH CHECK ADD CONSTRAINT [Route_Update_fk0] FOREIGN KEY ([Source_ID]) REFERENCES [Station]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Passenger_Phone] CHECK CONSTRAINT [Passenger_Phone_fk0]
+ALTER TABLE [Route] CHECK CONSTRAINT [Route_Update_fk0]
 GO
-
-ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_fk0] FOREIGN KEY ([Booking_Clerk_ID]) REFERENCES [Booking Clerk]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Route] WITH CHECK ADD CONSTRAINT [Route_Update_fk1] FOREIGN KEY ([Destination_ID]) REFERENCES [Station]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_fk0]
+ALTER TABLE [Route] CHECK CONSTRAINT [Route_Update_fk1]
 GO
-ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_fk1] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Route]
+   ADD CONSTRAINT [RouteCheck] CHECK([Destination_ID] != [Source_ID]);
+ GO
+ALTER TABLE [Employee_Contact] WITH CHECK ADD CONSTRAINT [Employee_Contact_Update_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_fk1]
-GO
-ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_fk2] FOREIGN KEY ([Trip_ID]) REFERENCES [Trip]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_fk2]
+ALTER TABLE [Employee_Contact] CHECK CONSTRAINT [Employee_Contact_Update_fk0]
 GO
 
-ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_fk0] FOREIGN KEY ([Source_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Employee_Phone] WITH CHECK ADD CONSTRAINT [Employee_Phone_Update_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee_Contact]([Employee_ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_fk0]
-GO
-ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_fk1] FOREIGN KEY ([Destintaion_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_fk1]
-GO
-ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_fk2] FOREIGN KEY ([Train_ID]) REFERENCES [Train]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_fk2]
-GO
-ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_fk3] FOREIGN KEY ([StManager_ID]) REFERENCES [Station Manager]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_fk3]
-GO
-
-ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_fk0] FOREIGN KEY ([Driver_ID]) REFERENCES [Driver]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Train] CHECK CONSTRAINT [Train_fk0]
-GO
-ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_fk1] FOREIGN KEY ([Repair_Yard_ID]) REFERENCES [Repair_Yard]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Train] CHECK CONSTRAINT [Train_fk1]
-GO
-ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_fk2] FOREIGN KEY ([Coach_Yard_ID]) REFERENCES [Coach_Yard]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Train] CHECK CONSTRAINT [Train_fk2]
-GO
-
-ALTER TABLE [Coach_Yard] WITH CHECK ADD CONSTRAINT [Coach_Yard_fk0] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Coach_Yard] CHECK CONSTRAINT [Coach_Yard_fk0]
-GO
-
-ALTER TABLE [Repair_Yard] WITH CHECK ADD CONSTRAINT [Repair_Yard_fk0] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Repair_Yard] CHECK CONSTRAINT [Repair_Yard_fk0]
+ALTER TABLE [Employee_Phone] CHECK CONSTRAINT [Employee_Phone_Update_fk0]
 GO
 
 
-ALTER TABLE [Passenger_Subscription] WITH CHECK ADD CONSTRAINT [Passenger_Subscription_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Passenger_Contact] WITH CHECK ADD CONSTRAINT [Passenger_Contact_Update_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Passenger_Subscription] CHECK CONSTRAINT [Passenger_Subscription_fk0]
-GO
-ALTER TABLE [Passenger_Subscription] WITH CHECK ADD CONSTRAINT [Passenger_Subscription_fk1] FOREIGN KEY ([Subscription_ID]) REFERENCES [Subscription]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Passenger_Subscription] CHECK CONSTRAINT [Passenger_Subscription_fk1]
+ALTER TABLE [Passenger_Contact] CHECK CONSTRAINT [Passenger_Contact_Update_fk0]
 GO
 
-ALTER TABLE [Work_In] WITH CHECK ADD CONSTRAINT [Work_In_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Passenger_Phone] WITH CHECK ADD CONSTRAINT [Passenger_Phone_Update_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger_Contact]([Passenger_ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Work_In] CHECK CONSTRAINT [Work_In_fk0]
-GO
-ALTER TABLE [Work_In] WITH CHECK ADD CONSTRAINT [Work_In_fk1] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
-ON UPDATE CASCADE
-GO
-ALTER TABLE [Work_In] CHECK CONSTRAINT [Work_In_fk1]
+ALTER TABLE [Passenger_Phone] CHECK CONSTRAINT [Passenger_Phone_Update_fk0]
 GO
 
-ALTER TABLE [Bought_By] WITH CHECK ADD CONSTRAINT [Bought_By_fk0] FOREIGN KEY ([Manager_ID]) REFERENCES [Manager]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_Update_fk0] FOREIGN KEY ([Booking_Clerk_ID]) REFERENCES [Booking Clerk]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_fk0]
+ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_Update_fk0]
 GO
-ALTER TABLE [Bought_By] WITH CHECK ADD CONSTRAINT [Bought_By_fk1] FOREIGN KEY ([Train_ID]) REFERENCES [Train]([ID])
-ON UPDATE CASCADE
+ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_Update_fk1] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
+ON UPDATE no action
 GO
-ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_fk1]
+ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_Update_fk1]
+GO
+ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_Update_fk2] FOREIGN KEY ([Trip_ID]) REFERENCES [Trip]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_Update_fk2]
 GO
 
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Update_fk0] FOREIGN KEY ([Source_ID]) REFERENCES [Station]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Update_fk0]
+GO
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Update_fk1] FOREIGN KEY ([Destintaion_ID]) REFERENCES [Station]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Update_fk1]
+GO
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Update_fk2] FOREIGN KEY ([Train_ID]) REFERENCES [Train]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Update_fk2]
+GO
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Update_fk3] FOREIGN KEY ([StManager_ID]) REFERENCES [Station Manager]([ID])
+ON UPDATE no action 
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Update_fk3]
+GO
+
+ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_Update_fk0] FOREIGN KEY ([Driver_ID]) REFERENCES [Driver]([ID])
+ON UPDATE Cascade
+GO
+
+ALTER TABLE [Train] CHECK CONSTRAINT [Train_Update_fk0]
+GO
+ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_Update_fk1] FOREIGN KEY ([Repair_Yard_ID]) REFERENCES [Repair_Yard]([ID])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [Train] CHECK CONSTRAINT [Train_Update_fk1]
+GO
+ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_Update_fk2] FOREIGN KEY ([Coach_Yard_ID]) REFERENCES [Coach_Yard]([ID])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [Train] CHECK CONSTRAINT [Train_Update_fk2]
+GO
+
+ALTER TABLE [Coach_Yard] WITH CHECK ADD CONSTRAINT [Coach_Yard_Update_fk0] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Coach_Yard] CHECK CONSTRAINT [Coach_Yard_Update_fk0]
+GO
+
+ALTER TABLE [Repair_Yard] WITH CHECK ADD CONSTRAINT [Repair_Yard_Update_fk0] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Repair_Yard] CHECK CONSTRAINT [Repair_Yard_Update_fk0]
+GO
+
+
+ALTER TABLE [Passenger_Subscription] WITH CHECK ADD CONSTRAINT [Passenger_Subscription_Update_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Passenger_Subscription] CHECK CONSTRAINT [Passenger_Subscription_Update_fk0]
+GO
+ALTER TABLE [Passenger_Subscription] WITH CHECK ADD CONSTRAINT [Passenger_Subscription_Update_fk1] FOREIGN KEY ([Subscription_ID]) REFERENCES [Subscription]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Passenger_Subscription] CHECK CONSTRAINT [Passenger_Subscription_Update_fk1]
+GO
+
+ALTER TABLE [Work_In] WITH CHECK ADD CONSTRAINT [Work_In_Update_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Work_In] CHECK CONSTRAINT [Work_In_Update_fk0]
+GO
+ALTER TABLE [Work_In] WITH CHECK ADD CONSTRAINT [Work_In_Update_fk1] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [Work_In] CHECK CONSTRAINT [Work_In_Update_fk1]
+GO
+
+ALTER TABLE [Bought_By] WITH CHECK ADD CONSTRAINT [Bought_By_Update_fk0] FOREIGN KEY ([Manager_ID]) REFERENCES [Manager]([ID])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_Update_fk0]
+GO
+ALTER TABLE [Bought_By] WITH CHECK ADD CONSTRAINT [Bought_By_Update_fk1] FOREIGN KEY ([Train_ID]) REFERENCES [Train]([ID])
+ON UPDATE no action
+GO
+ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_Update_fk1]
+GO
+
+ALTER TABLE [Booking Clerk] WITH CHECK ADD CONSTRAINT [Booking Clerk_Delete_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON DELETE cascade  
+GO
+ALTER TABLE [Booking Clerk] CHECK CONSTRAINT [Booking Clerk_Delete_fk0]
+GO
+ALTER TABLE [Booking Clerk] WITH CHECK ADD CONSTRAINT [Booking Clerk_Delete_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
+ON DELETE   CASCADE
+GO
+ALTER TABLE [Booking Clerk] CHECK CONSTRAINT [Booking Clerk_Delete_fk1]
+GO
+
+ALTER TABLE [Driver] WITH CHECK ADD CONSTRAINT [Driver_Delete_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON DELETE CASCADE	
+GO
+ALTER TABLE [Driver] CHECK CONSTRAINT [Driver_Delete_fk0]
+GO
+
+ALTER TABLE [Manager] WITH CHECK ADD CONSTRAINT [Manager_Delete_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Manager] CHECK CONSTRAINT [Manager_Delete_fk0]
+GO
+ALTER TABLE [Manager] WITH CHECK ADD CONSTRAINT [Manager_Delete_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Manager] CHECK CONSTRAINT [Manager_Delete_fk1]
+GO
+
+ALTER TABLE [Station Manager] WITH CHECK ADD CONSTRAINT [Station Manager_Delete_fk0] FOREIGN KEY ([ID]) REFERENCES [Employee]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Station Manager] CHECK CONSTRAINT [Station Manager_Delete_fk0]
+GO
+ALTER TABLE [Station Manager] WITH CHECK ADD CONSTRAINT [Station Manager_Delete_fk1] FOREIGN KEY ([User_ID]) REFERENCES [USER]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Station Manager] CHECK CONSTRAINT [Station Manager_Delete_fk1]
+GO
+
+
+ALTER TABLE [Route] WITH CHECK ADD CONSTRAINT [Route_Delete_fk0] FOREIGN KEY ([Source_ID]) REFERENCES [Station]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Route] CHECK CONSTRAINT [Route_Delete_fk0]
+GO
+ALTER TABLE [Route] WITH CHECK ADD CONSTRAINT [Route_Delete_fk1] FOREIGN KEY ([Destination_ID]) REFERENCES [Station]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Route] CHECK CONSTRAINT [Route_Delete_fk1]
+GO
+
+ALTER TABLE [Employee_Contact] WITH CHECK ADD CONSTRAINT [Employee_Contact_Delete_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Employee_Contact] CHECK CONSTRAINT [Employee_Contact_Delete_fk0]
+GO
+
+ALTER TABLE [Employee_Phone] WITH CHECK ADD CONSTRAINT [Employee_Phone_Delete_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee_Contact]([Employee_ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Employee_Phone] CHECK CONSTRAINT [Employee_Phone_Delete_fk0]
+GO
+
+
+ALTER TABLE [Passenger_Contact] WITH CHECK ADD CONSTRAINT [Passenger_Contact_Delete_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Passenger_Contact] CHECK CONSTRAINT [Passenger_Contact_Delete_fk0]
+GO
+
+ALTER TABLE [Passenger_Phone] WITH CHECK ADD CONSTRAINT [Passenger_Phone_Delete_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger_Contact]([Passenger_ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Passenger_Phone] CHECK CONSTRAINT [Passenger_Phone_Delete_fk0]
+GO
+
+ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_Delete_fk0] FOREIGN KEY ([Booking_Clerk_ID]) REFERENCES [Booking Clerk]([ID])
+ON DELETE SET NULL
+GO
+ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_Delete_fk0]
+GO
+ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_Delete_fk1] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_Delete_fk1]
+GO
+ALTER TABLE [Ticket] WITH CHECK ADD CONSTRAINT [Ticket_Delete_fk2] FOREIGN KEY ([Trip_ID]) REFERENCES [Trip]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Ticket] CHECK CONSTRAINT [Ticket_Delete_fk2]
+GO
+
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Delete_fk0] FOREIGN KEY ([Source_ID]) REFERENCES [Station]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Delete_fk0]
+GO
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Delete_fk1] FOREIGN KEY ([Destintaion_ID]) REFERENCES [Station]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Delete_fk1]
+GO
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Delete_fk2] FOREIGN KEY ([Train_ID]) REFERENCES [Train]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Delete_fk2]
+GO
+ALTER TABLE [Trip] WITH CHECK ADD CONSTRAINT [Trip_Delete_fk3] FOREIGN KEY ([StManager_ID]) REFERENCES [Station Manager]([ID])
+ON DELETE SET NULL  
+GO
+ALTER TABLE [Trip] CHECK CONSTRAINT [Trip_Delete_fk3]
+GO
+
+ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_Delete_fk0] FOREIGN KEY ([Driver_ID]) REFERENCES [Driver]([ID])
+ON DELETE SET NULL
+GO
+
+ALTER TABLE [Train] CHECK CONSTRAINT [Train_Delete_fk0]
+GO
+ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_Delete_fk1] FOREIGN KEY ([Repair_Yard_ID]) REFERENCES [Repair_Yard]([ID])
+ON DELETE no action
+GO
+ALTER TABLE [Train] CHECK CONSTRAINT [Train_Delete_fk1]
+GO
+ALTER TABLE [Train] WITH CHECK ADD CONSTRAINT [Train_Delete_fk2] FOREIGN KEY ([Coach_Yard_ID]) REFERENCES [Coach_Yard]([ID])
+ON DELETE no action -- review 
+GO
+ALTER TABLE [Train] CHECK CONSTRAINT [Train_Delete_fk2]
+GO
+
+ALTER TABLE [Coach_Yard] WITH CHECK ADD CONSTRAINT [Coach_Yard_Delete_fk0] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Coach_Yard] CHECK CONSTRAINT [Coach_Yard_Delete_fk0]
+GO
+
+ALTER TABLE [Repair_Yard] WITH CHECK ADD CONSTRAINT [Repair_Yard_Delete_fk0] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Repair_Yard] CHECK CONSTRAINT [Repair_Yard_Delete_fk0]
+GO
+
+
+ALTER TABLE [Passenger_Subscription] WITH CHECK ADD CONSTRAINT [Passenger_Subscription_Delete_fk0] FOREIGN KEY ([Passenger_ID]) REFERENCES [Passenger]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Passenger_Subscription] CHECK CONSTRAINT [Passenger_Subscription_Delete_fk0]
+GO
+ALTER TABLE [Passenger_Subscription] WITH CHECK ADD CONSTRAINT [Passenger_Subscription_Delete_fk1] FOREIGN KEY ([Subscription_ID]) REFERENCES [Subscription]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Passenger_Subscription] CHECK CONSTRAINT [Passenger_Subscription_Delete_fk1]
+GO
+
+ALTER TABLE [Work_In] WITH CHECK ADD CONSTRAINT [Work_In_Delete_fk0] FOREIGN KEY ([Employee_ID]) REFERENCES [Employee]([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [Work_In] CHECK CONSTRAINT [Work_In_Delete_fk0]
+GO
+ALTER TABLE [Work_In] WITH CHECK ADD CONSTRAINT [Work_In_Delete_fk1] FOREIGN KEY ([Station_ID]) REFERENCES [Station]([ID])
+ON DELETE SET NULL --review 
+GO
+ALTER TABLE [Work_In] CHECK CONSTRAINT [Work_In_Delete_fk1]
+GO
+
+ALTER TABLE [Bought_By] WITH CHECK ADD CONSTRAINT [Bought_By_Delete_fk0] FOREIGN KEY ([Manager_ID]) REFERENCES [Manager]([ID])
+ON DELETE SET NULL --review
+GO
+ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_Delete_fk0]
+GO
+ALTER TABLE [Bought_By] WITH CHECK ADD CONSTRAINT [Bought_By_Delete_fk1] FOREIGN KEY ([Train_ID]) REFERENCES [Train]([ID])
+ON DELETE no action--review
+GO
+ALTER TABLE [Bought_By] CHECK CONSTRAINT [Bought_By_Delete_fk1]
+GO
 --For Hashing--
 ALTER TABLE [User] ADD Salt UNIQUEIDENTIFIER 
 GO
