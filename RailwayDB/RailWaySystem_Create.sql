@@ -80,6 +80,7 @@ CREATE TABLE [USER] (
 	PasswordHash BINARY(64) NOT NULL,
 	EmployeeID INT UNIQUE,
 	IsAdmin BIT,
+	Salt UNIQUEIDENTIFIER,
 	FOREIGN KEY(EmployeeID) REFERENCES [Employee] on delete cascade on update cascade,
 	CONSTRAINT [USER_CHECK] check ((IsAdmin = 1 and EmployeeID is null) or (IsAdmin = 0 and EmployeeID is not null)),
   CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED
@@ -272,8 +273,4 @@ CREATE TABLE [Passenger_Subscription] (
   ) WITH (IGNORE_DUP_KEY = OFF)
 
 )
-GO
-
---For Hashing--
-ALTER TABLE [User] ADD Salt UNIQUEIDENTIFIER 
 GO
