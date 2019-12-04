@@ -24,11 +24,25 @@
             <Button Content="" Canvas.Left="1178" Canvas.Top="10" Width="12" Height="12" x:Name="X" Click="XClicked">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="/Resources/close.png"></Image>
+                        <Image>
+                            <Image.Source>
+                                <BitmapImage UriSource="Resources\close.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-                
+            <Button Name="MinimizeButton" Width="12" Height="12" Background="{x:Null}" Canvas.Left="1147" Canvas.Top="10" Click="MinimizeButton_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image>
+                            <Image.Source>
+                                <BitmapImage UriSource="Resources\minimize.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Canvas>
         <Canvas  Width="256" Height="768" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Border  Width="256" Height="768" Background="#fffafafa" Canvas.Left="0" Canvas.Top="0"  />

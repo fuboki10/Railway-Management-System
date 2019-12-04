@@ -42,5 +42,10 @@ namespace RailwaySystem
             string username = ControllerObj.GetUsername(UserID);
             NameTextBox.Text = username;
         }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

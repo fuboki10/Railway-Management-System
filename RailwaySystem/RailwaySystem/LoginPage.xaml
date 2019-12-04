@@ -17,18 +17,45 @@
         <PasswordBox HorizontalAlignment="Left" Height="17" Margin="100,360,0,0" VerticalAlignment="Top" Width="200" Background="{x:Null}" Foreground="#FFEEE1E1" BorderBrush="{x:Null}" Name="PasswordTextBox" SelectionBrush="#FF0078D7"/>
         <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="2" Margin="100,330,0,0" VerticalAlignment="Top" Width="200"/>
         <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="2" Width="200"  VerticalAlignment="Top" Margin="100,380,0,0"/>
-        <Image Source="/Resources/train.png" Width="181" Height="181" Margin="109,57,110,362" />
+        <Image Width="181" Height="181" Margin="109,57,110,362">
+            <Image.Source>
+                <BitmapImage UriSource="Resources\train.png"></BitmapImage>
+            </Image.Source>
+        </Image>
         <Button Content="Login" HorizontalAlignment="Left" Margin="100,430,0,0" VerticalAlignment="Top" Width="200" Click="LoginButton_Click" Background="#7D14E7" 
                 Foreground="White" FontStyle="Normal" FontFamily="Roboto" Height="30"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Rectangle HorizontalAlignment="Left" Height="32" Width="400" Stroke="Black" VerticalAlignment="Top" Fill="#FF0C0101" MouseDown="Rectangle_MouseDown_1"/>
         <Button Name="X" Width="12" Height="12" Margin="370,-570,0,0" Background="{x:Null}" Click="X_Click">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="/Resources/close.png"></Image>
+                    <Image>
+                        <Image.Source>
+                            <BitmapImage UriSource="Resources\close.png"></BitmapImage>
+                        </Image.Source>
+                    </Image>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Image Source="/Resources/user.png" Width="25" Height="25" Margin="57,302,313,268" ></Image>
-        <Image Source="/Resources/password.png" Width="25" Height="25" Margin="57,352,313,218"></Image>
+        <Button Name="MinimizeButton" Width="12" Height="12" Margin="310,-570,0,0" Background="{x:Null}" Click="MinimizeButton_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image>
+                        <Image.Source>
+                            <BitmapImage UriSource="Resources\minimize.png"></BitmapImage>
+                        </Image.Source>
+                    </Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Image Width="25" Height="25" Margin="57,302,313,268" >
+            <Image.Source>
+                <BitmapImage UriSource="Resources\user.png"></BitmapImage>
+            </Image.Source>
+        </Image>
+        <Image Width="25" Height="25" Margin="57,352,313,218">
+            <Image.Source>
+                <BitmapImage UriSource="Resources\password.png"></BitmapImage>
+            </Image.Source>
+        </Image>
     </Grid>
 </Window>
