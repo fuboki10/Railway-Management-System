@@ -19,6 +19,7 @@ namespace RailwaySystem
         public static string InsertUser = "InsertUser";
         public static string Login = "Login";
         public static string UpdateSalary = "UpdateSalary";
+        public static string GetUsername = "GetUsername";
 
         //public static string getUsers = "getUsers";
 

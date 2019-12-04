@@ -51,8 +51,24 @@ namespace RailwaySystem
                 string msg = response.Rows[0]["response"].ToString();
                 int ID;
                 Int32.TryParse(response.Rows[0]["ID"].ToString(), out ID);
-                MessageBox.Show(msg, ID.ToString());
+                if (ID != 0)
+                {
+                    Welcome WelcomeWindow = new Welcome(ID);
+                    WelcomeWindow.Show();
+                    this.Close();
+                }
+                else MessageBox.Show(msg);
             }
+        }
+
+        private void X_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Rectangle_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
 
     }

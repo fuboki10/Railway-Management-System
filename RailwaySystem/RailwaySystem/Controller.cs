@@ -38,5 +38,13 @@ namespace RailwaySystem
             Parameters.Add("@Password", Password);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
+        public string GetUsername(int ID)
+        {
+
+            string StoredProcedureName = StoredProcedures.GetUsername;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@ID", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
     }
 }

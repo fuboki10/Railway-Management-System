@@ -5,20 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RailwaySystem"
         mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
         Title="Login Page" Height="600" Width="400" Background="#080226">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300*"/>
-            <RowDefinition Height="269*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox HorizontalAlignment="Left" Height="16.41" Margin="131.159,238.43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113.846" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE4C9C9" Name="UserNameTextBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="16.41" Margin="131.159,276.379,0,0" VerticalAlignment="Top" Width="113.846" Background="{x:Null}" Foreground="#FFEEE1E1" BorderBrush="{x:Null}" Name="PasswordTextBox"/>
-        <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="3" Margin="131.159,297.789,0,0" Stroke="Black" VerticalAlignment="Top" Width="127.692" Grid.RowSpan="2"/>
-        <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="3" Margin="131.159,259.84,0,0" Stroke="Black" VerticalAlignment="Top" Width="127.692"/>
-        <Image Source="/Resources/train.png" Margin="106.543,10,106.056,109.738" Width="181" Height="181"></Image>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="131,43.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="128" Click="LoginButton_Click" Background="#7D14E7" 
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="100,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE4C9C9" Name="UserNameTextBox"/>
+        <PasswordBox HorizontalAlignment="Left" Height="17" Margin="100,360,0,0" VerticalAlignment="Top" Width="200" Background="{x:Null}" Foreground="#FFEEE1E1" BorderBrush="{x:Null}" Name="PasswordTextBox" SelectionBrush="#FF0078D7"/>
+        <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="2" Margin="100,330,0,0" VerticalAlignment="Top" Width="200"/>
+        <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="2" Width="200"  VerticalAlignment="Top" Margin="100,380,0,0"/>
+        <Image Source="/Resources/train.png" Width="181" Height="181" Margin="109,57,110,362" />
+        <Button Content="Login" HorizontalAlignment="Left" Margin="100,430,0,0" VerticalAlignment="Top" Width="200" Click="LoginButton_Click" Background="#7D14E7" 
                 Foreground="White" FontStyle="Normal" FontFamily="Roboto" Height="30"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Image Source="/Resources/user.png" Margin="96,233,267.6,37.8"></Image>
-        <Image Source="/Resources/password.png" Margin="96,276,267.6,264.4" Grid.RowSpan="2"></Image>
+        <Rectangle HorizontalAlignment="Left" Height="32" Width="400" Stroke="Black" VerticalAlignment="Top" Fill="#FF0C0101" MouseDown="Rectangle_MouseDown_1"/>
+        <Button Name="X" Width="12" Height="12" Margin="370,-570,0,0" Background="{x:Null}" Click="X_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Resources/close.png"></Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Image Source="/Resources/user.png" Width="25" Height="25" Margin="57,302,313,268" ></Image>
+        <Image Source="/Resources/password.png" Width="25" Height="25" Margin="57,352,313,218"></Image>
     </Grid>
 </Window>
