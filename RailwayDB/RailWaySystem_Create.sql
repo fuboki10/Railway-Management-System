@@ -23,7 +23,6 @@ CREATE TABLE [Coach_Yard] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Station_ID integer NOT NULL,
 	Size integer NOT NULL,
-	No_Trains integer NOT NULL,
 	foreign key(Station_ID) references Station on delete cascade on update cascade,
   CONSTRAINT [PK_COACH_YARD] PRIMARY KEY CLUSTERED
   (
@@ -36,7 +35,6 @@ CREATE TABLE [Repair_Yard] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Station_ID integer NOT NULL,
 	Size integer NOT NULL,
-	No_Trains integer NOT NULL,
 	foreign key(Station_ID) references Station on delete cascade on update cascade,
   CONSTRAINT [PK_REPAIR_YARD] PRIMARY KEY CLUSTERED
   (
@@ -47,7 +45,7 @@ CREATE TABLE [Repair_Yard] (
 GO
 
 CREATE TABLE [Job] (
-	ID int identity(1,1) not null,
+	ID int not null,
 	Job_Description varchar(20) not null unique,
 	primary key (ID)
 )
