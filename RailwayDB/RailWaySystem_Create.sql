@@ -109,6 +109,7 @@ CREATE TABLE [Employee_Contact] (
 	City varchar(50) NOT NULL,
 	State varchar(50) NOT NULL,
 	Street varchar(50) NOT NULL,
+	foreign key(Employee_ID) references Employee on update cascade on delete cascade,
   CONSTRAINT [PK_EMPLOYEE_CONTACT] PRIMARY KEY CLUSTERED
   (
   [Employee_ID] ASC
@@ -263,6 +264,7 @@ CREATE TABLE [Passenger_Subscription] (
 	Subscription_ID integer NOT NULL,
 	Exp_Date date NOT NULL,
 	foreign key(Passenger_ID) references Passenger on delete cascade on update cascade,
+	foreign key(Subscription_ID) references Subscription on delete cascade on update cascade,
   CONSTRAINT [PK_PASSENGER_SUBSCRIPTION] PRIMARY KEY CLUSTERED
   (
   [Passenger_ID] ASC,
@@ -272,3 +274,18 @@ CREATE TABLE [Passenger_Subscription] (
 
 )
 GO
+
+
+--- Insert -----
+
+Insert into Job (ID, Job_Description) values (1, 'Manager')
+Insert into Job (ID, Job_Description) values (2, 'Station Manager')
+Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
+Insert into Job (ID, Job_Description) values (4, 'Driver')
+
+EXEC	[dbo].[InsertUser]
+		@Username = N'admin',
+		@Password = N'admin',
+		@EmployeeID = NULL,
+		@IsAdmin = 1
+
