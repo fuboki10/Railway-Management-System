@@ -1,27 +1,33 @@
-USE [RailWaySystemDB]
-GO
-/****** Object:  StoredProcedure [dbo].[InsertEmp]    Script Date: 11/29/2019 4:26:14 PM ******/
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
-    -- Inserting the passenger into passenger table
-CREATE PROCEDURE [dbo].[InsertPas] 
-
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE InsertPassenger
 	@fname varchar(50),
 	@lname varchar(50)
-
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    -- Inserting the passenger into passenger table
-	Insert into Passenger
-	values (@fname, @lname);
-
-	-- Returning the id of the inserted passenger
-	return @@identity
+    insert into Passenger
+	values(@fname, @lname);
 END
+GO

@@ -5,7 +5,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE UpdateSalary @id int, @sal int 
+CREATE PROCEDURE UpdateSalary 
+	@id int,
+	@sal int 
 	
 AS
 BEGIN

@@ -29,6 +29,9 @@ BEGIN
 
     DELETE FROM Station
 	WHERE ID = @id;
+	DELETE FROM Route
+	WHERE Destination_ID = @id;
+
 	
 END
 GO

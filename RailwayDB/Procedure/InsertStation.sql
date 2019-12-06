@@ -30,7 +30,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     INSERT INTO Station
-	values (@name, @state, @city, @street);
+	values (@name, @city, @state, @street);
 
 	return @@identity
 	
