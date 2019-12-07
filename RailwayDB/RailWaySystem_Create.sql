@@ -179,7 +179,7 @@ GO
 CREATE TABLE [Train] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Model varchar(50) NOT NULL,
-	[Status] BIT NOT NULL,
+	[Status] BIT NOT NULL,   -- 0 Needs Fixing
 	Color varchar(50) NOT NULL,
 	No_Seats integer NOT NULL,
 	Speed integer NOT NULL,
