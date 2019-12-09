@@ -1,5 +1,7 @@
-﻿-fill data
--add passengers
--update salary
--add/del satation
--Add/Remove Coach Yard
+﻿-fill data		pending
+-add passengers		done
+-update salary		done
+-add/del satation	done
+-Add/Remove Coach Yard	done
+-
+
