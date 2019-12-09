@@ -208,8 +208,8 @@ GO
 
 CREATE TABLE [Trip] (
 	ID integer IDENTITY(1,1) NOT NULL,
-	Dept_Time integer NOT NULL,
-	Arr_Time integer NOT NULL,
+	Dept_Time date NOT NULL,
+	Arr_Time date NOT NULL,
 	[Type] integer NOT NULL,
 	Source_ID integer NOT NULL,
 	Destintaion_ID integer NOT NULL,
