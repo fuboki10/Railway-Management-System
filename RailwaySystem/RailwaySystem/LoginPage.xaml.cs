@@ -33,6 +33,41 @@ namespace RailwaySystem
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            this.Login();
+        }
+
+        private void X_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Rectangle_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.Login();
+            }
+        }
+        private void UserNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.Login();
+            }
+        }
+
+        private void Login()
+        {
             if (UserNameTextBox.Text == "")
             {
                 string msg = "Please Enter your username";
@@ -53,28 +88,32 @@ namespace RailwaySystem
                 Int32.TryParse(response.Rows[0]["ID"].ToString(), out ID);
                 if (ID != 0)
                 {
-                    Welcome WelcomeWindow = new Welcome(ID);
-                    WelcomeWindow.Show();
+                    this.GoToDashboard(ID);
                     this.Close();
                 }
                 else MessageBox.Show(msg);
             }
         }
 
-        private void X_Click(object sender, RoutedEventArgs e)
+        private void GoToDashboard(int ID)
         {
-            this.Close();
+            string Job = ControllerObj.GetUserJob(ID);
+            if (Job == "Admin")
+            {
+                AdminDashboard AdminDashboard = new AdminDashboard(ID);
+                AdminDashboard.Show();
+            }
+            else
+            {
+                /*
+                 * TODO
+                 * BOOKING CLERK
+                 * MANAGER 
+                 * STATION MANAGER
+                 */
+                Welcome WelcomeWindow = new Welcome(ID);
+                WelcomeWindow.Show();
+            }
         }
-
-        private void Rectangle_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
     }
 }

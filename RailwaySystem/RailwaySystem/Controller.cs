@@ -40,10 +40,16 @@ namespace RailwaySystem
         }
         public string GetUsername(int ID)
         {
-
             string StoredProcedureName = StoredProcedures.GetUsername;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@ID", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
+        public string GetUserJob(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetUserJob;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
     }

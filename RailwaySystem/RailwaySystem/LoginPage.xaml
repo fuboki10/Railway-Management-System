@@ -13,8 +13,8 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox HorizontalAlignment="Left" Height="17" Margin="100,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE4C9C9" Name="UserNameTextBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="17" Margin="100,360,0,0" VerticalAlignment="Top" Width="200" Background="{x:Null}" Foreground="#FFEEE1E1" BorderBrush="{x:Null}" Name="PasswordTextBox" SelectionBrush="#FF0078D7"/>
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="100,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE4C9C9" Name="UserNameTextBox" KeyDown="UserNameTextBox_KeyDown"/>
+        <PasswordBox HorizontalAlignment="Left" Height="17" Margin="100,360,0,0" VerticalAlignment="Top" Width="200" Background="{x:Null}" Foreground="#FFEEE1E1" BorderBrush="{x:Null}" Name="PasswordTextBox" SelectionBrush="#FF0078D7" KeyDown="PasswordTextBox_KeyDown"/>
         <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="2" Margin="100,330,0,0" VerticalAlignment="Top" Width="200"/>
         <Rectangle Fill="#7D14E7" HorizontalAlignment="Left" Height="2" Width="200"  VerticalAlignment="Top" Margin="100,380,0,0"/>
         <Image Width="181" Height="181" Margin="109,57,110,362">
@@ -23,12 +23,12 @@
             </Image.Source>
         </Image>
         <Button Content="Login" HorizontalAlignment="Left" Margin="100,430,0,0" VerticalAlignment="Top" Width="200" Click="LoginButton_Click" Background="#7D14E7" 
-                Foreground="White" FontStyle="Normal" FontFamily="Roboto" Height="30"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                Foreground="White" FontStyle="Normal" FontFamily="Roboto" Height="30"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand"/>
         <Rectangle HorizontalAlignment="Left" Height="32" Width="400" Stroke="Black" VerticalAlignment="Top" Fill="#FF0C0101" MouseDown="Rectangle_MouseDown_1"/>
-        <Button Name="X" Width="12" Height="12" Margin="370,-570,0,0" Background="{x:Null}" Click="X_Click">
+        <Button Name="X" Margin="375,0,0,568" Background="{x:Null}" Click="X_Click" Cursor="Hand">
             <Button.Template>
                 <ControlTemplate>
-                    <Image>
+                    <Image Width="12" Height="12">
                         <Image.Source>
                             <BitmapImage UriSource="Resources\close.png"></BitmapImage>
                         </Image.Source>
@@ -36,10 +36,10 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Name="MinimizeButton" Width="12" Height="12" Margin="310,-570,0,0" Background="{x:Null}" Click="MinimizeButton_Click">
+        <Button Name="MinimizeButton" Margin="344,0,30,568" Background="{x:Null}" Click="MinimizeButton_Click" Cursor="Hand">
             <Button.Template>
                 <ControlTemplate>
-                    <Image>
+                    <Image Width="12" Height="12">
                         <Image.Source>
                             <BitmapImage UriSource="Resources\minimize.png"></BitmapImage>
                         </Image.Source>
