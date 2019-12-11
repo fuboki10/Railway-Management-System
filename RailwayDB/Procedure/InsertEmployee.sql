@@ -14,7 +14,8 @@ CREATE PROCEDURE InsertEmp
 	@bd date,
 	@salary int,
 	@working_hours int,
-	@jobid int
+	@jobid int,
+	@station_id int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -23,7 +24,7 @@ BEGIN
 
     -- Inserting the employee into Employee table
 	Insert into Employee 
-	values (@fname, @lname, @age, @bd, @salary, @working_hours,@jobid);
+	values (@fname, @lname, @age, @bd, @salary, @working_hours,@jobid, @station_id);
 
 	-- Returning the id of the inserted employee
 	return @@identity

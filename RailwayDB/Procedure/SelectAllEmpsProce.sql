@@ -15,5 +15,6 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT * from Employee
+	return @@rowcount
 END
 GO
