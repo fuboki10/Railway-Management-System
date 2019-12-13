@@ -29,6 +29,19 @@ namespace RailwaySystem
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            this.ChangePass();
+        }
+
+        private void OldPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.ChangePass();
+            }
+        }
+
+        private void ChangePass()
+        {
             if (OldPassword.Password == "")
             {
                 MessageBox.Show("Please Enter Old Password", "Enter Password");
@@ -49,6 +62,14 @@ namespace RailwaySystem
             }
 
             this.Close();
+        }
+
+        private void NewPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.ChangePass();
+            }
         }
     }
 }
