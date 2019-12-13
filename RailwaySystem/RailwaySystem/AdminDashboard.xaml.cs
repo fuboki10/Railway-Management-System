@@ -202,6 +202,7 @@ namespace RailwaySystem
             }
             else
             {
+                NameTextBox.Text = username;
                 BindAdminComboBox();
                 BindAdminGrid();
             }
