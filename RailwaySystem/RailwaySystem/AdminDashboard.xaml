@@ -1,6 +1,7 @@
-﻿<Window x:Class="RailwaySystem.AdminDashboard"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:local="clr-namespace:RailwaySystem" x:Class="RailwaySystem.AdminDashboard"
           Title="AdminDashboard" Height="800" Width="1200"
     WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1">
@@ -24,18 +25,18 @@
                     <ControlTemplate>
                         <Image Width="12" Height="12">
                             <Image.Source>
-                                <BitmapImage UriSource="Resources\close.png"></BitmapImage>
+                                <BitmapImage UriSource="Resources\close.png"/>
                             </Image.Source>
                         </Image>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Name="MinimizeButton" Width="26" Height="32" Background="{x:Null}" Canvas.Left="1143" Click="MinimizeButton_Click" Cursor="Hand">
+            <Button x:Name="MinimizeButton" Width="26" Height="32" Background="{x:Null}" Canvas.Left="1143" Click="MinimizeButton_Click" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <Image Width="12" Height="12">
                             <Image.Source>
-                                <BitmapImage UriSource="Resources\minimize.png"></BitmapImage>
+                                <BitmapImage UriSource="Resources\minimize.png"/>
                             </Image.Source>
                         </Image>
                     </ControlTemplate>
@@ -47,30 +48,30 @@
             <Border  Width="256" Height="768" Background="#fffafafa" Canvas.Left="0" Canvas.Top="0"  />
             <Grid  Uid="sideNav_Text"  Width="76" Height="170" Canvas.Left="80" Canvas.Top="160"  ClipToBounds="True">
                 <Canvas  Width="24" Height="19" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button Name="EmployeesTextButton" Content="Employees" FontFamily="Roboto"  FontSize="14" Foreground="#FF000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="EmployeesTextButton_Click" Cursor="Hand" />
+                    <Button x:Name="EmployeesTextButton" Content="Employees" FontFamily="Roboto"  FontSize="14" Foreground="#FF000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="EmployeesTextButton_Click" Cursor="Hand" />
                 </Canvas>
                 <Canvas  Width="44" Height="19" Margin="0,46,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button Name="StationsTextButton"  Content="Stations" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="StationsTextButton_Click" Cursor="Hand" />
+                    <Button x:Name="StationsTextButton"  Content="Stations" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="StationsTextButton_Click" Cursor="Hand" />
                 </Canvas>
                 <Canvas  Width="39" Height="19" Margin="0,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button Name="TrainsTextButton" Content="Trains" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="TrainsTextButton_Click" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand"/>
+                    <Button x:Name="TrainsTextButton" Content="Trains" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="TrainsTextButton_Click" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand"/>
                 </Canvas>
                 <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button Name="LogoutTextButton" Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutTextButton_Click" Cursor="Hand"  />
+                    <Button x:Name="LogoutTextButton" Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutTextButton_Click" Cursor="Hand"  />
                 </Canvas>
             </Grid>
             <Canvas  Width="256" Height="144" Canvas.Left="0" Canvas.Top="0" >
                 <Border  Width="256" Height="144" Background="#ff080226" Canvas.Left="0" Canvas.Top="0"  />
                 <Ellipse  Width="56" Height="56" Fill="#fff9f2f2" Canvas.Left="24" Canvas.Top="24"  />
-                <TextBlock Name="NameTextBox" Text="Employee Name" TextAlignment="center" FontFamily="Roboto"  FontSize="20" Width="256" Height="33" TextWrapping="Wrap" Foreground="#fffafafa" Canvas.Left="0" Canvas.Top="101"  />
+                <TextBlock x:Name="NameTextBox" Text="Employee Name" TextAlignment="center" FontFamily="Roboto"  FontSize="20" Width="256" Height="33" TextWrapping="Wrap" Foreground="#fffafafa" Canvas.Left="0" Canvas.Top="101"  />
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="296" >
-                <Button Name="LogoutButton" Cursor="Hand" Background="{x:Null}" Click="LogoutButton_Click">
+                <Button x:Name="LogoutButton" Cursor="Hand" Background="{x:Null}" Click="LogoutButton_Click">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\logout.png"></BitmapImage>
+                                    <BitmapImage UriSource="Resources\logout.png"/>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -78,12 +79,12 @@
                 </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="22" Canvas.Top="152" >
-                <Button Name="EmployeesButton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="EmployeesButton_Click">
+                <Button x:Name="EmployeesButton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="EmployeesButton_Click">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\employeesico.png"></BitmapImage>
+                                    <BitmapImage UriSource="Resources\employeesico.png"/>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -91,12 +92,12 @@
                 </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" >
-                <Button Name="TrainsButton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="TrainsButton_Click" >
+                <Button x:Name="TrainsButton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="TrainsButton_Click" >
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\trainico.png"></BitmapImage>
+                                    <BitmapImage UriSource="Resources\trainico.png"/>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -104,12 +105,12 @@
                 </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="199" >
-                <Button Name="StationsButton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="StationsButton_Click"> 
+                <Button x:Name="StationsButton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="StationsButton_Click">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\stationico.png"></BitmapImage>
+                                    <BitmapImage UriSource="Resources\stationico.png"/>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -117,19 +118,32 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <DataGrid Name="AdminsDataDrid" HorizontalAlignment="Left" Margin="306,262,0,0" VerticalAlignment="Top" Height="413" Width="769"
-                  AutoGenerateColumns="True" IsReadOnly="True"/>
-        <TextBox Name="AdminUsername" HorizontalAlignment="Left" Height="23" Margin="413,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" KeyDown="AdminUsername_KeyDown"/>
-        <PasswordBox Name="AdminPassword" HorizontalAlignment="Left" Margin="716,141,0,0" VerticalAlignment="Top" Width="139" Height="23" KeyDown="AdminPassword_KeyDown"/>
+        <DataGrid x:Name="AdminsDataDrid" HorizontalAlignment="Left" Margin="306,307,0,0" VerticalAlignment="Top" Height="413" Width="769"
+                  AutoGenerateColumns="True" IsReadOnly="True"
+                  ItemsSource="{Binding}"/>
+        <TextBox x:Name="AdminUsername" HorizontalAlignment="Left" Height="23" Margin="413,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" KeyDown="AdminUsername_KeyDown"/>
+        <PasswordBox x:Name="AdminPassword" HorizontalAlignment="Left" Margin="716,141,0,0" VerticalAlignment="Top" Width="139" Height="23" KeyDown="AdminPassword_KeyDown"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="335,137,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="630,137,0,0" VerticalAlignment="Top" Height="27"/>
         <GroupBox Header="Add Admin" HorizontalAlignment="Left" Height="59" Margin="306,119,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
-        <Button Name="AddAdminButton" Content="Add Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="932,141,0,0" Height="23" BorderBrush="#FF080226" Click="AddAdminButton_Click">
+        <Button x:Name="AddAdminButton" Cursor="Hand" Content="Add Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="932,141,0,0" Height="23" BorderBrush="#FF080226" Click="AddAdminButton_Click">
             <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <ComboBox Name="AdminsCombobox" HorizontalAlignment="Left" Margin="335,220,0,0" VerticalAlignment="Top" Width="160"
+                  ItemsSource="{Binding}" DisplayMemberPath="Username" SelectedValuePath="ID" SelectedIndex="0">
+        </ComboBox>
+        <GroupBox Header="Delete Admin" HorizontalAlignment="Left" Margin="306,192,0,0" VerticalAlignment="Top" Width="308" Height="65" BorderBrush="#FF080226">
+            <Button Name="DeleteAdminButton" Content="Delete" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="209,12,0,0" BorderBrush="#FF080226" Click="DeleteAdminButton_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </GroupBox>
     </Grid>
 </Window>

@@ -27,8 +27,23 @@ namespace RailwaySystem
             ControllerObj = new Controller();
             AdminUsername.MaxLength = 20;
             AdminPassword.MaxLength = 8;
+
+            BindAdminGrid();
+            BindAdminComboBox();
         }
 
+        private void BindAdminComboBox()
+        {
+            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
+            var item = db.GetAllAdmins().ToList();
+            AdminsCombobox.ItemsSource = item;
+        }
+        private void BindAdminGrid()
+        {
+            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
+            var item = db.GetAllAdmins().ToList();
+            AdminsDataDrid.ItemsSource = item;
+        }
         private void XClicked(object sender, RoutedEventArgs e)
         {
             Close();
@@ -43,12 +58,6 @@ namespace RailwaySystem
         {
             string username = ControllerObj.GetUsername(UserID);
             NameTextBox.Text = username;
-            this.UpdateAdminGrid();
-        }
-
-        private void UpdateAdminGrid()
-        {
-            AdminsDataDrid.ItemsSource = ControllerObj.GetAllAdmins().DefaultView;
         }
 
         private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -128,8 +137,12 @@ namespace RailwaySystem
                     MessageBox.Show(msg, title);
                 }
                 else
-                    this.UpdateAdminGrid();
+                {
+                    BindAdminGrid();
+                    BindAdminComboBox();
+                }
             }
+           
         }
 
         private void AdminPassword_KeyDown(object sender, KeyEventArgs e)
@@ -145,6 +158,26 @@ namespace RailwaySystem
             if (e.Key == Key.Enter)
             {
                 this.AddAdmin();
+            }
+        }
+
+        private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            int id = Int32.Parse(AdminsCombobox.SelectedValue.ToString());
+            var count = AdminsCombobox.Items.Count;
+            if (count == 1)
+            {
+                MessageBox.Show("You Can't Delete All Admins", "Delete Admin");
+                return;
+            }
+            ControllerObj.DeleteUser(id);
+            // Update
+            BindAdminComboBox();
+            BindAdminGrid();
+            // Logout if your user is deleted
+            if (id == UserID)
+            {
+                this.Logout();
             }
         }
     }

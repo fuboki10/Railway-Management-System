@@ -64,5 +64,12 @@ namespace RailwaySystem
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
 
+        public int DeleteUser(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.DeleteUser;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@ID", ID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
     }
 }
