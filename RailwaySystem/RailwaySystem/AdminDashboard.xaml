@@ -119,8 +119,8 @@
         </Canvas>
         <DataGrid Name="AdminsDataDrid" HorizontalAlignment="Left" Margin="306,262,0,0" VerticalAlignment="Top" Height="413" Width="769"
                   AutoGenerateColumns="True" IsReadOnly="True"/>
-        <TextBox Name="AdminUsername" HorizontalAlignment="Left" Height="23" Margin="413,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
-        <PasswordBox Name="AdminPassword" HorizontalAlignment="Left" Margin="716,141,0,0" VerticalAlignment="Top" Width="139" Height="23"/>
+        <TextBox Name="AdminUsername" HorizontalAlignment="Left" Height="23" Margin="413,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" KeyDown="AdminUsername_KeyDown"/>
+        <PasswordBox Name="AdminPassword" HorizontalAlignment="Left" Margin="716,141,0,0" VerticalAlignment="Top" Width="139" Height="23" KeyDown="AdminPassword_KeyDown"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="335,137,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="630,137,0,0" VerticalAlignment="Top" Height="27"/>
         <GroupBox Header="Add Admin" HorizontalAlignment="Left" Height="59" Margin="306,119,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>

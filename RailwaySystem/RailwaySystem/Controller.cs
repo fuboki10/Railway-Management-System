@@ -29,10 +29,6 @@ namespace RailwaySystem
             Parameters.Add("@EmployeeID", null);
             Parameters.Add("@IsAdmin", true);
             DataTable dt = dbMan.ExecuteReader(StoredProcedureName, Parameters);
-            if (dt == null)
-            {
-                return 0;
-            }
             if (dt.Rows[0]["response"].ToString() == "Success")
             {
                 return Int32.Parse(dt.Rows[0]["ID"].ToString());

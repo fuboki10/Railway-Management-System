@@ -43,7 +43,11 @@ namespace RailwaySystem
         {
             string username = ControllerObj.GetUsername(UserID);
             NameTextBox.Text = username;
+            this.UpdateAdminGrid();
+        }
 
+        private void UpdateAdminGrid()
+        {
             AdminsDataDrid.ItemsSource = ControllerObj.GetAllAdmins().DefaultView;
         }
 
@@ -123,6 +127,24 @@ namespace RailwaySystem
                     string title = "Enter Username";
                     MessageBox.Show(msg, title);
                 }
+                else
+                    this.UpdateAdminGrid();
+            }
+        }
+
+        private void AdminPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.AddAdmin();
+            }
+        }
+
+        private void AdminUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.AddAdmin();
             }
         }
     }
