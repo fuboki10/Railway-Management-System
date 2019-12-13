@@ -76,7 +76,7 @@ CREATE TABLE [USER] (
 	ID integer IDENTITY(1,1) NOT NULL,
 	Username varchar(20) COLLATE Latin1_General_CS_AS NOT NULL UNIQUE,
 	PasswordHash BINARY(64) NOT NULL,
-	EmployeeID INT UNIQUE,
+	EmployeeID INT,
 	IsAdmin BIT,
 	Salt UNIQUEIDENTIFIER,
 	FOREIGN KEY(EmployeeID) REFERENCES [Employee] on delete cascade on update cascade,
@@ -87,6 +87,13 @@ CREATE TABLE [USER] (
   ) WITH (IGNORE_DUP_KEY = OFF)
 )
 GO
+
+
+-- As it can't accept dup nulls 
+CREATE UNIQUE NONCLUSTERED INDEX EmployeeID_UNQUE
+ON dbo.[USER](EmployeeID)
+WHERE EmployeeID IS NOT NULL;
+go
 
 CREATE TABLE [Route] (
 	Source_ID integer NOT NULL,
@@ -217,9 +224,7 @@ CREATE TABLE [Trip] (
 	StManager_ID integer,
 	foreign key(Train_ID) references Train on delete cascade on update cascade,
 	foreign key(StManager_ID) references Employee on delete set null on update cascade,
-	foreign key(Source_ID) references Station(ID),
-	foreign key(Destintaion_ID) references Station(ID),
-	constraint [TripCheck] check (Source_ID != Destintaion_ID),
+	foreign key(Source_ID, Destintaion_ID) references [Route],
     CONSTRAINT [PK_TRIP] PRIMARY KEY CLUSTERED
     (
     [ID] ASC

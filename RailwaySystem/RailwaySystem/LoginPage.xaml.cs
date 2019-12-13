@@ -26,7 +26,6 @@ namespace RailwaySystem
             InitializeComponent();
             ControllerObj = new Controller();
 
-            PasswordTextBox.PasswordChar = '*';
             PasswordTextBox.MaxLength = 8;
             UserNameTextBox.MaxLength = 20;
         }

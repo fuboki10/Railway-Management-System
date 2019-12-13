@@ -20,14 +20,24 @@ namespace RailwaySystem
             dbMan.CloseConnection();
         }
 
-        public int AddUser(string UserName, string Password)
+        public int AddAdmin(string UserName, string Password)
         {
             string StoredProcedureName = StoredProcedures.InsertUser;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@UserName", UserName);
             Parameters.Add("@Password", Password);
-            
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            Parameters.Add("@EmployeeID", null);
+            Parameters.Add("@IsAdmin", true);
+            DataTable dt = dbMan.ExecuteReader(StoredProcedureName, Parameters);
+            if (dt == null)
+            {
+                return 0;
+            }
+            if (dt.Rows[0]["response"].ToString() == "Success")
+            {
+                return Int32.Parse(dt.Rows[0]["ID"].ToString());
+            }
+            return 0;
         }
 
         public DataTable Login(string UserName, string Password)
@@ -52,5 +62,11 @@ namespace RailwaySystem
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
+        public DataTable GetAllAdmins()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllAdmins;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+
     }
 }
