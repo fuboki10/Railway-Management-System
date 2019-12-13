@@ -63,6 +63,9 @@
     <Compile Include="AdminDashboard.xaml.cs">
       <DependentUpon>AdminDashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Coach_Yard.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,12 +209,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Back.png" />
-    <Resource Include="Resources\employees.png" />
     <Resource Include="Resources\employeesico.png" />
     <Resource Include="Resources\home.png" />
     <Resource Include="Resources\logout.png" />
     <Resource Include="Resources\Passenger.png" />
-    <Resource Include="Resources\station.png" />
     <Resource Include="Resources\stationico.png" />
     <Resource Include="Resources\ticketico.png" />
     <Resource Include="Resources\train.png" />

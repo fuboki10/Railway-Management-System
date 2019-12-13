@@ -14,5 +14,7 @@ namespace RailwaySystem
         public static string GetUserJob = "GetUserJob";
         public static string GetAllAdmins = "GetAllAdmins";
         public static string DeleteUser = "DeleteUser";
+        public static string ChangeUsername = "ChangeUsername";
+        public static string ChangePassword = "ChangePassword";
     }
 }

@@ -42,7 +42,7 @@ namespace RailwaySystem
         {
             RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
             var item = db.GetAllAdmins().ToList();
-            AdminsDataDrid.ItemsSource = item;
+            AdminsDataGrid.ItemsSource = item;
         }
         private void XClicked(object sender, RoutedEventArgs e)
         {
@@ -179,6 +179,45 @@ namespace RailwaySystem
             {
                 this.Logout();
             }
+        }
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePassword CP = new ChangePassword(UserID);
+            CP.Show();
+        }
+
+        private void ChangeUsername()
+        {
+            if (NewUsernameTextbox.Text == "")
+            {
+                MessageBox.Show("Please Enter Username", "Enter Username");
+                return;
+            }
+            string username = NewUsernameTextbox.Text;
+            int ret = ControllerObj.ChangeUsername(UserID, username);
+            if (ret == 0)
+            {
+                MessageBox.Show("This Username Already Exited", "Enter Username");
+            }
+            else
+            {
+                BindAdminComboBox();
+                BindAdminGrid();
+            }
+        }
+
+        private void NewUsernameTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.ChangeUsername();
+            }
+        }
+
+        private void ChangeUsernameButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ChangeUsername();
         }
     }
 }

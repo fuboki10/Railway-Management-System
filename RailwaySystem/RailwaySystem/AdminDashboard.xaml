@@ -9,12 +9,7 @@
         <Canvas  Width="1200" Height="64" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Path  Width="1200" Height="64" Stretch="uniform" Data="M 1280 0 L 0 0 L 0 64 L 1280 64 L 1280 0 Z" Fill="#ffd7d7d7" Canvas.Left="0" Canvas.Top="0"  />
             <Canvas  Width="24" Height="24" Canvas.Left="1153" Canvas.Top="22" >
-                <Canvas  Width="17" Height="17" Canvas.Left="3" Canvas.Top="3" >
-                    <Canvas  Width="17" Height="17" Canvas.Left="0" Canvas.Top="0" >
-                        <Path  Width="17" Height="17" Stretch="uniform" Data="M 15.5 14 L 14.69999980926514 14 L 14.39999961853027 13.69999980926514 C 15.39999961853027 12.59999942779541 16 11.10000038146973 16 9.5 C 16 5.900000095367432 13.10000038146973 3 9.5 3 C 5.899999618530273 3 3 5.900000095367432 3 9.5 C 3 13.10000038146973 5.900000095367432 16 9.5 16 C 11.10000038146973 16 12.60000038146973 15.39999961853027 13.69999980926514 14.39999961853027 L 14 14.69999980926514 L 14 15.5 L 19 20.5 L 20.5 19 L 15.5 14 Z M 9.5 14 C 7 14 5 12 5 9.5 C 5 7 7 5 9.5 5 C 12 5 14 7 14 9.5 C 14 12 12 14 9.5 14 Z" Fill="#ff000000" Stroke="#ff95989a" Canvas.Left="0" Canvas.Top="0"  />
-                    </Canvas>
-                </Canvas>
-                <Border  Width="24" Height="24" BorderBrush="#ff95989a" Canvas.Left="0" Canvas.Top="0"  />
+                <Canvas  Width="17" Height="17" Canvas.Left="3" Canvas.Top="3" />
             </Canvas>
         </Canvas>
         <Canvas  Width="1200" Height="32" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="Canvas_MouseDown_1">
@@ -118,7 +113,7 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <DataGrid x:Name="AdminsDataDrid" HorizontalAlignment="Left" Margin="306,307,0,0" VerticalAlignment="Top" Height="413" Width="769"
+        <DataGrid x:Name="AdminsDataGrid" HorizontalAlignment="Left" Margin="306,307,0,0" VerticalAlignment="Top" Height="413" Width="769"
                   AutoGenerateColumns="True" IsReadOnly="True"
                   ItemsSource="{Binding}"/>
         <TextBox x:Name="AdminUsername" HorizontalAlignment="Left" Height="23" Margin="413,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" KeyDown="AdminUsername_KeyDown"/>
@@ -145,5 +140,23 @@
                 </Button.Resources>
             </Button>
         </GroupBox>
+        <GroupBox Header="Account" HorizontalAlignment="Left" Margin="643,192,0,0" VerticalAlignment="Top" Height="84" Width="432" BorderBrush="#FF080226">
+            <TextBox Name="NewUsernameTextbox" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Margin="10,10,0,0"/>
+        </GroupBox>
+        <Label Content="New Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="810,215,0,0" Height="23"/>
+        <Button Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="661,248,0,0" Click="ChangeUsernameButton_Click" Height="19" Content="Change Username" BorderBrush="#FF080226">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="932,218,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
