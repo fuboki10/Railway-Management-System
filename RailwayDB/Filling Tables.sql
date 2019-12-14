@@ -16,22 +16,31 @@ EXEC	@return_value = [dbo].[InsertManager]
 SELECT	'Return Value' = @return_value
 
 GO*/
+Insert into Job (ID, Job_Description) values (1, 'Manager')
+Insert into Job (ID, Job_Description) values (2, 'Station Manager')
+Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
+Insert into Job (ID, Job_Description) values (4, 'Driver')
+
+EXEC	[dbo].[InsertUser]
+		@Username = N'admin',
+		@Password = N'admin',
+		@EmployeeID = NULL,
+		@IsAdmin = 1
 
 USE [RailWaySystemDB]
 GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertClerk]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Hossam',
 		@lname = 'Alaa',
 		@age = 28,
 		@bd = '1-21-1991',
 		@salary = 29000,
 		@working_hours = 30,
-		@Username = 'HossamAlaa',
-		@Password = '1234'
-		, @jobid = 3
+		@jobid = 3,
+		@station_id = 1
 SELECT	'Return Value' = @return_value
 
 GO
@@ -42,16 +51,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertClerk]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Gomaa',
 		@age = 27,
 		@bd = '9-7-1992',
 		@salary = 29000,
 		@working_hours = 30,
-		@Username = 'AhmedGomaa',
-		@Password = '1234'
-		, @jobid = 3
+		@jobid = 3,
+		@station_id = 1
 SELECT	'Return Value' = @return_value
 
 GO
@@ -62,16 +70,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertClerk]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Hamdy',
 		@lname = 'Ismael',
 		@age = 45,
 		@bd = '05-05-1975',
 		@salary = 30000,
 		@working_hours = 30,
-		@Username = 'HamdyIsmael',
-		@Password = '1234'
-		, @jobid = 3
+		@jobid = 3,
+		@station_id = 1
 SELECT	'Return Value' = @return_value
 
 GO
@@ -81,14 +88,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertDriver]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ihab',
 		@lname = 'Sayed',
 		@age = 40,
 		@bd = '11-9-1979',
 		@salary = 4000,
 		@working_hours = 40
-		, @jobid = 4
+		, @jobid = 4,
+		@station_id = 1
 SELECT	'Return Value' = @return_value
 
 GO
@@ -99,14 +107,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertDriver]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Tamer',
 		@lname = 'Zaghlol',
 		@age = 43,
 		@bd = '5-3-1976',
 		@salary = 4000,
 		@working_hours = 40
-		, @jobid = 4
+		, @jobid = 4,
+		@station_id = 1
 
 SELECT	'Return Value' = @return_value
 
@@ -117,14 +126,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertDriver]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Yasser',
 		@lname = 'Farag',
 		@age = 46,
 		@bd = '9-17-1973',
 		@salary = 4000,
 		@working_hours = 40
-		, @jobid = 4
+		, @jobid = 4,
+		@station_id = 1
 
 SELECT	'Return Value' = @return_value
 
@@ -135,14 +145,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertDriver]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Boraie', 
 		@lname = 'Elsayed',
 		@age = 49,
 		@bd = '1-17-1970',
 		@salary = 4000,
 		@working_hours = 40
-		, @jobid = 4
+		, @jobid = 4,
+		@station_id = 1
 
 SELECT	'Return Value' = @return_value
 
@@ -153,14 +164,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertDriver]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Arafat',
 		@age = 47,
 		@bd = '1-29-1972',
 		@salary = 4000,
 		@working_hours = 40
-		, @jobid = 4
+		, @jobid = 4,
+		@station_id = 1
 
 SELECT	'Return Value' = @return_value
 
@@ -174,16 +186,15 @@ DECLARE	@return_value int
 
 
 
-EXEC	@return_value = [dbo].[InsertSManager]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Kaled',  
 		@lname = 'Sorady',
 		@age = 45,
 		@bd = '5-21-1974',
 		@salary = 60000,
 		@working_hours = 35,
-		@username = 'KhaledSorady',
-		@password = '1234'
-		, @jobid = 2
+		, @jobid = 2,
+		@station_id = 1
 
 SELECT	'Return Value' = @return_value
 
@@ -194,16 +205,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertSManager]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Alaa',
 		@lname = 'Korany',
 		@age = 50,
 		@bd = '3-2-1969',
 		@salary = 60000,
 		@working_hours = 35,
-		@username = 'AlaaoKrany',
-		@password = '1234'
-		, @jobid = 2
+	    @jobid = 2,
+		@station_id = 2
 
 SELECT	'Return Value' = @return_value
 
@@ -214,16 +224,15 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertSManager]
+EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Hassan',
 		@lname = 'Mohamed',
 		@age = 49,
 		@bd = '7-30-1970',
 		@salary = 60000,
 		@working_hours = 35,
-		@username = 'HassanMohamed',
-		@password = '1234'
-		, @jobid = 2
+	    @jobid = 2,
+		@station_id = 3
 
 SELECT	'Return Value' = @return_value
 
@@ -626,6 +635,96 @@ EXEC	@return_value = [dbo].[AddRoute]
 		@source_id = 5,
 		@dest_id = 3,
 		@distance = 47
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 500,
+		@Class = N'A',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 500,
+		@Class = N'A',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 500,
+		@Class = N'A',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 300,
+		@Class = N'B',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 300,
+		@Class = N'B',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 300,
+		@Class = N'B',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 200,
+		@Class = N'C',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+	    @Fees = 200,
+		@Class = N'C',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 200,
+		@Class = N'C',
+		@No_Trips = 100
 
 SELECT	'Return Value' = @return_value
 

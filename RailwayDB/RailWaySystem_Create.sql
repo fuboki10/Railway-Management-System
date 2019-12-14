@@ -283,14 +283,4 @@ GO
 
 --- Insert -----
 
-Insert into Job (ID, Job_Description) values (1, 'Manager')
-Insert into Job (ID, Job_Description) values (2, 'Station Manager')
-Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
-Insert into Job (ID, Job_Description) values (4, 'Driver')
-
-EXEC	[dbo].[InsertUser]
-		@Username = N'admin',
-		@Password = N'admin',
-		@EmployeeID = NULL,
-		@IsAdmin = 1
 
