@@ -51,11 +51,11 @@
             <End Role="Passenger" EntitySet="Passenger" />
             <End Role="Passenger_Phone" EntitySet="Passenger_Phone" />
           </AssociationSet>
-          <AssociationSet Name="FK__Passenger__Passe__4CA06362" Association="RailWaySystemDBModel.Store.FK__Passenger__Passe__4CA06362">
+          <AssociationSet Name="FK__Passenger__Passe__4BAC3F29" Association="RailWaySystemDBModel.Store.FK__Passenger__Passe__4BAC3F29">
             <End Role="Passenger" EntitySet="Passenger" />
             <End Role="Passenger_Subscription" EntitySet="Passenger_Subscription" />
           </AssociationSet>
-          <AssociationSet Name="FK__Passenger__Subsc__4D94879B" Association="RailWaySystemDBModel.Store.FK__Passenger__Subsc__4D94879B">
+          <AssociationSet Name="FK__Passenger__Subsc__4CA06362" Association="RailWaySystemDBModel.Store.FK__Passenger__Subsc__4CA06362">
             <End Role="Subscription" EntitySet="Subscription" />
             <End Role="Passenger_Subscription" EntitySet="Passenger_Subscription" />
           </AssociationSet>
@@ -71,43 +71,43 @@
             <End Role="Station" EntitySet="Station" />
             <End Role="Route" EntitySet="Route" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__Booking___45F365D3" Association="RailWaySystemDBModel.Store.FK__Ticket__Booking___45F365D3">
+          <AssociationSet Name="FK__Ticket__Booking___44FF419A" Association="RailWaySystemDBModel.Store.FK__Ticket__Booking___44FF419A">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__Passenge__46E78A0C" Association="RailWaySystemDBModel.Store.FK__Ticket__Passenge__46E78A0C">
+          <AssociationSet Name="FK__Ticket__Passenge__45F365D3" Association="RailWaySystemDBModel.Store.FK__Ticket__Passenge__45F365D3">
             <End Role="Passenger" EntitySet="Passenger" />
             <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__Trip_ID__47DBAE45" Association="RailWaySystemDBModel.Store.FK__Ticket__Trip_ID__47DBAE45">
+          <AssociationSet Name="FK__Ticket__Trip_ID__46E78A0C" Association="RailWaySystemDBModel.Store.FK__Ticket__Trip_ID__46E78A0C">
             <End Role="Trip" EntitySet="Trip" />
             <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__BoughtByI__3C69FB99" Association="RailWaySystemDBModel.Store.FK__Train__BoughtByI__3C69FB99">
+          <AssociationSet Name="FK__Train__BoughtByI__3B75D760" Association="RailWaySystemDBModel.Store.FK__Train__BoughtByI__3B75D760">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Train" EntitySet="Train" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__Coach_Yar__3B75D760" Association="RailWaySystemDBModel.Store.FK__Train__Coach_Yar__3B75D760">
+          <AssociationSet Name="FK__Train__Coach_Yar__3A81B327" Association="RailWaySystemDBModel.Store.FK__Train__Coach_Yar__3A81B327">
             <End Role="Coach_Yard" EntitySet="Coach_Yard" />
             <End Role="Train" EntitySet="Train" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__Driver_ID__3D5E1FD2" Association="RailWaySystemDBModel.Store.FK__Train__Driver_ID__3D5E1FD2">
+          <AssociationSet Name="FK__Train__Driver_ID__3C69FB99" Association="RailWaySystemDBModel.Store.FK__Train__Driver_ID__3C69FB99">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Train" EntitySet="Train" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__Repair_Ya__3A81B327" Association="RailWaySystemDBModel.Store.FK__Train__Repair_Ya__3A81B327">
+          <AssociationSet Name="FK__Train__Repair_Ya__398D8EEE" Association="RailWaySystemDBModel.Store.FK__Train__Repair_Ya__398D8EEE">
             <End Role="Repair_Yard" EntitySet="Repair_Yard" />
             <End Role="Train" EntitySet="Train" />
           </AssociationSet>
-          <AssociationSet Name="FK__Trip__4316F928" Association="RailWaySystemDBModel.Store.FK__Trip__4316F928">
+          <AssociationSet Name="FK__Trip__4222D4EF" Association="RailWaySystemDBModel.Store.FK__Trip__4222D4EF">
             <End Role="Route" EntitySet="Route" />
             <End Role="Trip" EntitySet="Trip" />
           </AssociationSet>
-          <AssociationSet Name="FK__Trip__StManager___4222D4EF" Association="RailWaySystemDBModel.Store.FK__Trip__StManager___4222D4EF">
+          <AssociationSet Name="FK__Trip__StManager___412EB0B6" Association="RailWaySystemDBModel.Store.FK__Trip__StManager___412EB0B6">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Trip" EntitySet="Trip" />
           </AssociationSet>
-          <AssociationSet Name="FK__Trip__Train_ID__412EB0B6" Association="RailWaySystemDBModel.Store.FK__Trip__Train_ID__412EB0B6">
+          <AssociationSet Name="FK__Trip__Train_ID__403A8C7D" Association="RailWaySystemDBModel.Store.FK__Trip__Train_ID__403A8C7D">
             <End Role="Train" EntitySet="Train" />
             <End Role="Trip" EntitySet="Trip" />
           </AssociationSet>
@@ -390,7 +390,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Passenger__Passe__4CA06362">
+        <Association Name="FK__Passenger__Passe__4BAC3F29">
           <End Role="Passenger" Type="RailWaySystemDBModel.Store.Passenger" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -404,7 +404,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Passenger__Subsc__4D94879B">
+        <Association Name="FK__Passenger__Subsc__4CA06362">
           <End Role="Subscription" Type="RailWaySystemDBModel.Store.Subscription" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -458,7 +458,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__Booking___45F365D3">
+        <Association Name="FK__Ticket__Booking___44FF419A">
           <End Role="Employee" Type="RailWaySystemDBModel.Store.Employee" Multiplicity="0..1" />
           <End Role="Ticket" Type="RailWaySystemDBModel.Store.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
@@ -470,7 +470,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__Passenge__46E78A0C">
+        <Association Name="FK__Ticket__Passenge__45F365D3">
           <End Role="Passenger" Type="RailWaySystemDBModel.Store.Passenger" Multiplicity="0..1" />
           <End Role="Ticket" Type="RailWaySystemDBModel.Store.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
@@ -482,7 +482,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__Trip_ID__47DBAE45">
+        <Association Name="FK__Ticket__Trip_ID__46E78A0C">
           <End Role="Trip" Type="RailWaySystemDBModel.Store.Trip" Multiplicity="1" />
           <End Role="Ticket" Type="RailWaySystemDBModel.Store.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
@@ -494,7 +494,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__BoughtByI__3C69FB99">
+        <Association Name="FK__Train__BoughtByI__3B75D760">
           <End Role="Employee" Type="RailWaySystemDBModel.Store.Employee" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Store.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -506,7 +506,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__Coach_Yar__3B75D760">
+        <Association Name="FK__Train__Coach_Yar__3A81B327">
           <End Role="Coach_Yard" Type="RailWaySystemDBModel.Store.Coach_Yard" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Store.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -518,7 +518,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__Driver_ID__3D5E1FD2">
+        <Association Name="FK__Train__Driver_ID__3C69FB99">
           <End Role="Employee" Type="RailWaySystemDBModel.Store.Employee" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Store.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -530,7 +530,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__Repair_Ya__3A81B327">
+        <Association Name="FK__Train__Repair_Ya__398D8EEE">
           <End Role="Repair_Yard" Type="RailWaySystemDBModel.Store.Repair_Yard" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Store.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -542,7 +542,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Trip__4316F928">
+        <Association Name="FK__Trip__4222D4EF">
           <End Role="Route" Type="RailWaySystemDBModel.Store.Route" Multiplicity="1" />
           <End Role="Trip" Type="RailWaySystemDBModel.Store.Trip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -556,7 +556,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Trip__StManager___4222D4EF">
+        <Association Name="FK__Trip__StManager___412EB0B6">
           <End Role="Employee" Type="RailWaySystemDBModel.Store.Employee" Multiplicity="0..1" />
           <End Role="Trip" Type="RailWaySystemDBModel.Store.Trip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -568,7 +568,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Trip__Train_ID__412EB0B6">
+        <Association Name="FK__Trip__Train_ID__403A8C7D">
           <End Role="Train" Type="RailWaySystemDBModel.Store.Train" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -601,6 +601,10 @@
           <Parameter Name="Class" Type="varchar" Mode="In" />
           <Parameter Name="No_Trips" Type="int" Mode="In" />
         </Function>
+        <Function Name="AddCoachYard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="size" Type="int" Mode="In" />
+          <Parameter Name="stid" Type="int" Mode="In" />
+        </Function>
         <Function Name="AddRepairYard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="station_id" Type="int" Mode="In" />
           <Parameter Name="size" Type="int" Mode="In" />
@@ -621,6 +625,15 @@
         <Function Name="Cancel_Ticket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Ticket_ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ChangeUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="DeleteStation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -632,6 +645,7 @@
         </Function>
         <Function Name="GetAllAdmins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="getAllEmps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllTrains" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetUserJob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserID" Type="int" Mode="In" />
         </Function>
@@ -743,7 +757,7 @@
             <End Role="Station" EntitySet="Stations" />
             <End Role="Coach_Yard" EntitySet="Coach_Yard" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__Coach_Yar__3B75D760" Association="RailWaySystemDBModel.FK__Train__Coach_Yar__3B75D760">
+          <AssociationSet Name="FK__Train__Coach_Yar__3A81B327" Association="RailWaySystemDBModel.FK__Train__Coach_Yar__3A81B327">
             <End Role="Coach_Yard" EntitySet="Coach_Yard" />
             <End Role="Train" EntitySet="Trains" />
           </AssociationSet>
@@ -763,19 +777,19 @@
             <End Role="Station" EntitySet="Stations" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__Booking___45F365D3" Association="RailWaySystemDBModel.FK__Ticket__Booking___45F365D3">
+          <AssociationSet Name="FK__Ticket__Booking___44FF419A" Association="RailWaySystemDBModel.FK__Ticket__Booking___44FF419A">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Ticket" EntitySet="Tickets" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__BoughtByI__3C69FB99" Association="RailWaySystemDBModel.FK__Train__BoughtByI__3C69FB99">
+          <AssociationSet Name="FK__Train__BoughtByI__3B75D760" Association="RailWaySystemDBModel.FK__Train__BoughtByI__3B75D760">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Train" EntitySet="Trains" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__Driver_ID__3D5E1FD2" Association="RailWaySystemDBModel.FK__Train__Driver_ID__3D5E1FD2">
+          <AssociationSet Name="FK__Train__Driver_ID__3C69FB99" Association="RailWaySystemDBModel.FK__Train__Driver_ID__3C69FB99">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Train" EntitySet="Trains" />
           </AssociationSet>
-          <AssociationSet Name="FK__Trip__StManager___4222D4EF" Association="RailWaySystemDBModel.FK__Trip__StManager___4222D4EF">
+          <AssociationSet Name="FK__Trip__StManager___412EB0B6" Association="RailWaySystemDBModel.FK__Trip__StManager___412EB0B6">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Trip" EntitySet="Trips" />
           </AssociationSet>
@@ -791,15 +805,15 @@
             <End Role="Passenger" EntitySet="Passengers" />
             <End Role="Passenger_Phone" EntitySet="Passenger_Phone" />
           </AssociationSet>
-          <AssociationSet Name="FK__Passenger__Passe__4CA06362" Association="RailWaySystemDBModel.FK__Passenger__Passe__4CA06362">
+          <AssociationSet Name="FK__Passenger__Passe__4BAC3F29" Association="RailWaySystemDBModel.FK__Passenger__Passe__4BAC3F29">
             <End Role="Passenger" EntitySet="Passengers" />
             <End Role="Passenger_Subscription" EntitySet="Passenger_Subscription" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__Passenge__46E78A0C" Association="RailWaySystemDBModel.FK__Ticket__Passenge__46E78A0C">
+          <AssociationSet Name="FK__Ticket__Passenge__45F365D3" Association="RailWaySystemDBModel.FK__Ticket__Passenge__45F365D3">
             <End Role="Passenger" EntitySet="Passengers" />
             <End Role="Ticket" EntitySet="Tickets" />
           </AssociationSet>
-          <AssociationSet Name="FK__Passenger__Subsc__4D94879B" Association="RailWaySystemDBModel.FK__Passenger__Subsc__4D94879B">
+          <AssociationSet Name="FK__Passenger__Subsc__4CA06362" Association="RailWaySystemDBModel.FK__Passenger__Subsc__4CA06362">
             <End Role="Subscription" EntitySet="Subscriptions" />
             <End Role="Passenger_Subscription" EntitySet="Passenger_Subscription" />
           </AssociationSet>
@@ -807,7 +821,7 @@
             <End Role="Station" EntitySet="Stations" />
             <End Role="Repair_Yard" EntitySet="Repair_Yard" />
           </AssociationSet>
-          <AssociationSet Name="FK__Train__Repair_Ya__3A81B327" Association="RailWaySystemDBModel.FK__Train__Repair_Ya__3A81B327">
+          <AssociationSet Name="FK__Train__Repair_Ya__398D8EEE" Association="RailWaySystemDBModel.FK__Train__Repair_Ya__398D8EEE">
             <End Role="Repair_Yard" EntitySet="Repair_Yard" />
             <End Role="Train" EntitySet="Trains" />
           </AssociationSet>
@@ -819,15 +833,15 @@
             <End Role="Station" EntitySet="Stations" />
             <End Role="Route" EntitySet="Routes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Trip__4316F928" Association="RailWaySystemDBModel.FK__Trip__4316F928">
+          <AssociationSet Name="FK__Trip__4222D4EF" Association="RailWaySystemDBModel.FK__Trip__4222D4EF">
             <End Role="Route" EntitySet="Routes" />
             <End Role="Trip" EntitySet="Trips" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ticket__Trip_ID__47DBAE45" Association="RailWaySystemDBModel.FK__Ticket__Trip_ID__47DBAE45">
+          <AssociationSet Name="FK__Ticket__Trip_ID__46E78A0C" Association="RailWaySystemDBModel.FK__Ticket__Trip_ID__46E78A0C">
             <End Role="Trip" EntitySet="Trips" />
             <End Role="Ticket" EntitySet="Tickets" />
           </AssociationSet>
-          <AssociationSet Name="FK__Trip__Train_ID__412EB0B6" Association="RailWaySystemDBModel.FK__Trip__Train_ID__412EB0B6">
+          <AssociationSet Name="FK__Trip__Train_ID__403A8C7D" Association="RailWaySystemDBModel.FK__Trip__Train_ID__403A8C7D">
             <End Role="Train" EntitySet="Trains" />
             <End Role="Trip" EntitySet="Trips" />
           </AssociationSet>
@@ -835,6 +849,10 @@
             <Parameter Name="Fees" Mode="In" Type="Int32" />
             <Parameter Name="Class" Mode="In" Type="String" />
             <Parameter Name="No_Trips" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AddCoachYard">
+            <Parameter Name="size" Mode="In" Type="Int32" />
+            <Parameter Name="stid" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="AddRepairYard">
             <Parameter Name="station_id" Mode="In" Type="Int32" />
@@ -856,6 +874,15 @@
           <FunctionImport Name="Cancel_Ticket">
             <Parameter Name="Ticket_ID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ChangePassword">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ChangeUsername">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="DeleteStation">
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -867,6 +894,7 @@
           </FunctionImport>
           <FunctionImport Name="GetAllAdmins" ReturnType="Collection(RailWaySystemDBModel.GetAllAdmins_Result)" />
           <FunctionImport Name="getAllEmps" ReturnType="Collection(RailWaySystemDBModel.getAllEmps_Result)" />
+          <FunctionImport Name="GetAllTrains" ReturnType="Collection(RailWaySystemDBModel.GetAllTrains_Result)" />
           <FunctionImport Name="GetUserJob" ReturnType="Collection(String)">
             <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -960,7 +988,7 @@
           <Property Name="Station_ID" Type="Int32" Nullable="false" />
           <Property Name="Size" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Station" Relationship="RailWaySystemDBModel.FK__Coach_Yar__Stati__1367E606" FromRole="Coach_Yard" ToRole="Station" />
-          <NavigationProperty Name="Trains" Relationship="RailWaySystemDBModel.FK__Train__Coach_Yar__3B75D760" FromRole="Coach_Yard" ToRole="Train" />
+          <NavigationProperty Name="Trains" Relationship="RailWaySystemDBModel.FK__Train__Coach_Yar__3A81B327" FromRole="Coach_Yard" ToRole="Train" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -979,10 +1007,10 @@
           <NavigationProperty Name="Employee_Phone" Relationship="RailWaySystemDBModel.FK__Employee___Emplo__2D27B809" FromRole="Employee" ToRole="Employee_Phone" />
           <NavigationProperty Name="Job" Relationship="RailWaySystemDBModel.FK__Employee__JobID__1CF15040" FromRole="Employee" ToRole="Job" />
           <NavigationProperty Name="Station" Relationship="RailWaySystemDBModel.FK__Employee__Statio__1BFD2C07" FromRole="Employee" ToRole="Station" />
-          <NavigationProperty Name="Tickets" Relationship="RailWaySystemDBModel.FK__Ticket__Booking___45F365D3" FromRole="Employee" ToRole="Ticket" />
-          <NavigationProperty Name="Trains" Relationship="RailWaySystemDBModel.FK__Train__BoughtByI__3C69FB99" FromRole="Employee" ToRole="Train" />
-          <NavigationProperty Name="Trains1" Relationship="RailWaySystemDBModel.FK__Train__Driver_ID__3D5E1FD2" FromRole="Employee" ToRole="Train" />
-          <NavigationProperty Name="Trips" Relationship="RailWaySystemDBModel.FK__Trip__StManager___4222D4EF" FromRole="Employee" ToRole="Trip" />
+          <NavigationProperty Name="Tickets" Relationship="RailWaySystemDBModel.FK__Ticket__Booking___44FF419A" FromRole="Employee" ToRole="Ticket" />
+          <NavigationProperty Name="Trains" Relationship="RailWaySystemDBModel.FK__Train__BoughtByI__3B75D760" FromRole="Employee" ToRole="Train" />
+          <NavigationProperty Name="Trains1" Relationship="RailWaySystemDBModel.FK__Train__Driver_ID__3C69FB99" FromRole="Employee" ToRole="Train" />
+          <NavigationProperty Name="Trips" Relationship="RailWaySystemDBModel.FK__Trip__StManager___412EB0B6" FromRole="Employee" ToRole="Trip" />
           <NavigationProperty Name="USERs" Relationship="RailWaySystemDBModel.FK__USER__EmployeeID__20C1E124" FromRole="Employee" ToRole="USER" />
         </EntityType>
         <EntityType Name="Employee_Contact">
@@ -1024,8 +1052,8 @@
           <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Passenger_Contact" Relationship="RailWaySystemDBModel.FK__Passenger__Passe__33D4B598" FromRole="Passenger" ToRole="Passenger_Contact" />
           <NavigationProperty Name="Passenger_Phone" Relationship="RailWaySystemDBModel.FK__Passenger__Passe__36B12243" FromRole="Passenger" ToRole="Passenger_Phone" />
-          <NavigationProperty Name="Passenger_Subscription" Relationship="RailWaySystemDBModel.FK__Passenger__Passe__4CA06362" FromRole="Passenger" ToRole="Passenger_Subscription" />
-          <NavigationProperty Name="Tickets" Relationship="RailWaySystemDBModel.FK__Ticket__Passenge__46E78A0C" FromRole="Passenger" ToRole="Ticket" />
+          <NavigationProperty Name="Passenger_Subscription" Relationship="RailWaySystemDBModel.FK__Passenger__Passe__4BAC3F29" FromRole="Passenger" ToRole="Passenger_Subscription" />
+          <NavigationProperty Name="Tickets" Relationship="RailWaySystemDBModel.FK__Ticket__Passenge__45F365D3" FromRole="Passenger" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="Passenger_Contact">
           <Key>
@@ -1062,8 +1090,8 @@
           <Property Name="Passenger_ID" Type="Int32" Nullable="false" />
           <Property Name="Subscription_ID" Type="Int32" Nullable="false" />
           <Property Name="Exp_Date" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Passenger" Relationship="RailWaySystemDBModel.FK__Passenger__Passe__4CA06362" FromRole="Passenger_Subscription" ToRole="Passenger" />
-          <NavigationProperty Name="Subscription" Relationship="RailWaySystemDBModel.FK__Passenger__Subsc__4D94879B" FromRole="Passenger_Subscription" ToRole="Subscription" />
+          <NavigationProperty Name="Passenger" Relationship="RailWaySystemDBModel.FK__Passenger__Passe__4BAC3F29" FromRole="Passenger_Subscription" ToRole="Passenger" />
+          <NavigationProperty Name="Subscription" Relationship="RailWaySystemDBModel.FK__Passenger__Subsc__4CA06362" FromRole="Passenger_Subscription" ToRole="Subscription" />
         </EntityType>
         <EntityType Name="Repair_Yard">
           <Key>
@@ -1073,7 +1101,7 @@
           <Property Name="Station_ID" Type="Int32" Nullable="false" />
           <Property Name="Size" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Station" Relationship="RailWaySystemDBModel.FK__Repair_Ya__Stati__164452B1" FromRole="Repair_Yard" ToRole="Station" />
-          <NavigationProperty Name="Trains" Relationship="RailWaySystemDBModel.FK__Train__Repair_Ya__3A81B327" FromRole="Repair_Yard" ToRole="Train" />
+          <NavigationProperty Name="Trains" Relationship="RailWaySystemDBModel.FK__Train__Repair_Ya__398D8EEE" FromRole="Repair_Yard" ToRole="Train" />
         </EntityType>
         <EntityType Name="Route">
           <Key>
@@ -1085,7 +1113,7 @@
           <Property Name="Distance" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Station" Relationship="RailWaySystemDBModel.FK__Route__Destinati__25869641" FromRole="Route" ToRole="Station" />
           <NavigationProperty Name="Station1" Relationship="RailWaySystemDBModel.FK__Route__Source_ID__24927208" FromRole="Route" ToRole="Station" />
-          <NavigationProperty Name="Trips" Relationship="RailWaySystemDBModel.FK__Trip__4316F928" FromRole="Route" ToRole="Trip" />
+          <NavigationProperty Name="Trips" Relationship="RailWaySystemDBModel.FK__Trip__4222D4EF" FromRole="Route" ToRole="Trip" />
         </EntityType>
         <EntityType Name="Station">
           <Key>
@@ -1110,7 +1138,7 @@
           <Property Name="Fees" Type="Int32" Nullable="false" />
           <Property Name="Class" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
           <Property Name="No_Trips" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Passenger_Subscription" Relationship="RailWaySystemDBModel.FK__Passenger__Subsc__4D94879B" FromRole="Subscription" ToRole="Passenger_Subscription" />
+          <NavigationProperty Name="Passenger_Subscription" Relationship="RailWaySystemDBModel.FK__Passenger__Subsc__4CA06362" FromRole="Subscription" ToRole="Passenger_Subscription" />
         </EntityType>
         <EntityType Name="Ticket">
           <Key>
@@ -1123,9 +1151,9 @@
           <Property Name="Booking_Clerk_ID" Type="Int32" />
           <Property Name="Passenger_ID" Type="Int32" />
           <Property Name="Trip_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="RailWaySystemDBModel.FK__Ticket__Booking___45F365D3" FromRole="Ticket" ToRole="Employee" />
-          <NavigationProperty Name="Passenger" Relationship="RailWaySystemDBModel.FK__Ticket__Passenge__46E78A0C" FromRole="Ticket" ToRole="Passenger" />
-          <NavigationProperty Name="Trip" Relationship="RailWaySystemDBModel.FK__Ticket__Trip_ID__47DBAE45" FromRole="Ticket" ToRole="Trip" />
+          <NavigationProperty Name="Employee" Relationship="RailWaySystemDBModel.FK__Ticket__Booking___44FF419A" FromRole="Ticket" ToRole="Employee" />
+          <NavigationProperty Name="Passenger" Relationship="RailWaySystemDBModel.FK__Ticket__Passenge__45F365D3" FromRole="Ticket" ToRole="Passenger" />
+          <NavigationProperty Name="Trip" Relationship="RailWaySystemDBModel.FK__Ticket__Trip_ID__46E78A0C" FromRole="Ticket" ToRole="Trip" />
         </EntityType>
         <EntityType Name="Train">
           <Key>
@@ -1143,11 +1171,11 @@
           <Property Name="Repair_Yard_ID" Type="Int32" />
           <Property Name="Coach_Yard_ID" Type="Int32" />
           <Property Name="BoughtByID" Type="Int32" />
-          <NavigationProperty Name="Coach_Yard" Relationship="RailWaySystemDBModel.FK__Train__Coach_Yar__3B75D760" FromRole="Train" ToRole="Coach_Yard" />
-          <NavigationProperty Name="Employee" Relationship="RailWaySystemDBModel.FK__Train__BoughtByI__3C69FB99" FromRole="Train" ToRole="Employee" />
-          <NavigationProperty Name="Employee1" Relationship="RailWaySystemDBModel.FK__Train__Driver_ID__3D5E1FD2" FromRole="Train" ToRole="Employee" />
-          <NavigationProperty Name="Repair_Yard" Relationship="RailWaySystemDBModel.FK__Train__Repair_Ya__3A81B327" FromRole="Train" ToRole="Repair_Yard" />
-          <NavigationProperty Name="Trips" Relationship="RailWaySystemDBModel.FK__Trip__Train_ID__412EB0B6" FromRole="Train" ToRole="Trip" />
+          <NavigationProperty Name="Coach_Yard" Relationship="RailWaySystemDBModel.FK__Train__Coach_Yar__3A81B327" FromRole="Train" ToRole="Coach_Yard" />
+          <NavigationProperty Name="Employee" Relationship="RailWaySystemDBModel.FK__Train__BoughtByI__3B75D760" FromRole="Train" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="RailWaySystemDBModel.FK__Train__Driver_ID__3C69FB99" FromRole="Train" ToRole="Employee" />
+          <NavigationProperty Name="Repair_Yard" Relationship="RailWaySystemDBModel.FK__Train__Repair_Ya__398D8EEE" FromRole="Train" ToRole="Repair_Yard" />
+          <NavigationProperty Name="Trips" Relationship="RailWaySystemDBModel.FK__Trip__Train_ID__403A8C7D" FromRole="Train" ToRole="Trip" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -1161,10 +1189,10 @@
           <Property Name="Destintaion_ID" Type="Int32" Nullable="false" />
           <Property Name="Train_ID" Type="Int32" Nullable="false" />
           <Property Name="StManager_ID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="RailWaySystemDBModel.FK__Trip__StManager___4222D4EF" FromRole="Trip" ToRole="Employee" />
-          <NavigationProperty Name="Route" Relationship="RailWaySystemDBModel.FK__Trip__4316F928" FromRole="Trip" ToRole="Route" />
-          <NavigationProperty Name="Tickets" Relationship="RailWaySystemDBModel.FK__Ticket__Trip_ID__47DBAE45" FromRole="Trip" ToRole="Ticket" />
-          <NavigationProperty Name="Train" Relationship="RailWaySystemDBModel.FK__Trip__Train_ID__412EB0B6" FromRole="Trip" ToRole="Train" />
+          <NavigationProperty Name="Employee" Relationship="RailWaySystemDBModel.FK__Trip__StManager___412EB0B6" FromRole="Trip" ToRole="Employee" />
+          <NavigationProperty Name="Route" Relationship="RailWaySystemDBModel.FK__Trip__4222D4EF" FromRole="Trip" ToRole="Route" />
+          <NavigationProperty Name="Tickets" Relationship="RailWaySystemDBModel.FK__Ticket__Trip_ID__46E78A0C" FromRole="Trip" ToRole="Ticket" />
+          <NavigationProperty Name="Train" Relationship="RailWaySystemDBModel.FK__Trip__Train_ID__403A8C7D" FromRole="Trip" ToRole="Train" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
@@ -1192,7 +1220,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__Coach_Yar__3B75D760">
+        <Association Name="FK__Train__Coach_Yar__3A81B327">
           <End Role="Coach_Yard" Type="RailWaySystemDBModel.Coach_Yard" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1256,7 +1284,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__Booking___45F365D3">
+        <Association Name="FK__Ticket__Booking___44FF419A">
           <End Role="Employee" Type="RailWaySystemDBModel.Employee" Multiplicity="0..1" />
           <End Role="Ticket" Type="RailWaySystemDBModel.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1268,7 +1296,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__BoughtByI__3C69FB99">
+        <Association Name="FK__Train__BoughtByI__3B75D760">
           <End Role="Employee" Type="RailWaySystemDBModel.Employee" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1280,7 +1308,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__Driver_ID__3D5E1FD2">
+        <Association Name="FK__Train__Driver_ID__3C69FB99">
           <End Role="Employee" Type="RailWaySystemDBModel.Employee" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1292,7 +1320,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Trip__StManager___4222D4EF">
+        <Association Name="FK__Trip__StManager___412EB0B6">
           <End Role="Employee" Type="RailWaySystemDBModel.Employee" Multiplicity="0..1" />
           <End Role="Trip" Type="RailWaySystemDBModel.Trip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1346,7 +1374,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Passenger__Passe__4CA06362">
+        <Association Name="FK__Passenger__Passe__4BAC3F29">
           <End Role="Passenger" Type="RailWaySystemDBModel.Passenger" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1360,7 +1388,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__Passenge__46E78A0C">
+        <Association Name="FK__Ticket__Passenge__45F365D3">
           <End Role="Passenger" Type="RailWaySystemDBModel.Passenger" Multiplicity="0..1" />
           <End Role="Ticket" Type="RailWaySystemDBModel.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1372,7 +1400,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Passenger__Subsc__4D94879B">
+        <Association Name="FK__Passenger__Subsc__4CA06362">
           <End Role="Subscription" Type="RailWaySystemDBModel.Subscription" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1400,7 +1428,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Train__Repair_Ya__3A81B327">
+        <Association Name="FK__Train__Repair_Ya__398D8EEE">
           <End Role="Repair_Yard" Type="RailWaySystemDBModel.Repair_Yard" Multiplicity="0..1" />
           <End Role="Train" Type="RailWaySystemDBModel.Train" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1438,7 +1466,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Trip__4316F928">
+        <Association Name="FK__Trip__4222D4EF">
           <End Role="Route" Type="RailWaySystemDBModel.Route" Multiplicity="1" />
           <End Role="Trip" Type="RailWaySystemDBModel.Trip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1452,7 +1480,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ticket__Trip_ID__47DBAE45">
+        <Association Name="FK__Ticket__Trip_ID__46E78A0C">
           <End Role="Trip" Type="RailWaySystemDBModel.Trip" Multiplicity="1" />
           <End Role="Ticket" Type="RailWaySystemDBModel.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1464,7 +1492,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Trip__Train_ID__412EB0B6">
+        <Association Name="FK__Trip__Train_ID__403A8C7D">
           <End Role="Train" Type="RailWaySystemDBModel.Train" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1492,6 +1520,20 @@
           <Property Type="Int32" Name="Working_Hours" Nullable="false" />
           <Property Type="Int32" Name="JobID" Nullable="false" />
           <Property Type="Int32" Name="StationID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllTrains_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Model" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Color" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="No_Seats" Nullable="false" />
+          <Property Type="Int32" Name="Speed" Nullable="false" />
+          <Property Type="Int32" Name="No_Cars" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Int32" Name="Driver_ID" Nullable="true" />
+          <Property Type="Int32" Name="Repair_Yard_ID" Nullable="true" />
+          <Property Type="Int32" Name="Coach_Yard_ID" Nullable="true" />
+          <Property Type="Int32" Name="BoughtByID" Nullable="true" />
         </ComplexType>
         <ComplexType Name="InsertUser_Result">
           <Property Type="String" Name="response" Nullable="true" MaxLength="250" />
@@ -1694,10 +1736,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Add_Subscription" FunctionName="RailWaySystemDBModel.Store.Add_Subscription" />
+          <FunctionImportMapping FunctionImportName="AddCoachYard" FunctionName="RailWaySystemDBModel.Store.AddCoachYard" />
           <FunctionImportMapping FunctionImportName="AddRepairYard" FunctionName="RailWaySystemDBModel.Store.AddRepairYard" />
           <FunctionImportMapping FunctionImportName="AddRoute" FunctionName="RailWaySystemDBModel.Store.AddRoute" />
           <FunctionImportMapping FunctionImportName="Book_Seat" FunctionName="RailWaySystemDBModel.Store.Book_Seat" />
           <FunctionImportMapping FunctionImportName="Cancel_Ticket" FunctionName="RailWaySystemDBModel.Store.Cancel_Ticket" />
+          <FunctionImportMapping FunctionImportName="ChangePassword" FunctionName="RailWaySystemDBModel.Store.ChangePassword" />
+          <FunctionImportMapping FunctionImportName="ChangeUsername" FunctionName="RailWaySystemDBModel.Store.ChangeUsername" />
           <FunctionImportMapping FunctionImportName="DeleteStation" FunctionName="RailWaySystemDBModel.Store.DeleteStation" />
           <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="RailWaySystemDBModel.Store.DeleteUser" />
           <FunctionImportMapping FunctionImportName="get_emp_id_userId" FunctionName="RailWaySystemDBModel.Store.get_emp_id_userId" />
@@ -1721,6 +1766,24 @@
                 <ScalarProperty Name="Working_Hours" ColumnName="Working_Hours" />
                 <ScalarProperty Name="JobID" ColumnName="JobID" />
                 <ScalarProperty Name="StationID" ColumnName="StationID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllTrains" FunctionName="RailWaySystemDBModel.Store.GetAllTrains">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RailWaySystemDBModel.GetAllTrains_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="No_Seats" ColumnName="No_Seats" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="No_Cars" ColumnName="No_Cars" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+                <ScalarProperty Name="Repair_Yard_ID" ColumnName="Repair_Yard_ID" />
+                <ScalarProperty Name="Coach_Yard_ID" ColumnName="Coach_Yard_ID" />
+                <ScalarProperty Name="BoughtByID" ColumnName="BoughtByID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1770,6 +1833,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

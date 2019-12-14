@@ -63,6 +63,19 @@ namespace RailwaySystem
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_Subscription", feesParameter, classParameter, no_TripsParameter);
         }
     
+        public virtual int AddCoachYard(Nullable<int> size, Nullable<int> stid)
+        {
+            var sizeParameter = size.HasValue ?
+                new ObjectParameter("size", size) :
+                new ObjectParameter("size", typeof(int));
+    
+            var stidParameter = stid.HasValue ?
+                new ObjectParameter("stid", stid) :
+                new ObjectParameter("stid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddCoachYard", sizeParameter, stidParameter);
+        }
+    
         public virtual int AddRepairYard(Nullable<int> station_id, Nullable<int> size)
         {
             var station_idParameter = station_id.HasValue ?
@@ -131,6 +144,36 @@ namespace RailwaySystem
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Cancel_Ticket", ticket_IDParameter);
         }
     
+        public virtual int ChangePassword(Nullable<int> iD, string oldPassword, string newPassword)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var oldPasswordParameter = oldPassword != null ?
+                new ObjectParameter("OldPassword", oldPassword) :
+                new ObjectParameter("OldPassword", typeof(string));
+    
+            var newPasswordParameter = newPassword != null ?
+                new ObjectParameter("NewPassword", newPassword) :
+                new ObjectParameter("NewPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangePassword", iDParameter, oldPasswordParameter, newPasswordParameter);
+        }
+    
+        public virtual int ChangeUsername(Nullable<int> iD, string username)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var usernameParameter = username != null ?
+                new ObjectParameter("Username", username) :
+                new ObjectParameter("Username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangeUsername", iDParameter, usernameParameter);
+        }
+    
         public virtual int DeleteStation(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
@@ -166,6 +209,11 @@ namespace RailwaySystem
         public virtual ObjectResult<getAllEmps_Result> getAllEmps()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getAllEmps_Result>("getAllEmps");
+        }
+    
+        public virtual ObjectResult<GetAllTrains_Result> GetAllTrains()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllTrains_Result>("GetAllTrains");
         }
     
         public virtual ObjectResult<string> GetUserJob(Nullable<int> userID)

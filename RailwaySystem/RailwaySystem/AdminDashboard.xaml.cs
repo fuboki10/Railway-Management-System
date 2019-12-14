@@ -171,6 +171,12 @@ namespace RailwaySystem
 
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
+            if (AdminsCombobox.SelectedValue == null)
+            {
+                MessageBox.Show("Please Select Admin Name");
+                return;
+            }
+
             int id = Int32.Parse(AdminsCombobox.SelectedValue.ToString());
             var count = AdminsCombobox.Items.Count;
             if (count == 1)

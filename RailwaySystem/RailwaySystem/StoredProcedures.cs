@@ -16,5 +16,6 @@ namespace RailwaySystem
         public static string DeleteUser = "DeleteUser";
         public static string ChangeUsername = "ChangeUsername";
         public static string ChangePassword = "ChangePassword";
+        public static string RemoveTrain = "RemoveTrain";
     }
 }

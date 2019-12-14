@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bc2bb6ddfa8a48ca900db4fbed4585dc" Name="Diagram1">
+      <Diagram DiagramId="698cfe8d267b43e799967b1032f7c09b" Name="Diagram1">
         <EntityTypeShape EntityType="RailWaySystemDBModel.Coach_Yard" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RailWaySystemDBModel.Employee" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RailWaySystemDBModel.Employee_Contact" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
@@ -23,28 +23,28 @@
         <EntityTypeShape EntityType="RailWaySystemDBModel.Trip" Width="1.5" PointX="7.5" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RailWaySystemDBModel.USER" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Coach_Yar__Stati__1367E606" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__Coach_Yar__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__Coach_Yar__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Employee___Emplo__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Employee___Emplo__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Employee__JobID__1CF15040" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Employee__Statio__1BFD2C07" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Ticket__Booking___45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__BoughtByI__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__Driver_ID__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Trip__StManager___4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Ticket__Booking___44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__BoughtByI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__Driver_ID__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Trip__StManager___412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__USER__EmployeeID__20C1E124" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Passenger__Passe__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Passenger__Passe__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Passenger__Passe__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Ticket__Passenge__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Passenger__Subsc__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Passenger__Passe__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Ticket__Passenge__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Passenger__Subsc__4CA06362" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Repair_Ya__Stati__164452B1" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__Repair_Ya__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Train__Repair_Ya__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Route__Destinati__25869641" ManuallyRouted="false" />
         <AssociationConnector Association="RailWaySystemDBModel.FK__Route__Source_ID__24927208" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Trip__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Ticket__Trip_ID__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="RailWaySystemDBModel.FK__Trip__Train_ID__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Trip__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Ticket__Trip_ID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="RailWaySystemDBModel.FK__Trip__Train_ID__403A8C7D" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

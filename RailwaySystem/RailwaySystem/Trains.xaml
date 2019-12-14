@@ -6,7 +6,7 @@
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" >
     <Grid Uid="Trains"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
         <Canvas  Width="1200" Height="64" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Path  Width="1200" Height="64" Stretch="uniform" Data="M 1280 0 L 0 0 L 0 64 L 1280 64 L 1280 0 Z" Fill="#ffd7d7d7" Canvas.Left="0" Canvas.Top="0"  />
+            <Path x:Name="___No_Name_"  Width="1200" Height="64" Stretch="uniform" Data="M 1280 0 L 0 0 L 0 64 L 1280 64 L 1280 0 Z" Fill="#ffd7d7d7" Canvas.Left="0" Canvas.Top="0"  />
             <Canvas  Width="24" Height="24" Canvas.Left="1153" Canvas.Top="22" >
                 <Canvas  Width="17" Height="17" Canvas.Left="3" Canvas.Top="3" >
                     <Canvas  Width="17" Height="17" Canvas.Left="0" Canvas.Top="0" >
@@ -57,7 +57,7 @@
                     <TextBlock  Text="Trains" TextAlignment="left" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0"  />
                 </Canvas>
                 <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <TextBlock  Text="Logout" TextAlignment="left" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0"  />
+                    <Button Name="LogoutTextButton" Content="Logout" Cursor="Hand" FontFamily="Roboto" FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutTextButton_Click"  />
                 </Canvas>
             </Grid>
             <Canvas  Width="256" Height="144" Canvas.Left="0" Canvas.Top="0" >
@@ -66,7 +66,17 @@
                 <TextBlock Name="NameTextBox" Text="Employee Name" TextAlignment="center" FontFamily="Roboto"  FontSize="20" Width="256" Height="33" TextWrapping="Wrap" Foreground="#fffafafa" Canvas.Left="0" Canvas.Top="101"  />
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="296" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                <Button Name="LogoutButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="LogoutButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="Resources\Logout.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="22" Canvas.Top="152" >
                 <Button Name="HomeButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="HomeButton_Click" >
@@ -88,7 +98,46 @@
                 <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
             </Canvas>
         </Canvas>
-        <DataGrid Name="TrainsDataGrid" HorizontalAlignment="Left" Margin="306,276,0,0" VerticalAlignment="Top" 
-                  Height="510" Width="745" AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding}"/>
+        <DataGrid Name="TrainsDataGrid" HorizontalAlignment="Left" Margin="261,276,0,0" VerticalAlignment="Top" 
+                  Height="510" Width="929" AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding}"                  
+                  Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"                   
+                  BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
+                  CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
+                  >
+        </DataGrid>
+        <GroupBox Header="Add Train" HorizontalAlignment="Left" Height="109" Margin="264,103,0,0" VerticalAlignment="Top" Width="500" BorderBrush="#FF080226">
+            <TextBox x:Name="ModelTextBox" HorizontalAlignment="Left" Height="21" Margin="6,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+        </GroupBox>
+        <Label Content="Model" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="367,124,0,0"/>
+        <ComboBox x:Name="ColorComboBox" HorizontalAlignment="Left" Margin="279,171,0,0" VerticalAlignment="Top" Width="82" BorderBrush="#FF080226"/>
+        <Label Content="Color" HorizontalAlignment="Left" Margin="370,170,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="No_SeatsTextBox" HorizontalAlignment="Left" Height="18" Margin="414,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
+        <Label Content="NoSeats" HorizontalAlignment="Left" Margin="417,148,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="No_CarsTextBox" HorizontalAlignment="Left" Height="18" Margin="494,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
+        <Label Content="NoCars" HorizontalAlignment="Left" Margin="502,148,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SpeedTextBox" HorizontalAlignment="Left" Height="18" Margin="574,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" BorderBrush="#FFABADB3"/>
+        <Label Content="Speed" HorizontalAlignment="Left" Margin="581,148,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="TrainDatePicker" HorizontalAlignment="Left" Margin="420,125,0,0" VerticalAlignment="Top" Cursor="Arrow"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="531,124,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="CoachYardComboBox" HorizontalAlignment="Left" Margin="575,125,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="CoachYard" HorizontalAlignment="Left" Margin="685,125,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Delete Train" HorizontalAlignment="Left" Margin="768,105,0,0" VerticalAlignment="Top" Height="107" Width="185" BorderBrush="#FF080226"/>
+        <ComboBox x:Name="TrainsID_ComboBox" HorizontalAlignment="Left" Margin="785,131,0,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectedIndex="0"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="919,128,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="DeleteButton" Cursor="Hand" Content="Delete" HorizontalAlignment="Left" Margin="820,181,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226" Click="DeleteButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="AddButton" Cursor="Hand" Content="Add" HorizontalAlignment="Left" Margin="663,172,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

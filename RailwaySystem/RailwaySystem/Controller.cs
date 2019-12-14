@@ -19,7 +19,13 @@ namespace RailwaySystem
         {
             dbMan.CloseConnection();
         }
-
+        public int RemoveTrain(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.RemoveTrain;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@ID", ID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public int AddAdmin(string UserName, string Password)
         {
             string StoredProcedureName = StoredProcedures.InsertUser;
