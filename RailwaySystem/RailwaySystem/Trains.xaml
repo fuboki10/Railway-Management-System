@@ -88,5 +88,7 @@
                 <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
             </Canvas>
         </Canvas>
+        <DataGrid Name="TrainsDataGrid" HorizontalAlignment="Left" Margin="306,276,0,0" VerticalAlignment="Top" 
+                  Height="510" Width="745" AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding}"/>
     </Grid>
 </Window>

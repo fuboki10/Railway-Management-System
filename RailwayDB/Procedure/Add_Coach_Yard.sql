@@ -1,3 +1,4 @@
+use RailWaySystemDB
 -- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
@@ -28,7 +29,7 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	insert into Coach_Yard
-	values(@stid, @size);
+	insert into Coach_Yard (Station_ID, Size)
+	values(@stid, @size)
 END
 GO

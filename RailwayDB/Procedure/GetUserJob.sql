@@ -1,3 +1,4 @@
+use RailWaySystemDB
 -- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
@@ -9,6 +10,9 @@
 -- This block of comments will not be included in
 -- the definition of the procedure.
 -- ================================================
+use RailWaySystemDB
+go
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

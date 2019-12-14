@@ -192,7 +192,7 @@ CREATE TABLE [Train] (
 	Speed integer NOT NULL,
 	No_Cars integer NOT NULL,
 	[Date] date NOT NULL,
-	Driver_ID integer UNIQUE,
+	Driver_ID integer,
 	Repair_Yard_ID integer,
 	Coach_Yard_ID integer,
 	BoughtByID int,                    -- Manager ID --
@@ -212,6 +212,12 @@ CREATE TABLE [Train] (
 
 )
 GO
+
+-- As it can't accept dup nulls 
+CREATE UNIQUE NONCLUSTERED INDEX Driver_ID_UNQUE
+ON dbo.Train(Driver_ID)
+WHERE Driver_ID IS NOT NULL;
+go
 
 CREATE TABLE [Trip] (
 	ID integer IDENTITY(1,1) NOT NULL,

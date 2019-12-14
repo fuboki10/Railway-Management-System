@@ -9,6 +9,9 @@
 -- This block of comments will not be included in
 -- the definition of the procedure.
 -- ================================================
+use RailWaySystemDB
+go
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,16 +24,16 @@ GO
 CREATE PROCEDURE InsertTrain
 	-- Add the parameters for the stored procedure here
 	@Model varchar(50),
-	@Status BIT=1,
+	@Status BIT=1,   -- 0 Needs Fixing
 	@Color varchar(50),
-	@No_Seats int,
-	@Speed int,
-	@No_Cars int,
+	@No_Seats integer,
+	@Speed integer,
+	@No_Cars integer,
 	@Date date,
-	@Driver_ID int,
-	@Repair_Yard_ID int,
-	@Coach_Yard_ID int,
-	@BoughtByID int  
+	@Driver_ID integer,
+	@Repair_Yard_ID integer,
+	@Coach_Yard_ID integer,
+	@BoughtByID int         
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -38,7 +41,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	INSERT INTO Train 
+	INSERT INTO Train
 	(Model, [Status], Color, No_Seats, Speed, No_Cars, [Date], Driver_ID, Repair_Yard_ID, Coach_Yard_ID, BoughtByID)
 	VALUES
 	(@Model, @Status, @Color, @No_Seats, @Speed, @No_Cars, @Date, @Driver_ID, @Repair_Yard_ID, @Coach_Yard_ID, @BoughtByID)

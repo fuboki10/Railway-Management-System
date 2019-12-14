@@ -16,6 +16,79 @@ EXEC	@return_value = [dbo].[InsertManager]
 SELECT	'Return Value' = @return_value
 
 GO*/
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = 'Masr',
+		@state = N'Cairo',
+		@city = N'Ramses',
+		@street = 1
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = 'ElRaml',
+		@state = 'Alexandria',
+		@city = 'ElRaml',
+		@street = 2
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = N'ElAiat',
+		@state = N'Giza',
+		@city = N'ElAiat',
+		@street = 5
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = N'Siedy Gaber',
+		@state = N'Alexandria',
+		@city = N'Siedy Gaber',
+		@street = 1
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertStation]
+		@name = N'ElMansoria',
+		@state = N'Giza',
+		@city = N'ElMansoria',
+		@street = 13
+
+SELECT	'Return Value' = @return_value
+
+GO
+
 Insert into Job (ID, Job_Description) values (1, 'Manager')
 Insert into Job (ID, Job_Description) values (2, 'Station Manager')
 Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
@@ -193,7 +266,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@bd = '5-21-1974',
 		@salary = 60000,
 		@working_hours = 35,
-		, @jobid = 2,
+		@jobid = 2,
 		@station_id = 1
 
 SELECT	'Return Value' = @return_value
@@ -333,77 +406,6 @@ SELECT	'Return Value' = @return_value
 
 GO
 
-USE [RailWaySystemDB]
-GO
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertStation]
-		@name = 'Masr',
-		@state = N'Cairo',
-		@city = N'Ramses',
-		@street = 1
-
-SELECT	'Return Value' = @return_value
-
-GO
-
-USE [RailWaySystemDB]
-GO
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertStation]
-		@name = 'ElRaml',
-		@state = 'Alexandria',
-		@city = 'ElRaml',
-		@street = 2
-
-SELECT	'Return Value' = @return_value
-
-GO
-
-USE [RailWaySystemDB]
-GO
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertStation]
-		@name = N'ElAiat',
-		@state = N'Giza',
-		@city = N'ElAiat',
-		@street = 5
-
-SELECT	'Return Value' = @return_value
-
-GO
-
-USE [RailWaySystemDB]
-GO
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertStation]
-		@name = N'Siedy Gaber',
-		@state = N'Alexandria',
-		@city = N'Siedy Gaber',
-		@street = 1
-
-SELECT	'Return Value' = @return_value
-
-GO
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertStation]
-		@name = N'ElMansoria',
-		@state = N'Giza',
-		@city = N'ElMansoria',
-		@street = 13
-
-SELECT	'Return Value' = @return_value
-
-GO
 USE [RailWaySystemDB]
 GO
 
@@ -725,6 +727,204 @@ EXEC	@return_value = [dbo].[Add_Subscription]
 		@Fees = 200,
 		@Class = N'C',
 		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'MKT',
+		@Status = 1,
+		@Color = N'White',
+		@No_Seats = 200,
+		@Speed = 100,
+		@No_Cars = 5,
+		@Date = '10/11/1950',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'LOL',
+		@Status = 1,
+		@Color = N'Yellow',
+		@No_Seats = 20,
+		@Speed = 10,
+		@No_Cars = 2,
+		@Date = '10/11/1960',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'MKT3',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 23,
+		@Speed = 15,
+		@No_Cars = 2,
+		@Date = '10/11/1970',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'MK',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 300,
+		@Speed = 50,
+		@No_Cars = 6,
+		@Date = '10/11/1999',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'JP212',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 2000,
+		@Speed = 300,
+		@No_Cars = 10,
+		@Date = '10/11/2005',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'JP1',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 30,
+		@Speed = 500,
+		@No_Cars = 2,
+		@Date = '10/11/2010',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'MKT',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 2000,
+		@Speed = 10,
+		@No_Cars = 2,
+		@Date = '10/11/1940',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'GRM234',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 20,
+		@Speed = 10,
+		@No_Cars = 2,
+		@Date = '10/11/1930',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTrain]
+		@Model = N'US245',
+		@Status = 1,
+		@Color = N'Black',
+		@No_Seats = 20,
+		@Speed = 10,
+		@No_Cars = 2,
+		@Date = '10/11/1999',
+		@Driver_ID = NULL,
+		@Repair_Yard_ID = NULL,
+		@Coach_Yard_ID = 1,
+		@BoughtByID = NULL
 
 SELECT	'Return Value' = @return_value
 

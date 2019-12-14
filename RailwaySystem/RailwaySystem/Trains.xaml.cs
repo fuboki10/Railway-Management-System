@@ -26,6 +26,15 @@ namespace RailwaySystem
             InitializeComponent();
             UserID = U;
             NameTextBox.Text = ControllerObj.GetUsername(UserID);
+
+            BindTrainsGrid();
+        }
+
+        private void BindTrainsGrid()
+        {
+            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
+            var item = db.Trains.ToList();
+            TrainsDataGrid.ItemsSource = item;
         }
 
         private void XClicked(object sender, RoutedEventArgs e)
