@@ -25,6 +25,8 @@ namespace RailwaySystem
             UserId = U;
             ControllerObj = new Controller();
             InitializeComponent();
+            OldPassword.MaxLength = 8;
+            NewPassword.MaxLength = 8;
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)

@@ -27,6 +27,7 @@ namespace RailwaySystem
             ControllerObj = new Controller();
             AdminUsername.MaxLength = 20;
             AdminPassword.MaxLength = 8;
+            NewUsernameTextbox.MaxLength = 20;
 
             BindAdminGrid();
             BindAdminComboBox();
@@ -79,6 +80,13 @@ namespace RailwaySystem
             this.Close();
         }
 
+        private void GoTrains()
+        {
+            Trains TW = new Trains(UserID);
+            TW.Show();
+            this.Close();
+        }
+
         private void EmployeesTextButton_Click(object sender, RoutedEventArgs e)
         {
             // TODO : GO TO EMPLOYEES FORM
@@ -90,12 +98,12 @@ namespace RailwaySystem
 
         private void TrainsTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO TRAINS FORM
+            this.GoTrains();
         }
 
         private void TrainsButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO TRAINS FORM
+            this.GoTrains();
         }
 
         private void StationsButton_Click(object sender, RoutedEventArgs e)

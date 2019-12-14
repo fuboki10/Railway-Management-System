@@ -139,6 +139,9 @@
     <Compile Include="Train.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Trains.xaml.cs">
+      <DependentUpon>Trains.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trip.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Trains.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
