@@ -14,13 +14,38 @@ using System.Windows.Shapes;
 namespace RailwaySystem
 {
     /// <summary>
-    /// Interaction logic for BookingClerk.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
+    /// 
     public partial class BookingClerk : Window
     {
-        public BookingClerk()
+        Controller ControllerObj;
+        private int UserID;
+        public BookingClerk(int U)
         {
             InitializeComponent();
+            UserID = U;
+            ControllerObj = new Controller();
+        }
+        private void XClicked(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            string username = ControllerObj.GetUsername(UserID);
+            NameTextBox.Text = username;
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }
