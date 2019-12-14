@@ -14,11 +14,42 @@ namespace RailwaySystem
             dbMan = new DBManager();
         }
 
-      
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
+        }   
+
+        public int InsertTrain(string Model, bool Status, string Color, int No_Seats,
+            int No_Cars, string Date, int Speed, int Driver_ID, int Repair_Yard_ID, int Coach_Yard_ID, int BoughtByID)
+        {
+            string StoredProcedureName = StoredProcedures.InsertTrain;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Model", Model);
+            Parameters.Add("@Status", Status);
+            Parameters.Add("@No_Seats", No_Seats);
+            Parameters.Add("@No_Cars", No_Cars);
+            Parameters.Add("@Color", Color);
+            Parameters.Add("@Date", Date);
+            Parameters.Add("@Speed", Speed);
+            
+            if (Driver_ID != 0)
+                Parameters.Add("@Driver_ID", Driver_ID);
+
+            if (Repair_Yard_ID != 0)
+                Parameters.Add("@Repair_Yard_ID", Repair_Yard_ID );
+
+
+            if (Coach_Yard_ID != 0)
+                Parameters.Add("@Coach_Yard_ID", Coach_Yard_ID);
+
+
+            if (BoughtByID != 0)
+                Parameters.Add("@BoughtByID", BoughtByID);
+
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        
         public int RemoveTrain(int ID)
         {
             string StoredProcedureName = StoredProcedures.RemoveTrain;
@@ -26,6 +57,7 @@ namespace RailwaySystem
             Parameters.Add("@ID", ID);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
         public int AddAdmin(string UserName, string Password)
         {
             string StoredProcedureName = StoredProcedures.InsertUser;
