@@ -30,10 +30,10 @@ CREATE PROCEDURE InsertTrain
 	@Speed integer,
 	@No_Cars integer,
 	@Date date,
-	@Driver_ID integer,
-	@Repair_Yard_ID integer,
-	@Coach_Yard_ID integer,
-	@BoughtByID int         
+	@Driver_ID integer=null,
+	@Repair_Yard_ID integer=null,
+	@Coach_Yard_ID integer=null,
+	@BoughtByID int=null         
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from

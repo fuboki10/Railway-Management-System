@@ -16,6 +16,13 @@ namespace RailwaySystem
     /// <summary>
     /// Interaction logic for Trains.xaml
     /// </summary>
+    /// 
+
+    public class Color
+    {
+        public string color { get; set; }     
+    }
+
     public partial class Trains : Window
     {
         private int UserID;
@@ -29,6 +36,38 @@ namespace RailwaySystem
 
             BindTrainsGrid();
             BindTrainsID_ComboBox();
+            BindColorComboBox();
+            BindCoachYard();
+        }
+
+        private void BindCoachYard()
+        {
+            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
+            var item = db.Coach_Yard.ToList();
+            CoachYardComboBox.ItemsSource = item;
+        }
+
+        private void BindColorComboBox()
+        {
+            // List of Colors
+            List<Color> Colors = new List<Color>();
+            
+            // Available Colors
+            Colors.Add(new Color { color = "Black" });
+            Colors.Add(new Color { color = "White" });
+            Colors.Add(new Color { color = "Red" });
+            Colors.Add(new Color { color = "Green" });
+            Colors.Add(new Color { color = "Blue" });
+            Colors.Add(new Color { color = "Yellow" });
+            Colors.Add(new Color { color = "Orange" });
+            Colors.Add(new Color { color = "Pink" });
+            Colors.Add(new Color { color = "Grey" });
+
+            ColorComboBox.ItemsSource = Colors;
+            ColorComboBox.DisplayMemberPath = "color";
+            ColorComboBox.SelectedValuePath = "color";
+
+            ColorComboBox.SelectedIndex = 0;
         }
 
         private void BindTrainsID_ComboBox()
@@ -125,6 +164,96 @@ namespace RailwaySystem
                 BindTrainsGrid();
             }
             
+        }
+
+        private void StatisticsTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoStatistics();
+        }
+
+        private void GoStatistics()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoStatistics();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ModelTextBox.Text == "")
+            {
+                MessageBox.Show("Please Enter Train Model");
+                return;
+            }
+            string model = ModelTextBox.Text;
+
+            if (No_SeatsTextBox.Text == "")
+            {
+                MessageBox.Show("Please Enter Train No Seats");
+                return;
+            }
+
+            int No_Seats;
+
+            if (!Int32.TryParse(No_SeatsTextBox.Text, out No_Seats))
+            {
+                MessageBox.Show("Please Enter No Seats");
+                return;
+            }
+
+            if (No_CarsTextBox.Text == "")
+            {
+                MessageBox.Show("Please Enter Train No Cars");
+                return;
+            }
+
+            int No_Cars;
+
+            if (!Int32.TryParse(No_CarsTextBox.Text, out No_Cars))
+            {
+                MessageBox.Show("Please Enter No Cars");
+                return;
+            }
+
+            if (SpeedTextBox.Text == "")
+            {
+                MessageBox.Show("Please Enter Train Speed");
+                return;
+            }
+
+            int speed;
+            if (!Int32.TryParse(SpeedTextBox.Text, out speed))
+            {
+                MessageBox.Show("Please Enter Speed");
+                return;
+            }
+
+            if (ColorComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Please Select Train Color");
+                return;
+            }
+
+            string color = ColorComboBox.SelectedValue.ToString();
+
+            if (CoachYardComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Please Select Coach Yard ID");
+                return;
+            }
+
+            int Coach_Yard_ID = Int32.Parse(CoachYardComboBox.SelectedValue.ToString());
+
+            string date = TrainDatePicker.SelectedDate.ToString();
+
+            ControllerObj.InsertTrain(model, true, color, No_Seats, No_Cars, date, speed, 0, 0, Coach_Yard_ID, 0);
+
+            // Update
+            BindTrainsID_ComboBox();
+            BindTrainsGrid();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace RailwaySystem
     public class StoredProcedures
     {
         public static string InsertUser = "InsertUser";
+        public static string InsertTrain = "InsertTrain";
         public static string Login = "Login";
         public static string UpdateSalary = "UpdateSalary";
         public static string GetUsername = "GetUsername";

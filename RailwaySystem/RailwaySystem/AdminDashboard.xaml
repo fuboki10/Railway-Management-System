@@ -115,7 +115,7 @@
             </Canvas>
         </Canvas>
         <DataGrid x:Name="AdminsDataGrid" HorizontalAlignment="Left" Margin="306,307,0,0" VerticalAlignment="Top" Height="413" Width="769"
-                  AutoGenerateColumns="True" IsReadOnly="True" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"                   
+                  AutoGenerateColumns="True" IsReadOnly="True" Background="LightGray" RowBackground="White" AlternatingRowBackground="LightGray"                    
                   BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
                   CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
                   ItemsSource="{Binding}"/>
@@ -124,7 +124,7 @@
         <Label Content="Username" HorizontalAlignment="Left" Margin="335,137,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="630,137,0,0" VerticalAlignment="Top" Height="27"/>
         <GroupBox Header="Add Admin" HorizontalAlignment="Left" Height="59" Margin="306,119,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
-        <Button x:Name="AddAdminButton" Cursor="Hand" Content="Add Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="932,141,0,0" Height="23" BorderBrush="#FF080226" Click="AddAdminButton_Click">
+        <Button x:Name="AddAdminButton" Cursor="Hand" Content="Add Admin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="932,141,0,0" Height="23" BorderBrush="#FF080226" Click="AddAdminButton_Click" Background="#FF080226" Foreground="#FFFEFBFB">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -135,7 +135,7 @@
                   ItemsSource="{Binding}" DisplayMemberPath="Username" SelectedValuePath="ID" SelectedIndex="0">
         </ComboBox>
         <GroupBox Header="Delete Admin" HorizontalAlignment="Left" Margin="306,192,0,0" VerticalAlignment="Top" Width="308" Height="65" BorderBrush="#FF080226">
-            <Button Name="DeleteAdminButton" Content="Delete" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="209,12,0,0" BorderBrush="#FF080226" Click="DeleteAdminButton_Click">
+            <Button Name="DeleteAdminButton" Content="Delete" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="209,12,0,0" BorderBrush="#FF080226" Click="DeleteAdminButton_Click" Background="#FF080226" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -147,14 +147,14 @@
             <TextBox Name="NewUsernameTextbox" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Margin="10,10,0,0"/>
         </GroupBox>
         <Label Content="New Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="810,215,0,0" Height="23"/>
-        <Button Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="661,248,0,0" Click="ChangeUsernameButton_Click" Height="19" Content="Change Username" BorderBrush="#FF080226">
+        <Button Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="661,248,0,0" Click="ChangeUsernameButton_Click" Height="19" Content="Change Username" BorderBrush="#FF080226" Background="#FF080226" Foreground="White">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="932,218,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click">
+        <Button Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="932,218,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click" Foreground="#FFF8F7FB" Background="#FF080226">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
