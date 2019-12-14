@@ -10,7 +10,8 @@
 namespace RailwaySystem
 {
     using System;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;    
     public partial class GetAllTrains_Result
     {
         public int ID { get; set; }
@@ -20,7 +21,9 @@ namespace RailwaySystem
         public int No_Seats { get; set; }
         public int Speed { get; set; }
         public int No_Cars { get; set; }
-        public System.DateTime Date { get; set; }
+        [DataType(DataType.Date)]
+        [Column(TypeName = "Date")]
+        public System.DateTime Date { get; set;}
         public Nullable<int> Driver_ID { get; set; }
         public Nullable<int> Repair_Yard_ID { get; set; }
         public Nullable<int> Coach_Yard_ID { get; set; }
