@@ -287,6 +287,927 @@ CREATE TABLE [Passenger_Subscription] (
 GO
 
 
---- Insert -----
+-----proc------
 
 
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- Create date: 7/12/2019
+-- Description:	Update the name of the station with the provided id
+-- =============================================
+CREATE PROCEDURE UpdateStation 
+	-- Add the parameters for the stored procedure here
+	@id int,
+	@name varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	update Station set Name = @name where id = @id
+	 
+END
+GO
+
+Use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE UpdateSalary 
+	@id int,
+	@sal int 
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	UPDATE Employee 
+	SET Salary = @sal
+	WHERE ID = @id
+
+END
+GO
+
+Use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE getAllEmps 
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * from Employee
+	return @@rowcount
+END
+GO
+
+use RailWaySystemDB
+go
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE RemoveTrain
+	-- Add the parameters for the stored procedure here
+	@ID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	DELETE FROM Train WHERE ID=@ID 
+END
+GO
+
+
+USE [RailWaySystemDB]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new clerk into the DB
+Create Procedure [dbo].[Remove_Subscription]
+
+	@Subscription_ID int
+As
+Begin
+
+	
+	-- Inserting into the Trip table
+	Delete from [Subscription] where Subscription.ID=@Subscription_ID
+End
+
+GO
+
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- Create date: 7/12/2019
+-- Description:	Remove the route joining the two provided stations
+-- =============================================
+CREATE PROCEDURE RemoveRoute 
+	-- Add the parameters for the stored procedure here
+	@source_id int,
+	@dest_id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    Delete from Route where Source_ID = @source_id and Destination_ID = @dest_id
+	
+END
+GO
+
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- Create date: 7/12/2019
+-- Description:	Removes a repair yard
+-- =============================================
+CREATE PROCEDURE	RemoveRepairYard 
+	-- Add the parameters for the stored procedure here
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	delete from Repair_Yard where ID = @id
+
+	return @@rowcount
+END
+GO
+
+use RailWaySystemDB
+go
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE  RemoveCoachYard 
+	-- Add the parameters for the stored procedure here
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	delete from Coach_Yard where ID = @id
+
+	return @@rowcount
+END
+GO
+
+use RailWaySystemDB
+go
+use [RailWaySystemDB]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 11/29/2019
+-- Description:	Login
+-- =============================================
+CREATE PROCEDURE [Login]
+    @UserName VARCHAR(20),
+    @Password VARCHAR(20),
+    @responseMessage VARCHAR(250)='' OUTPUT
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+    DECLARE @ID INT
+
+    IF EXISTS (SELECT ID FROM [USER] WHERE Username=@UserName)
+    BEGIN
+        SET @ID=(SELECT ID FROM [USER] WHERE Username=@UserName AND PasswordHash=HASHBYTES('SHA2_512', @Password+CAST(Salt AS VARCHAR(36))))
+
+       IF(@ID IS NULL)
+           SET @responseMessage='Incorrect password'
+       ELSE 
+           SET @responseMessage='User successfully logged in'
+    END
+    ELSE
+       SET @responseMessage='Invalid login'
+	
+	SELECT @responseMessage as response, @ID as ID
+
+END
+	
+
+/****** Object:  StoredProcedure [dbo].[InsertUser]    Script Date: 12/13/2019 5:12:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new User into the DB
+CREATE PROCEDURE [dbo].[InsertUser]
+    @Username varchar(20), 
+    @Password varchar(20),
+	@EmployeeID int=null,
+	@IsAdmin BIT=null,
+    @responseMessage varchar(250)='' OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON
+
+    DECLARE @salt UNIQUEIDENTIFIER=NEWID()
+    BEGIN TRY
+
+	-- Inserting The user into User table
+        INSERT INTO dbo.[User] (Username, PasswordHash, EmployeeID, IsAdmin, Salt)
+        VALUES(@Username, HASHBYTES('SHA2_512', @Password+CAST(@salt AS VARCHAR(36))), @EmployeeID, @IsAdmin, @salt)
+		
+		-- Displaying The status of the insertion
+       SET @responseMessage='Success'
+
+    END TRY
+    BEGIN CATCH
+        SET @responseMessage=ERROR_MESSAGE() 
+    END CATCH
+
+	SELECT @responseMessage as response, @@identity as ID
+
+	-- Returning The Id of the inserted user
+END
+
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new clerk into the DB
+Create Procedure [dbo].[InsertTrip]
+	@Dept_Time date, 
+	@Arr_Time date,
+	@Type int, 
+	@Destination_ID int,
+	@Source_ID int,
+	@Train_ID int,
+	@St_Manager_ID int
+
+As
+Begin
+
+	
+	-- Inserting into the Trip table
+	insert into [Trip] values(@Dept_Time , @Arr_Time ,@Type , @Source_ID ,@Destination_ID,@Train_ID ,@St_Manager_ID )
+End
+
+GO
+use RailWaySystemDB
+go
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE InsertTrain
+	-- Add the parameters for the stored procedure here
+	@Model varchar(50),
+	@Status BIT=1,   -- 0 Needs Fixing
+	@Color varchar(50),
+	@No_Seats integer,
+	@Speed integer,
+	@No_Cars integer,
+	@Date date,
+	@Driver_ID integer=null,
+	@Repair_Yard_ID integer=null,
+	@Coach_Yard_ID integer=null,
+	@BoughtByID int=null         
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO Train
+	(Model, [Status], Color, No_Seats, Speed, No_Cars, [Date], Driver_ID, Repair_Yard_ID, Coach_Yard_ID, BoughtByID)
+	VALUES
+	(@Model, @Status, @Color, @No_Seats, @Speed, @No_Cars, @Date, @Driver_ID, @Repair_Yard_ID, @Coach_Yard_ID, @BoughtByID)
+END
+GO
+
+Use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE InsertStation
+	@name varchar(50),
+	@state varchar(50),
+	@city varchar(50),
+	@street int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    INSERT INTO Station
+	values (@name, @city, @state, @street);
+
+	return @@identity
+	
+END
+GO
+
+USE RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE InsertPassenger
+	@fname varchar(50),
+	@lname varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    insert into Passenger
+	values(@fname, @lname);
+END
+GO
+
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new employee into the Employee table
+CREATE PROCEDURE InsertEmp 
+
+	@fname varchar(50),
+	@lname varchar(50),
+	@age int,
+	@bd date,
+	@salary int,
+	@working_hours int,
+	@jobid int,
+	@station_id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Inserting the employee into Employee table
+	Insert into Employee 
+	values (@fname, @lname, @age, @bd, @salary, @working_hours,@jobid, @station_id);
+
+	-- Returning the id of the inserted employee
+	return @@identity
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 12/4/2019
+-- Description:	GetUsername
+-- =============================================
+CREATE PROCEDURE GetUsername
+	-- Add the parameters for the stored procedure here
+	@ID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT Username FROM [USER] WHERE ID=@ID
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+use RailWaySystemDB
+go
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 12/9/2019
+-- Description:	Get Employee Job
+-- =============================================
+CREATE PROCEDURE GetUserJob
+	-- Add the parameters for the stored procedure here
+	@UserID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF ((SELECT IsAdmin FROM [USER] WHERE ID=@UserID) = 1)
+	BEGIN
+		SELECT 'Admin'
+	END
+	ELSE
+	BEGIN
+		DECLARE @EmpID INT = (SELECT EmployeeID FROM [USER] WHERE ID=@UserID)
+		DECLARE @JobID INT = (SELECT JobID FROM Employee WHERE ID=@EmpID)
+		SELECT Job_Description FROM JOB WHERE ID=@JobID 
+	END
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 14/12/2019
+-- Description:	GetAllTrains
+-- =============================================
+CREATE PROCEDURE GetAllTrains	
+	-- Add the parameters for the stored procedure here
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FROM Train
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 13/12/2019
+-- Description:	GetAllAdmins
+-- =============================================
+CREATE PROCEDURE GetAllAdmins
+	-- Add the parameters for the stored procedure here
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT ID, Username FROM [USER] WHERE IsAdmin=1
+END
+GO
+
+USE [RailWaySystemDB]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new driver into the DB
+Create Procedure get_emp_id_userId
+@UserID int
+As
+Begin
+
+	-- Inserting Driver's basic info in the Employee table
+
+	
+	-- Inserting the Driver into the Driver table
+	select EmployeeID from dbo.[USER] where dbo.[USER].ID=@UserID
+End
+Go
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 13/12/2019
+-- Description:	Delete user by id
+-- =============================================
+CREATE PROCEDURE DeleteUser
+	-- Add the parameters for the stored procedure here
+	@ID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	DELETE FROM [USER] WHERE ID=@ID
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE DeleteStation
+	@id int
+AS
+
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    DELETE FROM Station
+	WHERE ID = @id;
+	DELETE FROM Route
+	WHERE Destination_ID = @id;
+
+	
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 13/12/2019
+-- Description:	ChangeUsername
+-- =============================================
+CREATE PROCEDURE ChangeUsername
+	-- Add the parameters for the stored procedure here
+	@ID INT,
+	@Username varchar(20)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	UPDATE [USER] SET Username=@Username WHERE ID=@ID
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 13/12/2019
+-- Description:	Change Password
+-- =============================================
+CREATE PROCEDURE ChangePassword
+	-- Add the parameters for the stored procedure here
+	@ID INT,
+	@OldPassword varchar(20),
+	@NewPassword varchar(20)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	UPDATE [USER] SET PasswordHash=HASHBYTES('SHA2_512', @NewPassword + CAST(Salt AS varchar(36)))
+	WHERE ID=@ID AND PasswordHash=HASHBYTES('SHA2_512', @OldPassword+CAST(Salt AS VARCHAR(36)))
+	
+END
+GO
+
+USE [RailWaySystemDB]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new clerk into the DB
+Create Procedure [dbo].[Cancel_Ticket]
+
+	@Ticket_ID int
+As
+Begin
+
+	
+	-- Inserting into the Trip table
+	Delete from [Ticket] where Ticket.ID=@Ticket_ID
+End
+
+GO
+
+USE [RailWaySystemDB]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new clerk into the DB
+Create Procedure [dbo].[Book_Seat]
+
+	@Class varchar(1), 
+	@Date date,
+	@Price int,
+	@Trip_ID int,
+	@Booking_Clerk_ID int,
+	@Passenger_ID int
+As
+Begin
+
+	
+	-- Inserting into the Trip table
+	insert into [Ticket] values(@Class , @Price ,@Date , @Trip_ID ,@Booking_Clerk_ID,@Passenger_ID )
+End
+
+GO
+
+
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- Create date: 7/12/2019
+-- Description:	Add a new route
+-- =============================================
+CREATE PROCEDURE AddRoute 
+	-- Add the parameters for the stored procedure here
+	@source_id int,
+	@dest_id int,
+	@distance int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    insert into Route values(@source_id, @dest_id, @distance)
+
+	return @@rowcount
+END
+GO
+
+USE [RailWaySystemDB]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Inserting a new clerk into the DB
+Create Procedure [dbo].[Add_Subscription]
+
+	@Fees int,
+	@Class varchar(1),
+	@No_Trips int
+As
+Begin
+	
+	
+	-- Inserting into the Trip table
+	INSERT INTO [Subscription]  values(@Fees,@Class,@No_Trips)
+End
+
+GO
+
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- Create date: 7/12/2019
+-- Description:	Add a new repair yard
+-- =============================================
+CREATE PROCEDURE AddRepairYard
+	-- Add the parameters for the stored procedure here
+	@station_id int,
+	@size int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into Repair_Yard values(@station_id, @size)
+END
+GO
+
+use RailWaySystemDB
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE AddCoachYard
+	@size int,
+	@stid int
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	insert into Coach_Yard (Station_ID, Size)
+	values(@stid, @size)
+END
+GO
