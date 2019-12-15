@@ -73,7 +73,19 @@
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Utils.cs" />
+=======
+    <Compile Include="Trip.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Trips.xaml.cs">
+      <DependentUpon>Trips.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="USER.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+>>>>>>> 9970fe85d9c710438f39d0d324394dfbbbe7ddc8
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
@@ -104,6 +116,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Trains.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Trips.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -57,15 +57,29 @@ namespace RailwaySystem
 
         private void TripButton_Click(object sender, RoutedEventArgs e)
         {
-
+            GoTrips();
         }
-
+        private void TripsTextButton_Click(object sender,RoutedEventArgs e)
+        {
+            GoTrips();
+        }
+        private void GoTrips()
+        {
+            Trips T = new Trips(UserID);
+            T.Show();
+            this.Close();
+        }
         private void TrainsButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
         private void PassengersButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PassengersTextButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
