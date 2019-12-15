@@ -870,7 +870,34 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM Trip
+	SELECT T.Arr_TIme,T.Dept_time,T.ID,T.Type , S.Name,D.Name FROM Trip T, Station S,Station D where T.Source_ID=S.ID and T.Destintaion_ID=D.ID
+END
+GO
+
+
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali Abozied
+-- Create date: 14/12/2019
+-- Description:	get all trips between two stations
+-- =============================================
+CREATE PROCEDURE  GetTripsBet
+	-- Add the parameters for the stored procedure here
+	@Source_ID int,
+    @Destintaion_ID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	 Select T.ID from Trip T, Ticket Ti where Source_ID=@Source_ID and Destintaion_ID=@Destintaion_ID 
 END
 GO
 
