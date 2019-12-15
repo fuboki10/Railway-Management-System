@@ -76,12 +76,16 @@ namespace RailwaySystem
 
         private void PassengersButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Passenger P = new Passenger(UserID);
+            P.Show();
+            this.Close();
         }
 
         private void PassengersTextButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Passenger P = new Passenger(UserID);
+            P.Show();
+            this.Close();
         }
     }
 }

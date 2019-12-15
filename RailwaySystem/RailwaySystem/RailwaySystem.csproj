@@ -65,13 +65,28 @@
     <Compile Include="BookingClerk.xaml.cs">
       <DependentUpon>BookingClerk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BookseatButtons.xaml.cs">
+      <DependentUpon>BookseatButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CancelTicketButton.xaml.cs">
+      <DependentUpon>CancelTicketButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditTicket.xaml.cs">
+      <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Passenger.xaml.cs">
+      <DependentUpon>Passenger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StoredProcedures.cs" />
+    <Compile Include="TicketClass.xaml.cs">
+      <DependentUpon>TicketClass.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
@@ -90,7 +105,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BookseatButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CancelTicketButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +139,14 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Passenger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TicketClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Trains.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
