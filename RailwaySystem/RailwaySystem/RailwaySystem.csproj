@@ -80,6 +80,9 @@
     <Compile Include="Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ManagerDashboard.xaml.cs">
+      <DependentUpon>ManagerDashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Passenger.xaml.cs">
       <DependentUpon>Passenger.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManagerDashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Passenger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -107,6 +107,11 @@ namespace RailwaySystem
                 BookingClerk BookingClerk = new BookingClerk(ID);
                 BookingClerk.Show();
             }
+            else if (Job == "Manager")
+            {
+                ManagerDashboard Manager = new ManagerDashboard(ID);
+                Manager.Show();
+            }
             else
             {
                 /*
