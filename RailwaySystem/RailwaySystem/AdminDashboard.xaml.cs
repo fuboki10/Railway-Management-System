@@ -86,7 +86,7 @@ namespace RailwaySystem
 
         private void EmployeesTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO EMPLOYEES FORM
+            this.GoEmployees();
         }
         private void StationsTextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -110,7 +110,14 @@ namespace RailwaySystem
 
         private void EmployeesButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO EMPLOYEES FORM
+            this.GoEmployees();
+        }
+
+        private void GoEmployees()
+        {
+            Employees EM = new Employees(UserID);
+            EM.Show();
+            this.Close();
         }
 
         private void AddAdminButton_Click(object sender, RoutedEventArgs e)
