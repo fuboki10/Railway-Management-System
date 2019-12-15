@@ -103,9 +103,7 @@ namespace RailwaySystem
         }
         private void BindTripsGrid()
         {
-            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
-            var item = db.GetAllTrains().ToList();
-            TripsDataGrid.ItemsSource = item;
+           // TODO :: ADD BIND TRIPS HERE
         }
     }
 }
