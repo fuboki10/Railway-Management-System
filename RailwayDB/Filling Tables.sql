@@ -929,3 +929,11 @@ EXEC	@return_value = [dbo].[InsertTrain]
 SELECT	'Return Value' = @return_value
 
 GO
+EXEC	[dbo].[InsertUser]
+		@Username = N'Hossam',
+		@Password = N'1234',
+		@EmployeeID = 1,
+		@IsAdmin = 0
+
+USE [RailWaySystemDB]
+GO

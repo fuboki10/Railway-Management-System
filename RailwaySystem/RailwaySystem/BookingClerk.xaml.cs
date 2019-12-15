@@ -47,5 +47,27 @@ namespace RailwaySystem
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage LoginPage = new LoginPage();
+            LoginPage.Show();
+            this.Close();
+        }
+
+        private void TripButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TrainsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PassengersButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

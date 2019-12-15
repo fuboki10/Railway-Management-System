@@ -67,16 +67,56 @@
                 <TextBlock Name="NameTextBox" Text="Employee Name" TextAlignment="center" FontFamily="Roboto"  FontSize="20" Width="256" Height="33" TextWrapping="Wrap" Foreground="#fffafafa" Canvas.Left="0" Canvas.Top="101"  />
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="296" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                <Button x:Name="LogoutButton" Cursor="Hand" Background="{x:Null}" Click="LogoutButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="./Resources/logout.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="22" Canvas.Top="152" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                <Button x:Name="TripButton" Cursor="Hand" Background="{x:Null}" Click="TripButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="./Resources/trip.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                <Button x:Name="TrainsButton" Cursor="Hand" Background="{x:Null}" Click="TrainsButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="./Resources/trainico.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="199" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                <Button x:Name="PassengersButton" Cursor="Hand" Background="{x:Null}" Click="PassengersButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="./Resources/passenger.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Canvas>
         </Canvas>
     </Grid>

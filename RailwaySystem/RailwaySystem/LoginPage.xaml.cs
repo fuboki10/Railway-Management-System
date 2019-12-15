@@ -102,6 +102,11 @@ namespace RailwaySystem
                 AdminDashboard AdminDashboard = new AdminDashboard(ID);
                 AdminDashboard.Show();
             }
+            else if (Job == "Booking Clerk")
+            {
+                BookingClerk BookingClerk = new BookingClerk(ID);
+                BookingClerk.Show();
+            }
             else
             {
                 /*
