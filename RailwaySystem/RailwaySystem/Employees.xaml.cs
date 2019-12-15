@@ -63,5 +63,37 @@ namespace RailwaySystem
         {
             this.Logout();
         }
+
+        private void HomeTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoHome();
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoHome();
+        }
+
+        private void GoHome()
+        {
+            string job = ControllerObj.GetUserJob(UserID);
+            if (job == "Admin")
+            {
+                AdminDashboard AdminDashboard = new AdminDashboard(UserID);
+                AdminDashboard.Show();
+            }
+            else
+            {
+                /*
+                 * TODO
+                 * BOOKING CLERK
+                 * MANAGER 
+                 * STATION MANAGER
+                 */
+                Welcome WelcomeWindow = new Welcome(UserID);
+                WelcomeWindow.Show();
+            }
+            this.Close();
+        }
     }
 }
