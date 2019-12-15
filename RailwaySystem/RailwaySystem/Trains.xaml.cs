@@ -32,12 +32,6 @@ namespace RailwaySystem
             ControllerObj = new Controller();
             InitializeComponent();
             UserID = U;
-            NameTextBox.Text = ControllerObj.GetUsername(UserID);
-
-            BindTrainsGrid();
-            BindTrainsID_ComboBox();
-            BindColorComboBox();
-            BindCoachYard();
         }
 
         private void BindCoachYard()
@@ -76,7 +70,6 @@ namespace RailwaySystem
             var item = db.GetAllTrains().ToList();
             TrainsID_ComboBox.ItemsSource = item;
         }
-
         private void BindTrainsGrid()
         {
             RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
@@ -254,6 +247,15 @@ namespace RailwaySystem
             // Update
             BindTrainsID_ComboBox();
             BindTrainsGrid();
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            BindTrainsGrid();
+            BindTrainsID_ComboBox();
+            BindColorComboBox();
+            BindCoachYard();
+            NameTextBox.Text = ControllerObj.GetUsername(UserID);
         }
     }
 }
