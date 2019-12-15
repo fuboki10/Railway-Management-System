@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace RailwaySystem
 {
@@ -100,10 +102,12 @@ namespace RailwaySystem
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         { 
             NameTextBox.Text = ControllerObj.GetUsername(UserID);
+            BindTripsGrid();
         }
         private void BindTripsGrid()
         {
-           // TODO :: ADD BIND TRIPS HERE
+            DataTable dt = ControllerObj.GetAllTrains();
+            TripsDataGrid.ItemsSource = dt.DefaultView;
         }
     }
 }

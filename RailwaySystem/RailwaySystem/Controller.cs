@@ -85,7 +85,11 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.GetAllTrains;
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
-
+        public DataTable GetAllTrips()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllTrips;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
         public DataTable Login(string UserName, string Password)
         {
             string StoredProcedureName = StoredProcedures.Login;
