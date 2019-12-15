@@ -74,6 +74,18 @@ namespace RailwaySystem
             return 0;
         }
 
+        public DataTable GetCoachYard()
+        {
+            string StoredProcedureName = StoredProcedures.GetCoachYard;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+
+        public DataTable GetAllTrains()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllTrains;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+
         public DataTable Login(string UserName, string Password)
         {
             string StoredProcedureName = StoredProcedures.Login;

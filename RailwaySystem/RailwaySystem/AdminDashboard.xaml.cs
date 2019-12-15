@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -16,6 +17,7 @@ namespace RailwaySystem
     /// <summary>
     /// Interaction logic for AdminDashboard.xaml
     /// </summary>
+    /// 
     public partial class AdminDashboard : Window
     {
         Controller ControllerObj;
@@ -24,26 +26,21 @@ namespace RailwaySystem
         {
             InitializeComponent();
             UserID = U;
+
             ControllerObj = new Controller();
+
             AdminUsername.MaxLength = 20;
             AdminPassword.MaxLength = 8;
             NewUsernameTextbox.MaxLength = 20;
 
-            BindAdminGrid();
-            BindAdminComboBox();
+            BindAdmin();
         }
 
-        private void BindAdminComboBox()
+        private void BindAdmin()
         {
-            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
-            var item = db.GetAllAdmins().ToList();
-            AdminsCombobox.ItemsSource = item;
-        }
-        private void BindAdminGrid()
-        {
-            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
-            var item = db.GetAllAdmins().ToList();
-            AdminsDataGrid.ItemsSource = item;
+            DataTable dt = ControllerObj.GetAllAdmins();
+            AdminsDataGrid.ItemsSource = dt.DefaultView;
+            AdminsCombobox.ItemsSource = dt.DefaultView;
         }
         private void XClicked(object sender, RoutedEventArgs e)
         {
@@ -146,8 +143,7 @@ namespace RailwaySystem
                 }
                 else
                 {
-                    BindAdminGrid();
-                    BindAdminComboBox();
+                    BindAdmin();
                 }
             }
            
@@ -186,8 +182,7 @@ namespace RailwaySystem
             }
             ControllerObj.DeleteUser(id);
             // Update
-            BindAdminComboBox();
-            BindAdminGrid();
+            BindAdmin();
             // Logout if your user is deleted
             if (id == UserID)
             {
@@ -217,8 +212,7 @@ namespace RailwaySystem
             else
             {
                 NameTextBox.Text = username;
-                BindAdminComboBox();
-                BindAdminGrid();
+                BindAdmin();
             }
         }
 

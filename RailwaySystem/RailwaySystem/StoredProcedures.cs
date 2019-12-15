@@ -18,5 +18,7 @@ namespace RailwaySystem
         public static string ChangeUsername = "ChangeUsername";
         public static string ChangePassword = "ChangePassword";
         public static string RemoveTrain = "RemoveTrain";
+        public static string GetCoachYard = "GetCoachYard";
+        public static string GetAllTrains = "GetAllTrains";
     }
 }

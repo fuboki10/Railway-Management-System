@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -18,11 +19,6 @@ namespace RailwaySystem
     /// </summary>
     /// 
 
-    public class Color
-    {
-        public string color { get; set; }     
-    }
-
     public partial class Trains : Window
     {
         private int UserID;
@@ -30,53 +26,44 @@ namespace RailwaySystem
         public Trains(int U)
         {
             ControllerObj = new Controller();
+
             InitializeComponent();
             UserID = U;
         }
 
         private void BindCoachYard()
         {
-            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
-            var item = db.Coach_Yard.ToList();
-            CoachYardComboBox.ItemsSource = item;
+            DataTable dt = ControllerObj.GetCoachYard();
+            CoachYardComboBox.ItemsSource = dt.DefaultView;
         }
 
         private void BindColorComboBox()
         {
-            // List of Colors
-            List<Color> Colors = new List<Color>();
-            
+            List<Utils.Color> colors = new List<Utils.Color>();
             // Available Colors
-            Colors.Add(new Color { color = "Black" });
-            Colors.Add(new Color { color = "White" });
-            Colors.Add(new Color { color = "Red" });
-            Colors.Add(new Color { color = "Green" });
-            Colors.Add(new Color { color = "Blue" });
-            Colors.Add(new Color { color = "Yellow" });
-            Colors.Add(new Color { color = "Orange" });
-            Colors.Add(new Color { color = "Pink" });
-            Colors.Add(new Color { color = "Grey" });
+            colors.Add(new Utils.Color { color = "Black" });
+            colors.Add(new Utils.Color { color = "White" });
+            colors.Add(new Utils.Color { color = "Red" });
+            colors.Add(new Utils.Color { color = "Green" });
+            colors.Add(new Utils.Color { color = "Blue" });
+            colors.Add(new Utils.Color { color = "Yellow" });
+            colors.Add(new Utils.Color { color = "Orange" });
+            colors.Add(new Utils.Color { color = "Pink" });
+            colors.Add(new Utils.Color { color = "Grey" });
 
-            ColorComboBox.ItemsSource = Colors;
+            ColorComboBox.ItemsSource = colors;
             ColorComboBox.DisplayMemberPath = "color";
             ColorComboBox.SelectedValuePath = "color";
 
             ColorComboBox.SelectedIndex = 0;
         }
 
-        private void BindTrainsID_ComboBox()
+        private void BindTrains()
         {
-            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
-            var item = db.GetAllTrains().ToList();
-            TrainsID_ComboBox.ItemsSource = item;
+            DataTable dt = ControllerObj.GetAllTrains();
+            TrainsID_ComboBox.ItemsSource = dt.DefaultView;
+            TrainsDataGrid.ItemsSource = dt.DefaultView;
         }
-        private void BindTrainsGrid()
-        {
-            RailWaySystemDBEntities3 db = new RailWaySystemDBEntities3();
-            var item = db.GetAllTrains().ToList();
-            TrainsDataGrid.ItemsSource = item;
-        }
-
         private void XClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -153,8 +140,7 @@ namespace RailwaySystem
             {
                 ControllerObj.RemoveTrain(id);
                 // Update 
-                BindTrainsID_ComboBox();
-                BindTrainsGrid();
+                BindTrains();
             }
             
         }
@@ -245,14 +231,12 @@ namespace RailwaySystem
             ControllerObj.InsertTrain(model, true, color, No_Seats, No_Cars, date, speed, 0, 0, Coach_Yard_ID, 0);
 
             // Update
-            BindTrainsID_ComboBox();
-            BindTrainsGrid();
+            BindTrains();
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            BindTrainsGrid();
-            BindTrainsID_ComboBox();
+            BindTrains();
             BindColorComboBox();
             BindCoachYard();
             NameTextBox.Text = ControllerObj.GetUsername(UserID);
