@@ -28,6 +28,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM Trip
+	SELECT T.Arr_TIme,T.Dept_time,T.ID,T.Type , S.Name,D.Name FROM Trip T, Station S,Station D where T.Source_ID=S.ID and T.Destintaion_ID=D.ID
 END
 GO

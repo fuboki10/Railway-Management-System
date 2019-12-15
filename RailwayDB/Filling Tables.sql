@@ -937,3 +937,51 @@ EXEC	[dbo].[InsertUser]
 
 USE [RailWaySystemDB]
 GO
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'11/12/2019', 
+	@Arr_Time =N'11/13/2019',
+	@Type=1 , 
+	@Destination_ID= 1,
+	@Source_ID= 2,
+	@Train_ID=1 ,
+	@St_Manager_ID =1
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'11/10/2019', 
+	@Arr_Time =N'11/11/2019',
+	@Type=2 , 
+	@Destination_ID= 5,
+	@Source_ID= 3,
+	@Train_ID=2 ,
+	@St_Manager_ID =1
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'11/15/2019', 
+	@Arr_Time =N'11/15/2019',
+	@Type=1 , 
+	@Destination_ID= 5,
+	@Source_ID= 1,
+	@Train_ID=1 ,
+	@St_Manager_ID =1
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'11/12/2019', 
+	@Arr_Time =N'11/13/2019',
+	@Type=3 , 
+	@Destination_ID= 2,
+	@Source_ID= 4,
+	@Train_ID=3 ,
+	@St_Manager_ID =1
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'11/12/2019', 
+	@Arr_Time =N'11/13/2019',
+	@Type=2 , 
+	@Destination_ID= 3,
+	@Source_ID= 5,
+	@Train_ID=4 ,
+	@St_Manager_ID =1
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'11/12/2019', 
+	@Arr_Time =N'11/13/2019',
+	@Type=1 , 
+	@Destination_ID= 1,
+	@Source_ID= 2,
+	@Train_ID=4 ,
+	@St_Manager_ID =1

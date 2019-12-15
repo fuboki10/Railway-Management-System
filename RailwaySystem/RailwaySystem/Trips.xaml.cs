@@ -106,7 +106,7 @@ namespace RailwaySystem
         }
         private void BindTripsGrid()
         {
-            DataTable dt = ControllerObj.GetAllTrains();
+            DataTable dt = ControllerObj.GetAllTrips();
             TripsDataGrid.ItemsSource = dt.DefaultView;
         }
     }
