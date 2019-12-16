@@ -104,5 +104,20 @@ namespace RailwaySystem
             }
             this.Close();
         }
+
+        private void StatisticsTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoStatistics();
+        }
+
+        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoStatistics();
+        }
+
+        private void GoStatistics()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

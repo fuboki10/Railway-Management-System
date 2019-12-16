@@ -33,6 +33,8 @@ BEGIN
     -- Insert statements for procedure here
 	UPDATE [USER] SET PasswordHash=HASHBYTES('SHA2_512', @NewPassword + CAST(Salt AS varchar(36)))
 	WHERE ID=@ID AND PasswordHash=HASHBYTES('SHA2_512', @OldPassword+CAST(Salt AS VARCHAR(36)))
+
+	RETURN @@ROWCOUNT
 	
 END
 GO

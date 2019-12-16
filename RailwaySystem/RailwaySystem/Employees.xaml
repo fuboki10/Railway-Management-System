@@ -50,13 +50,11 @@
                     <Button Name="HomeTextButton" Content="Home" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="HomeTextButton_Click"  />
                 </Canvas>
                 <Canvas  Width="74" Height="19" Margin="0,46,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <TextBlock  Text="Passengers" TextAlignment="left" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0"  />
+                    <Button Name="StatisticsTextButton" Background="{x:Null}" BorderBrush="{x:Null}" Content="Statistics" Cursor="Hand" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="StatisticsTextButton_Click"  />
                 </Canvas>
-                <Canvas  Width="39" Height="19" Margin="0,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <TextBlock  Text="Trains" TextAlignment="left" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0"  />
-                </Canvas>
+                <Canvas  Width="39" Height="19" Margin="0,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="LogoutTextButton"  Content="Logout" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="LogoutTextButton_Click"  />
+                    <Button x:Name="LogoutTextButton"  Content="Logout" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="-53" Click="LogoutTextButton_Click"  />
                 </Canvas>
             </Grid>
             <Canvas  Width="256" Height="144" Canvas.Left="0" Canvas.Top="0" >
@@ -65,7 +63,7 @@
                 <TextBlock Name="NameTextBox" Text="Employee Name" TextAlignment="center" FontFamily="Roboto"  FontSize="20" Width="256" Height="33" TextWrapping="Wrap" Foreground="#fffafafa" Canvas.Left="0" Canvas.Top="101"  />
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="296" >
-                <Button Name="LogoutButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="LogoutButton_Click">
+                <Button Name="LogoutButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="LogoutButton_Click" Canvas.Top="-53">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="24" Height="24">
@@ -90,11 +88,19 @@
                     </Button.Template>
                 </Button>
             </Canvas>
-            <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
-            </Canvas>
+            <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" />
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="199" >
-                <Border  Width="24" Height="24" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                <Button Name="StatisticsButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="StatisticsButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="Resources\statistics.png"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Canvas>
         </Canvas>
         <DataGrid x:Name="EmployeesDataGrid" HorizontalAlignment="Left" Margin="261,276,0,0" VerticalAlignment="Top" 
