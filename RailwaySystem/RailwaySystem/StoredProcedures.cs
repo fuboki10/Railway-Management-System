@@ -22,5 +22,7 @@ namespace RailwaySystem
         public static string GetAllTrains = "GetAllTrains";
         public static string GetAllTrips = "GetAllTrips";
         public static string GetAllEmps = "getAllEmps";
+        public static string ChangePhone = "ChangeEmpPhone";
+        public static string ChangeEmail = "ChangeEmpEmail";
     }
 }

@@ -8,8 +8,9 @@ using System.Data;
 namespace RailwaySystem
 {
     public class DBManager
+
     {
-        static string DB_Connection_String = @"Data Source=.\SQLEXPRESS;Initial Catalog=RailWaySystemDB;Integrated Security=True";
+        static string DB_Connection_String = @"Data Source=DESKTOP-VO93QL6\LIDO22;Initial Catalog=RailWaySystemDB;Integrated Security=True";
         SqlConnection myConnection;
 
     public DBManager()

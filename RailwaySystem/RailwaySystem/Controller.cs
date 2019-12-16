@@ -139,6 +139,25 @@ namespace RailwaySystem
             Parameters.Add("@Username", Username);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public int ChangePhone(int ID, int phone, int code)
+        {
+            string StoredProcedureName = StoredProcedures.ChangePhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@code", code);
+            Parameters.Add("@id", ID);
+            Parameters.Add("@phone", phone);
+
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int ChangeEmail(int ID, string email)
+        {
+            string StoredProcedureName = StoredProcedures.ChangeEmail;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            Parameters.Add("@email", email);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public int ChangePassword(int ID, string OldPassword, string NewPassword)
         {
             string StoredProcedureName = StoredProcedures.ChangePassword;

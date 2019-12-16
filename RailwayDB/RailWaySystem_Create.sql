@@ -1298,3 +1298,52 @@ BEGIN
 	SELECT * FROM Coach_Yard
 END
 GO
+
+USE [RailWaySystemDB]
+GO
+/****** Object:  StoredProcedure [dbo].[ChangePhone]    Script Date: 12/15/2019 6:03:05 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+Create PROCEDURE [dbo].[ChangeEmpPhone]
+	@code int,
+	@id int,
+	@phone int
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+    
+	update Employee_Phone
+	set Code = @code, Number = @phone
+	where Employee_ID = @id;
+END
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+
+CREATE PROCEDURE ChangeEmpEmail
+	@id int,
+	@email varchar(50)
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Update Employee_Contact
+	set Email = @email
+	where Employee_ID =@id
+END
+GO

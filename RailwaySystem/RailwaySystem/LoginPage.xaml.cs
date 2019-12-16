@@ -112,14 +112,14 @@ namespace RailwaySystem
                 ManagerDashboard Manager = new ManagerDashboard(ID);
                 Manager.Show();
             }
+            else if(Job =="Station Manager")
+            {
+                StManagerDashboard stManager = new StManagerDashboard(ID);
+                stManager.Show();
+            }
             else
             {
-                /*
-                 * TODO
-                 * BOOKING CLERK
-                 * MANAGER 
-                 * STATION MANAGER
-                 */
+                
                 Welcome WelcomeWindow = new Welcome(ID);
                 WelcomeWindow.Show();
             }
