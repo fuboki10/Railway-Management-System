@@ -28,6 +28,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM Train
+	SELECT ID AS 'ID', Model, [Status], Color, No_Seats, Speed,
+	No_Cars, CAST([Date] AS varchar(10)) AS 'Date', Driver_ID, Repair_Yard_ID, Coach_Yard_ID, BoughtByID FROM Train
 END
 GO

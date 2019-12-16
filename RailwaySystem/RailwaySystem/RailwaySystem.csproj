@@ -89,15 +89,8 @@
     <Compile Include="BookingClerk\Passenger\Passenger.xaml.cs">
       <DependentUpon>Passenger.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="BookingClerk\Ticket\Ticket.xaml.cs">
-	</Compile>
-    <Compile Include="RailWaySystemDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RailWaySystemDBDataSet.xsd</DependentUpon>
     </Compile>
-
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
     </Compile>
@@ -217,17 +210,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="RailWaySystemDBDataSet.xsc">
-      <DependentUpon>RailWaySystemDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RailWaySystemDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RailWaySystemDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RailWaySystemDBDataSet.xss">
-      <DependentUpon>RailWaySystemDBDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
