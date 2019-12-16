@@ -24,5 +24,6 @@ namespace RailwaySystem
         public static string GetAllEmps = "getAllEmps";
         public static string ChangePhone = "ChangeEmpPhone";
         public static string ChangeEmail = "ChangeEmpEmail";
+        public static string GetEcontacts = "GetEcontact";
     }
 }

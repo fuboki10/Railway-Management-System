@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -27,6 +28,9 @@ namespace RailwaySystem
             controllerobj = new Controller();
             userid = id;
             NameTextBox.Text = controllerobj.GetUsername(id);           // Display the username once the Form is opened
+
+            DataTable dt = controllerobj.GetPhoneNumbers(id);
+            contacts.ItemsSource = dt.DefaultView;
         }
 
 
@@ -113,5 +117,7 @@ namespace RailwaySystem
             ChangePassword change = new ChangePassword(userid);
             change.Show();
         }
+
+     
     }
 }

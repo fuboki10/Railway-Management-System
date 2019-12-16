@@ -1,7 +1,7 @@
 USE [RailWaySystemDB]
 GO
 
-/****** Object:  StoredProcedure [dbo].[GetEcontact]    Script Date: 16/12/2019 18:48:23 ******/
+/****** Object:  StoredProcedure [dbo].[Insert_Emp_Phone]    Script Date: 16/12/2019 19:08:44 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,8 +11,10 @@ GO
 -- =============================================
 -- Author:		Mohamed Abobakr
 -- =============================================
-CREATE PROCEDURE [dbo].[GetEcontact]
-	@id int
+CREATE PROCEDURE [dbo].[Insert_Emp_Phone]
+	@id int,
+	@phone varchar(50),
+	@code varchar(50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -20,8 +22,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT Email, (Street+', ' + State+ ', ' + City) as address from Employee_Contact where Employee_ID = @id
-	select (Code + number) as Phone_numbers from Employee_Phone where Employee_ID = @id
+	insert into Employee_Phone values (@id, @code, @phone)
+	return @@rowcount
 END
 
 GO

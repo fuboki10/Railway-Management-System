@@ -186,6 +186,6 @@
             </Button.Resources>
         </Button>
         <GroupBox Header="Contact" HorizontalAlignment="Left" Height="233" Margin="304,314,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
-        <DataGrid HorizontalAlignment="Left" Height="199" Margin="739,335,0,0" VerticalAlignment="Top" Width="311"/>
+        <DataGrid x:Name="contacts" HorizontalAlignment="Left" Height="199" Margin="739,335,0,0" VerticalAlignment="Top" Width="311" />
     </Grid>
 </Window>

@@ -167,5 +167,13 @@ namespace RailwaySystem
             Parameters.Add("@NewPassword", NewPassword);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
+        public DataTable GetPhoneNumbers(int id)
+        {
+            string StoredProcedureName = StoredProcedures.GetEcontacts;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("id", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
     }
 }
