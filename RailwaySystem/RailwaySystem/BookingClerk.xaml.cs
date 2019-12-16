@@ -87,5 +87,19 @@ namespace RailwaySystem
             P.Show();
             this.Close();
         }
+
+        private void TicketTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            Ticket T = new Ticket(UserID);
+            T.Show();
+            this.Close();
+        }
+
+        private void TicketButton_Click(object sender, RoutedEventArgs e)
+        {
+            Ticket T = new Ticket(UserID);
+            T.Show();
+            this.Close();
+        }
     }
 }

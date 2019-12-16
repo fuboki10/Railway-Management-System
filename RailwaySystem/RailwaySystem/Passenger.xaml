@@ -106,32 +106,6 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <Button x:Name="BookSeatButton" Cursor="Hand"  Content="Book Seat" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" 
-                Click="BookSeatButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="CancelTicktButton" Content="Cancel Ticket" HorizontalAlignment="Left" Margin="600,165,0,0" VerticalAlignment="Top"
-                Click="CancelTicktButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="-0.037,0.696" Height="37">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="EditTicktButton" Content="Edit Ticket" HorizontalAlignment="Left" Margin="900,165,0,0" 
-                 Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Click="EditTicktButton_Click" VerticalAlignment="Top" Width="175" Height="37" RenderTransformOrigin="0.776,0.541">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,228,0,0"  VerticalAlignment="Top" Width="900">
-        </Grid>
     </Grid>
-    
+
 </Window>

@@ -16,11 +16,11 @@ namespace RailwaySystem
     /// <summary>
     /// Interaction logic for Passenger.xaml
     /// </summary>
-    public partial class Passenger : Window
+    public partial class Ticket : Window
     {
         Controller ControllerObj;
         private int UserID;
-        public Passenger(int U)
+        public Ticket(int U)
         {
             InitializeComponent();
             UserID = U;
@@ -94,7 +94,26 @@ namespace RailwaySystem
             }
             this.Close();
         }
-        
-        
+        private void BookSeatButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.newButtons.Children.Clear();
+            BookseatButtons b = new BookseatButtons();
+            this.newButtons.Children.Add(b);
+        }
+
+       
+        private void CancelTicktButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.newButtons.Children.Clear();
+            CancelTicketButton c = new CancelTicketButton();
+            this.newButtons.Children.Add(c);
+        }
+
+        private void EditTicktButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.newButtons.Children.Clear();
+            EditTicket E = new EditTicket();
+            this.newButtons.Children.Add(E);
+        }
     }
 }
