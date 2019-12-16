@@ -10,7 +10,6 @@ CREATE PROCEDURE InsertEmp
 
 	@fname varchar(50),
 	@lname varchar(50),
-	@age int,
 	@bd date,
 	@salary int,
 	@working_hours int,
@@ -24,7 +23,7 @@ BEGIN
 
     -- Inserting the employee into Employee table
 	Insert into Employee 
-	values (@fname, @lname, @age, @bd, @salary, @working_hours,@jobid, @station_id);
+	values (@fname, @lname, @bd, @salary, @working_hours,@jobid, @station_id);
 
 	-- Returning the id of the inserted employee
 	return @@identity

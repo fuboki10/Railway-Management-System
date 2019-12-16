@@ -6,7 +6,6 @@ GO
 EXEC	@return_value = [dbo].[InsertManager]
 		@fname = N'Ihab',
 		@lname = N'Talkhan',
-		@age = 57,
 		@bd = '2-23-1962',
 		@salary = 80000,
 		@working_hours = 35,
@@ -108,7 +107,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Hossam',
 		@lname = 'Alaa',
-		@age = 28,
 		@bd = '1-21-1991',
 		@salary = 29000,
 		@working_hours = 30,
@@ -127,7 +125,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Gomaa',
-		@age = 27,
 		@bd = '9-7-1992',
 		@salary = 29000,
 		@working_hours = 30,
@@ -146,7 +143,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Hamdy',
 		@lname = 'Ismael',
-		@age = 45,
 		@bd = '05-05-1975',
 		@salary = 30000,
 		@working_hours = 30,
@@ -164,7 +160,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ihab',
 		@lname = 'Sayed',
-		@age = 40,
 		@bd = '11-9-1979',
 		@salary = 4000,
 		@working_hours = 40
@@ -183,7 +178,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Tamer',
 		@lname = 'Zaghlol',
-		@age = 43,
 		@bd = '5-3-1976',
 		@salary = 4000,
 		@working_hours = 40
@@ -202,7 +196,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Yasser',
 		@lname = 'Farag',
-		@age = 46,
 		@bd = '9-17-1973',
 		@salary = 4000,
 		@working_hours = 40
@@ -221,7 +214,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Boraie', 
 		@lname = 'Elsayed',
-		@age = 49,
 		@bd = '1-17-1970',
 		@salary = 4000,
 		@working_hours = 40
@@ -240,7 +232,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Arafat',
-		@age = 47,
 		@bd = '1-29-1972',
 		@salary = 4000,
 		@working_hours = 40
@@ -262,7 +253,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Kaled',  
 		@lname = 'Sorady',
-		@age = 45,
 		@bd = '5-21-1974',
 		@salary = 60000,
 		@working_hours = 35,
@@ -281,7 +271,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Alaa',
 		@lname = 'Korany',
-		@age = 50,
 		@bd = '3-2-1969',
 		@salary = 60000,
 		@working_hours = 35,
@@ -300,7 +289,6 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Hassan',
 		@lname = 'Mohamed',
-		@age = 49,
 		@bd = '7-30-1970',
 		@salary = 60000,
 		@working_hours = 35,

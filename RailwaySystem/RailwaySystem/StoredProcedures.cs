@@ -21,5 +21,6 @@ namespace RailwaySystem
         public static string GetCoachYard = "GetCoachYard";
         public static string GetAllTrains = "GetAllTrains";
         public static string GetAllTrips = "GetAllTrips";
+        public static string GetAllEmps = "getAllEmps";
     }
 }

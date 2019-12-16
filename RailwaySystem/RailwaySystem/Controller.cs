@@ -17,7 +17,13 @@ namespace RailwaySystem
         public void TerminateConnection()
         {
             dbMan.CloseConnection();
-        }   
+        }
+
+        public DataTable GetAllEmployees()
+        {
+            string StoredProceureName = StoredProcedures.GetAllEmps;
+            return dbMan.ExecuteReader(StoredProceureName, null);
+        }
 
         public int InsertTrain(string Model, bool Status, string Color, int No_Seats,
             int No_Cars, string Date, int Speed, int Driver_ID, int Repair_Yard_ID, int Coach_Yard_ID, int BoughtByID)

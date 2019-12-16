@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -25,6 +26,7 @@ namespace RailwaySystem
             InitializeComponent();
             UserID = U;
             ControllerObj = new Controller();
+
         }
 
         private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -45,6 +47,13 @@ namespace RailwaySystem
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
             NameTextBox.Text = ControllerObj.GetUsername(UserID);
+            BindEmployeesDataGrid();
+        }
+
+        private void BindEmployeesDataGrid()
+        {
+            DataTable dt = ControllerObj.GetAllEmployees();
+            EmployeesDataGrid.ItemsSource = dt.DefaultView;
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
