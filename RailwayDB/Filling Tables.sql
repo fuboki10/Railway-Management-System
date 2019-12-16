@@ -926,48 +926,48 @@ EXEC	[dbo].[InsertUser]
 USE [RailWaySystemDB]
 GO
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 8:15:09 PM', 
+	@Arr_Time =N'11/13/2019 2:15:09 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,
-	@Train_ID=1 ,
+	@Train_ID = 1 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/10/2019', 
-	@Arr_Time =N'11/11/2019',
+	@Dept_Time =N'11/10/2019 9:00:09 PM', 
+	@Arr_Time =N'11/11/2019 3:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 5,
 	@Source_ID= 3,
 	@Train_ID=2 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/15/2019', 
-	@Arr_Time =N'11/15/2019',
+	@Dept_Time =N'11/15/2019 5:00:09 PM', 
+	@Arr_Time =N'11/15/2019 9:00:09 PM',
 	@Type=1 , 
 	@Destination_ID= 5,
 	@Source_ID= 1,
 	@Train_ID=1 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 8:30:09 PM', 
+	@Arr_Time =N'11/13/2019 2:45:09 AM',
 	@Type=3 , 
 	@Destination_ID= 2,
 	@Source_ID= 4,
 	@Train_ID=3 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 11:00:09 PM', 
+	@Arr_Time =N'11/13/2019 5:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 3,
 	@Source_ID= 5,
 	@Train_ID=4 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 11:30 PM', 
+	@Arr_Time =N'11/13/2019 4:00 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,

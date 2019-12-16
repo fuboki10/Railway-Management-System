@@ -871,7 +871,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT T.Arr_TIme,T.Dept_time,T.ID,T.Type , S.Name,D.Name FROM Trip T, Station S,Station D where T.Source_ID=S.ID and T.Destintaion_ID=D.ID
+	SELECT T.Arr_TIme ,T.Dept_time ,T.ID  trip_id,T.Type  "Class" , S.Name  "From" ,D.Name  "TO",TR.Model  "Train Model"
+	  FROM Trip T, Station S,Station D,Train TR where T.Source_ID=S.ID and T.Destintaion_ID=D.ID and T.Train_ID=TR.ID
 END
 GO
 
