@@ -185,7 +185,10 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <GroupBox Header="Contact" HorizontalAlignment="Left" Height="233" Margin="304,314,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
-        <DataGrid x:Name="contacts" HorizontalAlignment="Left" Height="199" Margin="739,335,0,0" VerticalAlignment="Top" Width="311" />
+        <GroupBox Header="Contact" HorizontalAlignment="Left" Height="419" Margin="304,314,0,0" VerticalAlignment="Top" Width="860" BorderBrush="#FF080226"/>
+        <DataGrid x:Name="Address" HorizontalAlignment="Left" Height="47" Margin="825,352,0,0" VerticalAlignment="Top" Width="311" />
+        <DataGrid x:Name="Phones" HorizontalAlignment="Left" Height="200" Margin="825,510,0,0" VerticalAlignment="Top" Width="311" />
+        <GroupBox Header="Addresses" HorizontalAlignment="Left" Height="88" Margin="803,333,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
+        <GroupBox Header="Phone Numbers" HorizontalAlignment="Left" Height="225" Margin="803,490,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
     </Grid>
 </Window>

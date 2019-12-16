@@ -125,8 +125,8 @@ CREATE TABLE [Employee_Contact] (
 GO
 CREATE TABLE [Employee_Phone] (
 	Employee_ID integer NOT NULL,
-	Code integer NOT NULL,
-	Number integer NOT NULL,
+	Code varchar(10) NOT NULL,
+	Number varchar(15) NOT NULL,
 	foreign key(Employee_ID) references Employee(ID) on delete cascade on update cascade,
   CONSTRAINT [PK_EMPLOYEE_PHONE] PRIMARY KEY CLUSTERED
   (
@@ -1346,5 +1346,118 @@ BEGIN
 	Update Employee_Contact
 	set Email = @email
 	where Employee_ID =@id
+END
+GO
+-- ==============================================
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetEcontact]    Script Date: 16/12/2019 19:26:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE [dbo].[GetEphones]
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select (Code + number) as Phone_numbers from Employee_Phone where Employee_ID = @id
+END
+GO
+--=============================================
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetEcontact]    Script Date: 16/12/2019 19:26:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE [dbo].[GetEAddress]
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT Email, (Street+', ' + State+ ', ' + City) as address from Employee_Contact where Employee_ID = @id
+	
+END
+GO
+-- ==================================================
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetUsercontact]    Script Date: 16/12/2019 19:59:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE [dbo].[GetUserPhones]
+	-- Add the parameters for the stored procedure here
+	@userid int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	declare @id int = (SELECT EmployeeID from dbo.[USER] where ID = @userid)
+    -- Insert statements for procedure here
+	exec [dbo].[GetEphones] @id = @id
+
+END
+GO
+-- ============================================
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetUsercontact]    Script Date: 16/12/2019 19:59:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE [dbo].[GetUserAddress]
+	-- Add the parameters for the stored procedure here
+	@userid int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	declare @id int = (SELECT EmployeeID from dbo.[USER] where ID = @userid)
+    -- Insert statements for procedure here
+	exec [dbo].[GetEAddress] @id = @id
+
 END
 GO

@@ -29,8 +29,10 @@ namespace RailwaySystem
             userid = id;
             NameTextBox.Text = controllerobj.GetUsername(id);           // Display the username once the Form is opened
 
-            DataTable dt = controllerobj.GetPhoneNumbers(id);
-            contacts.ItemsSource = dt.DefaultView;
+            DataTable dt = controllerobj.GetUserAdress(id);
+            Address.ItemsSource = dt.DefaultView;
+            dt = controllerobj.GetUserPhones(id);
+            Phones.ItemsSource = dt.DefaultView;
         }
 
 

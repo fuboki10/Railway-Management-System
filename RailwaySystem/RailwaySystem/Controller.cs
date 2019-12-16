@@ -168,12 +168,34 @@ namespace RailwaySystem
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
 
-        public DataTable GetPhoneNumbers(int id)
+        public DataTable GetUserAdress(int id)
         {
-            string StoredProcedureName = StoredProcedures.GetEcontacts;
+            string StoredProcedureName = StoredProcedures.GetUserAdress;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("id", id);
+            Parameters.Add("@userid", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public DataTable GetUserPhones(int id)
+        {
+            string StoredProcedureName = StoredProcedures.GetUserPhones;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@userid", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public DataTable GetEAdress(int id)
+        {
+            string StoredProcedureName = StoredProcedures.GetEAddress;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public DataTable GetEPhones(int id)
+        {
+            string StoredProcedureName = StoredProcedures.GetEphones;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
     }
+
 }
