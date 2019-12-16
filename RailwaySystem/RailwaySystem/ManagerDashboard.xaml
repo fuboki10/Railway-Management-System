@@ -167,5 +167,28 @@
                 </Button>
             </Canvas>
         </Canvas>
+        <GroupBox Header="Account" HorizontalAlignment="Left" Margin="303,121,0,0" VerticalAlignment="Top" Height="127" Width="769" BorderBrush="#FF080226">
+            <TextBox x:Name="NewUsernameTextbox" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Margin="178,41,0,0"/>
+        </GroupBox>
+        <Label Content="New Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,176,0,0" Height="23"/>
+        <Button x:Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="647,180,0,0" Click="ChangeUsernameButton_Click" Height="19" Content="Change Username" BorderBrush="#FF080226">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="875,179,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <GroupBox Header="Contact" HorizontalAlignment="Left" Height="419" Margin="304,314,0,0" VerticalAlignment="Top" Width="860" BorderBrush="#FF080226"/>
+        <DataGrid x:Name="Address" HorizontalAlignment="Left" Height="47" Margin="825,352,0,0" VerticalAlignment="Top" Width="311" />
+        <DataGrid x:Name="Phones" HorizontalAlignment="Left" Height="200" Margin="825,510,0,0" VerticalAlignment="Top" Width="311" />
+        <GroupBox Header="Addresses" HorizontalAlignment="Left" Height="88" Margin="803,333,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
+        <GroupBox Header="Phone Numbers" HorizontalAlignment="Left" Height="225" Margin="803,490,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
     </Grid>
 </Window>

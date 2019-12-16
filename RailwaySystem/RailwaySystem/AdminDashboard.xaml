@@ -118,7 +118,7 @@
                   AutoGenerateColumns="True" IsReadOnly="True" Background="LightGray" RowBackground="White" AlternatingRowBackground="LightGray"                    
                   BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
                   CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
-                  ItemsSource="{Binding}"/>
+                  ItemsSource="{Binding}" SelectionChanged="AdminsDataGrid_SelectionChanged"/>
         <TextBox x:Name="AdminUsername" HorizontalAlignment="Left" Height="23" Margin="413,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" KeyDown="AdminUsername_KeyDown"/>
         <PasswordBox x:Name="AdminPassword" HorizontalAlignment="Left" Margin="716,141,0,0" VerticalAlignment="Top" Width="139" Height="23" KeyDown="AdminPassword_KeyDown"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="335,137,0,0" VerticalAlignment="Top" Height="27"/>

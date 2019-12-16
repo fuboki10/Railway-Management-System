@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -27,6 +28,11 @@ namespace RailwaySystem
             controllerobj = new Controller();
             userid = id;
             NameTextBox.Text = controllerobj.GetUsername(id);           // Display the username once the Form is opened
+
+            DataTable dt = controllerobj.GetUserAdress(id);
+            Address.ItemsSource = dt.DefaultView;
+            dt = controllerobj.GetUserPhones(id);
+            Phones.ItemsSource = dt.DefaultView;
         }
 
 
@@ -42,7 +48,9 @@ namespace RailwaySystem
 
         private void Employee_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Employees emp = new Employees(userid);
+            emp.Show();
+            this.Close();
         }
 
         private void Passenger_Click(object sender, RoutedEventArgs e)
@@ -57,12 +65,16 @@ namespace RailwaySystem
 
         private void Trains_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Trains TW = new Trains(userid);
+            TW.Show();
+            this.Close();
         }
 
         private void Trips_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Trips t = new Trips(userid);
+            t.Show();
+            this.Close();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -79,5 +91,35 @@ namespace RailwaySystem
         {
             this.DragMove();
         }
+
+        private void ChangeUsernameButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewUsernameTextbox.Text == "")
+            {
+                MessageBox.Show("Please enter a valid username");
+                return;
+            }
+
+            int res = 0;
+            res = controllerobj.ChangeUsername(userid, NewUsernameTextbox.Text);
+            if (res == 0)
+            {
+                MessageBox.Show("Something went wrong, this username may be already taken");
+               
+            }
+            else
+            {
+                MessageBox.Show("The username was changed Successfully!");
+            }
+
+        }
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePassword change = new ChangePassword(userid);
+            change.Show();
+        }
+
+     
     }
 }

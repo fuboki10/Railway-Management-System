@@ -235,5 +235,10 @@ namespace RailwaySystem
         {
             this.ChangeUsername();
         }
+
+        private void AdminsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

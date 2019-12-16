@@ -30,6 +30,8 @@ BEGIN
     -- Insert statements for procedure here
 	Update Employee_Contact
 	set Email = @email
-	where Employee_ID =@id
+	where  Employee_ID = (select EmployeeID
+	from [USER]
+	where ID = @id);
 END
 GO
