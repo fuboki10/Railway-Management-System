@@ -1,0 +1,122 @@
+﻿<Window  x:Class="RailwaySystem.Passenger"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Passenger" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Passenger.png"
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1" >
+    <Grid x:Name="Main" Uid="Trips"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
+        <Canvas  Width="1200" Height="64" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Path x:Name="___No_Name_"  Width="1200" Height="64" Stretch="uniform" Data="M 1280 0 L 0 0 L 0 64 L 1280 64 L 1280 0 Z" Fill="#ffd7d7d7" Canvas.Left="0" Canvas.Top="0"  />
+            <Canvas  Width="24" Height="24" Canvas.Left="1153" Canvas.Top="22" >
+                <Canvas  Width="17" Height="17" Canvas.Left="3" Canvas.Top="3" >
+                    <Canvas  Width="17" Height="17" Canvas.Left="0" Canvas.Top="0" >
+                        <Path  Width="17" Height="17" Stretch="uniform" Data="M 15.5 14 L 14.69999980926514 14 L 14.39999961853027 13.69999980926514 C 15.39999961853027 12.59999942779541 16 11.10000038146973 16 9.5 C 16 5.900000095367432 13.10000038146973 3 9.5 3 C 5.899999618530273 3 3 5.900000095367432 3 9.5 C 3 13.10000038146973 5.900000095367432 16 9.5 16 C 11.10000038146973 16 12.60000038146973 15.39999961853027 13.69999980926514 14.39999961853027 L 14 14.69999980926514 L 14 15.5 L 19 20.5 L 20.5 19 L 15.5 14 Z M 9.5 14 C 7 14 5 12 5 9.5 C 5 7 7 5 9.5 5 C 12 5 14 7 14 9.5 C 14 12 12 14 9.5 14 Z" Fill="#ff000000" Stroke="#ff95989a" Canvas.Left="0" Canvas.Top="0"  />
+                    </Canvas>
+                </Canvas>
+                <Border  Width="24" Height="24" BorderBrush="#ff95989a" Canvas.Left="0" Canvas.Top="0"  />
+            </Canvas>
+        </Canvas>
+        <Canvas  Width="1200" Height="32" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="Canvas_MouseDown_1">
+            <Border  Width="1200" Height="32" Background="#ff040000" Canvas.Left="0" Canvas.Top="0"  />
+            <Border  Width="113" Height="32" Canvas.Left="1086" Canvas.Top="0"  />
+            <Button Content="" Canvas.Left="1174" Width="26" Height="32" x:Name="X" Click="XClicked" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Width="12" Height="12">
+                            <Image.Source>
+                                <BitmapImage UriSource="/Resources/close.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Name="MinimizeButton" Width="26" Height="32" Background="{x:Null}" Canvas.Left="1143" Click="MinimizeButton_Click" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Width="12" Height="12">
+                            <Image.Source>
+                                <BitmapImage UriSource="/Resources/minimize.png"></BitmapImage>
+                            </Image.Source>
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Canvas>
+        <Canvas  Width="256" Height="768" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border  Width="256" Height="768" Background="#fffafafa" Canvas.Left="0" Canvas.Top="0"  />
+            <Border  Width="256" Height="768" Background="#fffafafa" Canvas.Left="0" Canvas.Top="0"  />
+            <Grid  Uid="sideNav_Text"  Width="76" Height="170" Canvas.Left="80" Canvas.Top="160"  ClipToBounds="True">
+                <Canvas  Width="24" Height="19" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button x:Name="HomeTextButton" Content="Home" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}"
+                            Cursor="Hand" Click="HomeTextButton_Click"/>
+                </Canvas>
+                <Canvas  Width="74" Height="19" Margin="0,46,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button x:Name="StatisticsTextButton" Content="Statistics" Cursor="Hand" FontFamily="Roboto" Background="{x:Null}" 
+                            BorderBrush="{x:Null}" FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="StatisticsTextButton_Click"  />
+                </Canvas>
+                <Canvas  Width="39" Height="19" Margin="0,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Name="LogoutTextButton" Content="Logout" Cursor="Hand" FontFamily="Roboto" FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="-56" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutButton_Click"  />
+                </Canvas>
+            </Grid>
+            <Canvas  Width="256" Height="144" Canvas.Left="0" Canvas.Top="0" >
+                <Border  Width="256" Height="144" Background="#ff080226" Canvas.Left="0" Canvas.Top="0"  />
+                <Ellipse  Width="56" Height="56" Fill="#fff9f2f2" Canvas.Left="24" Canvas.Top="24"  />
+                <TextBlock x:Name="NameTextBox" Text="Employee Name" TextAlignment="center" FontFamily="Roboto"  FontSize="20" Width="256" Height="33" TextWrapping="Wrap" Foreground="#fffafafa" Canvas.Left="0" Canvas.Top="101"  />
+            </Canvas>
+            <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="296" >
+                <Button x:Name="LogoutButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="LogoutButton_Click" Canvas.Top="-52">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Resources/Logout.png" />
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Canvas>
+            <Canvas  Width="24" Height="24" Canvas.Left="22" Canvas.Top="152" >
+                <Button Name="HomeButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="HomeButton_Click" Canvas.Top="4" >
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Resources/home.png"/>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Canvas>
+            <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" />
+            <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="199" >
+                <Button Name="StatisticsButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="StatisticsButton_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Resources/statistics.png" />
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Canvas>
+        </Canvas>
+        <Button x:Name="AddPassengerButton" Cursor="Hand"  Content="Add Passenger" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" 
+                Click="AddPassengerButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,228,0,0"  VerticalAlignment="Top" Width="900">
+            
+        </Grid>
+    </Grid>
+
+</Window>

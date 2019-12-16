@@ -56,6 +56,11 @@ namespace RailwaySystem
                 BookingClerk BookingClerk = new BookingClerk(UserID);
                 BookingClerk.Show();
             }
+            else if (job == "Station Manager")
+            {
+                StManagerDashboard stManager = new StManagerDashboard(UserID);
+                stManager.Show();
+            }
             else
             {
                 /*

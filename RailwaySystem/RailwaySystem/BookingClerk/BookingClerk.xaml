@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="RailwaySystem.BookingClerk"
         Title="Dashboard" Height="800" Width="1200"
-        WindowStartupLocation="CenterScreen" Icon="train_icon.ico"
+        WindowStartupLocation="CenterScreen" 
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1">
 
     <Grid Uid="Dashboard"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
@@ -26,7 +26,7 @@
                     <ControlTemplate>
                         <Image Width="12" Height="12">
                             <Image.Source>
-                                <BitmapImage UriSource="Resources\close.png"></BitmapImage>
+                                <BitmapImage UriSource="/Resources/close.png"></BitmapImage>
                             </Image.Source>
                         </Image>
                     </ControlTemplate>
@@ -37,7 +37,7 @@
                     <ControlTemplate>
                         <Image Width="12" Height="12">
                             <Image.Source>
-                                <BitmapImage UriSource="Resources\minimize.png"></BitmapImage>
+                                <BitmapImage UriSource="/Resources/minimize.png"></BitmapImage>
                             </Image.Source>
                         </Image>
                     </ControlTemplate>
@@ -55,7 +55,7 @@
                     <Button x:Name="PassengersTextButton" Content="Passengers" FontFamily="Roboto"  FontSize="14" Foreground="#FF000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="PassengersButton_Click" Cursor="Hand" />
                 </Canvas>
                 <Canvas  Width="39" Height="19" Margin="0,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="TrainsTextButton" Content="Trains" FontFamily="Roboto"  FontSize="14" Foreground="#FF000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="TrainsButton_Click" Cursor="Hand" />
+                    <Button x:Name="TicketTextButton" Content="Ticket" FontFamily="Roboto"  FontSize="14" Foreground="#FF000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="TicketTextButton_Click" Cursor="Hand" />
                 </Canvas>
                 <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="LogoutTextButton" Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#FF000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutButton_Click" Cursor="Hand" />
@@ -72,7 +72,7 @@
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="./Resources/logout.png"></BitmapImage>
+                                    <BitmapImage UriSource="/Resources/logout.png"></BitmapImage>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -85,7 +85,7 @@
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="./Resources/trip.png"></BitmapImage>
+                                    <BitmapImage UriSource="/Resources/trip.png"></BitmapImage>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -93,12 +93,12 @@
                 </Button>
             </Canvas>
             <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" >
-                <Button x:Name="TrainsButton" Cursor="Hand" Background="{x:Null}" Click="TrainsButton_Click">
+                <Button x:Name="TicketButton" Cursor="Hand" Background="{x:Null}" Click="TicketButton_Click">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="./Resources/trainico.png"></BitmapImage>
+                                    <BitmapImage UriSource="/Resources/ticketico.png"></BitmapImage>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -111,7 +111,7 @@
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="./Resources/passenger.png"></BitmapImage>
+                                    <BitmapImage UriSource="/Resources/passenger.png"></BitmapImage>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>

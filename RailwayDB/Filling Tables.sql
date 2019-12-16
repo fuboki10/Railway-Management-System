@@ -129,7 +129,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 29000,
 		@working_hours = 30,
 		@jobid = 3,
-		@station_id = 1
+		@station_id = 2
 SELECT	'Return Value' = @return_value
 
 GO
@@ -147,9 +147,32 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 30000,
 		@working_hours = 30,
 		@jobid = 3,
-		@station_id = 1
+		@station_id = 3
 SELECT	'Return Value' = @return_value
 
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Sayed',
+		@lname = 'Othman',
+		@bd = '05-02-1978',
+		@salary = 30000,
+		@working_hours = 30,
+		@jobid = 3,
+		@station_id = 4
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Zeyad',
+		@lname = 'Ramadan',
+		@bd = '04-09-1975',
+		@salary = 30000,
+		@working_hours = 30,
+		@jobid = 3,
+		@station_id = 5
+SELECT	'Return Value' = @return_value
 GO
 
 USE [RailWaySystemDB]
@@ -200,7 +223,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 4000,
 		@working_hours = 40
 		, @jobid = 4,
-		@station_id = 1
+		@station_id = 2
 
 SELECT	'Return Value' = @return_value
 
@@ -218,7 +241,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 4000,
 		@working_hours = 40
 		, @jobid = 4,
-		@station_id = 1
+		@station_id = 2
 
 SELECT	'Return Value' = @return_value
 
@@ -236,10 +259,74 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 4000,
 		@working_hours = 40
 		, @jobid = 4,
-		@station_id = 1
+		@station_id = 3
 
 SELECT	'Return Value' = @return_value
 
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Ahmed',
+		@lname = 'Azzam',
+		@bd = '3-31-1970',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 3
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Magdy',
+		@lname = 'Saeed',
+		@bd = '2-23-1979',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 4
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Ahmed',
+		@lname = 'Walaa',
+		@bd = '10-17-1980',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 4
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Omar',
+		@lname = 'Saedd',
+		@bd = '5-6-1967',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 5
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Omar',
+		@lname = 'Khaled',
+		@bd = '6-10-1973',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 5
+
+SELECT	'Return Value' = @return_value
 GO
 
 
@@ -261,6 +348,11 @@ EXEC	@return_value = [dbo].[InsertEmp]
 
 SELECT	'Return Value' = @return_value
 
+EXEC	[dbo].[InsertUser]
+		@Username = N'sorady',
+		@Password = N'1234',
+		@EmployeeID = 9,
+		@IsAdmin = 0
 GO
 
 USE [RailWaySystemDB]
@@ -297,6 +389,27 @@ EXEC	@return_value = [dbo].[InsertEmp]
 
 SELECT	'Return Value' = @return_value
 
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Abdo',
+		@lname = 'Ebrahim',
+		@bd = '8-31-1969',
+		@salary = 60000,
+		@working_hours = 35,
+	    @jobid = 2,
+		@station_id = 5
+
+		DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Mohamed',
+		@lname = 'Hassan',
+		@bd = '7-14-1964',
+		@salary = 60000,
+		@working_hours = 35,
+	    @jobid = 2,
+		@station_id = 5
 GO
 
 USE [RailWaySystemDB]
@@ -926,48 +1039,48 @@ EXEC	[dbo].[InsertUser]
 USE [RailWaySystemDB]
 GO
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 8:15:09 PM', 
+	@Arr_Time =N'11/13/2019 2:15:09 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,
-	@Train_ID=1 ,
+	@Train_ID = 1 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/10/2019', 
-	@Arr_Time =N'11/11/2019',
+	@Dept_Time =N'11/10/2019 9:00:09 PM', 
+	@Arr_Time =N'11/11/2019 3:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 5,
 	@Source_ID= 3,
 	@Train_ID=2 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/15/2019', 
-	@Arr_Time =N'11/15/2019',
+	@Dept_Time =N'11/15/2019 5:00:09 PM', 
+	@Arr_Time =N'11/15/2019 9:00:09 PM',
 	@Type=1 , 
 	@Destination_ID= 5,
 	@Source_ID= 1,
 	@Train_ID=1 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 8:30:09 PM', 
+	@Arr_Time =N'11/13/2019 2:45:09 AM',
 	@Type=3 , 
 	@Destination_ID= 2,
 	@Source_ID= 4,
 	@Train_ID=3 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 11:00:09 PM', 
+	@Arr_Time =N'11/13/2019 5:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 3,
 	@Source_ID= 5,
 	@Train_ID=4 ,
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
-	@Dept_Time =N'11/12/2019', 
-	@Arr_Time =N'11/13/2019',
+	@Dept_Time =N'11/12/2019 11:30 PM', 
+	@Arr_Time =N'11/13/2019 4:00 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,

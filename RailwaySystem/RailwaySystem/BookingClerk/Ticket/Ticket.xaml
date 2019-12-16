@@ -1,9 +1,9 @@
-﻿<Window  x:Class="RailwaySystem.Passenger"
+﻿<Window  x:Class="RailwaySystem.Ticket"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Passenger" Height="800" Width="1200"
         WindowStartupLocation="CenterScreen"
-        Icon="./Resources/Passenger.png"
+        Icon="/Resources/ticketico.png"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1" >
     <Grid x:Name="Main" Uid="Trips"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
         <Canvas  Width="1200" Height="64" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -25,7 +25,7 @@
                     <ControlTemplate>
                         <Image Width="12" Height="12">
                             <Image.Source>
-                                <BitmapImage UriSource="Resources\close.png"></BitmapImage>
+                                <BitmapImage UriSource="/Resources/close.png"></BitmapImage>
                             </Image.Source>
                         </Image>
                     </ControlTemplate>
@@ -36,7 +36,7 @@
                     <ControlTemplate>
                         <Image Width="12" Height="12">
                             <Image.Source>
-                                <BitmapImage UriSource="Resources\minimize.png"></BitmapImage>
+                                <BitmapImage UriSource="/Resources/minimize.png"></BitmapImage>
                             </Image.Source>
                         </Image>
                     </ControlTemplate>
@@ -71,7 +71,7 @@
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\Logout.png" />
+                                    <BitmapImage UriSource="/Resources/Logout.png" />
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -84,7 +84,7 @@
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\home.png"/>
+                                    <BitmapImage UriSource="/Resources/home.png"/>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
@@ -98,7 +98,7 @@
                         <ControlTemplate>
                             <Image Width="24" Height="24">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Resources\statistics.png" />
+                                    <BitmapImage UriSource="/Resources/statistics.png" />
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>

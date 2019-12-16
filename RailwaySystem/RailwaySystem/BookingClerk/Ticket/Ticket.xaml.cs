@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -15,18 +14,21 @@ using System.Windows.Shapes;
 namespace RailwaySystem
 {
     /// <summary>
-    /// Interaction logic for Employees.xaml
+    /// Interaction logic for Passenger.xaml
     /// </summary>
-    public partial class Employees : Window
+    public partial class Ticket : Window
     {
-        private int UserID;
         Controller ControllerObj;
-        public Employees(int U)
+        private int UserID;
+        public Ticket(int U)
         {
             InitializeComponent();
             UserID = U;
             ControllerObj = new Controller();
-
+        }
+        private void XClicked(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -34,55 +36,38 @@ namespace RailwaySystem
             this.DragMove();
         }
 
-        private void XClicked(object sender, RoutedEventArgs e)
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            string username = ControllerObj.GetUsername(UserID);
+            NameTextBox.Text = username;
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-
-        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            NameTextBox.Text = ControllerObj.GetUsername(UserID);
-            BindEmployeesDataGrid();
+            this.GoHome();
         }
-
-        private void BindEmployeesDataGrid()
-        {
-            DataTable dt = ControllerObj.GetAllEmployees();
-            EmployeesDataGrid.ItemsSource = dt.DefaultView;
-        }
-
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Logout();
-        }
-
-        private void Logout()
         {
             LoginPage LoginPage = new LoginPage();
             LoginPage.Show();
             this.Close();
         }
-
-        private void LogoutTextButton_Click(object sender, RoutedEventArgs e)
+        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Logout();
-        }
 
+        }
+        private void StatisticsTextButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void HomeTextButton_Click(object sender, RoutedEventArgs e)
         {
-            this.GoHome();
+            GoHome();
         }
-
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.GoHome();
-        }
-
         private void GoHome()
         {
             string job = ControllerObj.GetUserJob(UserID);
@@ -91,7 +76,12 @@ namespace RailwaySystem
                 AdminDashboard AdminDashboard = new AdminDashboard(UserID);
                 AdminDashboard.Show();
             }
-            else if(job == "Station Manager")
+            else if (job == "Booking Clerk")
+            {
+                BookingClerk BookingClerk = new BookingClerk(UserID);
+                BookingClerk.Show();
+            }
+            else if (job == "Station Manager")
             {
                 StManagerDashboard stManager = new StManagerDashboard(UserID);
                 stManager.Show();
@@ -109,20 +99,26 @@ namespace RailwaySystem
             }
             this.Close();
         }
-
-        private void StatisticsTextButton_Click(object sender, RoutedEventArgs e)
+        private void BookSeatButton_Click(object sender, RoutedEventArgs e)
         {
-            this.GoStatistics();
+            this.newButtons.Children.Clear();
+            BookseatButtons b = new BookseatButtons();
+            this.newButtons.Children.Add(b);
         }
 
-        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
+       
+        private void CancelTicktButton_Click(object sender, RoutedEventArgs e)
         {
-            this.GoStatistics();
+            this.newButtons.Children.Clear();
+            CancelTicketButton c = new CancelTicketButton();
+            this.newButtons.Children.Add(c);
         }
 
-        private void GoStatistics()
+        private void EditTicktButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            this.newButtons.Children.Clear();
+            EditTicket E = new EditTicket();
+            this.newButtons.Children.Add(E);
         }
     }
 }
