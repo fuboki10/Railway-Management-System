@@ -167,5 +167,25 @@
                 </Button>
             </Canvas>
         </Canvas>
+        <GroupBox Header="Account" HorizontalAlignment="Left" Margin="303,121,0,0" VerticalAlignment="Top" Height="127" Width="769" BorderBrush="#FF080226">
+            <TextBox x:Name="NewUsernameTextbox" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Margin="178,41,0,0"/>
+        </GroupBox>
+        <Label Content="New Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,176,0,0" Height="23"/>
+        <Button x:Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="647,180,0,0" Click="ChangeUsernameButton_Click" Height="19" Content="Change Username" BorderBrush="#FF080226">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="875,179,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <GroupBox Header="Contact" HorizontalAlignment="Left" Height="233" Margin="304,314,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
+        <DataGrid HorizontalAlignment="Left" Height="199" Margin="739,335,0,0" VerticalAlignment="Top" Width="311"/>
     </Grid>
 </Window>
