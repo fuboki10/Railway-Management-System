@@ -59,22 +59,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BookingClerk\Passenger\AddPassenger.xaml.cs">
+      <DependentUpon>AddPassenger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboard.xaml.cs">
       <DependentUpon>AdminDashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookingClerk.xaml.cs">
+    <Compile Include="BookingClerk\BookingClerk.xaml.cs">
       <DependentUpon>BookingClerk.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BookseatButtons.xaml.cs">
+    <Compile Include="BookingClerk\Ticket\BookseatButtons.xaml.cs">
       <DependentUpon>BookseatButtons.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CancelTicketButton.xaml.cs">
+    <Compile Include="BookingClerk\Ticket\CancelTicketButton.xaml.cs">
       <DependentUpon>CancelTicketButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditTicket.xaml.cs">
+    <Compile Include="BookingClerk\Ticket\EditTicket.xaml.cs">
       <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees.xaml.cs">
@@ -83,42 +86,46 @@
     <Compile Include="ManagerDashboard.xaml.cs">
       <DependentUpon>ManagerDashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Passenger.xaml.cs">
+    <Compile Include="BookingClerk\Passenger\Passenger.xaml.cs">
       <DependentUpon>Passenger.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ticket.xaml.cs">
+    <Compile Include="BookingClerk\Ticket\Ticket.xaml.cs">
       <DependentUpon>Ticket.xaml</DependentUpon>
     </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="StoredProcedures.cs" />
-    <Compile Include="TicketClass.xaml.cs">
+    <Compile Include="BookingClerk\Ticket\TicketClass.xaml.cs">
       <DependentUpon>TicketClass.xaml</DependentUpon>
     </Compile>
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="Trips.xaml.cs">
+    <Compile Include="BookingClerk\Trip\Trips.xaml.cs">
       <DependentUpon>Trips.xaml</DependentUpon>
     </Compile>
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Page Include="BookingClerk\Passenger\AddPassenger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BookingClerk.xaml">
+    <Page Include="BookingClerk\BookingClerk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BookseatButtons.xaml">
+    <Page Include="BookingClerk\Ticket\BookseatButtons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CancelTicketButton.xaml">
+    <Page Include="BookingClerk\Ticket\CancelTicketButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,7 +133,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditTicket.xaml">
+    <Page Include="BookingClerk\Ticket\EditTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,11 +159,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Passenger.xaml">
+    <Page Include="BookingClerk\Passenger\Passenger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ticket.xaml">
+    <Page Include="BookingClerk\Ticket\Ticket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,7 +171,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TicketClass.xaml">
+    <Page Include="BookingClerk\Ticket\TicketClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,7 +179,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Trips.xaml">
+    <Page Include="BookingClerk\Trip\Trips.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,5 +246,6 @@
   <ItemGroup>
     <Resource Include="Resources\statistics.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -94,7 +94,10 @@ namespace RailwaySystem
             }
             this.Close();
         }
-        
-        
+
+        private void AddPassengerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
