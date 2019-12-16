@@ -76,12 +76,15 @@ namespace RailwaySystem
 
         private void PassengersButton_Click(object sender, RoutedEventArgs e)
         {
-            Passenger P = new Passenger(UserID);
-            P.Show();
-            this.Close();
+            this.GoPassenger();
         }
 
         private void PassengersTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoPassenger();
+        }
+
+        private void GoPassenger()
         {
             Passenger P = new Passenger(UserID);
             P.Show();
@@ -90,12 +93,15 @@ namespace RailwaySystem
 
         private void TicketTextButton_Click(object sender, RoutedEventArgs e)
         {
-            Ticket T = new Ticket(UserID);
-            T.Show();
-            this.Close();
+            this.GoTicket();
         }
 
         private void TicketButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoTicket();
+        }
+
+        private void GoTicket()
         {
             Ticket T = new Ticket(UserID);
             T.Show();
