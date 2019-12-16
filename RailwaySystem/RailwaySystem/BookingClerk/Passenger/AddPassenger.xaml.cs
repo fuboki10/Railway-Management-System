@@ -19,9 +19,25 @@ namespace RailwaySystem
     /// </summary>
     public partial class AddPassenger : UserControl
     {
-        public AddPassenger()
+        Passenger Passenger;
+        Controller mycontroller;
+        public AddPassenger(Passenger P)
         {
+            Passenger = P;
+            mycontroller = new Controller();
             InitializeComponent();
+        }
+
+        private void AddPassengerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Last_Name.Text == "" || this.First_Name.Text == "")
+            {
+                MessageBox.Show("type first name and last name");
+            }
+            else {
+                mycontroller.AddPassenger(this.First_Name.Text, this.Last_Name.Text);
+                Passenger.BindPassengersGrid();
+            } 
         }
     }
 }

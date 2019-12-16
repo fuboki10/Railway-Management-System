@@ -96,6 +96,11 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.GetAllTrips;
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
+        public DataTable GetAllPassengers()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllPassengers;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
         public DataTable Login(string UserName, string Password)
         {
             string StoredProcedureName = StoredProcedures.Login;
@@ -195,6 +200,14 @@ namespace RailwaySystem
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@id", id);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public int AddPassenger(string FirstName, string LastName)
+        {
+            string StoredProcedureName = StoredProcedures.AddPassenger;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", FirstName);
+            Parameters.Add("@lname", LastName);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
     }
 

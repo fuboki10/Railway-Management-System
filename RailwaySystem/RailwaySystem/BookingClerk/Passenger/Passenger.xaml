@@ -114,9 +114,15 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,228,0,0"  VerticalAlignment="Top" Width="900">
-            
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,207,0,0"  VerticalAlignment="Top" Width="900">
+
         </Grid>
+        <DataGrid Name="PassengersDataGrid" HorizontalAlignment="Left" Height="379" Margin="256,407,0,0" VerticalAlignment="Top" Width="934"
+                  AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding}"                  
+                  Background="LightGray" RowBackground="White" AlternatingRowBackground="LightGray"                   
+                  BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
+                  CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
+                  />
     </Grid>
 
 </Window>

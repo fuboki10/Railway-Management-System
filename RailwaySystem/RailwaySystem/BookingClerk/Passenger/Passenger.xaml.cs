@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -40,6 +41,7 @@ namespace RailwaySystem
         {
             string username = ControllerObj.GetUsername(UserID);
             NameTextBox.Text = username;
+            BindPassengersGrid();
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -97,7 +99,15 @@ namespace RailwaySystem
 
         private void AddPassengerButton_Click(object sender, RoutedEventArgs e)
         {
+            this.newButtons.Children.Clear();
+            AddPassenger A = new AddPassenger(this);
+            this.newButtons.Children.Add(A);
 
+        }
+        public void BindPassengersGrid()
+        {
+            DataTable dt = ControllerObj.GetAllPassengers();
+            PassengersDataGrid.ItemsSource = dt.DefaultView;
         }
     }
 }

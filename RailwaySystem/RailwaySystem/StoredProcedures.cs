@@ -21,6 +21,7 @@ namespace RailwaySystem
         public static string GetCoachYard = "GetCoachYard";
         public static string GetAllTrains = "GetAllTrains";
         public static string GetAllTrips = "GetAllTrips";
+        public static string GetAllPassengers = "GetAllPassengers";
         public static string GetAllEmps = "getAllEmps";
         public static string ChangePhone = "ChangeEmpPhone";
         public static string ChangeEmail = "ChangeEmpEmail";
@@ -28,7 +29,7 @@ namespace RailwaySystem
         public static string GetUserAdress = "GetUserAddress";
         public static string GetUserPhones = "GetUserPhones";
         public static string GetEphones = "GetEphones";
-
+        public static string AddPassenger = "InsertPassenger";
 
     }
 }

@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="900">
     <Grid>
-            
+        <TextBox x:Name="First_Name" HorizontalAlignment="Left" Height="21" Margin="70,90,0,0" TextWrapping="Wrap" Text="" 
+                 VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
+        <TextBox x:Name="Last_Name" HorizontalAlignment="Left" Height="21" Margin="500,90,0,0" TextWrapping="Wrap" Text=""
+                 VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
+        <Button x:Name="AddPassengerButton" Content="Add Passenger" HorizontalAlignment="Left" Margin="285,135,0,0" VerticalAlignment="Top" Width="216" Height="36"
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="AddPassengerButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="70,59,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="500,59,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
