@@ -129,7 +129,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 29000,
 		@working_hours = 30,
 		@jobid = 3,
-		@station_id = 1
+		@station_id = 2
 SELECT	'Return Value' = @return_value
 
 GO
@@ -147,9 +147,32 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 30000,
 		@working_hours = 30,
 		@jobid = 3,
-		@station_id = 1
+		@station_id = 3
 SELECT	'Return Value' = @return_value
 
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Sayed',
+		@lname = 'Othman',
+		@bd = '05-02-1978',
+		@salary = 30000,
+		@working_hours = 30,
+		@jobid = 3,
+		@station_id = 4
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Zeyad',
+		@lname = 'Ramadan',
+		@bd = '04-09-1975',
+		@salary = 30000,
+		@working_hours = 30,
+		@jobid = 3,
+		@station_id = 5
+SELECT	'Return Value' = @return_value
 GO
 
 USE [RailWaySystemDB]
@@ -200,7 +223,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 4000,
 		@working_hours = 40
 		, @jobid = 4,
-		@station_id = 1
+		@station_id = 2
 
 SELECT	'Return Value' = @return_value
 
@@ -218,7 +241,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 4000,
 		@working_hours = 40
 		, @jobid = 4,
-		@station_id = 1
+		@station_id = 2
 
 SELECT	'Return Value' = @return_value
 
@@ -236,10 +259,74 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@salary = 4000,
 		@working_hours = 40
 		, @jobid = 4,
-		@station_id = 1
+		@station_id = 3
 
 SELECT	'Return Value' = @return_value
 
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Ahmed',
+		@lname = 'Azzam',
+		@bd = '3-31-1970',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 3
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Magdy',
+		@lname = 'Saeed',
+		@bd = '2-23-1979',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 4
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Ahmed',
+		@lname = 'Walaa',
+		@bd = '10-17-1980',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 4
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Omar',
+		@lname = 'Saedd',
+		@bd = '5-6-1967',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 5
+
+SELECT	'Return Value' = @return_value
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Omar',
+		@lname = 'Khaled',
+		@bd = '6-10-1973',
+		@salary = 4000,
+		@working_hours = 40
+		, @jobid = 4,
+		@station_id = 5
+
+SELECT	'Return Value' = @return_value
 GO
 
 
@@ -261,6 +348,11 @@ EXEC	@return_value = [dbo].[InsertEmp]
 
 SELECT	'Return Value' = @return_value
 
+EXEC	[dbo].[InsertUser]
+		@Username = N'sorady',
+		@Password = N'1234',
+		@EmployeeID = 9,
+		@IsAdmin = 0
 GO
 
 USE [RailWaySystemDB]
@@ -297,6 +389,27 @@ EXEC	@return_value = [dbo].[InsertEmp]
 
 SELECT	'Return Value' = @return_value
 
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Abdo',
+		@lname = 'Ebrahim',
+		@bd = '8-31-1969',
+		@salary = 60000,
+		@working_hours = 35,
+	    @jobid = 2,
+		@station_id = 5
+
+		DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertEmp]
+		@fname = 'Mohamed',
+		@lname = 'Hassan',
+		@bd = '7-14-1964',
+		@salary = 60000,
+		@working_hours = 35,
+	    @jobid = 2,
+		@station_id = 5
 GO
 
 USE [RailWaySystemDB]

@@ -1324,7 +1324,9 @@ BEGIN
     
 	update Employee_Phone
 	set Code = @code, Number = @phone
-	where Employee_ID = @id;
+	where Employee_ID = (select EmployeeID
+	from [USER]
+	where ID = @id);
 END
 
 SET ANSI_NULLS ON
@@ -1345,7 +1347,9 @@ BEGIN
     -- Insert statements for procedure here
 	Update Employee_Contact
 	set Email = @email
-	where Employee_ID =@id
+	where Employee_ID = (select EmployeeID
+	from [USER]
+	where ID = @id);
 END
 GO
 -- ==============================================

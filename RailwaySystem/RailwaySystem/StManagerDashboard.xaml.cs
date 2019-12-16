@@ -68,10 +68,27 @@ namespace RailwaySystem
             TW.Show();
             this.Close();
         }
-
+        private void GoTickets()
+        {
+            Ticket tk = new Ticket(UserID);
+            tk.Show();
+            this.Close();
+        }
+        private void GoEmployess()
+        {
+            Employees TW = new Employees(UserID);
+            TW.Show();
+            this.Close();
+        }
+        private void GoTrips()
+        {
+            Trips TW = new Trips(UserID);
+            TW.Show();
+            this.Close();
+        }
         private void EmployeesTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO EMPLOYEES FORM
+            this.GoEmployess();
         }
         private void StationsTextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -87,21 +104,21 @@ namespace RailwaySystem
         {
             this.GoTrains();
         }
-        private void PassengerButton_Click(object sender, RoutedEventArgs e)
+        private void TicketsButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO Passenger FORM
+            this.GoTickets();
         }
-        private void PassengerTextButton_Click(object sender, RoutedEventArgs e)
+        private void TicketsTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO Passenger FORM
+            this.GoTickets();
         }
         private void TripsButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO Passenger FORM
+            this.GoTrips();
         }
         private void TripsTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO Passenger FORM
+            this.GoTrips();
         }
         private void StationsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -110,7 +127,7 @@ namespace RailwaySystem
 
         private void EmployeesButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO EMPLOYEES FORM
+            this.GoEmployess();
         }
         private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
         {

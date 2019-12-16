@@ -91,6 +91,11 @@ namespace RailwaySystem
                 AdminDashboard AdminDashboard = new AdminDashboard(UserID);
                 AdminDashboard.Show();
             }
+            else if(job == "Station Manager")
+            {
+                StManagerDashboard stManager = new StManagerDashboard(UserID);
+                stManager.Show();
+            }
             else
             {
                 /*
