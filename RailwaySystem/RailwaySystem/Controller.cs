@@ -215,7 +215,7 @@ namespace RailwaySystem
             Parameters.Add("@Username", Username);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-        public int ChangePhone(int ID, int phone, int code)
+        public int ChangePhone(int ID, string phone, string code)
         {
             string StoredProcedureName = StoredProcedures.ChangePhone;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();

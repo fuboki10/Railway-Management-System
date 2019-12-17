@@ -173,17 +173,13 @@ namespace RailwaySystem
         {
             if (StMngrPhone.Text.Length < 11)
             {
-                string s = Convert.ToString(UserID);
+                
                 MessageBox.Show("Please Enter a valid phone", "Invalid Phone");
                 return;
             }
-            int phone = int.Parse(StMngrPhone.Text);
-            int code = int.Parse(StMngrPhCode.Text);
-            int ret = ControllerObj.ChangePhone(UserID, phone, code);
-            if (ret == 0)
-            {
-                MessageBox.Show("You Added This Phone Before", "Phone Exists");
-            }
+           
+            ControllerObj.ChangePhone(UserID, StMngrPhone.Text, StMngrPhCode.Text);
+           
         }
         private void ChangeEm()
         {
