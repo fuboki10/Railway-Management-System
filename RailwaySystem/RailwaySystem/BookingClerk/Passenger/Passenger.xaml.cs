@@ -121,7 +121,8 @@ namespace RailwaySystem
             if (request == veiwPassengerContact&&PassengerID!=-1)
             {
                 DataTable dt = ControllerObj.GetPContact(PassengerID);
-                PassengersDataGrid.ItemsSource = dt.DefaultView;
+                if(dt.DefaultView!=null)
+                PassengersDataGrid.ItemsSource =dt.DefaultView;
             }
         }
 

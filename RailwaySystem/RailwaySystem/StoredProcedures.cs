@@ -32,6 +32,7 @@ namespace RailwaySystem
         public static string AddPassenger = "InsertPassenger";
         public static string AddPContact = "AddPContact";
         public static string GetPContact = "GetPContact";
+        public static string DeletePContact = "DeletePContact";
 
     }
 }

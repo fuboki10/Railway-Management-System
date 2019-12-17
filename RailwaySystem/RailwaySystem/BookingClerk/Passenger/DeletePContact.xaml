@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="RailwaySystem.DeletePContact"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RailwaySystem"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="900">
+    <Grid>
+        <Button x:Name="DeletePContactButton" Content="Delete Contact" HorizontalAlignment="Left" Margin="325,138,0,0" VerticalAlignment="Top" Width="216" Height="36"
+            Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="DeletePContactButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="PassengerID" HorizontalAlignment="Left" Height="21" Margin="70,35,0,0" TextWrapping="Wrap" Text="" 
+            VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
+        <Label Content="Passenger ID" HorizontalAlignment="Left" Margin="70,4,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Left" Height="21" Margin="70,90,0,0" TextWrapping="Wrap" Text="" 
+            VerticalAlignment="Top" Width="350" RenderTransformOrigin="0.489,0.599"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="70,67,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ViewContactsButton" Content="View Contacts" HorizontalAlignment="Left" Margin="421,35,0,0" VerticalAlignment="Top" Width="141" Height="21"
+            Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="ViewContactsButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</UserControl>

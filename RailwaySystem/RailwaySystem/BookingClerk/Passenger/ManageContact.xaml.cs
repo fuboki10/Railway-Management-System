@@ -34,7 +34,8 @@ namespace RailwaySystem
 
         private void DeleteContactButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DeletePContact DP = new DeletePContact(P);
+            P.Addbuttons(DP);
         }
 
         private void EditContactButton_Click(object sender, RoutedEventArgs e)

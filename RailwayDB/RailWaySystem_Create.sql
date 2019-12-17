@@ -876,6 +876,39 @@ BEGIN
 	  FROM Trip T, Station S,Station D,Train TR where T.Source_ID=S.ID and T.Destintaion_ID=D.ID and T.Train_ID=TR.ID
 END
 GO
+
+
+
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali abozied
+-- Create date: 17/12/2019
+-- Description:	Delete Passenger Contact
+-- =============================================
+alter PROCEDURE DeletePContact 
+	@Email varchar(50)
+ 
+AS
+BEGIN
+	declare @passenger int;
+	set @passenger = (select Passenger_ID from Passenger_Contact where Passenger_Contact.Email=@Email)
+	if (select count(*) from Passenger_Contact where Passenger_ID =@passenger) > 1 
+	Begin
+	select Passenger_ID from Passenger_Contact where Passenger_Contact.Email=@Email
+	Delete Passenger_Contact where @Email=Passenger_Contact.Email
+	End
+	Else 
+	begin
+	select -1
+	end
+END
+GO
+
+
 use RailWaySystemDB
 -- ================================================
 -- Template generated from Template Explorer using:
@@ -927,7 +960,8 @@ BEGIN
 
     -- Insert statements for procedure here
 	
-	SELECT * from Passenger_Contact where Passenger_ID=@PassengerID  
+	SELECT First_name,Last_name,Email,City,State,Street from Passenger_Contact,Passenger
+	 where Passenger_ID=@PassengerID and Passenger_ID=ID  
 END
 GO
 

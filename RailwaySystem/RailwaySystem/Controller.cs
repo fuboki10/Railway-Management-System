@@ -228,6 +228,15 @@ namespace RailwaySystem
             Parameters.Add("@Street", Street);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public object DeletePContact( string Email)
+        {
+            string StoredProcedureName = StoredProcedures.DeletePContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+
+            Parameters.Add("@Email", Email);
+             return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+            
+        }
     }
 
 }
