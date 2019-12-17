@@ -147,7 +147,27 @@ namespace RailwaySystem
         Parameters.Add("@sal", salary);
         return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
     }
-    public int AddEmployee(string FirstName, string LastName, string date, int salary, int hours, int jobid, int stid)
+        public int ChangeTripTime(int ID, string arrdate, string depdate)
+        {
+            string StoredProcedureName = StoredProcedures.ChangeTripTime;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            Parameters.Add("@arr", arrdate);
+            Parameters.Add("@dep", depdate);
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int ChangeTripClass(int ID, int clas)
+        {
+            string StoredProcedureName = StoredProcedures.ChangeTripCalss;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            Parameters.Add("@class", clas);
+           
+
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int AddEmployee(string FirstName, string LastName, string date, int salary, int hours, int jobid, int stid)
     {
         string StoredProcedureName = StoredProcedures.AddEmployee;
         Dictionary<string, object> Parameters = new Dictionary<string, object>();

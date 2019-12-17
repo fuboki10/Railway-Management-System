@@ -83,6 +83,18 @@ namespace RailwaySystem
             this.DragMove();
         }
 
+        private void ManageTripsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            EditTrip A = new EditTrip(this);
+            Addbuttons(A);
+        }
+        public void Addbuttons(UIElement A)
+        {
+            this.newButtons.Children.Clear();
+            this.newButtons.Children.Add(A);
+
+        }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -109,10 +121,15 @@ namespace RailwaySystem
             NameTextBox.Text = ControllerObj.GetUsername(UserID);
             BindTripsGrid();
         }
-        private void BindTripsGrid()
+        public void BindTripsGrid()
         {
             DataTable dt = ControllerObj.GetAllTrips();
             TripsDataGrid.ItemsSource = dt.DefaultView;
+        }
+
+        private void AddTripButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

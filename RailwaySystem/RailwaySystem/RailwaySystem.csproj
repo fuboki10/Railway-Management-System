@@ -95,6 +95,9 @@
     <Compile Include="BookingClerk\Ticket\EditTicket.xaml.cs">
       <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditTrip.xaml.cs">
+      <DependentUpon>EditTrip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmpContact.xaml.cs">
       <DependentUpon>EmpContact.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BookingClerk\Ticket\EditTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTrip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

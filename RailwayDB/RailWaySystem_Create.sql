@@ -1357,7 +1357,42 @@ BEGIN
 	 
 	END
 END
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE ChangeTripDate
+	@id int, 
+	@arr date, 
+	@dep date
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
+    -- Insert statements for procedure here
+	UPDATE Trip
+	set Arr_Time = @arr, Dept_Time = @dep
+	Where ID = @id
+END
+GO
+
+CREATE PROCEDURE ChangeTripClass
+@id int, 
+@class int
+AS
+BEGIN
+	-- lido22 ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Update Trip
+	set [Type] = @class
+	where ID = @id;
+END
+GO
 
 GO
 
