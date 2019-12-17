@@ -228,6 +228,16 @@ namespace RailwaySystem
             Parameters.Add("@Street", Street);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
+        public int AddUserphone(int id, string code, string number)
+        {
+            string StoredProcedureName = StoredProcedures.InsetUserPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@userid", id);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
     }
 
 }
