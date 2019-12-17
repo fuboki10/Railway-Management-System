@@ -40,7 +40,7 @@ namespace RailwaySystem
             {
                 int passenger = 0;
                 passenger=Convert.ToInt32(mycontroller.EditPContact(City.Text,Email.Text,State.Text,Street.Text));
-                P.BindPassengersGrid(P.veiwPassengerContact, Convert.ToInt32(PassengerID.Text));
+                P.BindPassengersGrid(P.veiwPassengerContact, passenger);
             }
         }
 
