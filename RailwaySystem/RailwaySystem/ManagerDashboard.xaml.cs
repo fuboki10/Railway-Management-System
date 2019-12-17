@@ -38,11 +38,6 @@ namespace RailwaySystem
             this.WindowState = WindowState.Minimized;
         }
 
-        private void Managers_button(object sender, RoutedEventArgs e)
-        {
-            // do some managerial things 
-        }
-
         private void Employee_Click(object sender, RoutedEventArgs e)
         {
             Employees emp = new Employees(userid);
@@ -52,12 +47,16 @@ namespace RailwaySystem
 
         private void Passenger_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Passenger p = new Passenger(userid);
+            p.Show();
+            this.Close();
         }
 
         private void Stations_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Stations s = new Stations(userid);
+            s.Show();
+            this.Close();
         }
 
         private void Trains_Click(object sender, RoutedEventArgs e)
@@ -76,7 +75,9 @@ namespace RailwaySystem
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            LoginPage l = new LoginPage();
+            l.Show();
+            this.Close();
         }
 
         private void XClicked(object sender, RoutedEventArgs e)
