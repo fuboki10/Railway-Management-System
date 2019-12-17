@@ -905,6 +905,63 @@ BEGIN
 END
 GO
 
+
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali abozied
+-- Create date: 16/12/2019
+-- Description:	get Passenger Conatact
+-- =============================================
+CREATE PROCEDURE GetPContact 
+	-- Add the parameters for the stored procedure here
+	@PassengerID int
+	AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	
+	SELECT * from Passenger_Contact where Passenger_ID=@PassengerID  
+END
+GO
+
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali abozied
+-- Create date: 16/12/2019
+-- Description:	Add Passenger contact
+-- =============================================
+CREATE PROCEDURE AddPContact 
+	-- Add the parameters for the stored procedure here
+	@PassengerID int,
+	@City varchar(50),
+	@Email varchar(50),
+	@State varchar(50),
+	@Street varchar(50)
+
+	AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	
+	Insert into  Passenger_Contact Values(@PassengerID,@Email,@City,@State,@Street)  
+END
+GO
+
+
 use RailWaySystemDB
 
 SET ANSI_NULLS ON
