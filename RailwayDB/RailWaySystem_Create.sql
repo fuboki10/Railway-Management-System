@@ -889,19 +889,18 @@ GO
 -- Create date: 17/12/2019
 -- Description:	Delete Passenger Contact
 -- =============================================
-alter PROCEDURE DeletePContact 
+create PROCEDURE DeletePContact 
 	@Email varchar(50)
- 
 AS
 BEGIN
 	declare @passenger int;
-	set @passenger = (select Passenger_ID from Passenger_Contact where Passenger_Contact.Email=@Email)
+	set @passenger=(select Passenger_ID from Passenger_Contact where Passenger_Contact.Email=@Email)
 	if (select count(*) from Passenger_Contact where Passenger_ID =@passenger) > 1 
 	Begin
 	select Passenger_ID from Passenger_Contact where Passenger_Contact.Email=@Email
-	Delete Passenger_Contact where @Email=Passenger_Contact.Email
+	Delete from Passenger_Contact where @Email=Passenger_Contact.Email
 	End
-	Else 
+	else 
 	begin
 	select -1
 	end
@@ -994,6 +993,47 @@ BEGIN
 	Insert into  Passenger_Contact Values(@PassengerID,@Email,@City,@State,@Street)  
 END
 GO
+
+
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali abozied
+-- Create date: 16/12/2019
+-- Description:	Edit Passenger contact
+-- =============================================
+CREATE PROCEDURE EditPContact 
+	-- Add the parameters for the stored procedure here
+	@City varchar(50),
+	@Email varchar(50),
+	@State varchar(50),
+	@Street varchar(50)
+
+	AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if(@City!='')
+	begin
+	update   Passenger_Contact   set City = @City  where Email=@Email
+	end  
+	if(@State!='')
+	begin
+	update   Passenger_Contact   set  State=@State where Email=@Email
+	end  
+	if(@Street!='')
+	begin
+	update   Passenger_Contact   set  Street = @Street where Email=@Email
+	end  
+	select Passenger_ID from Passenger_Contact where Email=@Email
+END
+GO 
 
 
 use RailWaySystemDB

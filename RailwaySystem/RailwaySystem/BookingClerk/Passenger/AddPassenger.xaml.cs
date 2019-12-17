@@ -30,13 +30,15 @@ namespace RailwaySystem
 
         private void AddPassengerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Last_Name.Text == "" || this.First_Name.Text == "")
+            if (this.Last_Name.Text == "" || this.First_Name.Text == ""||this.City.Text==""|| this.Email.Text=="" ||this.State.Text==""|| this.Street.Text=="")
             {
                 MessageBox.Show("type first name and last name");
             }
             else {
-                mycontroller.AddPassenger(this.First_Name.Text, this.Last_Name.Text);
+                int passenger = 0;
+                passenger=Convert.ToInt32(mycontroller.AddPassenger(this.First_Name.Text, this.Last_Name.Text));
                 Passenger.BindPassengersGrid(Passenger.veiwPassenger);
+                mycontroller.AddPContact(passenger, this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
             } 
         }
     }

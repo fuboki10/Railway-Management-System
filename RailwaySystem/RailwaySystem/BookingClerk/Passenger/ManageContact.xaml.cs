@@ -40,6 +40,9 @@ namespace RailwaySystem
 
         private void EditContactButton_Click(object sender, RoutedEventArgs e)
         {
+            
+            EditButtons EP = new EditButtons(P);
+            P.Addbuttons(EP);
 
         }
     }

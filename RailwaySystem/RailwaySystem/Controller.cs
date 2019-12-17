@@ -201,13 +201,13 @@ namespace RailwaySystem
             Parameters.Add("@id", id);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
-        public int AddPassenger(string FirstName, string LastName)
+        public object AddPassenger(string FirstName, string LastName)
         {
             string StoredProcedureName = StoredProcedures.AddPassenger;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@fname", FirstName);
             Parameters.Add("@lname", LastName);
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
         }
         public DataTable GetPContact(int PassengerID)
         {
@@ -237,8 +237,17 @@ namespace RailwaySystem
             Parameters.Add("@Email", Email);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
         }
-            
 
+        public object EditPContact( string City, string Email, string State, string Street)
+        {
+            string StoredProcedureName = StoredProcedures.EditPContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@City", City);
+            Parameters.Add("@State", State);
+            Parameters.Add("@Email", Email);
+            Parameters.Add("@Street", Street);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
 
         public int AddUserphone(int id, string code, string number)
         {
