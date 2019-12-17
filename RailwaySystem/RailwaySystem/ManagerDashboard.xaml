@@ -186,9 +186,38 @@
             </Button.Resources>
         </Button>
         <GroupBox Header="Contact" HorizontalAlignment="Left" Height="419" Margin="304,314,0,0" VerticalAlignment="Top" Width="860" BorderBrush="#FF080226"/>
+        <TextBlock Text="New email" FontSize="14" FontFamily="roboto" Height="19" TextWrapping="Wrap" Margin="323,360,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="newemail" HorizontalAlignment="Left" Height="26" Margin="419,353,0,0" Text="" VerticalAlignment="Top" Width="217"/>
+        <Button x:Name="ChangeemailButton" Cursor="Hand" Content="Change Email" HorizontalAlignment="Left" Margin="650,357,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangeemailButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
         <DataGrid x:Name="Address" HorizontalAlignment="Left" Height="47" Margin="825,352,0,0" VerticalAlignment="Top" Width="311" />
+
         <DataGrid x:Name="Phones" HorizontalAlignment="Left" Height="200" Margin="825,510,0,0" VerticalAlignment="Top" Width="311" />
         <GroupBox Header="Addresses" HorizontalAlignment="Left" Height="88" Margin="803,333,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
         <GroupBox Header="Phone Numbers" HorizontalAlignment="Left" Height="225" Margin="803,490,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
+        <ComboBox HorizontalAlignment="Left" Height="43" Margin="349,583,0,0" VerticalAlignment="Top" Width="195"/>
+        <TextBlock Text="New Phone number" FontSize="14" FontFamily="roboto" Height="19" TextWrapping="Wrap" Margin="320,510,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="newphone" HorizontalAlignment="Left" Height="26" Margin="530,505,0,0" Text="" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="Addphone" Cursor="Hand" Content="Add phone number" HorizontalAlignment="Left" Margin="650,510,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ADDphone">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="DeleteNumber" Cursor="Hand" Content="Delete phone number" HorizontalAlignment="Left" Margin="567,595,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="DeletePhone">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="code" HorizontalAlignment="Left" Height="26" Margin="460,505,0,0" Text="" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Window>

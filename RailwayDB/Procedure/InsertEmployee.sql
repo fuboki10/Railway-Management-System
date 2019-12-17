@@ -7,10 +7,11 @@ GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
-
--- Inserting a new employee into the Employee table
-CREATE PROCEDURE [dbo].[InsertEmp] 
+-- =============================================================
+--				Mohamed Abobakr
+-- =============================================================
+-- Inserting a new employee into the Employee table and a User in the User table if not a driver
+CREATE PROCEDURE [dbo].[Insert_Emp] 
 
 	@fname varchar(50),
 	@lname varchar(50),
@@ -18,9 +19,9 @@ CREATE PROCEDURE [dbo].[InsertEmp]
 	@salary int,
 	@working_hours int,
 	@jobid int,
-	@station_id int,
-	@Username varchar(20), 
-    @Password varchar(20),
+	@station_id int = null,
+	@Username varchar(20) = null, 
+    @Password varchar(20) = null,
 	@EmployeeID int=null,
 	@IsAdmin BIT=null,
     @responseMessage varchar(250)='' OUTPUT

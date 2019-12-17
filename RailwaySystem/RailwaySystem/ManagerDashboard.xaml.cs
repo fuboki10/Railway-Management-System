@@ -30,8 +30,10 @@ namespace RailwaySystem
             NameTextBox.Text = controllerobj.GetUsername(id);           // Display the username once the Form is opened
 
             DataTable dt = controllerobj.GetUserAdress(id);
+            if (dt != null)
             Address.ItemsSource = dt.DefaultView;
             dt = controllerobj.GetUserPhones(id);
+            if (dt != null)
             Phones.ItemsSource = dt.DefaultView;
         }
 
@@ -120,6 +122,39 @@ namespace RailwaySystem
             change.Show();
         }
 
-     
+        private void ChangeemailButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (newemail.Text == "")
+            {
+                MessageBox.Show("Please enter a valid E-mail");
+                return;
+            }
+            int x = 0;
+            x = controllerobj.ChangeEmail(userid, newemail.Text);
+            if (x == 0)
+            {
+                MessageBox.Show("Please enter a valid E-mail");
+            }
+        }
+
+        private void ADDphone(object sender, RoutedEventArgs e)
+        {
+            if (code.Text == "" || newphone.Text == "")
+            {
+                MessageBox.Show("Please fill in all data");
+                return;
+            }
+            int x = 0;
+            x = controllerobj.AddUserphone(userid, code.Text, newphone.Text);
+            if (x == 0)
+            {
+                MessageBox.Show("Invalid phone number or code");
+            }
+        }
+
+        private void DeletePhone(object sender, RoutedEventArgs e)
+        {
+            //
+        }
     }
 }
