@@ -55,7 +55,17 @@ namespace RailwaySystem
             DataTable dt = ControllerObj.GetAllEmployees();
             EmployeesDataGrid.ItemsSource = dt.DefaultView;
         }
+        public void Addbuttons(UIElement A)
+        {
+            this.newButtons.Children.Clear();
+            this.newButtons.Children.Add(A);
 
+        }
+       
+        public void BindEmployeesGrid()
+        {
+            this.BindEmployeesDataGrid();
+        }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.Logout();
@@ -123,6 +133,18 @@ namespace RailwaySystem
         private void GoStatistics()
         {
             throw new NotImplementedException();
+        }
+
+        private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserControlEmp A = new UserControlEmp(this);
+            Addbuttons(A);
+        }
+
+        private void ManageEmployeeContentButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmpContact A = new EmpContact(this);
+            Addbuttons(A);
         }
     }
 }

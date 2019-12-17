@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEmpContact.xaml.cs">
+      <DependentUpon>AddEmpContact.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BookingClerk\Passenger\AddContact.xaml.cs">
       <DependentUpon>AddContact.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,9 @@
     <Compile Include="BookingClerk\Ticket\EditTicket.xaml.cs">
       <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmpContact.xaml.cs">
+      <DependentUpon>EmpContact.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlEmp.xaml.cs">
+      <DependentUpon>UserControlEmp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="BookingClerk\Trip\Trips.xaml.cs">
       <DependentUpon>Trips.xaml</DependentUpon>
@@ -117,6 +126,10 @@
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddEmpContact.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BookingClerk\Passenger\AddContact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +169,10 @@
     <Page Include="BookingClerk\Ticket\EditTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmpContact.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Employees.xaml">
       <SubType>Designer</SubType>
@@ -202,6 +219,10 @@
     <Page Include="BookingClerk\Trip\Trips.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlEmp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>

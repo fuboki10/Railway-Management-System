@@ -4,7 +4,16 @@
         Title="Employees" Height="800" Width="1200"
         WindowStartupLocation="CenterScreen" Icon="train_icon.ico"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1">
+
     <Grid Uid="Employees"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="281,180,0,0"  VerticalAlignment="Top" Width="900" RenderTransformOrigin="0.499,0.878">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
         <Canvas  Width="1200" Height="64" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Path  Width="1200" Height="64" Stretch="uniform" Data="M 1280 0 L 0 0 L 0 64 L 1280 64 L 1280 0 Z" Fill="#ffd7d7d7" Canvas.Left="0" Canvas.Top="0"  />
             <Canvas  Width="24" Height="24" Canvas.Left="1153" Canvas.Top="22" >
@@ -42,6 +51,23 @@
                 </Button.Template>
             </Button>
         </Canvas>
+        <Button x:Name="AddEmployeeButton" Cursor="Hand"  Content="Manage Employees" HorizontalAlignment="Left" Margin="410,130,0,0" VerticalAlignment="Top" 
+                Click="AddEmployeeButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="ManageEmployeeContentButton" Cursor="Hand"  Content="Manage Employee Contact " HorizontalAlignment="Left" Margin="853,130,0,0" VerticalAlignment="Top" 
+                Click="ManageEmployeeContentButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
         <Canvas  Width="256" Height="768" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Border  Width="256" Height="768" Background="#fffafafa" Canvas.Left="0" Canvas.Top="0"  />
             <Border  Width="256" Height="768" Background="#fffafafa" Canvas.Left="0" Canvas.Top="0"  />
@@ -103,8 +129,8 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <DataGrid x:Name="EmployeesDataGrid" HorizontalAlignment="Left" Margin="261,276,0,0" VerticalAlignment="Top" 
-                      Height="510" Width="929"  Canvas.Top="366"
+        <DataGrid x:Name="EmployeesDataGrid" HorizontalAlignment="Left" Margin="261,402,0,0" VerticalAlignment="Top" 
+                      Height="384" Width="929"  Canvas.Top="366"
                       AutoGenerateColumns="True" IsReadOnly="True" Background="LightGray" RowBackground="White" AlternatingRowBackground="LightGray"                    
                       BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
                       CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"

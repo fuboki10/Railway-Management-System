@@ -123,7 +123,58 @@ namespace RailwaySystem
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
-        public DataTable GetAllAdmins()
+        public string GetUserStationId(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetUserJob;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@UserID", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
+        
+        
+    public int DeleteEmployee(int ID)
+    {
+        string StoredProcedureName = StoredProcedures.DeleteEmployee;
+        Dictionary<string, object> Parameters = new Dictionary<string, object>();
+        Parameters.Add("@id", ID);
+        return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+    }
+    public int UpdateEmployeeSalary(int ID, int salary)
+    {
+        string StoredProcedureName = StoredProcedures.UpdateSalary;
+        Dictionary<string, object> Parameters = new Dictionary<string, object>();
+        Parameters.Add("@id", ID);
+        Parameters.Add("@sal", salary);
+        return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+    }
+    public int AddEmployee(string FirstName, string LastName, string date, int salary, int hours, int jobid, int stid)
+    {
+        string StoredProcedureName = StoredProcedures.AddEmployee;
+        Dictionary<string, object> Parameters = new Dictionary<string, object>();
+        Parameters.Add("@fname", FirstName);
+        Parameters.Add("@lname", LastName);
+        Parameters.Add("@bd", date);
+        Parameters.Add("@salary", salary);
+        Parameters.Add("@working_hours", hours);
+        Parameters.Add("@jobid", jobid);
+        Parameters.Add("@station_id", stid);
+
+        return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+    }
+    public int AddEmpContact(int EmpID, string City, string Email, string State, string Street)
+    {
+        string StoredProcedureName = StoredProcedures.AddEmpContact;
+        Dictionary<string, object> Parameters = new Dictionary<string, object>();
+        Parameters.Add("@id", EmpID);
+        Parameters.Add("@city", City);
+        Parameters.Add("@state", State);
+        Parameters.Add("@email", Email);
+        Parameters.Add("@street", Street);
+        return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+    }
+
+
+    public DataTable GetAllAdmins()
         {
             string StoredProcedureName = StoredProcedures.GetAllAdmins;
             return dbMan.ExecuteReader(StoredProcedureName, null);

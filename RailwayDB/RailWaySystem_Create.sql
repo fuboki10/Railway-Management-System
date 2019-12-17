@@ -1280,6 +1280,42 @@ Begin
 	-- Inserting into the Trip table
 	insert into [Ticket] values(@Class , @Price ,@Date , @Trip_ID ,@Booking_Clerk_ID,@Passenger_ID )
 End
++GO
+CREATE PROCEDURE DeleteEmployee
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Delete From Employee
+	where ID = @id
+END
+
+create PROCEDURE [dbo].[GetUserstId]
+	-- Add the parameters for the stored procedure here
+	@UserID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF ((SELECT IsAdmin FROM [USER] WHERE ID=@UserID) = 1)
+	BEGIN
+		SELECT 'Admin'
+	END
+	ELSE
+	BEGIN
+		DECLARE @EmpID INT = (SELECT EmployeeID FROM [USER] WHERE ID=@UserID)
+		(SELECT E.StationID  FROM Employee E WHERE ID=@EmpID)
+	 
+	END
+END
+
 
 GO
 
