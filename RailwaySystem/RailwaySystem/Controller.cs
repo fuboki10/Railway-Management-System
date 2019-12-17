@@ -309,13 +309,12 @@ namespace RailwaySystem
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-        public int DeleteUserPhone(int id, string code, string number)
+        public int DeleteUserPhone(int id, string phone)
         {
             string StoredProcedureName = StoredProcedures.DeleteUserPhone;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("@userid", id);
-            Parameters.Add("@number", number);
-            Parameters.Add("@code", code);
+            Parameters.Add("@id", id);
+            Parameters.Add("@phone", phone);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
     }

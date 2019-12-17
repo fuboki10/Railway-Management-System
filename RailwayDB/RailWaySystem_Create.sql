@@ -1756,8 +1756,7 @@ GO
 CREATE PROCEDURE DeleteUserPhone
 	-- Add the parameters for the stored procedure here
 	@id int,
-	@number varchar(50),
-	@code varchar(50)
+	@phone varchar(50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -1765,7 +1764,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Delete from Employee_Phone where @number = Number and @code = Code and Employee_ID in
+	Delete from Employee_Phone where @phone = (Code+Number) and Employee_ID in
 	(select EmployeeID from [USER] where @id = ID)
+	return @@rowcount
 END
 GO

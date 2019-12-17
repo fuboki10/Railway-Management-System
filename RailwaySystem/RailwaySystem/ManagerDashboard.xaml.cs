@@ -29,13 +29,7 @@ namespace RailwaySystem
             userid = id;
             NameTextBox.Text = controllerobj.GetUsername(id);           // Display the username once the Form is opened
 
-            DataTable dt = controllerobj.GetUserAdress(id);
-            if (dt != null)
-                Address.ItemsSource = dt.DefaultView;
-            dt = controllerobj.GetUserPhones(id);
-            if (dt != null)
-                Phones.ItemsSource = dt.DefaultView;
-
+            refresh();
         }
 
 
@@ -136,6 +130,11 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Please enter a valid E-mail");
             }
+            else
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
         }
 
         private void ADDphone(object sender, RoutedEventArgs e)
@@ -154,12 +153,43 @@ namespace RailwaySystem
             else
             {
                 MessageBox.Show("Succeed !");
+                refresh();
             }
+        }
+
+        private void refresh()
+        {
+            DataTable dt = controllerobj.GetUserAdress(userid);
+            if (dt != null)
+                Address.ItemsSource = dt.DefaultView;
+            dt = controllerobj.GetUserPhones(userid);
+            if (dt != null)
+            {
+                Phones.ItemsSource = dt.DefaultView;
+                Phone_Numbers.ItemsSource = dt.DefaultView;
+                Phone_Numbers.DisplayMemberPath = "Phone_numbers";
+            }
+            
         }
 
         private void DeletePhone(object sender, RoutedEventArgs e)
         {
+            if (Phone_Numbers.Text == "")
+            {
+                MessageBox.Show("Please choose a number to delete");
+                return;
+            }
 
+            int x = controllerobj.DeleteUserPhone(userid, Phone_Numbers.Text);
+            if (x != 0)
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }
     }
 }
