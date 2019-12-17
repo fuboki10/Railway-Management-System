@@ -1320,6 +1320,42 @@ Begin
 	-- Inserting into the Trip table
 	insert into [Ticket] values(@Class , @Price ,@Date , @Trip_ID ,@Booking_Clerk_ID,@Passenger_ID )
 End
++GO
+CREATE PROCEDURE DeleteEmployee
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Delete From Employee
+	where ID = @id
+END
+
+create PROCEDURE [dbo].[GetUserstId]
+	-- Add the parameters for the stored procedure here
+	@UserID INT
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF ((SELECT IsAdmin FROM [USER] WHERE ID=@UserID) = 1)
+	BEGIN
+		SELECT 'Admin'
+	END
+	ELSE
+	BEGIN
+		DECLARE @EmpID INT = (SELECT EmployeeID FROM [USER] WHERE ID=@UserID)
+		(SELECT E.StationID  FROM Employee E WHERE ID=@EmpID)
+	 
+	END
+END
+
 
 GO
 
@@ -1704,5 +1740,30 @@ BEGIN
 	end
 	-- Returning the id of the inserted user
 	return @@identity
+END
+GO
+Use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE DeleteUserPhone
+	-- Add the parameters for the stored procedure here
+	@id int,
+	@number varchar(50),
+	@code varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Delete from Employee_Phone where @number = Number and @code = Code and Employee_ID in
+	(select EmployeeID from [USER] where @id = ID)
 END
 GO

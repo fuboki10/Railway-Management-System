@@ -201,7 +201,7 @@
         <DataGrid x:Name="Phones" HorizontalAlignment="Left" Height="200" Margin="825,510,0,0" VerticalAlignment="Top" Width="311" />
         <GroupBox Header="Addresses" HorizontalAlignment="Left" Height="88" Margin="803,333,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
         <GroupBox Header="Phone Numbers" HorizontalAlignment="Left" Height="225" Margin="803,490,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
-        <ComboBox HorizontalAlignment="Left" Height="43" Margin="349,583,0,0" VerticalAlignment="Top" Width="195"/>
+        <ComboBox x:Name="Phone_Numbers" HorizontalAlignment="Left" Height="43" Margin="349,583,0,0" VerticalAlignment="Top" Width="195" IsDropDownOpen="True" IsReadOnly="True"/>
         <TextBlock Text="New Phone number" FontSize="14" FontFamily="roboto" Height="19" TextWrapping="Wrap" Margin="320,510,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="newphone" HorizontalAlignment="Left" Height="26" Margin="530,505,0,0" Text="" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="Addphone" Cursor="Hand" Content="Add phone number" HorizontalAlignment="Left" Margin="650,510,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ADDphone">
