@@ -17,10 +17,10 @@ namespace RailwaySystem
     /// <summary>
     /// Interaction logic for ManagerDashboard.xaml
     /// </summary>
-   
+
     public partial class ManagerDashboard : Window
     {
-        Controller controllerobj;           
+        Controller controllerobj;
         int userid;
         public ManagerDashboard(int id)
         {
@@ -31,10 +31,11 @@ namespace RailwaySystem
 
             DataTable dt = controllerobj.GetUserAdress(id);
             if (dt != null)
-            Address.ItemsSource = dt.DefaultView;
+                Address.ItemsSource = dt.DefaultView;
             dt = controllerobj.GetUserPhones(id);
             if (dt != null)
-            Phones.ItemsSource = dt.DefaultView;
+                Phones.ItemsSource = dt.DefaultView;
+
         }
 
 
@@ -107,7 +108,7 @@ namespace RailwaySystem
             if (res == 0)
             {
                 MessageBox.Show("Something went wrong, this username may be already taken");
-               
+
             }
             else
             {
@@ -150,11 +151,15 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Invalid phone number or code");
             }
+            else
+            {
+                MessageBox.Show("Succeed !");
+            }
         }
 
         private void DeletePhone(object sender, RoutedEventArgs e)
         {
-            //
+
         }
     }
 }

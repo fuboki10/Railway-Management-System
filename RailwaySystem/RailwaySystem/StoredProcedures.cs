@@ -35,7 +35,7 @@ namespace RailwaySystem
 
         public static string DeletePContact = "DeletePContact";
 
-
+        public static string DeleteUserPhone = "DeleteUserPhone";
         public static string Insert_Emp_Phone = "Insert_Emp_Phone";
         public static string InsetUserPhone = "InsetUserPhone";
         public static string DeleteEmployee = "DeleteEmployee";
