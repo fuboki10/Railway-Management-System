@@ -36,7 +36,7 @@ namespace RailwaySystem
             }
             else {
                 mycontroller.AddPassenger(this.First_Name.Text, this.Last_Name.Text);
-                Passenger.BindPassengersGrid();
+                Passenger.BindPassengersGrid(Passenger.veiwPassenger);
             } 
         }
     }

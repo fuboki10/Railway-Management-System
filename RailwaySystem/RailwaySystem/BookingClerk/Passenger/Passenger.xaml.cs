@@ -19,6 +19,8 @@ namespace RailwaySystem
     /// </summary>
     public partial class Passenger : Window
     {
+        public string veiwPassenger = "veiw Passengers";
+        public string veiwPassengerContact = "veiw Passenger Contact";
         Controller ControllerObj;
         private int UserID;
         public Passenger(int U)
@@ -41,7 +43,7 @@ namespace RailwaySystem
         {
             string username = ControllerObj.GetUsername(UserID);
             NameTextBox.Text = username;
-            BindPassengersGrid();
+            BindPassengersGrid(veiwPassenger);
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -80,8 +82,8 @@ namespace RailwaySystem
             }
             else if (job == "Booking Clerk")
             {
-                BookingClerk BookingClerk = new BookingClerk(UserID);
-                BookingClerk.Show();
+                BookingClerk bookingClerk = new BookingClerk(UserID);
+                bookingClerk.Show();
             }
             else
             {
@@ -99,15 +101,35 @@ namespace RailwaySystem
 
         private void AddPassengerButton_Click(object sender, RoutedEventArgs e)
         {
-            this.newButtons.Children.Clear();
+            BindPassengersGrid(veiwPassenger);
             AddPassenger A = new AddPassenger(this);
+            Addbuttons(A);
+        }
+        public void Addbuttons(UIElement A)
+        {
+            this.newButtons.Children.Clear();
             this.newButtons.Children.Add(A);
 
         }
-        public void BindPassengersGrid()
+        public void BindPassengersGrid(string request,int PassengerID=-1)
         {
-            DataTable dt = ControllerObj.GetAllPassengers();
-            PassengersDataGrid.ItemsSource = dt.DefaultView;
+            if (request == veiwPassenger)
+            {
+                DataTable dt = ControllerObj.GetAllPassengers();
+                PassengersDataGrid.ItemsSource = dt.DefaultView;
+            }
+            if (request == veiwPassengerContact&&PassengerID!=-1)
+            {
+                DataTable dt = ControllerObj.GetPContact(PassengerID);
+                PassengersDataGrid.ItemsSource = dt.DefaultView;
+            }
         }
+
+        private void ManagePassengerContentButton_Click(object sender, RoutedEventArgs e)
+        {
+            ManageContact M = new ManageContact(this);
+            Addbuttons(M);
+        }
+        
     }
 }

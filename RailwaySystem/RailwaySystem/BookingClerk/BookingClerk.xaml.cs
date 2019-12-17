@@ -69,10 +69,7 @@ namespace RailwaySystem
             T.Show();
             this.Close();
         }
-        private void TrainsButton_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void PassengersButton_Click(object sender, RoutedEventArgs e)
         {

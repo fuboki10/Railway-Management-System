@@ -209,6 +209,25 @@ namespace RailwaySystem
             Parameters.Add("@lname", LastName);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public DataTable GetPContact(int PassengerID)
+        {
+            string StoredProcedureName = StoredProcedures.GetPContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            
+            Parameters.Add("@PassengerID", PassengerID);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public int AddPContact(int PassengerID,string City,string Email,string State, string Street)
+        {
+            string StoredProcedureName = StoredProcedures.AddPContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@PassengerID", PassengerID);
+            Parameters.Add("@City", City);
+            Parameters.Add("@State", State);
+            Parameters.Add("@Email", Email);
+            Parameters.Add("@Street", Street);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
     }
 
 }

@@ -30,6 +30,8 @@ namespace RailwaySystem
         public static string GetUserPhones = "GetUserPhones";
         public static string GetEphones = "GetEphones";
         public static string AddPassenger = "InsertPassenger";
+        public static string AddPContact = "AddPContact";
+        public static string GetPContact = "GetPContact";
 
     }
 }

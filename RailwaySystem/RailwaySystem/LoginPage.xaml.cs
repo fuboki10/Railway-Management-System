@@ -104,8 +104,8 @@ namespace RailwaySystem
             }
             else if (Job == "Booking Clerk")
             {
-                BookingClerk BookingClerk = new BookingClerk(ID);
-                BookingClerk.Show();
+                BookingClerk bookingclerk = new BookingClerk(ID);
+                bookingclerk.Show();
             }
             else if (Job == "Manager")
             {
