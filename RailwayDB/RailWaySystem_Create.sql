@@ -1320,7 +1320,8 @@ Begin
 	-- Inserting into the Trip table
 	insert into [Ticket] values(@Class , @Price ,@Date , @Trip_ID ,@Booking_Clerk_ID,@Passenger_ID )
 End
-+GO
+GO
+
 CREATE PROCEDURE DeleteEmployee
 	@id int
 AS
@@ -1333,6 +1334,7 @@ BEGIN
 	Delete From Employee
 	where ID = @id
 END
+go
 
 create PROCEDURE [dbo].[GetUserstId]
 	-- Add the parameters for the stored procedure here

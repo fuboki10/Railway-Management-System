@@ -10,7 +10,11 @@ namespace RailwaySystem
     public class DBManager
 
     {
-        static string DB_Connection_String = @" Data Source=LAPTOP-O6EITBUM\SQLEXPRESS;Initial Catalog=RailWaySystemDB;Integrated Security=True";
+        /// <summary>
+        /// elconnection bta3y ana ali abdelhaleem ali abozied ya sharamet 
+        /// Data Source=DESKTOP-BG3EJNH\SQLEXPRESS;Initial Catalog=RailWaySystemDB;Integrated Security=True
+        /// </summary>
+        static string DB_Connection_String = @" Data Source=.\SQLEXPRESS;Initial Catalog=RailWaySystemDB;Integrated Security=True";
         SqlConnection myConnection;
 
     public DBManager()

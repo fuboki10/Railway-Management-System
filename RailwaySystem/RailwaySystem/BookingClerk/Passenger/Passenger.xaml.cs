@@ -116,6 +116,7 @@ namespace RailwaySystem
             if (request == veiwPassenger)
             {
                 DataTable dt = ControllerObj.GetAllPassengers();
+                if (dt.DefaultView != null)
                 PassengersDataGrid.ItemsSource = dt.DefaultView;
             }
             if (request == veiwPassengerContact&&PassengerID!=-1)
