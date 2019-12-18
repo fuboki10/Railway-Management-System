@@ -1459,14 +1459,9 @@ BEGIN
 	 
 	END
 END
-<<<<<<< HEAD
-
-
 GO
 
-=======
 GO
->>>>>>> c776bb20632c828a774363d42c58068ce2ebe651
 -- Author:		lido22
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
