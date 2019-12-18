@@ -40,7 +40,8 @@ namespace RailwaySystem
         public static string EditPPhone = "EditPPhone";
         public static string AddPPhone = "AddPPhone";
         public static string veiwPPhone = "VeiwPPhone";
-      
+        public static string Unassign_Trains = "Unassign_Trains";
+
 
 
         // Employee procedures

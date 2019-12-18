@@ -22,7 +22,7 @@ Begin
 
 	
 	-- Inserting into the Trip table
-	insert into [Trip] values(@Dept_Time , @Arr_Time ,@Type , @Source_ID ,@Destination_ID,@Train_ID ,@St_Manager_ID )
+	insert into [Trip] values(@Dept_Time , @Arr_Time ,@Type , @Source_ID ,@Destination_ID,@Train_ID ,(select employeeid from [user] where id = @St_Manager_ID))
 End
 
 GO

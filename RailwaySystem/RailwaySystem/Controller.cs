@@ -543,6 +543,12 @@ namespace RailwaySystem
             Parameters.Add("@St_Manager_ID", St_Manager_ID);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public DataTable unassin_Trains()
+        {
+            string StoredProcedureName = StoredProcedures.Unassign_Trains;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+
     }
 
 }

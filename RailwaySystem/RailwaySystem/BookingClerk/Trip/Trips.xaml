@@ -113,5 +113,30 @@
                   CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
                   >
         </DataGrid>
+        <Button x:Name="Add_trip" Cursor="Hand"  Content="Add trip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,130,0,0"
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="166" Click="Add_trip_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="270" Margin="290,193,0,0"  VerticalAlignment="Top" Width="900" RenderTransformOrigin="0.499,0.878">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+        <Button x:Name="UpdateTrip" Cursor="Hand"  Content="Update trip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="644,130,0,0"
+            Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Click="edit_trip_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
     </Grid>
 </Window>
