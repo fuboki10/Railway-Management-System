@@ -515,6 +515,34 @@ namespace RailwaySystem
         }
 
 
+
+        public DataTable GetAllEmpPhones()
+        {
+            string StoredProceureName = StoredProcedures.GetAllEmpPhones;
+            return dbMan.ExecuteReader(StoredProceureName, null);
+        }
+
+        public int DeleteEmployeeContact(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.DeleteEmpContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public int AddTrip(string Dept_Time, string Arr_Time, int type, int Source_ID, int Destination_ID, int Train_ID, int St_Manager_ID)
+        {
+            string StoredProcedureName = StoredProcedures.AddTrips;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Dept_Time", Dept_Time);
+            Parameters.Add("@Arr_Time", Arr_Time);
+            Parameters.Add("@type", type);
+            Parameters.Add("@Source_ID", Source_ID);
+            Parameters.Add("@Destination_ID", Destination_ID);
+            Parameters.Add("@Train_ID", Train_ID);
+            Parameters.Add("@St_Manager_ID", St_Manager_ID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
     }
 
 }
