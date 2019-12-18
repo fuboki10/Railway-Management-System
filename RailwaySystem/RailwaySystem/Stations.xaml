@@ -153,9 +153,9 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <GroupBox x:Name="GBox" Header="Stations" HorizontalAlignment="Left" Margin="293,205,0,0" VerticalAlignment="Top" Height="561" Width="868" BorderBrush="#FF080226" ScrollViewer.VerticalScrollBarVisibility="Hidden" Visibility="Hidden">
-            <TextBox x:Name="SName" HorizontalAlignment="Left" Height="25" Margin="70,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119"/>
+        <GroupBox x:Name="GBox" Header="Stations" HorizontalAlignment="Left" Margin="261,205,0,0" VerticalAlignment="Top" Height="561" Width="900" BorderBrush="#FF080226" ScrollViewer.VerticalScrollBarVisibility="Hidden" Visibility="Hidden">
         </GroupBox>
+        <TextBox x:Name="SName" HorizontalAlignment="Left" Height="25" Margin="70,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
         <TextBox x:Name="SCity" HorizontalAlignment="Left" Height="25" Margin="371,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
         <TextBox x:Name="SState" HorizontalAlignment="Left" Height="25" Margin="371,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
         <TextBox x:Name="SStreet" HorizontalAlignment="Left" Height="25" Margin="371,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
@@ -199,7 +199,7 @@
                 </Button.Resources>
             </Button>
             <Button x:Name="updateyard_Copy" Cursor="Hand"  Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="270" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="519" Click="Addcouch_Click">
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="99" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="570" Click="Addcouch_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>

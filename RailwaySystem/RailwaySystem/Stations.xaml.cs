@@ -109,6 +109,7 @@ namespace RailwaySystem
             ADDButton.Visibility = Visibility.Visible;
             UPdateButton.Visibility = Visibility.Visible;
 
+            SName.Visibility = Visibility.Visible;
             SCity.Visibility = Visibility.Visible;
             SState.Visibility = Visibility.Visible;
             SStreet.Visibility = Visibility.Visible;
