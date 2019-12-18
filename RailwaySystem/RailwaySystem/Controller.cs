@@ -278,7 +278,7 @@ namespace RailwaySystem
             Parameters.Add("@ID", ID);
             Parameters.Add("@OldPassword", OldPassword);
             Parameters.Add("@NewPassword", NewPassword);
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
         }
 
         public DataTable GetUserAdress(int id)
