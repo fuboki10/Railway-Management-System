@@ -27,8 +27,7 @@ namespace RailwaySystem
             c = new Controller();
             userid = id;
             NameTextBox.Text = c.GetUsername(id);
-            GBox.Visibility = Visibility.Hidden;
-
+            
             refresh();
         }
 
@@ -100,6 +99,23 @@ namespace RailwaySystem
         {
             GBox.Visibility = Visibility.Visible;
             GBox.Header = "Stations";
+
+            nameblock.Visibility = Visibility.Visible;
+            cityblock.Visibility = Visibility.Visible;
+            streetblock.Visibility = Visibility.Visible;
+            stateblock.Visibility = Visibility.Visible;
+
+            ADDButton.Visibility = Visibility.Visible;
+            UPdateButton.Visibility = Visibility.Visible;
+
+            SCity.Visibility = Visibility.Visible;
+            SState.Visibility = Visibility.Visible;
+            SStreet.Visibility = Visibility.Visible;
+
+            stationsbox.Visibility = Visibility.Visible;
+            stations_grid.Visibility = Visibility.Visible;
+            UPName.Visibility = Visibility.Visible;
+            updateblock.Visibility = Visibility.Visible;
         }
 
         private void Yard_Click(object sender, RoutedEventArgs e)
@@ -119,6 +135,7 @@ namespace RailwaySystem
             }
 
         }
+
 
         private void ADD_Click(object sender, RoutedEventArgs e)
         {
