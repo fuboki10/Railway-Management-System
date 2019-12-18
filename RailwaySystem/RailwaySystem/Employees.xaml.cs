@@ -19,7 +19,7 @@ namespace RailwaySystem
     /// </summary>
     public partial class Employees : Window
     {
-        private int UserID;
+        public int UserID;
         Controller ControllerObj;
         public Employees(int U)
         {

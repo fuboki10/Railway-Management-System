@@ -175,7 +175,7 @@ USE [RailWaySystemDB]
 GO
 
 
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Ihab',
 		@lname = 'Sayed',
 		@bd = '11-9-1979',
@@ -191,7 +191,7 @@ USE [RailWaySystemDB]
 GO
 
 
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Tamer',
 		@lname = 'Zaghlol',
 		@bd = '5-3-1976',

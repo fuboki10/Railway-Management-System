@@ -25,6 +25,22 @@ namespace RailwaySystem
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
 
+        public DataTable GetAllJobs(int ID)
+        {
+            string StoredProceureName = StoredProcedures.GetAllJobs;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@ID", ID);
+            return dbMan.ExecuteReader(StoredProceureName, Parameters);
+        }
+
+        public int CheckUsername(string Username)
+        {
+            string StoredProceureName = StoredProcedures.CheckUsername;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Username", Username);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProceureName, Parameters).ToString());
+        }
+
         public int InsertTrain(string Model, bool Status, string Color, int No_Seats,
             int No_Cars, string Date, int Speed, int Driver_ID, int Repair_Yard_ID, int Coach_Yard_ID, int BoughtByID)
         {
@@ -167,7 +183,8 @@ namespace RailwaySystem
 
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-        public int AddEmployee(string FirstName, string LastName, string date, int salary, int hours, int jobid, int stid)
+        public int AddEmployee(string FirstName, string LastName, string date, int salary, int hours, int jobid, int stid,
+                               string Username=null, string Password=null, bool IsAdmin=false)
     {
         string StoredProcedureName = StoredProcedures.AddEmployee;
         Dictionary<string, object> Parameters = new Dictionary<string, object>();
@@ -178,6 +195,10 @@ namespace RailwaySystem
         Parameters.Add("@working_hours", hours);
         Parameters.Add("@jobid", jobid);
         Parameters.Add("@station_id", stid);
+        Parameters.Add("@IsAdmin", IsAdmin);
+        Parameters.Add("@Username", Username);
+        Parameters.Add("@Password", Password);
+
 
         return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
     }

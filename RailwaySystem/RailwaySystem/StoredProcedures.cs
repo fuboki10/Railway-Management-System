@@ -18,6 +18,7 @@ namespace RailwaySystem
         public static string GetUserPhones = "GetUserPhones";
         public static string DeleteUserPhone = "DeleteUserPhone";
         public static string InsetUserPhone = "InsetUserPhone";
+        public static string CheckUsername = "CheckUsername";
 
         // Admin procedures
         public static string Login = "Login";
@@ -40,7 +41,7 @@ namespace RailwaySystem
         // Employee procedures
         public static string Insert_Emp_Phone = "Insert_Emp_Phone";
         public static string DeleteEmployee = "DeleteEmployee";
-        public static string AddEmployee = "InsertEmp";
+        public static string AddEmployee = "Insert_Emp";
         public static string AddEmpContact = "InsertEcontact";
         public static string ChangePhone = "ChangeEmpPhone";
         public static string GetEAddress = "GetEAddress";
@@ -48,7 +49,7 @@ namespace RailwaySystem
         public static string ChangeEmail = "ChangeEmpEmail";
         public static string GetAllEmps = "getAllEmps";
         public static string UpdateSalary = "UpdateSalary";
-
+        public static string GetAllJobs = "GetAllJobs";
         public static string GetUserStationId = "GetUserstId";
 
         // Trips procedures

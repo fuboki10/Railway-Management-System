@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -26,26 +27,66 @@ namespace RailwaySystem
             InitializeComponent();
             Employee = E;
             mycontroller = new Controller();
+
+            BindEmployeesID();
+            BindStationComboBox();
+            BindJobComboBox();
+        }
+
+        private void BindJobComboBox()
+        {
+            DataTable dt = mycontroller.GetAllJobs(Employee.UserID);
+            JobComboBox.ItemsSource = dt.DefaultView;
+        }
+
+        private void BindStationComboBox()
+        {
+            DataTable dt = mycontroller.GetallStations();
+            if (dt != null)
+            {
+                StationComboBox.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                StationComboBox.ItemsSource = null;
+            }
+        }
+
+        private void BindEmployeesID()
+        {
+            DataTable dt = mycontroller.GetAllEmployees();
+            if (dt != null)
+            {
+                EmployeeID1.ItemsSource = dt.DefaultView;
+                EmployeeID2.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                EmployeeID1.ItemsSource = dt.DefaultView;
+                EmployeeID2.ItemsSource = dt.DefaultView;
+            }
         }
 
        
        
         private void DismissButton_Click(object sender, RoutedEventArgs e)
         {
-            if(EmployeeIdText.Text == "")
+            if(EmployeeID1.SelectedValue == null)
             {
-                MessageBox.Show("Enter Id");
+                MessageBox.Show("Select Employee ID");
                 return;
             }
-            mycontroller.DeleteEmployee(int.Parse(EmployeeIdText.Text));
+            mycontroller.DeleteEmployee(int.Parse(EmployeeID1.SelectedValue.ToString()));
+            
             Employee.BindEmployeesGrid();
+            BindEmployeesID();
         }
 
         private void UpdateSalaryButton_Click(object sender, RoutedEventArgs e)
         {
-            if(IDText.Text == "")
+            if(EmployeeID2.SelectedValue == null)
             {
-                MessageBox.Show("Enter Id", "Incomplete Data");
+                MessageBox.Show("Select Employee ID", "Incomplete Data");
                 return;
             }
             if (NewSalaryText.Text == "")
@@ -53,63 +94,95 @@ namespace RailwaySystem
                 MessageBox.Show("Enter The New Salary", "Incomplete Data");
                 return;
             }
-            mycontroller.UpdateEmployeeSalary(int.Parse(IDText.Text), int.Parse(NewSalaryText.Text));
+            mycontroller.UpdateEmployeeSalary(int.Parse(EmployeeID2.SelectedValue.ToString()), int.Parse(NewSalaryText.Text));
             Employee.BindEmployeesGrid();
 
         }
 
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            if(FirstNameText.Text == "")
+            if (JobComboBox.SelectedValue == null)
             {
-                MessageBox.Show("Enter The First Name", "Incomplete Data");
+                MessageBox.Show("Please Select Job");
                 return;
             }
+
+            string job = JobComboBox.Text;
+
+            if (FirstNameText.Text == "")
+            {
+                MessageBox.Show("Please Enter First Name");
+                return;
+            }
+            string first_name = FirstNameText.Text;
+
             if (LastNameText.Text == "")
             {
-                MessageBox.Show("Enter The Last Name", "Incomplete Data");
+                MessageBox.Show("Please Enter Last Name");
                 return;
             }
-            if (Salary.Text == "")
-            {
-                MessageBox.Show("Enter The Salary", "Incomplete Data");
-                return;
-            }
+            string last_name = LastNameText.Text;
+
+            string date = Birthdate.SelectedDate.ToString();
+
             if (NumHoursText.Text == "")
             {
-                MessageBox.Show("Enter Number of Hours", "Incomplete Data");
+                MessageBox.Show("Please Enter Working Hours");
                 return;
             }
-            if (JobIdText.Text == "")
+            int working_hours;
+            if (!Int32.TryParse(NumHoursText.Text, out working_hours))
             {
-                MessageBox.Show("Enter The Job Id", "Incomplete Data");
+                MessageBox.Show("Please Enter Working Hours in numbers");
                 return;
             }
-            if (StationIdText.Text == "")
-            {
-                MessageBox.Show("Enter The Station Id", "Incomplete Data");
-                return;
-            }
-            string date = Birthdate.SelectedDate.ToString();
-            if(date == "")
-            {
-                MessageBox.Show("Enter the Birthdate", "Incomplete Data");
-                return;
-            }
-            int j = int.Parse(JobIdText.Text);
-            if(j == 1 || j == 2)
-            {
-                MessageBox.Show("You can't Insert Another Manager", "Invalid Data");
-                return;
-            }
-            mycontroller.AddEmployee(FirstNameText.Text, LastNameText.Text, date, int.Parse(Salary.Text), int.Parse(NumHoursText.Text), int.Parse(JobIdText.Text), int.Parse(StationIdText.Text));
-            Employee.BindEmployeesGrid();
 
+            if (StationComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Please Select station");
+                return;
+            }
+
+            int station_id = Int32.Parse(StationComboBox.SelectedValue.ToString());
+
+            if (Salary.Text == "")
+            {
+                MessageBox.Show("Please Enter salary");
+                return;
+            }
+            int salary;
+            if (!Int32.TryParse(Salary.Text, out salary))
+            {
+                MessageBox.Show("Please Enter Salary in numbers");
+                return;
+            }
+
+            int job_id = Int32.Parse(JobComboBox.SelectedValue.ToString());
+
+            if (job == "Driver")
+            {
+                mycontroller.AddEmployee(first_name, last_name, date, salary, working_hours, job_id, station_id);
+
+                BindEmployeesID();
+                Employee.BindEmployeesGrid();
+            }
+            else
+            {
+                SignUp SU = new SignUp();
+                var result = SU.ShowDialog();
+                if (result == true)
+                {
+                    string username = SU.Username;
+                    string password = SU.Pass;
+
+                    mycontroller.AddEmployee(first_name, last_name, date, salary, working_hours, job_id, station_id, username, password);
+
+                    BindEmployeesID();
+                    Employee.BindEmployeesGrid();
+                }
+                else Console.WriteLine("XDDDDDDDDDDDD");
+            }
         }
 
-        private void IDText_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
