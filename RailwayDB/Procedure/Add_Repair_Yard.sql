@@ -21,5 +21,6 @@ BEGIN
 
     -- Insert statements for procedure here
 	insert into Repair_Yard values(@station_id, @size)
+	return @@rowcount
 END
 GO

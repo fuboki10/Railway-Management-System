@@ -1473,33 +1473,21 @@ BEGIN
 
     -- Insert statements for procedure here
 	insert into Repair_Yard values(@station_id, @size)
+	return @@rowcount
 END
 GO
 
 use RailWaySystemDB
--- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Mohamed Abobakr
 -- =============================================
 CREATE PROCEDURE AddCoachYard
 	@size int,
-	@stid int
+	@station_id int
 	
 AS
 BEGIN
@@ -1508,7 +1496,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	insert into Coach_Yard (Station_ID, Size)
-	values(@stid, @size)
+	values(@station_id, @size)
 END
 GO
 
@@ -1517,13 +1505,17 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 -- =============================================
 -- Author:		Abdelrahman
--- Create date: <Create Date,,>
--- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE GetCoachYard
 	-- Add the parameters for the stored procedure here
+	@id int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -1531,7 +1523,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM Coach_Yard
+	SELECT * FROM Coach_Yard where Station_ID = @id
 END
 GO
 
@@ -1879,3 +1871,58 @@ BEGIN
 	return @@rowcount
 END
 GO
+use RailWaySystemDB
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- Create date: 7/12/2019
+-- Description:	Add a new repair yard
+-- =============================================
+CREATE PROCEDURE AddRepairYard
+	-- Add the parameters for the stored procedure here
+	@station_id int,
+	@size int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into Repair_Yard values(@station_id, @size)
+	return @@rowcount
+END
+GO
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetCoachYard]    Script Date: 18/12/2019 18:05:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE [dbo].[GetRepairYard]
+	-- Add the parameters for the stored procedure here
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FROM Coach_Yard where Station_ID = @id
+END
+
+GO
+
+
