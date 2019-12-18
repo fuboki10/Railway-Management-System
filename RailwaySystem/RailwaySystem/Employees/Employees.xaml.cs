@@ -130,17 +130,6 @@ namespace RailwaySystem
                 ManagerDashboard M = new ManagerDashboard(UserID);
                 M.Show();
             }
-            else
-            {
-                /*
-                 * TODO
-                 * BOOKING CLERK
-                 * MANAGER 
-                 * STATION MANAGER
-                 */
-                Welcome WelcomeWindow = new Welcome(UserID);
-                WelcomeWindow.Show();
-            }
             this.Close();
         }
 

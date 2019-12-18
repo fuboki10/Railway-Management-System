@@ -247,5 +247,56 @@ namespace RailwaySystem
         {
 
         }
+
+        private void TripButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoTrips();
+        }
+
+        private void TripTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoTrips();
+        }
+
+        private void GoTrips()
+        {
+            Trips trips = new Trips(UserID);
+            trips.Show();
+            this.Close();
+        }
+
+        private void PassengersTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoPassengers();
+        }
+
+        private void PassengerButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoPassengers();
+        }
+
+        private void GoPassengers()
+        {
+            Passenger P = new Passenger(UserID);
+            P.Show();
+            this.Close();
+        }
+
+        private void TicketTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoTicket();
+        }
+
+        private void TicketButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.GoTicket();
+        }
+
+        private void GoTicket()
+        {
+            Ticket T = new Ticket(UserID);
+            T.Show();
+            this.Close();
+        }
     }
 }
