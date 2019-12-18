@@ -22,12 +22,25 @@ namespace RailwaySystem
     {
 
         private int UserID;
+        private string job;
         Controller ControllerObj;
         public Trips(int U)
         {
             ControllerObj = new Controller();
             InitializeComponent();
             UserID = U;
+            job = ControllerObj.GetUserJob(UserID);
+            RemoveButtons();
+
+        }
+        private void RemoveButtons()
+        {
+            if (job != "Manager")
+            {
+                AddTripsButton.Visibility = Visibility.Hidden;
+            }
+            if (!(job == "Manager" || job == "Station Manager"))
+                ManageTripsButton.Visibility = Visibility.Hidden;
         }
         private void Logout()
         {
@@ -129,6 +142,7 @@ namespace RailwaySystem
 
         private void AddTripButton_Click(object sender, RoutedEventArgs e)
         {
+          
 
         }
     }
