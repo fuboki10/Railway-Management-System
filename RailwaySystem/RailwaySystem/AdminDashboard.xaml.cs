@@ -90,7 +90,7 @@ namespace RailwaySystem
         }
         private void StationsTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO STATIONS FORM
+            this.GoStations();
         }
 
         private void TrainsTextButton_Click(object sender, RoutedEventArgs e)
@@ -105,7 +105,14 @@ namespace RailwaySystem
 
         private void StationsButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO STATIONS FORM
+            this.GoStations();
+        }
+
+        private void GoStations()
+        {
+            Stations ST = new Stations(UserID);
+            ST.Show();
+            this.Close();
         }
 
         private void EmployeesButton_Click(object sender, RoutedEventArgs e)
