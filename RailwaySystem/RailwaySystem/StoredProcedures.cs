@@ -37,7 +37,10 @@ namespace RailwaySystem
 
         public static string EditPContact = "EditPContact";
 
-
+        public static string DeletePPhone = "DeletePPhone";
+        public static string EditPPhone = "EditPPhone";
+        public static string AddPPhone = "AddPPhone";
+        public static string veiwPPhone = "VeiwPPhone";
         public static string DeleteUserPhone = "DeleteUserPhone";
 
         public static string Insert_Emp_Phone = "Insert_Emp_Phone";

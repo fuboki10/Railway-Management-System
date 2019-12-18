@@ -150,7 +150,6 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@station_id = 3
 SELECT	'Return Value' = @return_value
 
-DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Sayed',
@@ -162,7 +161,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@station_id = 4
 SELECT	'Return Value' = @return_value
 
-DECLARE	@return_value int
+
 
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Zeyad',

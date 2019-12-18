@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RailwaySyste"
+             xmlns:local="clr-namespace:RailwaySystem"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="900">
     <Grid>
@@ -31,8 +31,22 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="42,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="236,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-
+        <GroupBox Header="Phone" HorizontalAlignment="Left" Height="80" Margin="49,22,0,0" VerticalAlignment="Top" Width="841" BorderBrush="#FF080226">
+            <Label Content="first name" HorizontalAlignment="Left" Margin="348,10,0,0" VerticalAlignment="Top"/>
+        </GroupBox>
+        <TextBox x:Name="Phone" HorizontalAlignment="Left" Height="23" Margin="216,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" />
+        <TextBox x:Name="PhCode" HorizontalAlignment="Left" Height="23" Margin="149,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="49"/>
+        <Label Content="Passenger Phone" HorizontalAlignment="Left" Margin="49,45,0,0" VerticalAlignment="Top" Height="27"/>
+        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="23" Margin="474,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="693,49,0,0"/>
+        <Label Content="last name" HorizontalAlignment="Left" Margin="632,49,0,0" VerticalAlignment="Top" Height="27"/>
+        <Button x:Name="ViewPhonesButton" Content="View Phone" HorizontalAlignment="Left" Margin="786,75,0,0" VerticalAlignment="Top" Width="95" Height="21"
+            Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="ViewPhonesButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </UserControl>

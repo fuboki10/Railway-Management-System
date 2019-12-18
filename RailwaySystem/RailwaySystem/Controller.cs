@@ -363,6 +363,44 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.GetAllStations;
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
+        public int DeletePPhone( string fname, string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.DeletePPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int EditPPhone(string fname,string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.EditPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int AddPPhone(string fname,string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.AddPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public DataTable VeiwPhones( string fname, string lname)
+        {
+            string StoredProcedureName = StoredProcedures.veiwPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
     }
 
 }

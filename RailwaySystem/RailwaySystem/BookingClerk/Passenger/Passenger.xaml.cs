@@ -21,6 +21,7 @@ namespace RailwaySystem
     {
         public string veiwPassenger = "veiw Passengers";
         public string veiwPassengerContact = "veiw Passenger Contact";
+        public string veiwPassengerPhone = "veiw Passenger Phone";
         Controller ControllerObj;
         private int UserID;
         public Passenger(int U)
@@ -111,19 +112,27 @@ namespace RailwaySystem
             this.newButtons.Children.Add(A);
 
         }
-        public void BindPassengersGrid(string request,int PassengerID=-1)
+        public void BindPassengersGrid(string request,int PassengerID=-1,string fname="",string lname="")
         {
             if (request == veiwPassenger)
             {
                 DataTable dt = ControllerObj.GetAllPassengers();
-                if (dt.DefaultView != null)
+                if (dt != null)
                 PassengersDataGrid.ItemsSource = dt.DefaultView;
             }
             if (request == veiwPassengerContact&&PassengerID!=-1)
             {
-                DataTable dt = ControllerObj.GetPContact(PassengerID);
-                if(dt.DefaultView!=null)
+                DataTable dt = new DataTable();
+                 dt = ControllerObj.GetPContact(PassengerID);
+                if(dt!=null)
                 PassengersDataGrid.ItemsSource =dt.DefaultView;
+            }
+            if (request == veiwPassengerPhone)
+            {
+                DataTable dt = ControllerObj.VeiwPhones(fname,lname);
+                if (dt!= null)
+                PassengersDataGrid.ItemsSource = dt.DefaultView;
+
             }
         }
 
@@ -135,7 +144,8 @@ namespace RailwaySystem
 
         private void AddPassengerPhoneButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AddPhone A = new AddPhone(this);
+            Addbuttons(A);
         }
     }
 }
