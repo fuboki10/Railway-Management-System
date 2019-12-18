@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,8 @@ namespace RailwaySystem
             userid = id;
             NameTextBox.Text = c.GetUsername(id);
             GBox.Visibility = Visibility.Hidden;
+
+            refresh();
         }
 
         private void Home_button(object sender, RoutedEventArgs e)
@@ -105,14 +108,61 @@ namespace RailwaySystem
             GBox.Header = "Yards";
         }
 
+        private void refresh()
+        {
+            DataTable dt = c.GetallStations();
+            if (dt != null)
+            {
+                stations_grid.ItemsSource = dt.DefaultView;
+                stationsbox.ItemsSource = dt.DefaultView;
+                stationsbox.DisplayMemberPath = "Name";
+            }
+
+        }
+
         private void ADD_Click(object sender, RoutedEventArgs e)
         {
             if (SName.Text == "" || SState.Text == "" || SCity.Text == "" || SStreet.Text == "")
             {
-                MessageBox.Show("Please Fill in all the data")
+                MessageBox.Show("Please Fill in all the data");
                 return;
             }
 
+            int x = c.InsertStation(SName.Text, SCity.Text, SState.Text, System.Convert.ToInt32(SStreet.Text));
+            if (x == 0)
+            {
+                MessageBox.Show("Something went wronge!");
+            }
+            else
+            {
+                MessageBox.Show("Inserted Successfully");
+                refresh();
+            }
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            if (stationsbox.Text == "")
+            {
+                MessageBox.Show("Please choose a station to update");
+                return;
+            }
+            else if (UPName.Text == "")
+            {
+                MessageBox.Show("Please enter the new name of the station");
+                return;
+            }
+
+            int x = c.UpdateStation(stationsbox.Text, UPName.Text);
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wronge");
+            }
+            else
+            {
+                MessageBox.Show("Successfull");
+                refresh();
+            }
         }
     }
 }

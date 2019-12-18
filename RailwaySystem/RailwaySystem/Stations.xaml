@@ -196,6 +196,9 @@
             </Button>
             <ComboBox x:Name="stationsbox" Height="25" Canvas.Left="4" Canvas.Top="159" Width="171"/>
         </Canvas>
+        <TextBox x:Name="UPName" HorizontalAlignment="Left" Height="25" Margin="325,570,0,0"  Text="" VerticalAlignment="Top" Width="165"/>
+        <TextBlock Text="Update Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,540,0,0" TextWrapping="Wrap"/>
+
         <Canvas Margin="500,680,0,0">
             <Button x:Name="UPdateButton" Cursor="Hand"  Content="Update Name" HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Click="Update_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-178" Canvas.Top="-23">
@@ -206,7 +209,7 @@
                 </Button.Resources>
             </Button>
         </Canvas>
-        <DataGrid HorizontalAlignment="Left" Height="499" Margin="569,244,0,0" VerticalAlignment="Top" Width="570"/>
+        <DataGrid x:Name="stations_grid" HorizontalAlignment="Left" Height="499" Margin="569,244,0,0" VerticalAlignment="Top" Width="570"/>
 
 
     </Grid>

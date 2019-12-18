@@ -337,6 +337,32 @@ namespace RailwaySystem
             Parameters.Add("@phone", phone);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
+        public int InsertStation(string name, string city, string state, int street)
+        {
+            string StoredProcedureName = StoredProcedures.InsertStation;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@name", name);
+            Parameters.Add("@city", city);
+            Parameters.Add("@state", state);
+            Parameters.Add("@street", street);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        
+        public int UpdateStation(string old_name, String new_name)
+        {
+            string StoredProcedureName = StoredProcedures.UpdateStation;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@old_name", old_name);
+            Parameters.Add("@new_name", new_name);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable GetallStations()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllStations;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
     }
 
 }
