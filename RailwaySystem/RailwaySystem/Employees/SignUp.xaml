@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SignUp" Height="300" Width="300"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize" Icon="train_icon.ico">
+        ResizeMode="NoResize" Icon="../train_icon.ico">
     <Grid>
         <Label Content="Username" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="16,88,0,0" VerticalAlignment="Top"/>

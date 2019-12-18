@@ -24,7 +24,6 @@ namespace RailwaySystem
             string StoredProceureName = StoredProcedures.GetAllEmps;
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
-<<<<<<< HEAD
 
         public DataTable GetAllJobs(int ID)
         {
@@ -42,13 +41,12 @@ namespace RailwaySystem
             return Int32.Parse(dbMan.ExecuteScalar(StoredProceureName, Parameters).ToString());
         }
 
-=======
         public DataTable GetAllEContacts()
         {
             string StoredProceureName = StoredProcedures.GetAllEContacts;
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
->>>>>>> 528ebde9af00f40343ca7a4624366d891d878b1c
+
         public int InsertTrain(string Model, bool Status, string Color, int No_Seats,
             int No_Cars, string Date, int Speed, int Driver_ID, int Repair_Yard_ID, int Coach_Yard_ID, int BoughtByID)
         {

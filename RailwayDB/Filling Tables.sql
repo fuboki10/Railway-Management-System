@@ -175,19 +175,15 @@ GO
 USE [RailWaySystemDB]
 GO
 
-<<<<<<< HEAD
-
 EXEC	[dbo].[InsertEmp]
-=======
 declare @return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
->>>>>>> 528ebde9af00f40343ca7a4624366d891d878b1c
 		@fname = 'Ihab',
 		@lname = 'Sayed',
 		@bd = '11-9-1979',
 		@salary = 4000,
-		@working_hours = 40
-		, @jobid = 4,
+		@working_hours = 40,
+		@jobid = 4,
 		@station_id = 1
 
 GO

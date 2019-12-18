@@ -53,12 +53,26 @@ namespace RailwaySystem
         private void BindEmployeesDataGrid()
         {
             DataTable dt = ControllerObj.GetAllEmployees();
-            EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            if (dt != null)
+            {
+                EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                EmployeesDataGrid.ItemsSource = null;
+            }
         }
         public void BindContactsDataGrid()
         {
             DataTable dt = ControllerObj.GetAllEContacts();
-            EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            if (dt != null)
+            {
+                EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                EmployeesDataGrid.ItemsSource = null;
+            }
         }
         public void Addbuttons(UIElement A)
         {

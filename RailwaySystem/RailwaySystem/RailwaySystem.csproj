@@ -59,10 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddEmpContact.xaml.cs">
+    <Compile Include="Employees\AddEmpContact.xaml.cs">
       <DependentUpon>AddEmpContact.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddEmpPhone.xaml.cs">
+    <Compile Include="Employees\AddEmpPhone.xaml.cs">
       <DependentUpon>AddEmpPhone.xaml</DependentUpon>
     </Compile>
     <Compile Include="BookingClerk\Passenger\AddContact.xaml.cs">
@@ -101,16 +101,16 @@
     <Compile Include="BookingClerk\Ticket\EditTicket.xaml.cs">
       <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditEmpContact.xaml.cs">
+    <Compile Include="Employees\EditEmpContact.xaml.cs">
       <DependentUpon>EditEmpContact.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditTrip.xaml.cs">
       <DependentUpon>EditTrip.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmpContact.xaml.cs">
+    <Compile Include="Employees\EmpContact.xaml.cs">
       <DependentUpon>EmpContact.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Employees.xaml.cs">
+    <Compile Include="Employees\Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagerDashboard.xaml.cs">
@@ -121,7 +121,7 @@
     </Compile>
     <Compile Include="BookingClerk\Ticket\Ticket.xaml.cs">
     </Compile>
-    <Compile Include="SignUp.xaml.cs">
+    <Compile Include="Employees\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stations.xaml.cs">
@@ -137,7 +137,7 @@
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlEmp.xaml.cs">
+    <Compile Include="Employees\UserControlEmp.xaml.cs">
       <DependentUpon>UserControlEmp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
@@ -147,11 +147,11 @@
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddEmpContact.xaml">
+    <Page Include="Employees\AddEmpContact.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AddEmpPhone.xaml">
+    <Page Include="Employees\AddEmpPhone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,7 +203,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditEmpContact.xaml">
+    <Page Include="Employees\EditEmpContact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,11 +211,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmpContact.xaml">
+    <Page Include="Employees\EmpContact.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Employees.xaml">
+    <Page Include="Employees\Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,7 +245,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignUp.xaml">
+    <Page Include="Employees\SignUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,7 +269,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlEmp.xaml">
+    <Page Include="Employees\UserControlEmp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -297,7 +297,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

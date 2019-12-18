@@ -36,7 +36,14 @@ namespace RailwaySystem
         private void BindJobComboBox()
         {
             DataTable dt = mycontroller.GetAllJobs(Employee.UserID);
-            JobComboBox.ItemsSource = dt.DefaultView;
+            if (dt != null)
+            {
+                JobComboBox.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                JobComboBox.ItemsSource = null;
+            }
         }
 
         private void BindStationComboBox()
@@ -180,7 +187,6 @@ namespace RailwaySystem
                     BindEmployeesID();
                     Employee.BindEmployeesGrid();
                 }
-                else Console.WriteLine("XDDDDDDDDDDDD");
             }
         }
 

@@ -32,7 +32,6 @@ namespace RailwaySystem
         // Passenger Procedures
         public static string AddPassenger = "InsertPassenger";
         public static string AddPContact = "AddPContact";
-        public static string AddEmpContact = "AddEmpContact";
         public static string GetPContact = "GetPContact";
         public static string DeletePContact = "DeletePContact";
         public static string EditPContact = "EditPContact";
@@ -48,14 +47,9 @@ namespace RailwaySystem
 
         public static string Insert_Emp_Phone = "Insert_Emp_Phone";
         public static string DeleteEmployee = "DeleteEmployee";
-<<<<<<< HEAD
         public static string AddEmployee = "Insert_Emp";
-        public static string AddEmpContact = "InsertEcontact";
-=======
-        public static string AddEmployee = "InsertEmp";
         public static string AddEContact = "AddEmpContact";
         public static string UpdateEContact = "UpdateEmpContact";
->>>>>>> 528ebde9af00f40343ca7a4624366d891d878b1c
         public static string ChangePhone = "ChangeEmpPhone";
         public static string GetEAddress = "GetEAddress";
         public static string GetEphones = "GetEphones";
@@ -63,10 +57,7 @@ namespace RailwaySystem
         public static string ChangeEmail = "ChangeEmpEmail";
         public static string GetAllEmps = "getAllEmps";
         public static string UpdateSalary = "UpdateSalary";
-<<<<<<< HEAD
         public static string GetAllJobs = "GetAllJobs";
-=======
->>>>>>> 528ebde9af00f40343ca7a4624366d891d878b1c
         public static string GetUserStationId = "GetUserstId";
 
         // Trips procedures
