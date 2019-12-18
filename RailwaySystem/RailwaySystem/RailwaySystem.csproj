@@ -74,6 +74,9 @@
     <Compile Include="BookingClerk\BookingClerk.xaml.cs">
       <DependentUpon>BookingClerk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BookingClerk\Passenger\AddPhone.xaml.cs">
+      <DependentUpon>AddPhone.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BookingClerk\Passenger\DeletePContact.xaml.cs">
       <DependentUpon>DeletePContact.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BookingClerk\BookingClerk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookingClerk\Passenger\AddPhone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

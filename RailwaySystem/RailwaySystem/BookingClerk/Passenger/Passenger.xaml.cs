@@ -132,6 +132,10 @@ namespace RailwaySystem
             ManageContact M = new ManageContact(this);
             Addbuttons(M);
         }
-        
+
+        private void AddPassengerPhoneButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
