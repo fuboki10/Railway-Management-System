@@ -14,6 +14,7 @@ namespace RailwaySystem
         /// elconnection bta3y ana ali abdelhaleem ali abozied ya sharamet 
         /// Data Source=DESKTOP-BG3EJNH\SQLEXPRESS;Initial Catalog=RailWaySystemDB;Integrated Security=True
         /// </summary>
+        /// Data Source=DESKTOP-VO93QL6\LIDO22;Initial Catalog=RailWaySystemDB;Integrated Security=True
         static string DB_Connection_String = @"Data Source=.\SQLEXPRESS;Initial Catalog=RailWaySystemDB;Integrated Security=True";
         SqlConnection myConnection;
 

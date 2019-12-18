@@ -159,7 +159,6 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@working_hours = 30,
 		@jobid = 3,
 		@station_id = 4
-SELECT	'Return Value' = @return_value
 
 
 
@@ -171,14 +170,12 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@working_hours = 30,
 		@jobid = 3,
 		@station_id = 5
-SELECT	'Return Value' = @return_value
 GO
 
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
-
+declare @return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ihab',
 		@lname = 'Sayed',
@@ -187,7 +184,6 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@working_hours = 40
 		, @jobid = 4,
 		@station_id = 1
-SELECT	'Return Value' = @return_value
 
 GO
 
@@ -195,7 +191,6 @@ GO
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Tamer',
@@ -206,16 +201,14 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 1
 
-SELECT	'Return Value' = @return_value
 
 GO
 
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Yasser',
 		@lname = 'Farag',
 		@bd = '9-17-1973',
@@ -224,16 +217,13 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 2
 
-SELECT	'Return Value' = @return_value
 
 GO
 
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Boraie', 
 		@lname = 'Elsayed',
 		@bd = '1-17-1970',
@@ -242,16 +232,12 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 2
 
-SELECT	'Return Value' = @return_value
-
 GO
 
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Arafat',
 		@bd = '1-29-1972',
@@ -260,11 +246,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 3
 
-SELECT	'Return Value' = @return_value
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Azzam',
 		@bd = '3-31-1970',
@@ -273,11 +255,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 3
 
-SELECT	'Return Value' = @return_value
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Magdy',
 		@lname = 'Saeed',
 		@bd = '2-23-1979',
@@ -286,11 +264,8 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 4
 
-SELECT	'Return Value' = @return_value
 
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Ahmed',
 		@lname = 'Walaa',
 		@bd = '10-17-1980',
@@ -299,11 +274,8 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 4
 
-SELECT	'Return Value' = @return_value
 
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Omar',
 		@lname = 'Saedd',
 		@bd = '5-6-1967',
@@ -312,11 +284,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 5
 
-SELECT	'Return Value' = @return_value
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Omar',
 		@lname = 'Khaled',
 		@bd = '6-10-1973',
@@ -325,18 +293,13 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		, @jobid = 4,
 		@station_id = 5
 
-SELECT	'Return Value' = @return_value
 GO
 
 
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
-
-
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Kaled',  
 		@lname = 'Sorady',
 		@bd = '5-21-1974',
@@ -344,8 +307,6 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@working_hours = 35,
 		@jobid = 2,
 		@station_id = 1
-
-SELECT	'Return Value' = @return_value
 
 EXEC	[dbo].[InsertUser]
 		@Username = N'sorady',
@@ -357,9 +318,7 @@ GO
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Alaa',
 		@lname = 'Korany',
 		@bd = '3-2-1969',
@@ -368,16 +327,12 @@ EXEC	@return_value = [dbo].[InsertEmp]
 	    @jobid = 2,
 		@station_id = 2
 
-SELECT	'Return Value' = @return_value
-
 GO
 
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Hassan',
 		@lname = 'Mohamed',
 		@bd = '7-30-1970',
@@ -386,11 +341,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 	    @jobid = 2,
 		@station_id = 3
 
-SELECT	'Return Value' = @return_value
-
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Abdo',
 		@lname = 'Ebrahim',
 		@bd = '8-31-1969',
@@ -399,9 +350,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 	    @jobid = 2,
 		@station_id = 5
 
-		DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Mohamed',
 		@lname = 'Hassan',
 		@bd = '7-14-1964',
@@ -1085,3 +1034,201 @@ EXEC [dbo].InsertTrip
 	@Source_ID= 2,
 	@Train_ID=4 ,
 	@St_Manager_ID =1
+
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'12/12/2019 11:30 PM', 
+	@Arr_Time =N'12/13/2019 4:00 AM',
+	@Type=1 , 
+	@Destination_ID= 1,
+	@Source_ID= 2,
+	@Train_ID=4 ,
+	@St_Manager_ID =1
+
+	USE [RailWaySystemDB]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '1-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 1
+
+SELECT	'Return Value' = @return_value
+
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price = 120,
+		@date = '1-1-2019',
+		@bid = 1,
+		@pid = 2,
+		@tid = 1
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'C',
+		@price = 80,
+		@date = '1-1-2019',
+		@bid = 1,
+		@pid = 3,
+		@tid = 1
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '2-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 2
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price = 120,
+		@date = '2-1-2019',
+		@bid = 1,
+		@pid = 2,
+		@tid = 2
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'C',
+		@price = 80,
+		@date = '1-1-2019',
+		@bid = 1,
+		@pid = 3,
+		@tid = 2
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '3-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 3
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price = 120,
+		@date = '3-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 3
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'C',
+		@price = 80,
+		@date = '3-1-2019',
+		@bid = 1,
+		@pid = 3,
+		@tid = 3
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '4-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 4
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price = 120,
+		@date = '4-1-2019',
+		@bid = 1,
+		@pid = 2,
+		@tid = 4
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'C',
+		@price = 80,
+		@date = '4-1-2019',
+		@bid = 1,
+		@pid = 3,
+		@tid = 4
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '5-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 5
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price =120,
+		@date = '5-1-2019',
+		@bid = 1,
+		@pid = 2,
+		@tid = 5
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'C',
+		@price = 80,
+		@date = '5-1-2019',
+		@bid = 1,
+		@pid = 3,
+		@tid = 5
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '6-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 6
+
+SELECT	'Return Value' = @return_value
+
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price = 120,
+		@date = '6-1-2019',
+		@bid = 1,
+		@pid = 2,
+		@tid = 6
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'C',
+		@price = 80,
+		@date = '6-1-2019',
+		@bid = 1,
+		@pid = 3,
+		@tid = 6
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'A',
+		@price = 200,
+		@date = '7-1-2019',
+		@bid = 1,
+		@pid = 1,
+		@tid = 7
+
+SELECT	'Return Value' = @return_value
+EXEC	@return_value = [dbo].[InsertTicket]
+		@class = N'B',
+		@price = 120,
+		@date = '7-1-2019',
+		@bid = 1,
+		@pid = 2,
+		@tid = 7
+
+SELECT	'Return Value' = @return_value
+GO

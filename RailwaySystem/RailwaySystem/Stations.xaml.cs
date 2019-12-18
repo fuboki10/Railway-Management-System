@@ -21,14 +21,14 @@ namespace RailwaySystem
     {
         int userid;
         Controller c;
+        int station_id = -1;         // holds the id of the station we are using
         public Stations(int id)
         {
             InitializeComponent();
             c = new Controller();
             userid = id;
             NameTextBox.Text = c.GetUsername(id);
-            GBox.Visibility = Visibility.Hidden;
-
+            
             refresh();
         }
 
@@ -100,6 +100,24 @@ namespace RailwaySystem
         {
             GBox.Visibility = Visibility.Visible;
             GBox.Header = "Stations";
+
+            nameblock.Visibility = Visibility.Visible;
+            cityblock.Visibility = Visibility.Visible;
+            streetblock.Visibility = Visibility.Visible;
+            stateblock.Visibility = Visibility.Visible;
+
+            ADDButton.Visibility = Visibility.Visible;
+            UPdateButton.Visibility = Visibility.Visible;
+
+            SName.Visibility = Visibility.Visible;
+            SCity.Visibility = Visibility.Visible;
+            SState.Visibility = Visibility.Visible;
+            SStreet.Visibility = Visibility.Visible;
+
+            stationsbox.Visibility = Visibility.Visible;
+            stations_grid.Visibility = Visibility.Visible;
+            UPName.Visibility = Visibility.Visible;
+            updateblock.Visibility = Visibility.Visible;
         }
 
         private void Yard_Click(object sender, RoutedEventArgs e)
@@ -115,10 +133,32 @@ namespace RailwaySystem
             {
                 stations_grid.ItemsSource = dt.DefaultView;
                 stationsbox.ItemsSource = dt.DefaultView;
+                stationcombo.ItemsSource = dt.DefaultView;
                 stationsbox.DisplayMemberPath = "Name";
+                stationcombo.DisplayMemberPath = "Name";
+                stationcombo.SelectedValuePath = "ID";
             }
-
+            if ( station_id != -1)
+            {
+                dt = c.getCyards(station_id);
+                if (dt != null)
+                {
+                    coachgrid.ItemsSource = dt.DefaultView;
+                }
+                dt = c.GetRyards(station_id);
+                if (dt != null)
+                {
+                    repgrid.ItemsSource = dt.DefaultView;
+                }
+                else
+                {
+                    coachgrid.ItemsSource = null;
+                    repgrid.ItemsSource = null;
+                }
+            }
+            
         }
+
 
         private void ADD_Click(object sender, RoutedEventArgs e)
         {
@@ -131,7 +171,7 @@ namespace RailwaySystem
             int x = c.InsertStation(SName.Text, SCity.Text, SState.Text, System.Convert.ToInt32(SStreet.Text));
             if (x == 0)
             {
-                MessageBox.Show("Something went wronge!");
+                MessageBox.Show("Something went wrong!");
             }
             else
             {
@@ -156,13 +196,76 @@ namespace RailwaySystem
             int x = c.UpdateStation(stationsbox.Text, UPName.Text);
             if (x == 0)
             {
-                MessageBox.Show("Something Went wronge");
+                MessageBox.Show("Something Went wrong");
             }
             else
             {
                 MessageBox.Show("Successfull");
                 refresh();
             }
+        }
+
+        private void Addcouch_Click(object sender, RoutedEventArgs e)
+        {
+            if (size.Text == "" || stationcombo.Text == "")
+            {
+                MessageBox.Show("Please fill in all required data (make sure you have chosen a station)");
+                return;
+            }
+            bool iscoach = false;
+            if (coachyard.IsChecked == true)
+            {
+                iscoach = true;
+            }
+            else if (repairyard.IsChecked == false)
+            {
+                MessageBox.Show("Please select the type of the yard");
+                return;
+            }
+               
+            int x = c.InsertYard((int)stationcombo.SelectedValue, Convert.ToInt32(size.Text), iscoach);
+            if (x != 0)
+            {
+                MessageBox.Show("Successfull");
+                refresh();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
+
+        private void repairyard_Checked(object sender, RoutedEventArgs e)
+        {
+            if (coachyard.IsChecked == true)
+            {
+                coachyard.IsChecked = false;
+            }
+        }
+
+        private void coachyard_Checked(object sender, RoutedEventArgs e)
+        {
+            if (repairyard.IsChecked == true)
+            {
+                repairyard.IsChecked = false;
+            }
+        }
+
+        private void view_button(object sender, RoutedEventArgs e)
+        {
+            if (stationcombo.Text == "")
+            {
+                if (station_id == -1)
+                {
+                    MessageBox.Show("Please choose a station first");
+                    return;
+                }
+            }
+            else
+            {
+                station_id = Convert.ToInt32(stationcombo.SelectedValue);
+            }
+            refresh();
         }
     }
 }

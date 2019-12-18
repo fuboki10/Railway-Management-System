@@ -34,7 +34,10 @@ namespace RailwaySystem
         private void BindCoachYard()
         {
             DataTable dt = ControllerObj.GetCoachYard();
-            CoachYardComboBox.ItemsSource = dt.DefaultView;
+            if (dt != null)
+                CoachYardComboBox.ItemsSource = dt.DefaultView;
+            else
+                CoachYardComboBox.ItemsSource = null;
         }
 
         private void BindColorComboBox()
@@ -61,8 +64,16 @@ namespace RailwaySystem
         private void BindTrains()
         {
             DataTable dt = ControllerObj.GetAllTrains();
-            TrainsID_ComboBox.ItemsSource = dt.DefaultView;
-            TrainsDataGrid.ItemsSource = dt.DefaultView;
+            if (dt != null)
+            {
+                TrainsID_ComboBox.ItemsSource = dt.DefaultView;
+                TrainsDataGrid.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                TrainsID_ComboBox.ItemsSource = null;
+                TrainsDataGrid.ItemsSource = null;
+            }
         }
         private void XClicked(object sender, RoutedEventArgs e)
         {

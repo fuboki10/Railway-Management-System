@@ -1,18 +1,19 @@
-use RailWaySystemDB
+USE [RailWaySystemDB]
+GO
 
+/****** Object:  StoredProcedure [dbo].[GetCoachYard]    Script Date: 18/12/2019 18:05:41 ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
 -- Author:		Mohamed Abobakr
--- Create date: 7/12/2019
--- Description:	Add a new repair yard
 -- =============================================
-CREATE PROCEDURE AddRepairYard
+CREATE PROCEDURE [dbo].[GetRepairYard]
 	-- Add the parameters for the stored procedure here
-	@station_id int,
-	@size int
+	@id int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -20,7 +21,9 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into Repair_Yard values(@station_id, @size)
-	return @@rowcount
+	SELECT * FROM Coach_Yard where Station_ID = @id
 END
+
 GO
+
+

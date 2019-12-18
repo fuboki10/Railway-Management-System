@@ -153,21 +153,53 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <GroupBox x:Name="GBox" Header="Stations" HorizontalAlignment="Left" Margin="293,205,0,0" VerticalAlignment="Top" Height="561" Width="868" BorderBrush="#FF080226" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-            <TextBox x:Name="SName" HorizontalAlignment="Left" Height="25" Margin="70,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119"/>
+        <GroupBox x:Name="GBox" Header="Stations" HorizontalAlignment="Left" Margin="261,205,0,0" VerticalAlignment="Top" Height="561" Width="900" BorderBrush="#FF080226" ScrollViewer.VerticalScrollBarVisibility="Hidden" Visibility="Hidden">
         </GroupBox>
-        <TextBox x:Name="SCity" HorizontalAlignment="Left" Height="25" Margin="371,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="SState" HorizontalAlignment="Left" Height="25" Margin="371,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119"/>
-        <TextBox x:Name="SStreet" HorizontalAlignment="Left" Height="25" Margin="371,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="SName" HorizontalAlignment="Left" Height="25" Margin="70,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
+        <TextBox x:Name="SCity" HorizontalAlignment="Left" Height="25" Margin="371,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
+        <TextBox x:Name="SState" HorizontalAlignment="Left" Height="25" Margin="371,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
+        <TextBox x:Name="SStreet" HorizontalAlignment="Left" Height="25" Margin="371,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
 
-        <TextBlock Text="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,257,0,0" TextWrapping="Wrap"/>
-        <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,307,0,0" TextWrapping="Wrap"/>
-        <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,357,0,0" TextWrapping="Wrap"/>
-        <TextBlock Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,407,0,0" TextWrapping="Wrap"/>
+        <TextBlock x:Name="nameblock" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,257,0,0" TextWrapping="Wrap" Visibility="Hidden"/>
+        <TextBlock x:Name="cityblock" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,307,0,0" TextWrapping="Wrap" Visibility="Hidden"/>
+        <TextBlock x:Name="stateblock" Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,357,0,0" TextWrapping="Wrap" Visibility="Hidden"/>
+        <TextBlock x:Name="streetblock" Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,407,0,0" TextWrapping="Wrap" Visibility="Hidden"/>
 
         <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,120,0,0">
             <Button x:Name="StationButton" Cursor="Hand"  Content="Stations" HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Click="Station_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Addcouch" Cursor="Hand"  Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="312" Click="Addcouch_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="view" Cursor="Hand"  Content="View" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="166" Click="view_button">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="updateyard" Cursor="Hand"  Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="59" Canvas.Top="471" Click="Addcouch_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="updateyard_Copy" Cursor="Hand"  Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="99" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="570" Click="Addcouch_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -185,23 +217,23 @@
                 </Button.Resources>
             </Button>
         </Canvas>
-        <Canvas Margin="320,450,0,0">
+        <Canvas Margin="320,450,0,0" Width="175" Height="37" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button x:Name="ADDButton" Cursor="Hand"  Content="ADD" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Click="ADD_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37">
+                Click="ADD_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Visibility="Hidden">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <ComboBox x:Name="stationsbox" Height="25" Canvas.Left="4" Canvas.Top="159" Width="171"/>
+            <ComboBox x:Name="stationsbox" Height="25" Canvas.Left="4" Canvas.Top="159" Width="171" Visibility="Hidden"/>
         </Canvas>
-        <TextBox x:Name="UPName" HorizontalAlignment="Left" Height="25" Margin="325,570,0,0"  Text="" VerticalAlignment="Top" Width="165"/>
-        <TextBlock Text="Update Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,540,0,0" TextWrapping="Wrap"/>
+        <TextBox x:Name="UPName" HorizontalAlignment="Left" Height="25" Margin="325,570,0,0"  Text="" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <TextBlock x:Name="updateblock" Text="Update Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,540,0,0" TextWrapping="Wrap" Visibility="Hidden"/>
 
-        <Canvas Margin="500,680,0,0">
+        <Canvas Margin="500,680,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Height="37">
             <Button x:Name="UPdateButton" Cursor="Hand"  Content="Update Name" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Click="Update_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-178" Canvas.Top="-23">
+                Click="Update_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-178" Canvas.Top="-23" Visibility="Hidden">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -209,8 +241,23 @@
                 </Button.Resources>
             </Button>
         </Canvas>
-        <DataGrid x:Name="stations_grid" HorizontalAlignment="Left" Height="499" Margin="569,244,0,0" VerticalAlignment="Top" Width="570"/>
-
-
+        <DataGrid x:Name="stations_grid" HorizontalAlignment="Left" Height="499" Margin="569,244,0,0" VerticalAlignment="Top" Width="570" Visibility="Hidden"/>
+        <ComboBox Name="stationcombo" HorizontalAlignment="Left" Height="20" Margin="325,253,0,0" VerticalAlignment="Top" Width="171"/>
+        <DataGrid x:Name="coachgrid" HorizontalAlignment="Left" Height="213" Margin="770,274,0,0" VerticalAlignment="Top" Width="369"/>
+        <DataGrid x:Name="repgrid" HorizontalAlignment="Left" Height="213" Margin="770,504,0,0" VerticalAlignment="Top" Width="369"/>
+        <TextBox x:Name="size" HorizontalAlignment="Left" Height="16" Margin="325,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
+        <TextBlock x:Name="Coach" HorizontalAlignment="Left" Height="20" Margin="679,274,0,0" TextWrapping="Wrap" Text="Coach yards:" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="Repair" HorizontalAlignment="Left" Height="20" Margin="679,504,0,0" TextWrapping="Wrap" Text="Repair yards:" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="Add_coach" HorizontalAlignment="Left" Height="20" Margin="280,374,0,0" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="25"/>
+        <TextBlock x:Name="Add_coach_Copy" HorizontalAlignment="Left" Height="20" Margin="280,253,0,0" TextWrapping="Wrap" Text="Station" VerticalAlignment="Top" Width="131"/>
+        <RadioButton Name="coachyard" Content="yard" HorizontalAlignment="Left" Height="18" Margin="441,401,0,0" VerticalAlignment="Top" Width="17" Checked="coachyard_Checked"/>
+        <RadioButton Name="repairyard" Content="yard" HorizontalAlignment="Left" Height="18" Margin="288,401,0,0" VerticalAlignment="Top" Width="17" Checked="repairyard_Checked"/>
+        <TextBlock x:Name="Coach_button" HorizontalAlignment="Left" Height="20" Margin="463,400,0,0" TextWrapping="Wrap" Text="Coach yard" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="Repair_button" HorizontalAlignment="Left" Height="20" Margin="310,399,0,0" TextWrapping="Wrap" Text="Repair yard" VerticalAlignment="Top" Width="131"/>
+        <ComboBox x:Name="Yardscombo" HorizontalAlignment="Left" Height="20" Margin="351,556,0,0" VerticalAlignment="Top" Width="171"/>
+        <TextBlock x:Name="addingbox" HorizontalAlignment="Left" Height="20" Margin="269,353,0,0" TextWrapping="Wrap" Text="Add yard:" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="selectlabel" HorizontalAlignment="Left" Height="20" Margin="269,557,0,0" TextWrapping="Wrap" Text="Select yard:" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="size_Copy" HorizontalAlignment="Left" Height="16" Margin="325,603,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
+        <TextBlock x:Name="Add_coach_Copy1" HorizontalAlignment="Left" Height="20" Margin="280,600,0,0" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="25"/>
     </Grid>
 </Window>

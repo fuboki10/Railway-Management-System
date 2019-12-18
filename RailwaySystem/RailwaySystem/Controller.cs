@@ -401,6 +401,42 @@ namespace RailwaySystem
             Parameters.Add("@lname", lname);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
+
+
+        // iscoach is a boolean to determine the kind of the yard (if not coach then repair)
+        public int InsertYard(int stationid, int size, bool iscoach)
+        {
+            string StoredProcedureName;
+            if (iscoach)
+            {
+                StoredProcedureName = StoredProcedures.AddCoachYard;
+            }
+            else
+            {
+                StoredProcedureName = StoredProcedures.AddRepairYard;
+            }
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@station_id", stationid);
+            Parameters.Add("@size", size);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable getCyards(int id)
+        {
+            string StoredProcedureName = StoredProcedures.GetCoachYard;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public DataTable GetRyards(int id)
+        {
+            string StoredProcedureName = StoredProcedures.GetRepairYard;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+
+
     }
 
 }

@@ -1,18 +1,14 @@
-use RailWaySystemDB
+Use RailWaySystemDB
 
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Mohamed Abobakr
--- Create date: 7/12/2019
--- Description:	Add a new repair yard
+-- Author:		Mohamed
 -- =============================================
-CREATE PROCEDURE AddRepairYard
+CREATE PROCEDURE GetAllRyards 
 	-- Add the parameters for the stored procedure here
-	@station_id int,
-	@size int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -20,7 +16,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into Repair_Yard values(@station_id, @size)
-	return @@rowcount
+	SELECT * from Repair_Yard
 END
 GO
