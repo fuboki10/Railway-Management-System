@@ -19,14 +19,14 @@ namespace RailwaySystem
     /// </summary>
     public partial class Stations : Window
     {
-        int userid;
+        int UserID;
         Controller c;
         int station_id = -1;         // holds the id of the station we are using
         public Stations(int id)
         {
             InitializeComponent();
             c = new Controller();
-            userid = id;
+            UserID = id;
             NameTextBox.Text = c.GetUsername(id);
             RefreshStations();
             refresh();
@@ -43,8 +43,38 @@ namespace RailwaySystem
 
         private void HomeTextButton_Click(object sender, RoutedEventArgs e)
         {
-            ManagerDashboard M = new ManagerDashboard(userid);
-            M.Show();
+            this.GoHome();
+        }
+
+        private void GoHome()
+        {
+            string job = c.GetUserJob(UserID);
+            if (job == "Admin")
+            {
+                AdminDashboard AdminDashboard = new AdminDashboard(UserID);
+                AdminDashboard.Show();
+            }
+            else if (job == "Station Manager")
+            {
+                StManagerDashboard stManager = new StManagerDashboard(UserID);
+                stManager.Show();
+            }
+            else if (job == "Manager")
+            {
+                ManagerDashboard M = new ManagerDashboard(UserID);
+                M.Show();
+            }
+            else
+            {
+                /*
+                 * TODO
+                 * BOOKING CLERK
+                 * MANAGER 
+                 * STATION MANAGER
+                 */
+                Welcome WelcomeWindow = new Welcome(UserID);
+                WelcomeWindow.Show();
+            }
             this.Close();
         }
 

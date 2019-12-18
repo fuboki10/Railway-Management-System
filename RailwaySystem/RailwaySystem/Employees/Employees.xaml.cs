@@ -125,6 +125,11 @@ namespace RailwaySystem
                 StManagerDashboard stManager = new StManagerDashboard(UserID);
                 stManager.Show();
             }
+            else if (job == "Manager")
+            {
+                ManagerDashboard M = new ManagerDashboard(UserID);
+                M.Show();
+            }
             else
             {
                 /*

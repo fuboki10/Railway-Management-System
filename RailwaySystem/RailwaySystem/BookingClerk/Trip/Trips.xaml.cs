@@ -74,14 +74,13 @@ namespace RailwaySystem
                 StManagerDashboard stManager = new StManagerDashboard(UserID);
                 stManager.Show();
             }
+            else if (job == "Manager")
+            {
+                ManagerDashboard Manager = new ManagerDashboard(UserID);
+                Manager.Show();
+            }
             else
             {
-                /*
-                 * TODO
-                 * BOOKING CLERK
-                 * MANAGER 
-                 * STATION MANAGER
-                 */
                 Welcome WelcomeWindow = new Welcome(UserID);
                 WelcomeWindow.Show();
             }
