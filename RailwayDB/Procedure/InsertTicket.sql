@@ -14,7 +14,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		<Author,,Name>
+-- Author:		lido22
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
