@@ -30,18 +30,10 @@ namespace RailwaySystem
             InitializeComponent();
             UserID = U;
             job = ControllerObj.GetUserJob(UserID);
-            RemoveButtons();
+           
 
         }
-        private void RemoveButtons()
-        {
-            if (job != "Manager")
-            {
-                AddTripsButton.Visibility = Visibility.Hidden;
-            }
-            if (!(job == "Manager" || job == "Station Manager"))
-                ManageTripsButton.Visibility = Visibility.Hidden;
-        }
+
         private void Logout()
         {
             LoginPage LoginPage = new LoginPage();
@@ -94,19 +86,6 @@ namespace RailwaySystem
         {
             this.DragMove();
         }
-
-        private void ManageTripsButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            EditTrip A = new EditTrip(this);
-            Addbuttons(A);
-        }
-        public void Addbuttons(UIElement A)
-        {
-            this.newButtons.Children.Clear();
-            this.newButtons.Children.Add(A);
-
-        }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -136,13 +115,8 @@ namespace RailwaySystem
         public void BindTripsGrid()
         {
             DataTable dt = ControllerObj.GetAllTrips();
+            if(dt!=null)
             TripsDataGrid.ItemsSource = dt.DefaultView;
-        }
-
-        private void AddTripButton_Click(object sender, RoutedEventArgs e)
-        {
-          
-
         }
     }
 }
