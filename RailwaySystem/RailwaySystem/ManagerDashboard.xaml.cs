@@ -29,24 +29,13 @@ namespace RailwaySystem
             userid = id;
             NameTextBox.Text = controllerobj.GetUsername(id);           // Display the username once the Form is opened
 
-            DataTable dt = controllerobj.GetUserAdress(id);
-            if (dt != null)
-                Address.ItemsSource = dt.DefaultView;
-            dt = controllerobj.GetUserPhones(id);
-            if (dt != null)
-                Phones.ItemsSource = dt.DefaultView;
-
+            refresh();
         }
 
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
-        }
-
-        private void Managers_button(object sender, RoutedEventArgs e)
-        {
-            // do some managerial things 
         }
 
         private void Employee_Click(object sender, RoutedEventArgs e)
@@ -58,12 +47,16 @@ namespace RailwaySystem
 
         private void Passenger_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Passenger p = new Passenger(userid);
+            p.Show();
+            this.Close();
         }
 
         private void Stations_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            Stations s = new Stations(userid);
+            s.Show();
+            this.Close();
         }
 
         private void Trains_Click(object sender, RoutedEventArgs e)
@@ -82,7 +75,9 @@ namespace RailwaySystem
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            // to do
+            LoginPage l = new LoginPage();
+            l.Show();
+            this.Close();
         }
 
         private void XClicked(object sender, RoutedEventArgs e)
@@ -136,6 +131,11 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Please enter a valid E-mail");
             }
+            else
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
         }
 
         private void ADDphone(object sender, RoutedEventArgs e)
@@ -154,12 +154,43 @@ namespace RailwaySystem
             else
             {
                 MessageBox.Show("Succeed !");
+                refresh();
             }
+        }
+
+        private void refresh()
+        {
+            DataTable dt = controllerobj.GetUserAdress(userid);
+            if (dt != null)
+                Address.ItemsSource = dt.DefaultView;
+            dt = controllerobj.GetUserPhones(userid);
+            if (dt != null)
+            {
+                Phones.ItemsSource = dt.DefaultView;
+                Phone_Numbers.ItemsSource = dt.DefaultView;
+                Phone_Numbers.DisplayMemberPath = "Phone_numbers";
+            }
+            
         }
 
         private void DeletePhone(object sender, RoutedEventArgs e)
         {
+            if (Phone_Numbers.Text == "")
+            {
+                MessageBox.Show("Please choose a number to delete");
+                return;
+            }
 
+            int x = controllerobj.DeleteUserPhone(userid, Phone_Numbers.Text);
+            if (x != 0)
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }
     }
 }

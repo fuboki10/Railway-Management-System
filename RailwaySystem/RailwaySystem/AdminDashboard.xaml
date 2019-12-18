@@ -135,7 +135,7 @@
                   ItemsSource="{Binding}" DisplayMemberPath="Username" SelectedValuePath="ID" SelectedIndex="0">
         </ComboBox>
         <GroupBox Header="Delete Admin" HorizontalAlignment="Left" Margin="306,192,0,0" VerticalAlignment="Top" Width="308" Height="65" BorderBrush="#FF080226">
-            <Button Name="DeleteAdminButton" Content="Delete" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="209,12,0,0" BorderBrush="#FF080226" Click="DeleteAdminButton_Click" Background="#FF080226" Foreground="White">
+            <Button Name="DeleteAdminButton" Content="Delete" Cursor="Hand" HorizontalAlignment="Left" Width="75" Margin="209,12,0,7.6" BorderBrush="#FF080226" Click="DeleteAdminButton_Click" Background="#FF080226" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>

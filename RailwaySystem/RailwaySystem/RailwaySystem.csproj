@@ -98,6 +98,9 @@
     <Compile Include="BookingClerk\Ticket\EditTicket.xaml.cs">
       <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditTrip.xaml.cs">
+      <DependentUpon>EditTrip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmpContact.xaml.cs">
       <DependentUpon>EmpContact.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,9 @@
       <DependentUpon>Passenger.xaml</DependentUpon>
     </Compile>
     <Compile Include="BookingClerk\Ticket\Ticket.xaml.cs">
+    </Compile>
+    <Compile Include="Stations.xaml.cs">
+      <DependentUpon>Stations.xaml</DependentUpon>
     </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
@@ -184,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditTrip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmpContact.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -217,6 +227,10 @@
     <Page Include="BookingClerk\Ticket\Ticket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="StManagerDashboard.xaml">
       <SubType>Designer</SubType>

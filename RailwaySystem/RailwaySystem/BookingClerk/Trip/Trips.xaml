@@ -106,12 +106,31 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <DataGrid Name="TripsDataGrid" HorizontalAlignment="Left" Margin="261,276,0,0" VerticalAlignment="Top" 
-                  Height="510" Width="929" AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding}"                  
+        <DataGrid Name="TripsDataGrid" HorizontalAlignment="Left" Margin="261,487,0,0" VerticalAlignment="Top" 
+                  Height="300" Width="929" AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding}"                  
                   Background="LightGray" RowBackground="White" AlternatingRowBackground="LightGray"                   
                   BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
                   CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
                   >
         </DataGrid>
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="270,287,0,0"  VerticalAlignment="Top" Width="900">
+
+        </Grid>
+        <Button x:Name="AddTripsButton" Cursor="Hand"  Content="Add Trips" HorizontalAlignment="Left" Margin="410,130,0,0" VerticalAlignment="Top" 
+                Click="AddTripButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="100" RenderTransformOrigin="0.662,0.5" Height="37">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="ManageTripsButton" Cursor="Hand"  Content="Manage Trips" HorizontalAlignment="Left" Margin="853,130,0,0" VerticalAlignment="Top" 
+                Click="ManageTripsButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="100" RenderTransformOrigin="0.662,0.5" Height="37">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

@@ -46,6 +46,10 @@ namespace RailwaySystem
         public static string AddEmployee = "InsertEmp";
         public static string AddEmpContact = "InsertEcontact";
         public static string GetUserStationId = "GetUserstId";
-
+        public static string ChangeTripTime = "ChangeTripDate";
+        public static string ChangeTripCalss = "ChangeTripClass";
+        public static string InsertStation = "InsertStation";
+        public static string GetAllStations = "GetAllStations";
+        public static string UpdateStation = "UpdateStation";
     }
 }

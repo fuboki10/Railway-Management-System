@@ -11,8 +11,8 @@ GO
 -- =============================================
 CREATE PROCEDURE UpdateStation 
 	-- Add the parameters for the stored procedure here
-	@id int,
-	@name varchar(50)
+	@old_name varchar(50),
+	@new_name varchar(50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -20,7 +20,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	update Station set Name = @name where id = @id
-	 
+	update Station set Name = @new_name where Name = @old_name
+	 return @@rowcount 
 END
 GO
