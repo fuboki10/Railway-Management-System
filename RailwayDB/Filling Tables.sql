@@ -1232,3 +1232,15 @@ EXEC	@return_value = [dbo].[InsertTicket]
 
 SELECT	'Return Value' = @return_value
 GO
+EXEC	[dbo].[Insert_Emp]
+		@fname = N'Mohamed',
+		@lname = N'bakr',
+		@bd = '1999-2-13',
+		@salary = 23,
+		@working_hours = 15,
+		@jobid = 1,
+		@Username = N'mng',
+		@Password = N'1234',
+		@IsAdmin = 0
+		
+GO

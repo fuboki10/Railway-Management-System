@@ -74,9 +74,12 @@ namespace RailwaySystem
         public static string AddRepairYard = "AddRepairYard";
         public static string GetCoachYard = "GetCoachYard";
         public static string GetRepairYard = "GetRepairYard";
-
         public static string UpdateCoachSize = "UpdateCoachSize";
         public static string UpdateRepSize = "UpdateRepSize";
+        public static string GetAllRyards = "GetAllRyards";
+        public static string GetAllCyards = "GetAllCyards";
+        public static string RemoveCoachYard = "RemoveCoachYard";
+        public static string RemoveRepairYard = "RemoveRepairYard";
 
     }
 }

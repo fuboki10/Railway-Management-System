@@ -449,6 +449,47 @@ namespace RailwaySystem
             Parameters.Add("@id", id);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
+        public DataTable GetAllCyards()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllCyards;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+        public DataTable GetAllRyards()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllRyards;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+
+        public int UpdateCSize(int id, int size)
+        {
+            string StoredProcedureName = StoredProcedures.UpdateCoachSize;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            Parameters.Add("@size", size);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int UpdateRSize(int id, int size)
+        {
+            string StoredProcedureName = StoredProcedures.UpdateRepSize;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            Parameters.Add("@size", size);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int RemoveCyard(int id)
+        {
+            string StoredProcedureName = StoredProcedures.RemoveCoachYard;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int RemoveRyard(int id)
+        {
+            string StoredProcedureName = StoredProcedures.RemoveRepairYard;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
 
 
     }

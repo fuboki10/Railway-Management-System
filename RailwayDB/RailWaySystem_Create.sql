@@ -2076,7 +2076,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM Coach_Yard where Station_ID = @id
+	SELECT * FROM Repair_Yard where Station_ID = @id
 END
 
 GO
