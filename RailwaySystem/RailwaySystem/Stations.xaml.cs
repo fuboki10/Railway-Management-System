@@ -28,15 +28,10 @@ namespace RailwaySystem
             c = new Controller();
             userid = id;
             NameTextBox.Text = c.GetUsername(id);
-            
+            RefreshStations();
             refresh();
-        }
-
-        private void Home_button(object sender, RoutedEventArgs e)
-        {
-            LoginPage L = new LoginPage();
-            L.Show();
-            this.Close();
+            Station.Visibility = Visibility.Hidden;
+            Yards.Visibility = Visibility.Hidden;
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -50,34 +45,6 @@ namespace RailwaySystem
         {
             ManagerDashboard M = new ManagerDashboard(userid);
             M.Show();
-            this.Close();
-        }
-
-        private void Employee_Click(object sender, RoutedEventArgs e)
-        {
-            Employees E = new Employees(userid);
-            E.Show();
-            this.Close();
-        }
-
-        private void Passenger_Click(object sender, RoutedEventArgs e)
-        {
-            Passenger P = new Passenger(userid);
-            P.Show();
-            this.Close();
-        }
-
-        private void Trains_Click(object sender, RoutedEventArgs e)
-        {
-            Trains T = new Trains(userid);
-            T.Show();
-            this.Close();
-        }
-
-        private void Trips_Click(object sender, RoutedEventArgs e)
-        {
-            Trips S = new Trips(userid);
-            S.Show();
             this.Close();
         }
 
@@ -100,34 +67,27 @@ namespace RailwaySystem
         {
             GBox.Visibility = Visibility.Visible;
             GBox.Header = "Stations";
-
-            nameblock.Visibility = Visibility.Visible;
-            cityblock.Visibility = Visibility.Visible;
-            streetblock.Visibility = Visibility.Visible;
-            stateblock.Visibility = Visibility.Visible;
-
-            ADDButton.Visibility = Visibility.Visible;
-            UPdateButton.Visibility = Visibility.Visible;
-
-            SName.Visibility = Visibility.Visible;
-            SCity.Visibility = Visibility.Visible;
-            SState.Visibility = Visibility.Visible;
-            SStreet.Visibility = Visibility.Visible;
-
-            stationsbox.Visibility = Visibility.Visible;
-            stations_grid.Visibility = Visibility.Visible;
-            UPName.Visibility = Visibility.Visible;
-            updateblock.Visibility = Visibility.Visible;
+            Station.Visibility = Visibility.Visible;
+            if (Yards.Visibility == Visibility.Visible)
+            {
+                Yards.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Yard_Click(object sender, RoutedEventArgs e)
         {
             GBox.Visibility = Visibility.Visible;
             GBox.Header = "Yards";
+            Yards.Visibility = Visibility.Visible;
+            if (Station.Visibility == Visibility.Visible)
+            {
+                Station.Visibility = Visibility.Hidden;
+            }
         }
 
-        private void refresh()
+        private void RefreshStations()
         {
+            // Update the combobox of the stations
             DataTable dt = c.GetallStations();
             if (dt != null)
             {
@@ -138,6 +98,11 @@ namespace RailwaySystem
                 stationcombo.DisplayMemberPath = "Name";
                 stationcombo.SelectedValuePath = "ID";
             }
+        }
+
+        private void refresh()
+        {
+            DataTable dt;
             if ( station_id != -1)
             {
                 dt = c.getCyards(station_id);
@@ -145,6 +110,11 @@ namespace RailwaySystem
                 {
                     coachgrid.ItemsSource = dt.DefaultView;
                 }
+                else
+                {
+                    coachgrid.ItemsSource = null;
+                }
+
                 dt = c.GetRyards(station_id);
                 if (dt != null)
                 {
@@ -152,11 +122,33 @@ namespace RailwaySystem
                 }
                 else
                 {
-                    coachgrid.ItemsSource = null;
                     repgrid.ItemsSource = null;
                 }
             }
-            
+
+            dt = c.GetAllCyards();
+            if (dt != null)
+            {
+                cYardscombo.ItemsSource = dt.DefaultView;
+                cYardscombo.DisplayMemberPath = "ID";
+                cYardscombo.SelectedValuePath = "ID";
+            }
+            else
+            {
+                cYardscombo.ItemsSource = null;
+            }
+
+            dt = c.GetAllRyards();
+            if (dt != null)
+            {
+                rYards.ItemsSource = dt.DefaultView;
+                rYards.DisplayMemberPath = "ID";
+                rYards.SelectedValuePath = "ID";
+            }
+            else
+            {
+                rYards.ItemsSource = null;
+            }
         }
 
 
@@ -207,7 +199,7 @@ namespace RailwaySystem
 
         private void Addcouch_Click(object sender, RoutedEventArgs e)
         {
-            if (size.Text == "" || stationcombo.Text == "")
+            if (size.Text == "" || station_id == -1)
             {
                 MessageBox.Show("Please fill in all required data (make sure you have chosen a station)");
                 return;
@@ -223,10 +215,10 @@ namespace RailwaySystem
                 return;
             }
                
-            int x = c.InsertYard((int)stationcombo.SelectedValue, Convert.ToInt32(size.Text), iscoach);
+            int x = c.InsertYard(station_id, Convert.ToInt32(size.Text), iscoach);
             if (x != 0)
             {
-                MessageBox.Show("Successfull");
+                MessageBox.Show("Successful");
                 refresh();
             }
             else
@@ -266,6 +258,84 @@ namespace RailwaySystem
                 station_id = Convert.ToInt32(stationcombo.SelectedValue);
             }
             refresh();
+        }
+
+        private void updatecyard_Click(object sender, RoutedEventArgs e)
+        {
+            if (upcsize.Text == "" || cYardscombo.Text == "")
+            {
+                MessageBox.Show("Please select the car id and insert the new size");
+                return;
+            }
+
+            int x = c.UpdateCSize(Convert.ToInt32(cYardscombo.SelectedValue), Convert.ToInt32(upcsize.Text));
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wrong");
+            }
+            else
+            {
+                MessageBox.Show("Successful");
+                refresh();
+            }
+        }
+
+        private void updateryard_Click(object sender, RoutedEventArgs e)
+        {
+            if (uprsize.Text == "" || rYards.Text == "")
+            {
+                MessageBox.Show("Please select the yard id and insert the new size");
+                return;
+            }
+
+            int x = c.UpdateRSize(Convert.ToInt32(rYards.SelectedValue), Convert.ToInt32(uprsize.Text));
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wrong");
+            }
+            else
+            {
+                MessageBox.Show("Successful");
+                refresh();
+            }
+        }
+
+        private void deletecyard_Click(object sender, RoutedEventArgs e)
+        {
+            if (cYardscombo.Text == "")
+            {
+                MessageBox.Show("Please select the yard id");
+                return;
+            }
+            int x = c.RemoveCyard(Convert.ToInt32(cYardscombo.SelectedValue));
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wrong");
+            }
+            else
+            {
+                MessageBox.Show("Successful");
+                refresh();
+            }
+        }
+
+        private void deleteryard_Click(object sender, RoutedEventArgs e)
+        {
+            if (rYards.Text == "")
+            {
+                MessageBox.Show("Please select the yard id");
+                return;
+            }
+            int x = c.RemoveRyard(Convert.ToInt32(rYards.SelectedValue));
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wrong");
+            }
+            else
+            {
+                MessageBox.Show("Successful");
+                refresh();
+            }
         }
     }
 }

@@ -19,12 +19,25 @@ namespace RailwaySystem
     public partial class Ticket : Window
     {
         Controller ControllerObj;
+        string job;
         private int UserID;
         public Ticket(int U)
         {
             InitializeComponent();
             UserID = U;
             ControllerObj = new Controller();
+            job = ControllerObj.GetUserJob(UserID);
+            RemoveButtons();
+        }
+        private void RemoveButtons()
+        {
+           
+            if (job != "Booking Clerk")
+            {
+                BookSeatButton.Visibility = Visibility.Hidden;
+                CancelTicktButton.Visibility = Visibility.Hidden;
+                EditTicktButton.Visibility = Visibility.Hidden;
+            }
         }
         private void XClicked(object sender, RoutedEventArgs e)
         {
@@ -120,5 +133,7 @@ namespace RailwaySystem
             EditTicket E = new EditTicket();
             this.newButtons.Children.Add(E);
         }
+
+        
     }
 }

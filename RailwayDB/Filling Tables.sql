@@ -175,14 +175,15 @@ GO
 USE [RailWaySystemDB]
 GO
 
+EXEC	[dbo].[InsertEmp]
 declare @return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ihab',
 		@lname = 'Sayed',
 		@bd = '11-9-1979',
 		@salary = 4000,
-		@working_hours = 40
-		, @jobid = 4,
+		@working_hours = 40,
+		@jobid = 4,
 		@station_id = 1
 
 GO
@@ -192,7 +193,7 @@ USE [RailWaySystemDB]
 GO
 
 
-EXEC	@return_value = [dbo].[InsertEmp]
+EXEC	[dbo].[InsertEmp]
 		@fname = 'Tamer',
 		@lname = 'Zaghlol',
 		@bd = '5-3-1976',
@@ -1231,4 +1232,16 @@ EXEC	@return_value = [dbo].[InsertTicket]
 		@tid = 7
 
 SELECT	'Return Value' = @return_value
+GO
+EXEC	[dbo].[Insert_Emp]
+		@fname = N'Mohamed',
+		@lname = N'bakr',
+		@bd = '1999-2-13',
+		@salary = 23,
+		@working_hours = 15,
+		@jobid = 1,
+		@Username = N'mng',
+		@Password = N'1234',
+		@IsAdmin = 0
+		
 GO

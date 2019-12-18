@@ -1,0 +1,16 @@
+﻿<Window x:Class="RailwaySystem.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SignUp" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" Icon="../train_icon.ico">
+    <Grid>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="16,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="16,88,0,0" VerticalAlignment="Top"/>
+        <Label Content="Confirm Password" HorizontalAlignment="Left" Margin="15,123,0,0" VerticalAlignment="Top"/>
+        <Button Name="SignUpButton" Content="SignUp" HorizontalAlignment="Left" Margin="148,196,0,0" VerticalAlignment="Top" Width="107" Background="#FF080226" Foreground="#FFF8F5F5" Click="SignUpButton_Click"/>
+        <TextBox Name="UsernameTextBox"  HorizontalAlignment="Left" Height="23" Margin="146,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="146,97,0,0" VerticalAlignment="Top" Width="100"/>
+        <PasswordBox Name="ConfirmPassword" HorizontalAlignment="Left" Margin="146,128,0,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

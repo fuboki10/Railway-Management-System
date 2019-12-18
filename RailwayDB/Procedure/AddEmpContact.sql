@@ -13,27 +13,27 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
- =============================================
--- Author:		lido22
+-- =============================================
+-- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE InsertTicket
-	@class char,
-	@price int,
-	@date date,
-	@bid int,
-	@pid int, 
-	@tid int
+CREATE PROCEDURE AddEmpContact 
+	-- Add the parameters for the stored procedure here
+	@id int,
+	@City varchar(50),
+	@Email varchar(50),
+	@State varchar(50),
+	@Street varchar(50)
 
-AS
+	AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.--
+	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into Ticket
-	values(@class, @price , @date ,@bid ,@pid , @tid);
+	
+	Insert into  Employee_Contact Values(@id,@Email,@City,@State,@Street) 
 END
 GO

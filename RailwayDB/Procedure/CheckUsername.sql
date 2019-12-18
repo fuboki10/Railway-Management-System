@@ -1,19 +1,17 @@
-USE [RailWaySystemDB]
-GO
-
-/****** Object:  StoredProcedure [dbo].[GetCoachYard]    Script Date: 18/12/2019 18:05:41 ******/
+use RailWaySystemDB
+go
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
-
 -- =============================================
--- Author:		Mohamed Abobakr
+-- Author:		Abdelrahman Tarek
+-- Create date: 12/18/2019
+-- Description:	Check that username exists in database
 -- =============================================
-CREATE PROCEDURE [dbo].[GetRepairYard]
+CREATE PROCEDURE CheckUsername
 	-- Add the parameters for the stored procedure here
-	@id int
+	@Username varchar(20)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -21,9 +19,11 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM Repair_Yard where Station_ID = @id
+	IF (EXISTS (SELECT * FROM [USER] WHERE Username=@Username))
+	BEGIN 
+		SELECT 1
+	END
+	ELSE
+		SELECT 0
 END
-
 GO
-
-

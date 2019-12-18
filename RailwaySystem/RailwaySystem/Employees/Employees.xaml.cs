@@ -19,7 +19,7 @@ namespace RailwaySystem
     /// </summary>
     public partial class Employees : Window
     {
-        private int UserID;
+        public int UserID;
         Controller ControllerObj;
         public Employees(int U)
         {
@@ -53,7 +53,26 @@ namespace RailwaySystem
         private void BindEmployeesDataGrid()
         {
             DataTable dt = ControllerObj.GetAllEmployees();
-            EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            if (dt != null)
+            {
+                EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                EmployeesDataGrid.ItemsSource = null;
+            }
+        }
+        public void BindContactsDataGrid()
+        {
+            DataTable dt = ControllerObj.GetAllEContacts();
+            if (dt != null)
+            {
+                EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                EmployeesDataGrid.ItemsSource = null;
+            }
         }
         public void Addbuttons(UIElement A)
         {
@@ -137,6 +156,7 @@ namespace RailwaySystem
 
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
+            BindEmployeesDataGrid();
             UserControlEmp A = new UserControlEmp(this);
             Addbuttons(A);
         }
@@ -145,6 +165,11 @@ namespace RailwaySystem
         {
             EmpContact A = new EmpContact(this);
             Addbuttons(A);
+        }
+
+        private void EmployeesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
     <Grid>
-        <TextBox x:Name="EmployeeIdText" HorizontalAlignment="Left" Height="23" Margin="114,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" />
+       
 
-        <Label Content="EmployeeId" HorizontalAlignment="Left" Margin="29,39,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="29,39,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
         <GroupBox Header="Dismiss Employees" HorizontalAlignment="Left" Height="50" Margin="10,20,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
         <GroupBox Header="Change Salary" HorizontalAlignment="Left" Height="50" Margin="400,20,0,0" VerticalAlignment="Top" Width="400" BorderBrush="#FF080226"/>
-        <GroupBox Header="Add EmployeesWork Hours" HorizontalAlignment="Left" Height="100" Margin="10,80,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
+        <GroupBox Header="Add Employees" HorizontalAlignment="Left" Height="100" Margin="10,80,0,0" VerticalAlignment="Top" Width="769" BorderBrush="#FF080226"/>
         <Button x:Name="DismissButton" Cursor="Hand" Content="Dismiss" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="198,39,0,0" Height="23" BorderBrush="#FF080226" Click="DismissButton_Click" Background="#FF080226" Foreground="#FFFEFBFB">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -23,18 +23,15 @@
         <TextBox x:Name="NewSalaryText" HorizontalAlignment="Left" Height="23" Margin="617,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"  RenderTransformOrigin="0.784,0.47"/>
 
         <Label Content="ID" HorizontalAlignment="Left" Margin="417,35,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
-        <TextBox x:Name="IDText" HorizontalAlignment="Left" Height="23" Margin="466,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30"  RenderTransformOrigin="0.784,0.47" TextChanged="IDText_TextChanged"/>
 
-        <Label Content="Salary" HorizontalAlignment="Left" Margin="543,39,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
-        <TextBox x:Name="NumHoursText" HorizontalAlignment="Left" Height="23" Margin="339,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"  RenderTransformOrigin="0.784,0.47"/>
+        <Label Content="Salary" HorizontalAlignment="Left" Margin="567,39,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
+        <TextBox x:Name="NumHoursText" HorizontalAlignment="Left" Height="23" Margin="340,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102"  RenderTransformOrigin="0.784,0.47"/>
 
-        <Label Content="Hours" HorizontalAlignment="Left" Margin="256,145,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
-        <TextBox x:Name="JobIdText" HorizontalAlignment="Left" Height="23" Margin="596,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"  RenderTransformOrigin="0.784,0.47"/>
+        <Label Content="Working Hours" HorizontalAlignment="Left" Margin="244,144,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
 
-        <Label Content="Job Id" HorizontalAlignment="Left" Margin="543,144,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
-        <TextBox x:Name="StationIdText" HorizontalAlignment="Left" Height="23" Margin="566,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"  RenderTransformOrigin="0.784,0.47"/>
+        <Label Content="Job" HorizontalAlignment="Left" Margin="483,143,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
 
-        <Label Content="Station Id" HorizontalAlignment="Left" Margin="500,104,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
+        <Label Content="Station" HorizontalAlignment="Left" Margin="474,104,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="-3.856,-2.919"/>
         <Button x:Name="UpdateSalarayButton" Cursor="Hand" Content="Update Salary" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="680,39,0,0" Height="23" BorderBrush="#FF080226" Click="UpdateSalaryButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" RenderTransformOrigin="2.56,0.4">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -48,8 +45,8 @@
         <Label Content="Last Name" HorizontalAlignment="Left" Margin="256,105,0,0" VerticalAlignment="Top" Height="27"/>
 
         <TextBox x:Name="FirstNameText" HorizontalAlignment="Left" Height="23" Margin="114,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="Salary" HorizontalAlignment="Left" Height="23" Margin="680,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
-        <Label Content="Salary" HorizontalAlignment="Left" Margin="625,105,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="1.154,0.637"/>
+        <TextBox x:Name="Salary" HorizontalAlignment="Left" Height="23" Margin="686,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
+        <Label Content="Salary" HorizontalAlignment="Left" Margin="639,104,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="1.154,0.637"/>
 
 
         <Button x:Name="AddEmpButton" Cursor="Hand" Content="Add Employee" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="680,141,0,0" Height="23" BorderBrush="#FF080226" Click="AddEmployeeButton_Click" Background="#FF080226" Foreground="#FFFEFBFB">
@@ -61,5 +58,13 @@
         </Button>
         <DatePicker Name="Birthdate" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.188,2.35" Margin="114,145,0,0"/>
         <Label Content="Birthdate" HorizontalAlignment="Left" Margin="28,145,0,0" VerticalAlignment="Top" Height="27"/>
+        <ComboBox Name="JobComboBox" HorizontalAlignment="Left" Height="24" Margin="541,145,0,0" VerticalAlignment="Top" Width="92"
+                  ItemsSource="{Binding}" DisplayMemberPath="Job_Description" SelectedValuePath="ID"/>
+        <ComboBox Name="StationComboBox" HorizontalAlignment="Left" Margin="541,106,0,0" VerticalAlignment="Top" Width="91"
+                  ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="ID"/>
+        <ComboBox Name="EmployeeID2" HorizontalAlignment="Left" Margin="443,41,0,0" VerticalAlignment="Top" Width="90"
+                  ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID"/>
+        <ComboBox Name="EmployeeID1" HorizontalAlignment="Left" Margin="59,40,0,0" VerticalAlignment="Top" Width="90"
+                  ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID"/>
     </Grid>
 </UserControl>

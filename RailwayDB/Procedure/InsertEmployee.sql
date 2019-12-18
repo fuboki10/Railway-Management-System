@@ -22,7 +22,6 @@ CREATE PROCEDURE [dbo].[Insert_Emp]
 	@station_id int = null,
 	@Username varchar(20) = null, 
     @Password varchar(20) = null,
-	@EmployeeID int=null,
 	@IsAdmin BIT=null,
     @responseMessage varchar(250)='' OUTPUT
 AS

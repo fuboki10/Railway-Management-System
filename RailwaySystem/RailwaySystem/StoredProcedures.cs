@@ -18,6 +18,7 @@ namespace RailwaySystem
         public static string GetUserPhones = "GetUserPhones";
         public static string DeleteUserPhone = "DeleteUserPhone";
         public static string InsetUserPhone = "InsetUserPhone";
+        public static string CheckUsername = "CheckUsername";
 
         // Admin procedures
         public static string Login = "Login";
@@ -46,15 +47,17 @@ namespace RailwaySystem
 
         public static string Insert_Emp_Phone = "Insert_Emp_Phone";
         public static string DeleteEmployee = "DeleteEmployee";
-        public static string AddEmployee = "InsertEmp";
-        public static string AddEmpContact = "InsertEcontact";
+        public static string AddEmployee = "Insert_Emp";
+        public static string AddEContact = "AddEmpContact";
+        public static string UpdateEContact = "UpdateEmpContact";
         public static string ChangePhone = "ChangeEmpPhone";
         public static string GetEAddress = "GetEAddress";
         public static string GetEphones = "GetEphones";
+        public static string GetAllEContacts ="GetAllEContacts";
         public static string ChangeEmail = "ChangeEmpEmail";
         public static string GetAllEmps = "getAllEmps";
         public static string UpdateSalary = "UpdateSalary";
-
+        public static string GetAllJobs = "GetAllJobs";
         public static string GetUserStationId = "GetUserstId";
 
         // Trips procedures
@@ -72,9 +75,12 @@ namespace RailwaySystem
         public static string AddRepairYard = "AddRepairYard";
         public static string GetCoachYard = "GetCoachYard";
         public static string GetRepairYard = "GetRepairYard";
-
         public static string UpdateCoachSize = "UpdateCoachSize";
         public static string UpdateRepSize = "UpdateRepSize";
+        public static string GetAllRyards = "GetAllRyards";
+        public static string GetAllCyards = "GetAllCyards";
+        public static string RemoveCoachYard = "RemoveCoachYard";
+        public static string RemoveRepairYard = "RemoveRepairYard";
 
     }
 }
