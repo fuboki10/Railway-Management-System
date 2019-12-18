@@ -18,7 +18,6 @@ namespace RailwaySystem
         public static string ChangeUsername = "ChangeUsername";
         public static string ChangePassword = "ChangePassword";
         public static string RemoveTrain = "RemoveTrain";
-        public static string GetCoachYard = "GetCoachYard";
         public static string GetAllTrains = "GetAllTrains";
         public static string GetAllTrips = "GetAllTrips";
         public static string GetAllPassengers = "GetAllPassengers";
@@ -51,5 +50,10 @@ namespace RailwaySystem
         public static string InsertStation = "InsertStation";
         public static string GetAllStations = "GetAllStations";
         public static string UpdateStation = "UpdateStation";
+        public static string AddCoachYard = "AddCoachYard";
+        public static string AddRepairYard = "AddRepairYard";
+        // to be used        
+        public static string GetCoachYard = "GetCoachYard";
+        public static string GetRepairYard = "GetRepairYard";
     }
 }

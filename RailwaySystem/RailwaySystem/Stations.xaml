@@ -174,6 +174,22 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button x:Name="Addcouch" Cursor="Hand"  Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="288" Click="Addcouch_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="view" Cursor="Hand"  Content="View" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="166" Click="view_button">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Canvas>
         <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="850,120,0,0">
             <Button x:Name="YardButton" Cursor="Hand"  Content="Yards" HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -210,7 +226,17 @@
             </Button>
         </Canvas>
         <DataGrid x:Name="stations_grid" HorizontalAlignment="Left" Height="499" Margin="569,244,0,0" VerticalAlignment="Top" Width="570" Visibility="Hidden"/>
-
-
+        <ComboBox Name="stationcombo" HorizontalAlignment="Left" Height="20" Margin="325,253,0,0" VerticalAlignment="Top" Width="171"/>
+        <DataGrid x:Name="coachgrid" HorizontalAlignment="Left" Height="213" Margin="770,274,0,0" VerticalAlignment="Top" Width="369"/>
+        <DataGrid x:Name="repgrid" HorizontalAlignment="Left" Height="213" Margin="770,504,0,0" VerticalAlignment="Top" Width="369"/>
+        <TextBox x:Name="size" HorizontalAlignment="Left" Height="16" Margin="325,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
+        <TextBlock x:Name="Coach" HorizontalAlignment="Left" Height="20" Margin="679,274,0,0" TextWrapping="Wrap" Text="Coach yards:" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="Repair" HorizontalAlignment="Left" Height="20" Margin="679,504,0,0" TextWrapping="Wrap" Text="Repair yards:" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="Add_coach" HorizontalAlignment="Left" Height="20" Margin="280,353,0,0" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="25"/>
+        <TextBlock x:Name="Add_coach_Copy" HorizontalAlignment="Left" Height="20" Margin="280,253,0,0" TextWrapping="Wrap" Text="Station" VerticalAlignment="Top" Width="131"/>
+        <RadioButton Name="coachyard" Content="yard" HorizontalAlignment="Left" Height="18" Margin="441,383,0,0" VerticalAlignment="Top" Width="17" Checked="coachyard_Checked"/>
+        <RadioButton Name="repairyard" Content="yard" HorizontalAlignment="Left" Height="18" Margin="288,382,0,0" VerticalAlignment="Top" Width="17" Checked="repairyard_Checked"/>
+        <TextBlock x:Name="Coach_button" HorizontalAlignment="Left" Height="20" Margin="474,382,0,0" TextWrapping="Wrap" Text="Coach yard" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="Repair_button" HorizontalAlignment="Left" Height="20" Margin="310,382,0,0" TextWrapping="Wrap" Text="Repair yard" VerticalAlignment="Top" Width="131"/>
     </Grid>
 </Window>

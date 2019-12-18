@@ -1,12 +1,17 @@
-use RailWaySystemDB
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GetCoachYard]    Script Date: 18/12/2019 18:05:41 ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
--- Author:		Abdelrahman
+-- Author:		Mohamed Abobakr
 -- =============================================
-CREATE PROCEDURE GetCoachYard
+CREATE PROCEDURE [dbo].[GetRepairYard]
 	-- Add the parameters for the stored procedure here
 	@id int
 AS
@@ -18,4 +23,7 @@ BEGIN
     -- Insert statements for procedure here
 	SELECT * FROM Coach_Yard where Station_ID = @id
 END
+
 GO
+
+
