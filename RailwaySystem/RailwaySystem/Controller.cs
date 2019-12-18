@@ -18,6 +18,29 @@ namespace RailwaySystem
         {
             dbMan.CloseConnection();
         }
+      
+        public int InsertTrip(string Dept_Time, string Arr_Time, int type, int Destination_ID, int Source_ID,
+                               int Train_ID, int Driver_ID, int St_Manager_ID, int NumClassA, int PriceClassA,
+                                int NumClassB, int PriceClassB, int NumClassC, int PriceClassC)
+        {
+            string StoredProceureName = StoredProcedures.InsertTrip;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Dept_Time", Dept_Time); 
+	        Parameters.Add("@Arr_Time", Arr_Time);
+	        Parameters.Add("@Type", type); 
+	        Parameters.Add("@Destination_ID", Destination_ID);
+	        Parameters.Add("@Source_ID", Source_ID);
+	        Parameters.Add("@Train_ID", Train_ID);
+	        Parameters.Add("@DriverID", Driver_ID);
+	        Parameters.Add("@St_Manager_ID", St_Manager_ID);
+	        Parameters.Add("@NumClassA", NumClassA);
+            Parameters.Add("@PriceClassA", PriceClassA);
+            Parameters.Add("@NumClassB", NumClassB);
+            Parameters.Add("@PriceClassB", PriceClassB);
+            Parameters.Add("@NumClassC", NumClassC);
+            Parameters.Add("@PriceClassC", PriceClassC);
+            return dbMan.ExecuteNonQuery(StoredProceureName, Parameters);
+        }
 
         public DataTable GetAllEmployees()
         {

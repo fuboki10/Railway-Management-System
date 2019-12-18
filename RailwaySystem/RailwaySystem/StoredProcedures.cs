@@ -64,6 +64,7 @@ namespace RailwaySystem
         public static string ChangeTripTime = "ChangeTripDate";
         public static string ChangeTripCalss = "ChangeTripClass";
         public static string GetAllTrips = "GetAllTrips";
+        public static string InsertTrip = "InsertTrip";
 
         // Station procedures
         public static string InsertStation = "InsertStation";
