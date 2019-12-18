@@ -1801,6 +1801,47 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE GetAllEmpPhones
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT *
+	from Employee_Phone
+END
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE DeleteEmpContact
+@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	delete from Employee_Contact
+	where Employee_ID = @id;
+END
+GO
+
 --=============================================
 -- Author:		lido22
 -- Create date: <Create Date,,>
@@ -2301,5 +2342,24 @@ BEGIN
 END
 GO
 
+Use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE Unassign_Trains 
+	-- Add the parameters for the stored procedure here
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
+    -- Insert statements for procedure here
+	SELECT * from Train where Coach_Yard_ID is not null
+END
+GO
 

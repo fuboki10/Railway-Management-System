@@ -118,5 +118,23 @@ namespace RailwaySystem
             if(dt!=null)
             TripsDataGrid.ItemsSource = dt.DefaultView;
         }
+
+        private void edit_trip_Click(object sender, RoutedEventArgs e)
+        {
+            EditTrip A = new EditTrip(this);
+            Add_buttons(A);
+        }
+
+        public void Add_buttons(UIElement A)
+        {
+            this.newButtons.Children.Clear();
+            this.newButtons.Children.Add(A);
+        }
+
+        private void Add_trip_Click(object sender, RoutedEventArgs e)
+        {
+            AddTrip T = new AddTrip(this);
+            Add_buttons(T);
+        }
     }
 }

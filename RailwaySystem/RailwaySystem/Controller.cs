@@ -538,6 +538,27 @@ namespace RailwaySystem
         }
 
 
+
+        public DataTable GetAllEmpPhones()
+        {
+            string StoredProceureName = StoredProcedures.GetAllEmpPhones;
+            return dbMan.ExecuteReader(StoredProceureName, null);
+        }
+
+        public int DeleteEmployeeContact(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.DeleteEmpContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable unassin_Trains()
+        {
+            string StoredProcedureName = StoredProcedures.Unassign_Trains;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+
     }
 
 }

@@ -78,7 +78,6 @@ Begin
 	------------------------------
 	UPDATE Train SET Driver_ID=@DriverID, Coach_Yard_ID=null
 	WHERE ID=@Train_ID
-
 End
 
 GO
