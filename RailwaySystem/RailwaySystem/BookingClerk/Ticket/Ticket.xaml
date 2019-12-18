@@ -130,7 +130,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,228,0,0"  VerticalAlignment="Top" Width="900">
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,281,0,0"  VerticalAlignment="Top" Width="900">
         </Grid>
     </Grid>
     

@@ -122,15 +122,16 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,207,0,0"  VerticalAlignment="Top" Width="900">
-            <Button x:Name="AddPassengerPhoneButton" Cursor="Hand"  Content="Add Passenger Phone" HorizontalAlignment="Left" Margin="513,-41,0,0" VerticalAlignment="Top" 
+        <Button x:Name="AddPassengerPhoneButton" Cursor="Hand"  Content="Add Passenger Phone" HorizontalAlignment="Left" Margin="801,165,0,0" VerticalAlignment="Top" 
                 Click="AddPassengerPhoneButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="160" RenderTransformOrigin="0.662,0.5" Height="37">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,207,0,0"  VerticalAlignment="Top" Width="900">
+           
 
         </Grid>
         <DataGrid Name="PassengersDataGrid" HorizontalAlignment="Left" Height="379" Margin="256,407,0,0" VerticalAlignment="Top" Width="934"

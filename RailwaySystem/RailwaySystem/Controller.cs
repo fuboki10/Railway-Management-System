@@ -24,6 +24,7 @@ namespace RailwaySystem
             string StoredProceureName = StoredProcedures.GetAllEmps;
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
+<<<<<<< HEAD
 
         public DataTable GetAllJobs(int ID)
         {
@@ -41,6 +42,13 @@ namespace RailwaySystem
             return Int32.Parse(dbMan.ExecuteScalar(StoredProceureName, Parameters).ToString());
         }
 
+=======
+        public DataTable GetAllEContacts()
+        {
+            string StoredProceureName = StoredProcedures.GetAllEContacts;
+            return dbMan.ExecuteReader(StoredProceureName, null);
+        }
+>>>>>>> 528ebde9af00f40343ca7a4624366d891d878b1c
         public int InsertTrain(string Model, bool Status, string Color, int No_Seats,
             int No_Cars, string Date, int Speed, int Driver_ID, int Repair_Yard_ID, int Coach_Yard_ID, int BoughtByID)
         {
@@ -141,7 +149,7 @@ namespace RailwaySystem
         }
         public string GetUserStationId(int ID)
         {
-            string StoredProcedureName = StoredProcedures.GetUserJob;
+            string StoredProcedureName = StoredProcedures.GetUserStationId;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
@@ -204,7 +212,7 @@ namespace RailwaySystem
     }
     public int AddEmpContact(int EmpID, string City, string Email, string State, string Street)
     {
-        string StoredProcedureName = StoredProcedures.AddEmpContact;
+        string StoredProcedureName = StoredProcedures.AddEContact;
         Dictionary<string, object> Parameters = new Dictionary<string, object>();
         Parameters.Add("@id", EmpID);
         Parameters.Add("@city", City);
@@ -213,9 +221,19 @@ namespace RailwaySystem
         Parameters.Add("@street", Street);
         return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
     }
+        public int ChangeEmpContact(int EmpID, string City, string Email, string State, string Street)
+        {
+            string StoredProcedureName = StoredProcedures.UpdateEContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", EmpID);
+            Parameters.Add("@city", City);
+            Parameters.Add("@state", State);
+            Parameters.Add("@email", Email);
+            Parameters.Add("@street", Street);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
 
-
-    public DataTable GetAllAdmins()
+        public DataTable GetAllAdmins()
         {
             string StoredProcedureName = StoredProcedures.GetAllAdmins;
             return dbMan.ExecuteReader(StoredProcedureName, null);
@@ -320,7 +338,7 @@ namespace RailwaySystem
             Parameters.Add("@Street", Street);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-
+        
         public object DeletePContact(string Email)
         {
             string StoredProcedureName = StoredProcedures.DeletePContact;
@@ -384,6 +402,45 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.GetAllStations;
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
+        public int DeletePPhone( string fname, string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.DeletePPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int EditPPhone(string fname,string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.EditPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int AddPPhone(string fname,string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.AddPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public DataTable VeiwPhones( string fname, string lname)
+        {
+            string StoredProcedureName = StoredProcedures.veiwPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+
 
         // iscoach is a boolean to determine the kind of the yard (if not coach then repair)
         public int InsertYard(int stationid, int size, bool iscoach)
@@ -417,6 +474,7 @@ namespace RailwaySystem
             Parameters.Add("@id", id);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
+
 
     }
 

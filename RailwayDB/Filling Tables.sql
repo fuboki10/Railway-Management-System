@@ -161,6 +161,7 @@ EXEC	@return_value = [dbo].[InsertEmp]
 		@station_id = 4
 
 
+
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Zeyad',
 		@lname = 'Ramadan',
@@ -174,8 +175,13 @@ GO
 USE [RailWaySystemDB]
 GO
 
+<<<<<<< HEAD
 
 EXEC	[dbo].[InsertEmp]
+=======
+declare @return_value int
+EXEC	@return_value = [dbo].[InsertEmp]
+>>>>>>> 528ebde9af00f40343ca7a4624366d891d878b1c
 		@fname = 'Ihab',
 		@lname = 'Sayed',
 		@bd = '11-9-1979',

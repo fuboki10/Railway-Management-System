@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -9,8 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace RailwaySystem
 {
@@ -19,11 +20,15 @@ namespace RailwaySystem
     /// </summary>
     public partial class EmpContact : UserControl
     {
+        Controller mycontroller;
         Employees Employee;
         public EmpContact(Employees E)
         {
             InitializeComponent();
+            mycontroller = new Controller();
             Employee = E;
+            Employee.BindContactsDataGrid();
+
         }
 
         private void AddContactButton_Click(object sender, RoutedEventArgs e)
@@ -32,14 +37,12 @@ namespace RailwaySystem
             Employee.Addbuttons(A);
         }
 
-        private void DeleteContactButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void EditContactButton_Click(object sender, RoutedEventArgs e)
         {
-
+            EditEmpContact E = new EditEmpContact(Employee);
+            Employee.Addbuttons(E);
         }
     }
 }
