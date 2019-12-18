@@ -1087,6 +1087,14 @@ EXEC [dbo].InsertTrip
 	@Train_ID=4 ,
 	@St_Manager_ID =1
 
+EXEC [dbo].InsertTrip
+	@Dept_Time =N'12/12/2019 11:30 PM', 
+	@Arr_Time =N'12/13/2019 4:00 AM',
+	@Type=1 , 
+	@Destination_ID= 1,
+	@Source_ID= 2,
+	@Train_ID=4 ,
+	@St_Manager_ID =1
 
 	USE [RailWaySystemDB]
 GO
