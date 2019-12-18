@@ -24,7 +24,11 @@ namespace RailwaySystem
             string StoredProceureName = StoredProcedures.GetAllEmps;
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
-
+        public DataTable GetAllEContacts()
+        {
+            string StoredProceureName = StoredProcedures.GetAllEContacts;
+            return dbMan.ExecuteReader(StoredProceureName, null);
+        }
         public int InsertTrain(string Model, bool Status, string Color, int No_Seats,
             int No_Cars, string Date, int Speed, int Driver_ID, int Repair_Yard_ID, int Coach_Yard_ID, int BoughtByID)
         {
@@ -125,7 +129,7 @@ namespace RailwaySystem
         }
         public string GetUserStationId(int ID)
         {
-            string StoredProcedureName = StoredProcedures.GetUserJob;
+            string StoredProcedureName = StoredProcedures.GetUserStationId;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
@@ -183,7 +187,7 @@ namespace RailwaySystem
     }
     public int AddEmpContact(int EmpID, string City, string Email, string State, string Street)
     {
-        string StoredProcedureName = StoredProcedures.AddEmpContact;
+        string StoredProcedureName = StoredProcedures.AddEContact;
         Dictionary<string, object> Parameters = new Dictionary<string, object>();
         Parameters.Add("@id", EmpID);
         Parameters.Add("@city", City);
@@ -192,9 +196,19 @@ namespace RailwaySystem
         Parameters.Add("@street", Street);
         return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
     }
+        public int ChangeEmpContact(int EmpID, string City, string Email, string State, string Street)
+        {
+            string StoredProcedureName = StoredProcedures.UpdateEContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", EmpID);
+            Parameters.Add("@city", City);
+            Parameters.Add("@state", State);
+            Parameters.Add("@email", Email);
+            Parameters.Add("@street", Street);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
 
-
-    public DataTable GetAllAdmins()
+        public DataTable GetAllAdmins()
         {
             string StoredProcedureName = StoredProcedures.GetAllAdmins;
             return dbMan.ExecuteReader(StoredProcedureName, null);
@@ -299,7 +313,7 @@ namespace RailwaySystem
             Parameters.Add("@Street", Street);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-
+        
         public object DeletePContact(string Email)
         {
             string StoredProcedureName = StoredProcedures.DeletePContact;

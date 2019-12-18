@@ -55,6 +55,11 @@ namespace RailwaySystem
             DataTable dt = ControllerObj.GetAllEmployees();
             EmployeesDataGrid.ItemsSource = dt.DefaultView;
         }
+        public void BindContactsDataGrid()
+        {
+            DataTable dt = ControllerObj.GetAllEContacts();
+            EmployeesDataGrid.ItemsSource = dt.DefaultView;
+        }
         public void Addbuttons(UIElement A)
         {
             this.newButtons.Children.Clear();
@@ -137,6 +142,7 @@ namespace RailwaySystem
 
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
+            BindEmployeesDataGrid();
             UserControlEmp A = new UserControlEmp(this);
             Addbuttons(A);
         }
@@ -145,6 +151,11 @@ namespace RailwaySystem
         {
             EmpContact A = new EmpContact(this);
             Addbuttons(A);
+        }
+
+        private void EmployeesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

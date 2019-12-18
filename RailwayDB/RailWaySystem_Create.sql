@@ -1772,6 +1772,81 @@ BEGIN
 	values(@class, @price , @date ,@bid ,@pid , @tid);
 END
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE GetAllEContacts
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	
+	select *
+	From Employee_Contact;
+    
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE UpdateEmpContact
+	
+	@id int,
+	@City varchar(50),
+	@Email varchar(50),
+	@State varchar(50),
+	@Street varchar(50)
+	AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	Update Employee_Contact
+	set City = @City, Email = @Email, [State] = @State, Street = @Street
+	where Employee_ID = @id;
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE AddEmpContact 
+	-- Add the parameters for the stored procedure here
+	@id int,
+	@City varchar(50),
+	@Email varchar(50),
+	@State varchar(50),
+	@Street varchar(50)
+
+	AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	
+	Insert into  Employee_Contact Values(@id,@Email,@City,@State,@Street) 
+END
+GO
+
 
 -- ============================================
 USE [RailWaySystemDB]

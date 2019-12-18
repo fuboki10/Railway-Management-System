@@ -134,6 +134,6 @@
                       AutoGenerateColumns="True" IsReadOnly="True" Background="LightGray" RowBackground="White" AlternatingRowBackground="LightGray"                    
                       BorderBrush="Gray" BorderThickness="5"  AreRowDetailsFrozen="True" FrozenColumnCount="2" 
                       CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
-                      ItemsSource="{Binding}"/>
+                      ItemsSource="{Binding}" SelectionChanged="EmployeesDataGrid_SelectionChanged"/>
     </Grid>
 </Window>

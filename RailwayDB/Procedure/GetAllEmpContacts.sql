@@ -13,27 +13,19 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
- =============================================
+-- =============================================
 -- Author:		lido22
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE InsertTicket
-	@class char,
-	@price int,
-	@date date,
-	@bid int,
-	@pid int, 
-	@tid int
-
+CREATE PROCEDURE GetAllEContacts
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.--
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	insert into Ticket
-	values(@class, @price , @date ,@bid ,@pid , @tid);
+	-- interfering with SELECT statements.
+	
+	select *
+	From Employee_Contact;
+    
 END
 GO

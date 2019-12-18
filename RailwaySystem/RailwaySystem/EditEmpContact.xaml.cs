@@ -15,37 +15,28 @@ using System.Windows.Shapes;
 namespace RailwaySystem
 {
     /// <summary>
-    /// Interaction logic for AddEmpContact.xaml
+    /// Interaction logic for EditEmpContact.xaml
     /// </summary>
-    public partial class AddEmpContact : UserControl
+    public partial class EditEmpContact : UserControl
     {
         Employees Employee;
         Controller mycontroller;
-        EmpContact Emp;
-        public AddEmpContact(Employees E)
+        public EditEmpContact(Employees E)
         {
-            Employee = E;
+            Employee = E;   
             mycontroller = new Controller();
-            
             InitializeComponent();
-            
         }
 
-        private void PassengerID_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         private void AddContactButton_Click(object sender, RoutedEventArgs e)
         {
-
             if (EmployeeID.Text == "" || City.Text == "" || this.Street.Text == "" || Email.Text == "" || State.Text == "")
             {
                 MessageBox.Show("Please type all the contact data");
             }
             else
             {
-
-                mycontroller.AddEmpContact(Convert.ToInt32(this.EmployeeID.Text), this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
+                mycontroller.ChangeEmpContact(Convert.ToInt32(this.EmployeeID.Text), this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
             }
             Employee.BindContactsDataGrid();
         }

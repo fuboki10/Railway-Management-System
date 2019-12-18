@@ -55,10 +55,8 @@
                 <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="TripTextButton" Content="Trips" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="TripsTextButton_Click" Cursor="Hand"  />
                 </Canvas>
+               
                 <Canvas  Width="44" Height="19" Margin="0,192,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="TicketsTextButton" Content="Tickets" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="TicketsTextButton_Click" Cursor="Hand"  />
-                </Canvas>
-                <Canvas  Width="44" Height="19" Margin="0,242,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="LogoutTextButton" Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="LogoutTextButton_Click" Cursor="Hand"  />
                 </Canvas>
             </Grid>
@@ -80,20 +78,8 @@
                     </Button.Template>
                 </Button>
             </Canvas>
+            
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="346" >
-                <Button x:Name="TicketsButton" Cursor="Hand" Background="{x:Null}" Click="TicketsButton_Click">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Width="24" Height="24">
-                                <Image.Source>
-                                    <BitmapImage UriSource="Resources\ticketico.png"/>
-                                </Image.Source>
-                            </Image>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </Canvas>
-            <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="396" >
                 <Button x:Name="LogoutButton" Cursor="Hand" Background="{x:Null}" Click="LogoutButton_Click">
                     <Button.Template>
                         <ControlTemplate>

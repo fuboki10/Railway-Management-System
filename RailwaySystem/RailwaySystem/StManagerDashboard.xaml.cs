@@ -92,7 +92,13 @@ namespace RailwaySystem
         }
         private void StationsTextButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO : GO TO STATIONS FORM
+            this.GoStation();
+        }
+        private void GoStation()
+        {
+            Stations TW = new Stations(UserID);
+            TW.Show();
+            this.Close();
         }
 
         private void TrainsTextButton_Click(object sender, RoutedEventArgs e)
