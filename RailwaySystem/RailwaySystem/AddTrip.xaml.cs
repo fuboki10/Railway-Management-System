@@ -60,7 +60,17 @@ namespace RailwaySystem
                 return;
             }
             // اعملها بالانسرت تريب يعلق
-           // c.AddTrip(dep.SelectedDate.ToString(), arr.SelectedDate.ToString(), Convert.ToInt32(type.Text), source.SelectedValue, dest.SelectedValue, 0);
+            // c.AddTrip(dep.SelectedDate.ToString(), arr.SelectedDate.ToString(), Convert.ToInt32(type.Text), source.SelectedValue, dest.SelectedValue, 0);
+            int x=0;
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wrong");
+            }
+            else
+            {
+                MessageBox.Show("Successful");
+                trip.BindTripsGrid();
+            }
         }
     }
 }

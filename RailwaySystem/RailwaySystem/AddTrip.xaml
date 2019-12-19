@@ -31,6 +31,19 @@
         </Button>
         <ComboBox Name="train" HorizontalAlignment="Left" Height="26" Margin="86,142,0,0" VerticalAlignment="Top" Width="170"/>
         <Label Content="Train" HorizontalAlignment="Left" Height="34" Margin="25,134,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="class A" HorizontalAlignment="Left" Height="34" Margin="567,38,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="class B" HorizontalAlignment="Left" Height="34" Margin="567,77,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="class C" HorizontalAlignment="Left" Height="34" Margin="567,118,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="Price A" HorizontalAlignment="Left" Height="34" Margin="567,158,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="Price B" HorizontalAlignment="Left" Height="34" Margin="567,200,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="Price C" HorizontalAlignment="Left" Height="34" Margin="567,237,0,0" VerticalAlignment="Top" Width="117"/>
+        <GroupBox Header="Tickets Number and prices" HorizontalAlignment="Left" Height="267" Margin="561,11,0,0" VerticalAlignment="Top" Width="229" BorderBrush="Black"/>
+        <TextBox Name="classA"  HorizontalAlignment="Left" Height="24" Margin="633,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="classB" HorizontalAlignment="Left" Height="24" Margin="633,80,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="classC" HorizontalAlignment="Left" Height="24" Margin="633,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="priceA" HorizontalAlignment="Left" Height="24" Margin="633,160,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="priceB" HorizontalAlignment="Left" Height="24" Margin="633,200,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="priceC" HorizontalAlignment="Left" Height="24" Margin="633,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
 
     </Grid>
 </UserControl>

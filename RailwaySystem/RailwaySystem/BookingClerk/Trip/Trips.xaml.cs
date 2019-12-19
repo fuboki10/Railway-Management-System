@@ -21,7 +21,7 @@ namespace RailwaySystem
     public partial class Trips : Window
     {
 
-        private int UserID;
+        public int UserID;
         private string job;
         Controller ControllerObj;
         public Trips(int U)
