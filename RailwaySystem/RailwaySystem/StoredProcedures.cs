@@ -51,6 +51,7 @@ namespace RailwaySystem
         public static string AddEContact = "AddEmpContact";
         public static string UpdateEContact = "UpdateEmpContact";
         public static string ChangePhone = "ChangeEmpPhone";
+        public static string ChangeEmpPhone = "EditEmpPhone";
         public static string GetEAddress = "GetEAddress";
         public static string GetEphones = "GetEphones";
         public static string GetAllEContacts ="GetAllEContacts";
@@ -61,6 +62,9 @@ namespace RailwaySystem
         public static string GetUserStationId = "GetUserstId";
         public static string DeleteEmpContact = "DeleteEmpContact";
         public static string GetAllEmpPhones = "GetAllEmpPhones";
+        public static string DeleteEmpPhone = "DeleteEmpPhone";
+
+
 
         // Trips procedures
         public static string ChangeTripTime = "ChangeTripDate";

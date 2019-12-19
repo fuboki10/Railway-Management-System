@@ -74,6 +74,18 @@ namespace RailwaySystem
                 EmployeesDataGrid.ItemsSource = null;
             }
         }
+        public void BindPhonesDataGrid()
+        {
+            DataTable dt = ControllerObj.GetAllEmpPhones();
+            if (dt != null)
+            {
+                EmployeesDataGrid.ItemsSource = dt.DefaultView;
+            }
+            else
+            {
+                EmployeesDataGrid.ItemsSource = null;
+            }
+        }
         public void Addbuttons(UIElement A)
         {
             this.newButtons.Children.Clear();
@@ -157,6 +169,7 @@ namespace RailwaySystem
 
         private void ManageEmployeeContentButton_Click(object sender, RoutedEventArgs e)
         {
+            BindContactsDataGrid();
             EmpContact A = new EmpContact(this);
             Addbuttons(A);
         }
@@ -164,6 +177,13 @@ namespace RailwaySystem
         private void EmployeesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ManageEmployeePhonesButton_Click(object sender, RoutedEventArgs e)
+        {
+            BindPhonesDataGrid();
+            AddEmpPhone A = new AddEmpPhone(this);
+            Addbuttons(A);
         }
     }
 }

@@ -159,6 +159,7 @@ namespace RailwaySystem
         string StoredProcedureName = StoredProcedures.DeleteEmployee;
         Dictionary<string, object> Parameters = new Dictionary<string, object>();
         Parameters.Add("@id", ID);
+        DeleteEmployeeContact(ID);
         return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
     }
     public int UpdateEmployeeSalary(int ID, int salary)
@@ -410,6 +411,16 @@ namespace RailwaySystem
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public int DeleteEmpPhone(string fname, string lname, string code, string number)
+        {
+            string StoredProcedureName = StoredProcedures.DeleteEmpPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public int EditPPhone(string fname,string lname, int code, int number)
         {
             string StoredProcedureName = StoredProcedures.EditPPhone;
@@ -420,9 +431,29 @@ namespace RailwaySystem
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public int EditEmpPhone(string fname, string lname, int code, int number)
+        {
+            string StoredProcedureName = StoredProcedures.ChangeEmpPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public int AddPPhone(string fname,string lname, int code, int number)
         {
             string StoredProcedureName = StoredProcedures.AddPPhone;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@fname", fname);
+            Parameters.Add("@lname", lname);
+            Parameters.Add("@number", number);
+            Parameters.Add("@code", code);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int AddEmpPhone(string fname, string lname, string code, string number)
+        {
+            string StoredProcedureName = StoredProcedures.Insert_Emp_Phone;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@fname", fname);
             Parameters.Add("@lname", lname);
@@ -542,6 +573,11 @@ namespace RailwaySystem
             Parameters.Add("@Train_ID", Train_ID);
             Parameters.Add("@St_Manager_ID", St_Manager_ID);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public DataTable GetAllEmployeePhones()
+        {
+            string StoredProceureName = StoredProcedures.GetAllEmpPhones;
+            return dbMan.ExecuteReader(StoredProceureName, null);
         }
     }
 

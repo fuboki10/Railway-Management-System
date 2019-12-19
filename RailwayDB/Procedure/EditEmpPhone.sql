@@ -14,20 +14,24 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		lido
+-- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE DeleteEmpContact
-@id int
-AS
+CREATE PROCEDURE EditEmpPhone
+	-- Add the parameters for the stored procedure here
+	@fname varchar(50),
+	@lname varchar(50),
+	@code int,
+	@number int
+
+	AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	delete from Employee_Contact
-	where Employee_ID = @id;
+	update  Employee_Phone
+	set Code=@code , Number=@number
+	where (select ID from Employee where First_name=@fname and Last_name=@lname)=Employee_ID;	
 END
 GO
