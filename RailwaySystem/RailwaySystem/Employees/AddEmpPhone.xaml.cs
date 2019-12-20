@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,24 +20,79 @@ namespace RailwaySystem
     /// </summary>
     public partial class AddEmpPhone : UserControl
     {
-        public AddEmpPhone()
+        Employees Employee;
+        Controller mycontroller;
+        public AddEmpPhone(Employees E)
         {
             InitializeComponent();
+            Employee = E;
+            mycontroller = new Controller();
+            Employee.BindPhonesDataGrid();
+            BindEmployeesID();
         }
 
         private void DeletePhoneButton_Click(object sender, RoutedEventArgs e)
         {
+            if (PhCode.Text == "" || Phone.Text == "")
+            {
+                MessageBox.Show("type all information");
+            }
+            else
+            {
 
+                try
+                {
+                    mycontroller.DeleteEmpPhone(int.Parse(EmployeeID.Text), PhCode.Text, Phone.Text);
+                    Employee.BindPhonesDataGrid();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.ToString());
+                    throw;
+                }
+            }
         }
 
         private void AddPhoneButton_Click(object sender, RoutedEventArgs e)
         {
+            if (EmployeeID.Text == "" || PhCode.Text == "" || Phone.Text == "")
+            {
+                MessageBox.Show("type all information");
+            }
+            else
+            {
 
+                try
+                {
+                    mycontroller.AddEmpPhone(int.Parse(EmployeeID.Text), PhCode.Text, Phone.Text);
+                    Employee.BindPhonesDataGrid();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.ToString());
+                    throw;
+                }
+            }
         }
 
-        private void EditPhoneButton_Click(object sender, RoutedEventArgs e)
+        private void EmployeeID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void BindEmployeesID()
+        {
+            DataTable dt = mycontroller.GetAllEmployees();
+            if (dt != null)
+            {
+
+                EmployeeID.ItemsSource = dt.DefaultView;
+
+            }
+            else
+            {
+
+                EmployeeID.ItemsSource = null;
+            }
         }
     }
 }

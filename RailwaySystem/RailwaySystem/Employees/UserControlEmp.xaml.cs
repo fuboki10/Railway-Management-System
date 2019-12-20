@@ -69,8 +69,8 @@ namespace RailwaySystem
             }
             else
             {
-                EmployeeID1.ItemsSource = dt.DefaultView;
-                EmployeeID2.ItemsSource = dt.DefaultView;
+                EmployeeID1.ItemsSource = null;
+                EmployeeID2.ItemsSource = null;
             }
         }
 
@@ -190,5 +190,9 @@ namespace RailwaySystem
             }
         }
 
+        private void EmployeeID1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

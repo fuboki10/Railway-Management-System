@@ -51,7 +51,7 @@
                 </Button.Template>
             </Button>
         </Canvas>
-        <Button x:Name="AddEmployeeButton" Cursor="Hand"  Content="Manage Employees" HorizontalAlignment="Left" Margin="410,130,0,0" VerticalAlignment="Top" 
+        <Button x:Name="AddEmployeeButton" Cursor="Hand"  Content="Manage Employees" HorizontalAlignment="Left" Margin="343,130,0,0" VerticalAlignment="Top" 
                 Click="AddEmployeeButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -59,7 +59,15 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="ManageEmployeeContentButton" Cursor="Hand"  Content="Manage Employee Contact " HorizontalAlignment="Left" Margin="853,130,0,0" VerticalAlignment="Top" 
+        <Button x:Name="ManageEmployeePhonesButton" Cursor="Hand"  Content="Manage Employee Phones " HorizontalAlignment="Left" Margin="903,130,0,0" VerticalAlignment="Top" 
+                Click="ManageEmployeePhonesButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="ManageEmployeeContentButton" Cursor="Hand"  Content="Manage Employee Contact " HorizontalAlignment="Left" Margin="621,130,0,0" VerticalAlignment="Top" 
                 Click="ManageEmployeeContentButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

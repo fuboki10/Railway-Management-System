@@ -1493,6 +1493,23 @@ BEGIN
 END
 go
 
+--lido22
+create PROCEDURE DeleteEmpPhone
+	@id int,
+	@code varchar(10),
+	@number varchar(15)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+		Delete from Employee_Phone where @id=Employee_ID and @code =Code and @number=Number
+
+END
+GO
+
 create PROCEDURE [dbo].[GetUserstId]
 	-- Add the parameters for the stored procedure here
 	@UserID INT
@@ -1606,6 +1623,7 @@ Begin
 	
 	-- Inserting into the Trip table
 	INSERT INTO [Subscription]  values(@Fees,@Class,@No_Trips)
+	return @@rowcount
 End
 
 GO
@@ -1974,19 +1992,13 @@ GO
 USE [RailWaySystemDB]
 GO
 
-/****** Object:  StoredProcedure [dbo].[Insert_Emp_Phone]    Script Date: 17/12/2019 17:50:24 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
 -- =============================================
 -- Author:		Mohamed Abobakr
 -- =============================================
-CREATE PROCEDURE [dbo].[Insert_Emp_Phone]
+create PROCEDURE [dbo].[Insert_Emp_Phone]
 	@id int,
-	@phone varchar(50),
-	@code varchar(50)
+	@code varchar(10),
+	@number varchar(15)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -1994,7 +2006,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into Employee_Phone values (@id, @code, @phone)
+	insert into Employee_Phone values (@id, @code, @number)
 	return @@rowcount
 END
 GO
@@ -2074,6 +2086,29 @@ BEGIN
 	return @@rowcount
 END
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE GetAllEmpPhones
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT *
+	from Employee_Phone
+END
+GO
+
 Use RailWaySystemDB
 SET ANSI_NULLS ON
 GO

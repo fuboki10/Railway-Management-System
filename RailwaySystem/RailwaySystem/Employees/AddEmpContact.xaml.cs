@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -28,9 +29,24 @@ namespace RailwaySystem
             mycontroller = new Controller();
             
             InitializeComponent();
+            BindEmployeesID();
             
         }
+        private void BindEmployeesID()
+        {
+            DataTable dt = mycontroller.GetAllEmployees();
+            if (dt != null)
+            {
+                
+                EmployeeID.ItemsSource = dt.DefaultView;
 
+            }
+            else
+            {
+             
+                EmployeeID.ItemsSource = null;
+            }
+        }
         private void PassengerID_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -51,6 +67,16 @@ namespace RailwaySystem
         }
 
         private void EmployeeID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void EmployeeID2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void EmployeeID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

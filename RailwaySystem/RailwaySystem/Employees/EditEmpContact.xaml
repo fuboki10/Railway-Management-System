@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="900">
     <Grid>
-        <TextBox x:Name="EmployeeID" HorizontalAlignment="Left" Height="21" Margin="70,35,0,0" TextWrapping="Wrap" Text="" 
-            VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599" TextChanged="EmployeeID_TextChanged"/>
+        <ComboBox Name="EmployeeID" HorizontalAlignment="Left" Margin="70,34,0,0" VerticalAlignment="Top" Width="90"
+                  ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectionChanged="EmployeeID_SelectionChanged"/>
         <Label Content="Employee ID" HorizontalAlignment="Left" Margin="70,4,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Email" HorizontalAlignment="Left" Height="21" Margin="70,90,0,0" TextWrapping="Wrap" Text="" 
             VerticalAlignment="Top" Width="350" RenderTransformOrigin="0.489,0.599"/>
