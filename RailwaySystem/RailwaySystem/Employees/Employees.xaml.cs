@@ -145,7 +145,10 @@ namespace RailwaySystem
 
         private void GoStatistics()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            Form1 f = new Form1();
+            f.Show();
+   
         }
 
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
