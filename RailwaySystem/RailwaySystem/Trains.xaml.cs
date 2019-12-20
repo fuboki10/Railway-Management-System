@@ -33,7 +33,7 @@ namespace RailwaySystem
 
         private void BindCoachYard()
         {
-            DataTable dt = ControllerObj.GetCoachYard();
+            DataTable dt = ControllerObj.GetAllCyards();
             if (dt != null)
                 CoachYardComboBox.ItemsSource = dt.DefaultView;
             else
