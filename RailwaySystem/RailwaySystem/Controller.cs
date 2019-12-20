@@ -18,6 +18,29 @@ namespace RailwaySystem
         {
             dbMan.CloseConnection();
         }
+      
+        public int InsertTrip(string Dept_Time, string Arr_Time, int type, int Destination_ID, int Source_ID,
+                               int Train_ID, int Driver_ID, int St_Manager_ID, int NumClassA, int PriceClassA,
+                                int NumClassB, int PriceClassB, int NumClassC, int PriceClassC)
+        {
+            string StoredProceureName = StoredProcedures.InsertTrip;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Dept_Time", Dept_Time); 
+	        Parameters.Add("@Arr_Time", Arr_Time);
+	        Parameters.Add("@Type", type); 
+	        Parameters.Add("@Destination_ID", Destination_ID);
+	        Parameters.Add("@Source_ID", Source_ID);
+	        Parameters.Add("@Train_ID", Train_ID);
+	        Parameters.Add("@DriverID", Driver_ID);
+	        Parameters.Add("@St_Manager_ID", St_Manager_ID);
+	        Parameters.Add("@NumClassA", NumClassA);
+            Parameters.Add("@PriceClassA", PriceClassA);
+            Parameters.Add("@NumClassB", NumClassB);
+            Parameters.Add("@PriceClassB", PriceClassB);
+            Parameters.Add("@NumClassC", NumClassC);
+            Parameters.Add("@PriceClassC", PriceClassC);
+            return dbMan.ExecuteNonQuery(StoredProceureName, Parameters);
+        }
 
         public DataTable GetAllEmployees()
         {
@@ -559,24 +582,20 @@ namespace RailwaySystem
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
 
-        public int AddTrip(string Dept_Time, string Arr_Time, int type, int Source_ID, int Destination_ID, int Train_ID, int St_Manager_ID)
+        public DataTable unassin_Trains()
         {
-            string StoredProcedureName = StoredProcedures.AddTrips;
-            Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("@Dept_Time", Dept_Time);
-            Parameters.Add("@Arr_Time", Arr_Time);
-            Parameters.Add("@type", type);
-            Parameters.Add("@Source_ID", Source_ID);
-            Parameters.Add("@Destination_ID", Destination_ID);
-            Parameters.Add("@Train_ID", Train_ID);
-            Parameters.Add("@St_Manager_ID", St_Manager_ID);
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            string StoredProcedureName = StoredProcedures.Unassign_Trains;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
         }
+<<<<<<< HEAD
         public DataTable GetAllEmployeePhones()
         {
             string StoredProceureName = StoredProcedures.GetAllEmpPhones;
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
+=======
+
+>>>>>>> 908d89a7913ea1c256996dd77f760c6b4c93a054
     }
 
 }

@@ -40,7 +40,8 @@ namespace RailwaySystem
         public static string EditPPhone = "EditPPhone";
         public static string AddPPhone = "AddPPhone";
         public static string veiwPPhone = "VeiwPPhone";
-      
+        public static string Unassign_Trains = "Unassign_Trains";
+
 
 
         // Employee procedures
@@ -70,12 +71,15 @@ namespace RailwaySystem
         public static string ChangeTripTime = "ChangeTripDate";
         public static string ChangeTripCalss = "ChangeTripClass";
         public static string GetAllTrips = "GetAllTrips";
-        public static string AddTrips = "InsertTrip";
+        public static string InsertTrip = "InsertTrip";
         // Station procedures
         public static string InsertStation = "InsertStation";
         public static string GetAllStations = "GetAllStations";
         public static string UpdateStation = "UpdateStation";
-       
+
+        public static string get_source = "get_source";         // for the trips
+        public static string get_dest = "get_dest";
+
         // Yards Procedures
         public static string AddCoachYard = "AddCoachYard";
         public static string AddRepairYard = "AddRepairYard";

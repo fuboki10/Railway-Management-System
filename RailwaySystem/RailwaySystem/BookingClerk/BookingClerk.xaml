@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="RailwaySystem.BookingClerk"
         Title="Dashboard" Height="800" Width="1200"
-        WindowStartupLocation="CenterScreen" 
+        WindowStartupLocation="CenterScreen" Icon="..\train_icon.ico"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1">
 
     <Grid Uid="Dashboard"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
