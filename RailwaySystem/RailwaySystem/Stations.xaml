@@ -130,7 +130,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <ComboBox Name="stationcombo" HorizontalAlignment="Left" Height="20" Margin="325,253,0,0" VerticalAlignment="Top" Width="171" SelectionChanged="change_id"/>
+            <ComboBox Name="stationcombo" HorizontalAlignment="Left" Height="20" Margin="325,253,0,0" VerticalAlignment="Top" Width="171" />
             <DataGrid x:Name="coachgrid" HorizontalAlignment="Left" Height="213" Margin="770,274,0,0" VerticalAlignment="Top" Width="369" />
             <DataGrid x:Name="repgrid" HorizontalAlignment="Left" Height="213" Margin="770,504,0,0" VerticalAlignment="Top" Width="369" />
             <TextBox x:Name="size" HorizontalAlignment="Left" Height="16" Margin="325,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" />

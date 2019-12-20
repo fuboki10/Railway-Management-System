@@ -21,7 +21,6 @@ namespace RailwaySystem
     {
         int UserID;
         Controller c;
-        int station_id = -1;         // holds the id of the station we are using
         public Stations(int id)
         {
             InitializeComponent();
@@ -133,9 +132,9 @@ namespace RailwaySystem
         private void refresh()
         {
             DataTable dt;
-            if ( station_id != -1)
+            if ( stationcombo.SelectedValue != null)
             {
-                dt = c.getCyards(station_id);
+                dt = c.getCyards(Int32.Parse(stationcombo.SelectedValue.ToString()));
                 if (dt != null)
                 {
                     coachgrid.ItemsSource = dt.DefaultView;
@@ -145,7 +144,7 @@ namespace RailwaySystem
                     coachgrid.ItemsSource = null;
                 }
 
-                dt = c.GetRyards(station_id);
+                dt = c.GetRyards(Int32.Parse(stationcombo.SelectedValue.ToString()));
                 if (dt != null)
                 {
                     repgrid.ItemsSource = dt.DefaultView;
@@ -229,7 +228,7 @@ namespace RailwaySystem
 
         private void Addcouch_Click(object sender, RoutedEventArgs e)
         {
-            if (size.Text == "" || station_id == -1)
+            if (size.Text == "" || stationcombo.SelectedValue == null)
             {
                 MessageBox.Show("Please fill in all required data (make sure you have chosen a station)");
                 return;
@@ -245,7 +244,7 @@ namespace RailwaySystem
                 return;
             }
                
-            int x = c.InsertYard(station_id, Convert.ToInt32(size.Text), iscoach);
+            int x = c.InsertYard(Int32.Parse(stationcombo.SelectedValue.ToString()), Convert.ToInt32(size.Text), iscoach);
             if (x != 0)
             {
                 MessageBox.Show("Successful");
@@ -275,17 +274,10 @@ namespace RailwaySystem
 
         private void view_button(object sender, RoutedEventArgs e)
         {
-            if (stationcombo.Text == "")
+            if (stationcombo.SelectedValue == null)
             {
-                if (station_id == -1)
-                {
-                    MessageBox.Show("Please choose a station first");
-                    return;
-                }
-            }
-            else
-            {
-                station_id = Convert.ToInt32(stationcombo.SelectedValue);
+                MessageBox.Show("Please choose a station first");
+                return;
             }
             refresh();
         }
@@ -365,14 +357,6 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 refresh();
-            }
-        }
-
-        private void change_id(object sender, SelectionChangedEventArgs e)
-        {
-            if (stationcombo.Text != "")
-            {
-                station_id = (int)stationcombo.SelectedValue;
             }
         }
     }
