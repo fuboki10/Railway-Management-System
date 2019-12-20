@@ -59,7 +59,6 @@ namespace RailwaySystem
                 Driver.ItemsSource = null;
             }
         }
-
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             //source.SelectedValue, dest.SelectedValue, arr.SelectedDate.ToString(), dep.SelectedDate.ToString(), type.Text, train.SelectedValue

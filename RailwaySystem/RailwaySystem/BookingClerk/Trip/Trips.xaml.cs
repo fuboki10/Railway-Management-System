@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
 namespace RailwaySystem
 {
     /// <summary>
@@ -146,7 +145,7 @@ namespace RailwaySystem
 
         private void add_sub_Click(object sender, RoutedEventArgs e)
         {
-            AddSub A = new AddSub();
+            AddSub A = new AddSub(this);
             Add_buttons(A);
         }
     }

@@ -487,6 +487,11 @@ namespace RailwaySystem
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
 
+        public DataTable GetAllSubscriptions()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllSubscriptions;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
 
         // iscoach is a boolean to determine the kind of the yard (if not coach then repair)
         public int InsertYard(int stationid, int size, bool iscoach)

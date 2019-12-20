@@ -94,5 +94,8 @@ namespace RailwaySystem
         public static string RemoveCoachYard = "RemoveCoachYard";
         public static string RemoveRepairYard = "RemoveRepairYard";
 
+        // Subscription
+        public static string GetAllSubscriptions = "GetAllSubscriptions";
+
     }
 }

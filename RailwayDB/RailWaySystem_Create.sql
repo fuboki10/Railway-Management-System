@@ -2409,16 +2409,35 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
+	Declare @DriverJobID INT = (SELECT ID FROM Job WHERE Job_Description='Driver') 
+	-- Insert statements for procedure here
 	SELECT (First_name + ' ' + Last_name) as name, Employee.ID from Employee left join Train on employee.ID = Driver_ID  
-	where Employee.JobID = 4 and Model is null
+	where Employee.JobID = @DriverJobID and Model is null
 END
 GO
-Use RailWaySystemDB
+
+USE RailWaySystemDB
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Abdelrahman Tarek
+-- Create date: 12/21/2019
+-- Description:	GetAllSubscriptions
+-- =============================================
+CREATE PROCEDURE GetAllSubscriptions
+	-- Add the parameters for the stored procedure here
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FROM Subscription
+END
 GO
 -- =============================================
 -- Author:		Mohamed Abobakr

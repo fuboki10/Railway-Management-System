@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -17,13 +18,27 @@ namespace RailwaySystem
     /// <summary>
     /// Interaction logic for AddSub.xaml
     /// </summary>
+    /// 
     public partial class AddSub : UserControl
     {
         Controller c;
-        public AddSub()
+        Trips trip;
+        public AddSub(Trips T)
         {
             InitializeComponent();
             c = new Controller();
+            trip = T;
+
+            BindGrid();
+        }
+
+        private void BindGrid()
+        {
+            DataTable dt = c.GetAllSubscriptions();
+            if (dt != null)
+                trip.TripsDataGrid.ItemsSource = dt.DefaultView;
+            else
+                trip.TripsDataGrid.ItemsSource = null;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -42,6 +57,7 @@ namespace RailwaySystem
             else
             {
                 MessageBox.Show("Successful");
+                BindGrid();
             }
             return;
         }
