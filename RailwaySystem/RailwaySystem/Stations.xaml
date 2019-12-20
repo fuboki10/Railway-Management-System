@@ -52,7 +52,7 @@
                     <Button Name="HomeTextButton" Content="Home" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}"
                             Cursor="Hand" Click="HomeTextButton_Click"/>
                 </Canvas>
-                <Canvas  Width="44" Height="19" Margin="0,295,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Canvas  Width="44" Height="19" Margin="0,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="Logout"  Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click" Cursor="Hand" />
                 </Canvas>
             </Grid>
@@ -74,7 +74,7 @@
                     </Button.Template>
                 </Button>
             </Canvas>
-            <Canvas Width="24" Height="24" Canvas.Left="30" Canvas.Top="410">
+            <Canvas Width="24" Height="24" Canvas.Left="30" Canvas.Top="215">
                 <Button x:Name="logoutbutton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click">
                     <Button.Template>
                         <ControlTemplate>
