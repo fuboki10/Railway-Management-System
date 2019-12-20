@@ -64,6 +64,7 @@ namespace RailwaySystem
         public static string DeleteEmpContact = "DeleteEmpContact";
         public static string GetAllEmpPhones = "GetAllEmpPhones";
         public static string DeleteEmpPhone = "DeleteEmpPhone";
+        public static string GetAllDrivers = "GetAllDrivers";
 
 
 
@@ -73,12 +74,11 @@ namespace RailwaySystem
         public static string GetAllTrips = "GetAllTrips";
         public static string InsertTrip = "InsertTrip";
         public static string Add_Subscription = "Add_Subscription";
-
+        
         // Station procedures
         public static string InsertStation = "InsertStation";
         public static string GetAllStations = "GetAllStations";
         public static string UpdateStation = "UpdateStation";
-
         public static string get_source = "get_source";         // for the trips
         public static string get_dest = "get_dest";
 

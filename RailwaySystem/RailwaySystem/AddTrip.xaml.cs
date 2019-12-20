@@ -27,15 +27,12 @@ namespace RailwaySystem
             InitializeComponent();
             c = new Controller();
             trip = T;
-            DataTable dt = c.GetallStations();
+            DataTable dt = c.GetSoucre();
             if (dt != null)
             {
                 source.ItemsSource = dt.DefaultView;
                 source.DisplayMemberPath = "Name";
                 source.SelectedValuePath = "ID";
-                dest.ItemsSource = dt.DefaultView;
-                dest.DisplayMemberPath = "Name";
-                dest.SelectedValuePath = "ID";
             }
             else
             {
@@ -49,19 +46,45 @@ namespace RailwaySystem
                 train.SelectedValuePath = "ID";
             }
 
+            dt = c.GetAllDrivers();
+            if (dt != null)
+            {
+                Driver.ItemsSource = dt.DefaultView;
+                Driver.DisplayMemberPath = "name";
+                Driver.SelectedValuePath = "ID";
+            }
+            else
+            {
+                Driver.ItemsSource = null;
+            }
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             //source.SelectedValue, dest.SelectedValue, arr.SelectedDate.ToString(), dep.SelectedDate.ToString(), type.Text, train.SelectedValue
-            if (source.Text == "" || dest.Text == "" || arr.SelectedDate == null || dep.SelectedDate == null || type.Text == "" || train.Text == "")
+            if (source.Text == "" || dest.Text == "" || arr.SelectedDate == null || dep.SelectedDate == null || type.Text == "" || train.Text == ""|| Driver.Text == "")
             {
                 MessageBox.Show("Please enter the required data");
                 return;
             }
-            // اعملها بالانسرت تريب يعلق
-            // c.AddTrip(dep.SelectedDate.ToString(), arr.SelectedDate.ToString(), Convert.ToInt32(type.Text), source.SelectedValue, dest.SelectedValue, 0);
-            int x=0;
+            else if (priceA.Text == "" || priceB.Text == "" || priceC.Text == "" || classA.Text == "" || classB.Text == "" || classC.Text == "") 
+            {
+                MessageBox.Show("Please enter the required data");
+                return;
+            }
+            int pA, pB, pC, CA, CB, CC;
+            pA = Convert.ToInt32(priceA.Text);
+            pB = Convert.ToInt32(priceB.Text);
+            pC = Convert.ToInt32(priceC.Text);
+            CA = Convert.ToInt32(classA.Text);
+            CB = Convert.ToInt32(classB.Text);
+            CC = Convert.ToInt32(classC.Text);
+            int train_id = (int)train.SelectedValue;
+            int driver = (int)Driver.SelectedValue;
+
+            int x;
+            x = c.InsertTrip(dep.SelectedDate.ToString(), arr.SelectedDate.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
+               train_id, driver, trip.UserID, CA, pA, CB, pB, CC, pC);
             if (x == 0)
             {
                 MessageBox.Show("Something Went wrong");
@@ -70,6 +93,26 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 trip.BindTripsGrid();
+            }
+        }
+        
+
+        private void bindDest(object sender, SelectionChangedEventArgs e)
+        {
+            if (source.Text == "")
+            {
+                return;
+            }
+            DataTable dt = c.GetDest((int)source.SelectedValue);
+            if (dt != null)
+            {
+                dest.ItemsSource = dt.DefaultView;
+                dest.DisplayMemberPath = "Name";
+                dest.SelectedValuePath = "ID";
+            }
+            else
+            {
+                dest.ItemsSource = null;
             }
         }
     }

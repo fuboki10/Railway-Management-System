@@ -22,7 +22,7 @@ namespace RailwaySystem
     {
         Employees Employee;
         Controller mycontroller;
-        EmpContact Emp;
+       // EmpContact Emp;
         public AddEmpContact(Employees E)
         {
             Employee = E;
