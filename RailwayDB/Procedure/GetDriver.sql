@@ -6,8 +6,9 @@ GO
 -- =============================================
 -- Author:		Mohamed Abobakr
 -- =============================================
-CREATE PROCEDURE Unassign_Trains 
+CREATE PROCEDURE Get_driver 
 	-- Add the parameters for the stored procedure here
+	@Tid int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -15,6 +16,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT distinct * from Train where Coach_Yard_ID is not null
+	SELECT Driver_ID from Train where ID = @Tid
 END
 GO

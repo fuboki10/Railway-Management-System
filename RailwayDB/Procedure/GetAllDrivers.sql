@@ -6,8 +6,7 @@ GO
 -- =============================================
 -- Author:		Mohamed Abobakr
 -- =============================================
-CREATE PROCEDURE Unassign_Trains 
-	-- Add the parameters for the stored procedure here
+CREATE PROCEDURE GetAllDrivers
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -15,6 +14,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT distinct * from Train where Coach_Yard_ID is not null
+	SELECT (First_name + ' ' + Last_name) as name, Employee.ID from Employee left join Train on employee.ID = Driver_ID  
+	where Employee.JobID = 4 and Model is null
 END
 GO

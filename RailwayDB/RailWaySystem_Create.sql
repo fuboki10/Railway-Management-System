@@ -2390,7 +2390,96 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * from Train where Coach_Yard_ID is not null
+	SELECT distinct * from Train where Coach_Yard_ID is not null
 END
 GO
+
+Use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE GetAllDrivers
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT (First_name + ' ' + Last_name) as name, Employee.ID from Employee left join Train on employee.ID = Driver_ID  
+	where Employee.JobID = 4 and Model is null
+END
+GO
+Use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE Get_driver 
+	-- Add the parameters for the stored procedure here
+	@Tid int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT Driver_ID from Train where ID = @Tid
+END
+GO
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE get_source
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT distinct Name, ID from Station, [route] where ID = Source_ID
+END
+GO
+USE [RailWaySystemDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[get_dest]    Script Date: 20/12/2019 14:54:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Mohamed Abobakr
+-- =============================================
+CREATE PROCEDURE [dbo].[get_dest] 
+	-- Add the parameters for the stored procedure here
+	@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * from Station, [Route] where ID = Destination_ID and @id = Source_ID
+END
+
+GO
+
 

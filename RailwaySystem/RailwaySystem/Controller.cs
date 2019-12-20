@@ -562,12 +562,23 @@ namespace RailwaySystem
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
 
-
+        public DataTable GetSoucre()
+        {
+            string StoredProcedureName = StoredProcedures.get_source;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+        public DataTable GetDest(int id)
+        {
+            string StoredProcedureName = StoredProcedures.get_dest;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
 
         public DataTable GetAllEmpPhones()
         {
-            string StoredProceureName = StoredProcedures.GetAllEmpPhones;
-            return dbMan.ExecuteReader(StoredProceureName, null);
+            string StoredProcedureName = StoredProcedures.GetAllEmpPhones;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
         }
 
         public int DeleteEmployeeContact(int ID)
@@ -596,6 +607,18 @@ namespace RailwaySystem
             Parameters.Add("@Class", c);
             Parameters.Add("@No_Trips", tno);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public object GetDriver(int Tid)
+        {
+            string StoredProcedureName = StoredProcedures.EditPContact;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Tid", Tid);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
+        public DataTable GetAllDrivers()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllDrivers;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
         }
     }
 

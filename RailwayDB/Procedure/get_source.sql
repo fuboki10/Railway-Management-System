@@ -14,6 +14,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * from Station, [route] where ID = Source_ID
+	SELECT distinct Name, ID from Station, [route] where ID = Source_ID
 END
 GO
