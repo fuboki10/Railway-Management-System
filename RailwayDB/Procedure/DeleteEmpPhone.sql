@@ -18,9 +18,8 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-Create PROCEDURE DeleteEmpPhone
-	@fname varchar(50),
-	@lname varchar(50),
+create PROCEDURE DeleteEmpPhone
+	@id int,
 	@code varchar(10),
 	@number varchar(15)
 AS
@@ -30,7 +29,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-		Delete from Employee_Phone where (select ID from Employee where First_name=@fname and Last_name=@lname)=Employee_ID and @code =Code and @number=Number
+		Delete from Employee_Phone where @id=Employee_ID and @code =Code and @number=Number
 
 END
 GO

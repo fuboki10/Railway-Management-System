@@ -11,9 +11,8 @@ GO
 -- =============================================
 -- Author:		Mohamed Abobakr
 -- =============================================
-Create PROCEDURE [dbo].[Insert_Emp_Phone]
-	@fname varchar(50),
-	@lname varchar(50),
+create PROCEDURE [dbo].[Insert_Emp_Phone]
+	@id int,
 	@code varchar(10),
 	@number varchar(15)
 AS
@@ -23,7 +22,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into Employee_Phone values ((select ID from Employee where First_name=@fname and Last_name=@lname), @code, @number)
+	insert into Employee_Phone values (@id, @code, @number)
 	return @@rowcount
 END
 GO

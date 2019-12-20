@@ -1439,9 +1439,8 @@ END
 go
 
 --lido22
-CREATE PROCEDURE DeleteEmpPhone
-	@fname varchar(50),
-	@lname varchar(50),
+create PROCEDURE DeleteEmpPhone
+	@id int,
 	@code varchar(10),
 	@number varchar(15)
 AS
@@ -1451,7 +1450,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-		Delete from Employee_Phone where (select ID from Employee where First_name=@fname and Last_name=@lname)=Employee_ID and @code =Code and @number=Number
+		Delete from Employee_Phone where @id=Employee_ID and @code =Code and @number=Number
 
 END
 GO
@@ -1940,9 +1939,8 @@ GO
 -- =============================================
 -- Author:		Mohamed Abobakr
 -- =============================================
-Create PROCEDURE [dbo].[Insert_Emp_Phone]
-	@fname varchar(50),
-	@lname varchar(50),
+create PROCEDURE [dbo].[Insert_Emp_Phone]
+	@id int,
 	@code varchar(10),
 	@number varchar(15)
 AS
@@ -1952,7 +1950,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	insert into Employee_Phone values ((select ID from Employee where First_name=@fname and Last_name=@lname), @code, @number)
+	insert into Employee_Phone values (@id, @code, @number)
 	return @@rowcount
 END
 GO

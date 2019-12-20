@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace RailwaySystem
             Employee = E;
             mycontroller = new Controller();
             Employee.BindPhonesDataGrid();
+            BindEmployeesID();
         }
 
         private void DeletePhoneButton_Click(object sender, RoutedEventArgs e)
@@ -40,7 +42,7 @@ namespace RailwaySystem
 
                 try
                 {
-                    mycontroller.DeleteEmpPhone(FirstName.Text, LastName.Text, PhCode.Text, Phone.Text);
+                    mycontroller.DeleteEmpPhone(int.Parse(EmployeeID.Text), PhCode.Text, Phone.Text);
                     Employee.BindPhonesDataGrid();
                 }
                 catch (Exception Ex)
@@ -53,7 +55,7 @@ namespace RailwaySystem
 
         private void AddPhoneButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstName.Text == "" || LastName.Text == "" || PhCode.Text == "" || Phone.Text == "")
+            if (EmployeeID.Text == "" || PhCode.Text == "" || Phone.Text == "")
             {
                 MessageBox.Show("type all information");
             }
@@ -62,7 +64,7 @@ namespace RailwaySystem
 
                 try
                 {
-                    mycontroller.AddEmpPhone(FirstName.Text, LastName.Text, PhCode.Text, Phone.Text);
+                    mycontroller.AddEmpPhone(int.Parse(EmployeeID.Text), PhCode.Text, Phone.Text);
                     Employee.BindPhonesDataGrid();
                 }
                 catch (Exception Ex)
@@ -73,6 +75,24 @@ namespace RailwaySystem
             }
         }
 
-        
+        private void EmployeeID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void BindEmployeesID()
+        {
+            DataTable dt = mycontroller.GetAllEmployees();
+            if (dt != null)
+            {
+
+                EmployeeID.ItemsSource = dt.DefaultView;
+
+            }
+            else
+            {
+
+                EmployeeID.ItemsSource = null;
+            }
+        }
     }
 }

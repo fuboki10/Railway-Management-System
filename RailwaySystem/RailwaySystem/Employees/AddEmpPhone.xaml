@@ -24,14 +24,13 @@
             </Button.Resources>
         </Button>
         <GroupBox Header="Phone" HorizontalAlignment="Left" Height="80" Margin="49,22,0,0" VerticalAlignment="Top" Width="841" BorderBrush="#FF080226">
-            <Label Content="first name" HorizontalAlignment="Left" Margin="348,10,0,0" VerticalAlignment="Top"/>
+            <Label Content="Wmployee ID" HorizontalAlignment="Left" Margin="469,10,0,0" VerticalAlignment="Top"/>
         </GroupBox>
+        <ComboBox Name="EmployeeID" HorizontalAlignment="Left" Margin="625,50,0,0" VerticalAlignment="Top" Width="90"
+                  ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectionChanged="EmployeeID_SelectionChanged"/>
         <TextBox x:Name="Phone" HorizontalAlignment="Left" Height="23" Margin="216,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" />
         <TextBox x:Name="PhCode" HorizontalAlignment="Left" Height="23" Margin="149,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="49"/>
         <Label Content="Employee Phone" HorizontalAlignment="Left" Margin="49,45,0,0" VerticalAlignment="Top" Height="27"/>
-        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="23" Margin="474,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="693,49,0,0"/>
-        <Label Content="last name" HorizontalAlignment="Left" Margin="632,49,0,0" VerticalAlignment="Top" Height="27"/>
         
     </Grid>
   

@@ -411,12 +411,11 @@ namespace RailwaySystem
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-        public int DeleteEmpPhone(string fname, string lname, string code, string number)
+        public int DeleteEmpPhone(int id, string code, string number)
         {
             string StoredProcedureName = StoredProcedures.DeleteEmpPhone;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("@fname", fname);
-            Parameters.Add("@lname", lname);
+            Parameters.Add("@id", id);
             Parameters.Add("@number", number);
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
@@ -451,12 +450,11 @@ namespace RailwaySystem
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-        public int AddEmpPhone(string fname, string lname, string code, string number)
+        public int AddEmpPhone(int id, string code, string number)
         {
             string StoredProcedureName = StoredProcedures.Insert_Emp_Phone;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("@fname", fname);
-            Parameters.Add("@lname", lname);
+            Parameters.Add("@id", id);
             Parameters.Add("@number", number);
             Parameters.Add("@code", code);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
