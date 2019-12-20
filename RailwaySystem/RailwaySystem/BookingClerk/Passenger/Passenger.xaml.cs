@@ -117,7 +117,7 @@ namespace RailwaySystem
             this.newButtons.Children.Add(A);
 
         }
-        public void BindPassengersGrid(string request,int PassengerID=-1,string fname="",string lname="")
+        public void BindPassengersGrid(string request,int PassengerID=-1)
         {
             if (request == veiwPassenger)
             {
@@ -134,7 +134,7 @@ namespace RailwaySystem
             }
             if (request == veiwPassengerPhone)
             {
-                DataTable dt = ControllerObj.VeiwPhones(fname,lname);
+                DataTable dt = ControllerObj.VeiwPhones(PassengerID);
                 if (dt!= null)
                 PassengersDataGrid.ItemsSource = dt.DefaultView;
 

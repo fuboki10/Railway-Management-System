@@ -1102,8 +1102,7 @@ GO
 -- =============================================
 CREATE PROCEDURE AddPPhone 
 	-- Add the parameters for the stored procedure here
-	@fname varchar(50),
-	@lname varchar(50),
+	@PassengerID int,
 	@code int,
 	@number int
 
@@ -1112,7 +1111,7 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	Insert into Passenger_Phone Values((select ID from Passenger where First_name=@fname and Last_name=@lname),@code,@number)
+	Insert into Passenger_Phone Values(@PassengerID,@code,@number)
 END
 GO 
 use RailWaySystemDB
@@ -1127,8 +1126,7 @@ GO
 -- =============================================
 CREATE PROCEDURE EditPPhone 
 	-- Add the parameters for the stored procedure here
-	@fname varchar(50),
-	@lname varchar(50),
+	@PassengerID int,
 	@code int,
 	@number int
 
@@ -1139,7 +1137,7 @@ BEGIN
 	SET NOCOUNT ON;
 	update  Passenger_Phone
 	set Code=@code , Number=@number
-	where (select ID from Passenger where First_name=@fname and Last_name=@lname)=Passenger_ID	
+	where  @PassengerID=Passenger_ID	
 END
 GO 
 use RailWaySystemDB
@@ -1154,8 +1152,7 @@ GO
 -- =============================================
 Create PROCEDURE DeletePPhone 
 	-- Add the parameters for the stored procedure here
-	@fname varchar(50),
-	@lname varchar(50),
+	@PassengerID int,
 	@code int,
 	@number int
 	AS
@@ -1163,7 +1160,7 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	Delete from Passenger_Phone where (select ID from Passenger where First_name=@fname and Last_name=@lname)=Passenger_ID and @code =Code and @number=Number
+	Delete from Passenger_Phone where @PassengerID=Passenger_ID and @code =Code and @number=Number
 	END
 GO
 
@@ -1181,13 +1178,12 @@ GO
 -- =============================================
 Create PROCEDURE VeiwPPhone 
 	-- Add the parameters for the stored procedure here
-	@fname varchar(50),
-	@lname varchar(50)
+	@PassengerID int
 	AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
-	select @fname "First Name",@lname "Last Name",* from Passenger_Phone where (select ID from Passenger where First_name=@fname and Last_name=@lname)=Passenger_ID	
+	select First_name "First Name",Last_name "Last Name",Code,Number from Passenger_Phone,Passenger where  @PassengerID=Passenger_ID and @PassengerID=ID
 END
 GO 
 

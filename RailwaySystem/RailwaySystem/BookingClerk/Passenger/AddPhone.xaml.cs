@@ -32,7 +32,7 @@ namespace RailwaySystem
         
         private void DeletePhoneButton_Click(object sender, RoutedEventArgs e)
         {
-            if( PhCode.Text == "" || Phone.Text == "")
+            if( PhCode.Text == "" || Phone.Text == ""||PassengerID.Text=="")
             {
                 MessageBox.Show("type all informatio");
             }
@@ -41,8 +41,8 @@ namespace RailwaySystem
 
                 try
                 {
-                    mycontroller.DeletePPhone(FirstName.Text, LastName.Text, Convert.ToInt32(PhCode.Text), Convert.ToInt32(Phone.Text));
-                    P.BindPassengersGrid(P.veiwPassengerPhone, 0, FirstName.Text, LastName.Text);
+                    mycontroller.DeletePPhone(Convert.ToInt32(PassengerID.Text), Convert.ToInt32(PhCode.Text), Convert.ToInt32(Phone.Text));
+                    P.BindPassengersGrid(P.veiwPassengerPhone, Convert.ToInt32(PassengerID.Text));
                 }
                 catch (Exception Ex)
                 {
@@ -54,7 +54,7 @@ namespace RailwaySystem
 
         private void AddPhoneButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstName.Text == "" || LastName.Text == "" || PhCode.Text == "" || Phone.Text == "")
+            if (PassengerID.Text == ""  || PhCode.Text == "" || Phone.Text == "")
             {
                 MessageBox.Show("type all informatio");
             }
@@ -63,8 +63,8 @@ namespace RailwaySystem
 
                 try
                 {
-                    mycontroller.AddPPhone(FirstName.Text, LastName.Text, Convert.ToInt32(PhCode.Text), Convert.ToInt32(Phone.Text));
-                    P.BindPassengersGrid(P.veiwPassengerPhone, 0, FirstName.Text, LastName.Text);
+                    mycontroller.AddPPhone(Convert.ToInt32(PassengerID.Text), Convert.ToInt32(PhCode.Text), Convert.ToInt32(Phone.Text));
+                    P.BindPassengersGrid(P.veiwPassengerPhone, Convert.ToInt32(PassengerID.Text));
                 }
                 catch (Exception Ex)
                 {
@@ -77,9 +77,9 @@ namespace RailwaySystem
 
         private void EditPhoneButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstName.Text == "" || LastName.Text == "" || PhCode.Text == "" || Phone.Text == "")
+            if (PassengerID.Text == "" || PhCode.Text == "" || Phone.Text == "")
             {
-                MessageBox.Show("type all informatio");
+                MessageBox.Show("type all information");
             }
 
             else
@@ -87,8 +87,8 @@ namespace RailwaySystem
 
                 try
                 {
-                    mycontroller.EditPPhone(FirstName.Text, LastName.Text, Convert.ToInt32(PhCode.Text), Convert.ToInt32(Phone.Text));
-                    P.BindPassengersGrid(P.veiwPassengerPhone, 0, FirstName.Text, LastName.Text);
+                    mycontroller.EditPPhone(Convert.ToInt32(PassengerID.Text), Convert.ToInt32(PhCode.Text), Convert.ToInt32(Phone.Text));
+                    P.BindPassengersGrid(P.veiwPassengerPhone, Convert.ToInt32(PassengerID.Text));
                 }
                 catch (Exception Ex)
                 {
@@ -99,12 +99,12 @@ namespace RailwaySystem
         }
         private void ViewPhonesButton_Click(object sender, RoutedEventArgs e)
         {
-            if ( LastName.Text == "" || FirstName.Text == "")
+            if ( PassengerID.Text == "")
             {
-                MessageBox.Show("type all information");
+                MessageBox.Show("type Passenger ID");
             }
             else 
-            P.BindPassengersGrid(P.veiwPassengerPhone, 0 ,FirstName.Text, LastName.Text);
+            P.BindPassengersGrid(P.veiwPassengerPhone,Convert.ToInt32(PassengerID.Text));
         }
     }
 }
