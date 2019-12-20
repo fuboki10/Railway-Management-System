@@ -15,6 +15,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * from Train where Coach_Yard_ID is not null
+	SELECT distinct * from Train where Coach_Yard_ID is not null
 END
 GO
