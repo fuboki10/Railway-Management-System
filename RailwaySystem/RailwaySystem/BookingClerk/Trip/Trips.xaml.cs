@@ -30,8 +30,13 @@ namespace RailwaySystem
             InitializeComponent();
             UserID = U;
             job = ControllerObj.GetUserJob(UserID);
-           
 
+            if (job == "Booking Clerk")
+            {
+                Add_trip.Visibility = Visibility.Hidden;
+                UpdateTrip.Visibility = Visibility.Hidden;
+                subs_add.Visibility = Visibility.Hidden;
+            }
         }
 
         private void Logout()
@@ -115,8 +120,10 @@ namespace RailwaySystem
         public void BindTripsGrid()
         {
             DataTable dt = ControllerObj.GetAllTrips();
-            if(dt!=null)
-            TripsDataGrid.ItemsSource = dt.DefaultView;
+            if (dt != null)
+                TripsDataGrid.ItemsSource = dt.DefaultView;
+            else
+                TripsDataGrid.ItemsSource = null;
         }
 
         private void edit_trip_Click(object sender, RoutedEventArgs e)

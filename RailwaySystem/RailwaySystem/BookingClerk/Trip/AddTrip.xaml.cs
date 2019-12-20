@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit; 
 
 namespace RailwaySystem
 {
@@ -62,14 +63,14 @@ namespace RailwaySystem
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             //source.SelectedValue, dest.SelectedValue, arr.SelectedDate.ToString(), dep.SelectedDate.ToString(), type.Text, train.SelectedValue
-            if (source.Text == "" || dest.Text == "" || arr.SelectedDate == null || dep.SelectedDate == null || type.Text == "" || train.Text == ""|| Driver.Text == "")
+            if (source.Text == "" || dest.Text == "" || dep.Text == "" || type.Text == "" || train.Text == ""|| Driver.Text == "")
             {
-                MessageBox.Show("Please enter the required data");
+                System.Windows.MessageBox.Show("Please enter the required data");
                 return;
             }
             else if (priceA.Text == "" || priceB.Text == "" || priceC.Text == "" || classA.Text == "" || classB.Text == "" || classC.Text == "") 
             {
-                MessageBox.Show("Please enter the required data");
+                System.Windows.MessageBox.Show("Please enter the required data");
                 return;
             }
             int pA, pB, pC, CA, CB, CC;
@@ -83,15 +84,16 @@ namespace RailwaySystem
             int driver = (int)Driver.SelectedValue;
 
             int x;
-            x = c.InsertTrip(dep.SelectedDate.ToString(), arr.SelectedDate.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
+            string arrival = "";
+            x = c.InsertTrip(dep.Text, arrival, Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
                train_id, driver, trip.UserID, CA, pA, CB, pB, CC, pC);
             if (x == 0)
             {
-                MessageBox.Show("Something Went wrong");
+                System.Windows.MessageBox.Show("Something Went wrong");
             }
             else
             {
-                MessageBox.Show("Successful");
+                System.Windows.MessageBox.Show("Successful");
                 trip.BindTripsGrid();
             }
         }

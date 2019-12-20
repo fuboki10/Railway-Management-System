@@ -1,12 +1,42 @@
-﻿<UserControl x:Class="RailwaySystem.BookingClerk.Trip.EditTrip"
+﻿<UserControl x:Class="RailwaySystem.EditTrip"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RailwaySystem.BookingClerk.Trip"
+             xmlns:local="clr-namespace:RailwaySystem"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="230" d:DesignWidth="900">
+
     <Grid>
-            
+        <GroupBox Header="Edit Trips Time" HorizontalAlignment="Left" Height="162" Margin="10,10,0,0" VerticalAlignment="Top" Width="520" BorderBrush="#FF080226"/>
+        <GroupBox Header="Edit Trips Class" HorizontalAlignment="Left" Height="162" Margin="540,10,0,0" VerticalAlignment="Top" Width="355" BorderBrush="#FF080226"/>
+
+        <DatePicker Name="ArrDate" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.188,2.35" Margin="140,75,0,0" SelectedDateFormat="Long" />
+        <DatePicker Name="Dep_Date" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.188,2.35" Margin="380,75,0,0" SelectedDateFormat="Long"/>
+        <Label Content="Arrival Time" HorizontalAlignment="Left" Margin="37,74,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.926,0.565"/>
+        <Label Content="Dep. Time" HorizontalAlignment="Left" Margin="300,74,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="Class" HorizontalAlignment="Left" Margin="576,74,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="Trip Id" HorizontalAlignment="Left" Margin="570,120,0,0" VerticalAlignment="Top" Height="27"/>
+
+        <TextBox x:Name="Class" HorizontalAlignment="Left" Height="23" Margin="618,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"  RenderTransformOrigin="1.739,0.493" />
+        <TextBox x:Name="ID" HorizontalAlignment="Left" Height="23" Margin="140,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"  RenderTransformOrigin="1.739,0.493"/>
+        <TextBox x:Name="IDC" HorizontalAlignment="Left" Height="23" Margin="620,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"  RenderTransformOrigin="1.739,0.493" />
+        <Label Content="Trip Id" HorizontalAlignment="Left" Margin="67,120,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.926,0.565"/>
+        <Button Name="UpdateTripButton" Content="Change Date" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="380,120,0,0" BorderBrush="#FF080226" Click="ChangeDateButton_Click" Background="#FF080226" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Name="ChangeClassButton" Content="Change Class" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="775,125,0,0" BorderBrush="#FF080226" Click="ChangeClassButton_Click" Background="#FF080226" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
+
+
 </UserControl>
