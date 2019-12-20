@@ -367,5 +367,13 @@ namespace RailwaySystem
                 refresh();
             }
         }
+
+        private void change_id(object sender, SelectionChangedEventArgs e)
+        {
+            if (stationcombo.Text != "")
+            {
+                station_id = (int)stationcombo.SelectedValue;
+            }
+        }
     }
 }

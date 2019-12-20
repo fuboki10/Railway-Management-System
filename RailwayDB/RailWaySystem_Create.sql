@@ -1644,6 +1644,7 @@ BEGIN
 
 	insert into Coach_Yard (Station_ID, Size)
 	values(@station_id, @size)
+	return @@rowcount
 END
 GO
 
