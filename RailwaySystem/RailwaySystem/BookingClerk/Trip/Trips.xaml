@@ -136,6 +136,14 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Button x:Name="subs_add" Cursor="Hand"  Content="Add Subscription" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="908,130,0,0"
+            Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Click="add_sub_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>

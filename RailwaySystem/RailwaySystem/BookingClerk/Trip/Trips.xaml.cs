@@ -136,5 +136,11 @@ namespace RailwaySystem
             AddTrip T = new AddTrip(this);
             Add_buttons(T);
         }
+
+        private void add_sub_Click(object sender, RoutedEventArgs e)
+        {
+            AddSub A = new AddSub();
+            Add_buttons(A);
+        }
     }
 }

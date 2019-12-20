@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddSub.xaml.cs">
+      <DependentUpon>AddSub.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddTrip.xaml.cs">
       <DependentUpon>AddTrip.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddSub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddTrip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

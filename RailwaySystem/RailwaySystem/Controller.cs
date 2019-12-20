@@ -587,15 +587,20 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.Unassign_Trains;
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
-<<<<<<< HEAD
         public DataTable GetAllEmployeePhones()
         {
             string StoredProceureName = StoredProcedures.GetAllEmpPhones;
             return dbMan.ExecuteReader(StoredProceureName, null);
         }
-=======
-
->>>>>>> 908d89a7913ea1c256996dd77f760c6b4c93a054
+        public int Add_subscrition(int fees, string c, int tno)
+        {
+            string StoredProcedureName = StoredProcedures.Add_Subscription;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Fees", fees);
+            Parameters.Add("@Class", c);
+            Parameters.Add("@No_Trips", tno);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
     }
 
 }

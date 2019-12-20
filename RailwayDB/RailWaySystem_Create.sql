@@ -1623,6 +1623,7 @@ Begin
 	
 	-- Inserting into the Trip table
 	INSERT INTO [Subscription]  values(@Fees,@Class,@No_Trips)
+	return @@rowcount
 End
 
 GO
