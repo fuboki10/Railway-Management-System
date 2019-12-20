@@ -29,6 +29,8 @@ namespace RailwaySystem
             c = new Controller();
             trip = T;
             DataTable dt = c.GetSoucre();
+
+            trip.BindTripsGrid();
             if (dt != null)
             {
                 source.ItemsSource = dt.DefaultView;

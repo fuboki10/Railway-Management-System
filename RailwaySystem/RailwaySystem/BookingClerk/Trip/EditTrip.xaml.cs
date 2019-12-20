@@ -26,7 +26,7 @@ namespace RailwaySystem
             mycontroller = new Controller();
             Trip = T;
             InitializeComponent();
-            
+            Trip.BindTripsGrid();
         }
        
          

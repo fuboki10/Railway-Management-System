@@ -30,6 +30,8 @@ namespace RailwaySystem
             UserID = U;
             job = ControllerObj.GetUserJob(UserID);
 
+            BindTripsGrid();
+
             if (job == "Booking Clerk")
             {
                 Add_trip.Visibility = Visibility.Hidden;
