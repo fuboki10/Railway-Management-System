@@ -50,9 +50,12 @@ namespace RailwaySystem
             }
             else
             {
-               // Date 
-                //ViewPrice.Content = mycontroller.ConnectTicket(Convert.ToInt32(PassengerID.Text),,.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
-                //    Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text);
+                string today = DateTime.Now.ToString();
+                int ticketID = Convert.ToInt32(mycontroller.TicketID(Convert.ToInt32(source.SelectedValue),
+                 Convert.ToInt32(dest.SelectedValue),
+                 Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text));
+                  mycontroller.ConnectTicket(Convert.ToInt32(PassengerID.Text),mycontroller.get_emp_id_userId(T.UserID),
+                 today,ticketID);
             }
         }
         private void bDest(object sender, SelectionChangedEventArgs e)
@@ -80,14 +83,17 @@ namespace RailwaySystem
 
         private void ViewPrice_Click(object sender, RoutedEventArgs e)
         {
-            if (Date1.Text == "" || Date2.Text == "" || source.Text == "" || dest.Text == "" || PassengerID.Text == "" || type.Text == "")
+            if (Date1.Text == "" || Date2.Text == "" || source.Text == "" || dest.Text == ""  || type.Text == "")
             {
                 MessageBox.Show("Type all of the information");
             }
             else
             {
-                ViewPrice.Content = mycontroller.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
+                var textprice = mycontroller.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
                     Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text);
+                if (textprice != null)
+                    price.Content = textprice.ToString();
+                else price.Content = "no ticket with this attributes";
             }
         }
     }

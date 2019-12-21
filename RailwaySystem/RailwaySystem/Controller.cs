@@ -564,7 +564,7 @@ namespace RailwaySystem
             Parameters.Add("@PassengerID", PassengerID);
             Parameters.Add("@ID", TicketID);
             Parameters.Add("@Date", date);
-            Parameters.Add("@BookingClerkID",BookingClerkID);
+            Parameters.Add("@BookingeClerkID", BookingClerkID);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
         public DataTable GetAllSubscriptions()

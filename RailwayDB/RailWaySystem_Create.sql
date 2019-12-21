@@ -951,7 +951,7 @@ GO
 -- Create date: 21/12/2019
 -- Description:	get ticket with specifec attributes
 -- =============================================
-Create PROCEDURE getticketatt
+alter PROCEDURE getticketatt
 @date1 varchar(50),
 @date2 varchar(50),
 @source int,
@@ -960,7 +960,7 @@ Create PROCEDURE getticketatt
 AS
 BEGIN
 select top 1 T.ID from Ticket T where T.Trip_ID = (select TR.ID from Trip Tr where @source=Tr.Source_ID and
-@Destination=Tr.Destintaion_ID and Tr.Arr_Time>CAST(@date1 as Date) and Tr.Arr_Time<CAST(@date2 as Date) ) and Passenger_ID=null and @class=Class
+@Destination=Tr.Destintaion_ID and Tr.Arr_Time>CAST(@date1 as Date) and Tr.Arr_Time<CAST(@date2 as Date) ) and Passenger_ID is null and @class=Class
 END
 GO
 
@@ -975,7 +975,7 @@ GO
 -- Create date: 21/12/2019
 -- Description:	get ticket price with specifec attributes
 -- =============================================
-create PROCEDURE getticketprice
+Alter PROCEDURE getticketprice
 @date1 varchar(50),
 @date2 varchar(50),
 @source int,
@@ -984,7 +984,7 @@ create PROCEDURE getticketprice
 AS
 BEGIN
 select top 1 T.Price from Ticket T where T.Trip_ID = (select TR.ID from Trip Tr where @source=Tr.Source_ID and
-@Destination=Tr.Destintaion_ID and Tr.Arr_Time>CAST(@date1 as Date) and Tr.Arr_Time<CAST(@date2 as Date)  ) and Passenger_ID=null and @class=Class
+@Destination=Tr.Destintaion_ID and Tr.Arr_Time>CAST(@date1 as Date) and Tr.Arr_Time<CAST(@date2 as Date)  )  and Passenger_ID is null and @class=Class
 END
 GO
 

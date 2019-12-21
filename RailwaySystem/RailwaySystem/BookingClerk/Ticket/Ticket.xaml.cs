@@ -20,7 +20,7 @@ namespace RailwaySystem
     {
         Controller ControllerObj;
         string job;
-        private int UserID;
+        public int UserID;
         public Ticket(int U)
         {
             InitializeComponent();
