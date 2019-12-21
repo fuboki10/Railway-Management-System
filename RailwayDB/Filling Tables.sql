@@ -175,7 +175,6 @@ GO
 USE [RailWaySystemDB]
 GO
 
-EXEC	[dbo].[InsertEmp]
 declare @return_value int
 EXEC	@return_value = [dbo].[InsertEmp]
 		@fname = 'Ihab',
@@ -463,7 +462,7 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[AddCoachYard]
 		@size = 5,
-		@stid = 1
+		@station_id = 1
 
 SELECT	'Return Value' = @return_value
 
@@ -476,7 +475,7 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[AddCoachYard]
 		@size = 5,
-		@stid = 2
+		@station_id = 2
 
 SELECT	'Return Value' = @return_value
 
@@ -489,7 +488,7 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[AddCoachYard]
 		@size = 3,
-		@stid = 3
+		@station_id = 3
 
 SELECT	'Return Value' = @return_value
 
@@ -502,7 +501,7 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[AddCoachYard]
 		@size = 2,
-		@stid = 4
+		@station_id = 4
 
 SELECT	'Return Value' = @return_value
 
@@ -515,7 +514,7 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[AddCoachYard]
 		@size = 1,
-		@stid = 5
+		@station_id = 5
 
 SELECT	'Return Value' = @return_value
 
@@ -696,6 +695,16 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[Add_Subscription]
 		@Fees = 500,
 		@Class = N'A',
+		@No_Trips = 150
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 500,
+		@Class = N'B',
 		@No_Trips = 100
 
 SELECT	'Return Value' = @return_value
@@ -705,48 +714,38 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[Add_Subscription]
 		@Fees = 500,
+		@Class = N'C',
+		@No_Trips = 100
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 300,
+		@Class = N'B',
+		@No_Trips = 102
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 300,
+		@Class = N'C',
+		@No_Trips = 200
+
+SELECT	'Return Value' = @return_value
+
+GO
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[Add_Subscription]
+		@Fees = 300,
 		@Class = N'A',
-		@No_Trips = 100
-
-SELECT	'Return Value' = @return_value
-
-GO
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[Add_Subscription]
-		@Fees = 500,
-		@Class = N'A',
-		@No_Trips = 100
-
-SELECT	'Return Value' = @return_value
-
-GO
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[Add_Subscription]
-		@Fees = 300,
-		@Class = N'B',
-		@No_Trips = 100
-
-SELECT	'Return Value' = @return_value
-
-GO
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[Add_Subscription]
-		@Fees = 300,
-		@Class = N'B',
-		@No_Trips = 100
-
-SELECT	'Return Value' = @return_value
-
-GO
-DECLARE	@return_value int
-
-EXEC	@return_value = [dbo].[Add_Subscription]
-		@Fees = 300,
-		@Class = N'B',
-		@No_Trips = 100
+		@No_Trips = 300
 
 SELECT	'Return Value' = @return_value
 
@@ -756,7 +755,7 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[Add_Subscription]
 		@Fees = 200,
 		@Class = N'C',
-		@No_Trips = 100
+		@No_Trips = 1230
 
 SELECT	'Return Value' = @return_value
 
@@ -765,8 +764,8 @@ DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[Add_Subscription]
 	    @Fees = 200,
-		@Class = N'C',
-		@No_Trips = 100
+		@Class = N'A',
+		@No_Trips = 10
 
 SELECT	'Return Value' = @return_value
 
@@ -776,7 +775,7 @@ DECLARE	@return_value int
 EXEC	@return_value = [dbo].[Add_Subscription]
 		@Fees = 200,
 		@Class = N'C',
-		@No_Trips = 100
+		@No_Trips = 12
 
 SELECT	'Return Value' = @return_value
 
@@ -989,15 +988,14 @@ USE [RailWaySystemDB]
 GO
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 8:15:09 PM', 
-	@Arr_Time =N'11/13/2019 2:15:09 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,
 	@Train_ID = 1 ,
 	@St_Manager_ID =1
+
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/10/2019 9:00:09 PM', 
-	@Arr_Time =N'11/11/2019 3:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 5,
 	@Source_ID= 3,
@@ -1005,7 +1003,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/15/2019 5:00:09 PM', 
-	@Arr_Time =N'11/15/2019 9:00:09 PM',
 	@Type=1 , 
 	@Destination_ID= 5,
 	@Source_ID= 1,
@@ -1013,7 +1010,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 8:30:09 PM', 
-	@Arr_Time =N'11/13/2019 2:45:09 AM',
 	@Type=3 , 
 	@Destination_ID= 2,
 	@Source_ID= 4,
@@ -1021,7 +1017,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 11:00:09 PM', 
-	@Arr_Time =N'11/13/2019 5:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 3,
 	@Source_ID= 5,
@@ -1029,7 +1024,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 11:30 PM', 
-	@Arr_Time =N'11/13/2019 4:00 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,
@@ -1038,7 +1032,6 @@ EXEC [dbo].InsertTrip
 
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'12/12/2019 11:30 PM', 
-	@Arr_Time =N'12/13/2019 4:00 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,

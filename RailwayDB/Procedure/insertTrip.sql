@@ -9,8 +9,7 @@ GO
 
 -- Inserting a new clerk into the DB
 CREATE Procedure [dbo].[InsertTrip]
-	@Dept_Time date, 
-	@Arr_Time date,
+	@Dept_Time datetime, 
 	@Type int, 
 	@Destination_ID int,
 	@Source_ID int,
@@ -28,6 +27,12 @@ Begin
 	DECLARE @I int
 	
 	-- Inserting into the Trip table
+	DECLARE @Arr_Time datetime;
+	DECLARE @Distance INT = (SELECT Distance FROM [Route] WHERE Source_ID=@Source_ID AND Destination_ID=@Destination_ID)
+	DECLARE @Speed INT = (SELECT Speed FROM Train WHERE ID=@Train_ID)
+	DECLARE @T float = (CAST(@Distance AS float) / CAST(@Speed AS float)) -- HOURS IN FLOAT
+	SET @T = @T * 60 * 60
+	SET @Arr_Time = DATEADD(SECOND, @T, @Dept_Time)
 	insert into [Trip] values(@Dept_Time , @Arr_Time ,@Type , @Source_ID ,@Destination_ID,@Train_ID ,@St_Manager_ID )
 	---------------------------------
 	DECLARE @ID INT = @@IDENTITY
