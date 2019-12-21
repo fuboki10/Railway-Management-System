@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,11 +27,21 @@ namespace RailwaySystem
             T = t;
             mycontroller = new Controller();
             InitializeComponent();
-            source.ItemsSource = mycontroller.GetallStations().DefaultView;
-            Desntaion.ItemsSource = mycontroller.GetallStations().DefaultView;
+            DataTable dt =mycontroller.GetSoucre();
+            if (dt != null)
+            {
+                source.ItemsSource = dt.DefaultView;
+                source.DisplayMemberPath = "Name";
+                source.SelectedValuePath = "ID";
+                source.SelectedIndex = 1;
+                source.SelectedIndex = 0;
+            }
+            else
+            {
+                source.ItemsSource = null;
+            }
 
         }
-
         private void BookSeatButton1_Click(object sender, RoutedEventArgs e)
         {
             if (Date1.Text == "" || Date2.Text == "" || source.Text == "" || dest.Text == "" || PassengerID.Text == "" || type.Text == "")
@@ -78,10 +89,8 @@ namespace RailwaySystem
             }
         }
 
-
-        private void BookSeatButton1_Click(object sender, RoutedEventArgs e)
+        private void ViewPrice_Click(object sender, RoutedEventArgs e)
         {
-
             if (Date1.Text == "" || Date2.Text == "" || source.Text == "" || dest.Text == ""  || type.Text == "")
             {
                 MessageBox.Show("Type all of the information");
@@ -94,10 +103,6 @@ namespace RailwaySystem
                     price.Content = textprice.ToString();
                 else price.Content = "no ticket with this attributes";
             }
-
-            TicketClass Tc = new TicketClass();
-            this.Chosseclassoptions.Children.Add(Tc);
-
         }
     }
 }

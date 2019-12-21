@@ -6,14 +6,10 @@
              xmlns:local="clr-namespace:RailwaySystem"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="900">
-       <Grid Margin="0,0,0,-166" >
+    <Grid Margin="0,0,0,-166" >
         <TextBox x:Name="Date1" HorizontalAlignment="Left" Margin="100,35,0,0" VerticalAlignment="Top" Width="117" Height="26"/>
         <TextBox x:Name="Date2" HorizontalAlignment="Left" Margin="100,88,0,0" VerticalAlignment="Top" Width="117" Height="26"/>
-        <Button x:Name="BookSeatButton1" Content="book seat" HorizontalAlignment="Left" Margin="651,121,0,0" VerticalAlignment="Top" Width="216" Height="36"></Button>
-
-        <DatePicker HorizontalAlignment="Left" Margin="100,40,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="100,90,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BookSeatButton" Content="Choose Class" HorizontalAlignment="Left" Margin="325,130,0,0" VerticalAlignment="Top" Width="216" Height="36"
+        <Button x:Name="BookSeatButton1" Content="book seat" HorizontalAlignment="Left" Margin="651,121,0,0" VerticalAlignment="Top" Width="216" Height="36"
                 Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="BookSeatButton1_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -21,14 +17,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <ComboBox x:Name="source" HorizontalAlignment="Left" Margin="700,40,0,0" VerticalAlignment="Top" Width="120"
-                    ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="ID" SelectedIndex="0">
-            
-        </ComboBox>
-        <ComboBox x:Name="Desntaion" HorizontalAlignment="Left" Margin="700,90,0,0" VerticalAlignment="Top" Width="120"
-                    ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedValuePath="ID" SelectedIndex="0"/>
         <Grid HorizontalAlignment="Left" Height="151" Margin="0,200,0,0" VerticalAlignment="Top" Width="900" x:Name="Chosseclassoptions">
-
             <Grid Margin="0,0,0,-49">
                 <Label x:Name="price" Content="Price" HorizontalAlignment="Left" Margin="491,-122,0,0" VerticalAlignment="Top" Width="197" Height="27"/>
                 <Button x:Name="ViewPrice" Content="view price" HorizontalAlignment="Left" Margin="354,-73,0,0" VerticalAlignment="Top" Width="120" Height="36"
@@ -57,11 +46,5 @@
         </ComboBox>
         <Label Content="MM-dd-yyyy" HorizontalAlignment="Left" Margin="100,61,0,0" VerticalAlignment="Top"/>
         <Label Content="MM-dd-yyyy" HorizontalAlignment="Left" Margin="100,4,0,0" VerticalAlignment="Top"/>
-
-           
-        <Label Content="Source" HorizontalAlignment="Left" Margin="700,14,0,0" VerticalAlignment="Top"/>
-        <Label Content="Desntaion" HorizontalAlignment="Left" Margin="700,67,0,0" VerticalAlignment="Top"/>
-
-
     </Grid>
 </UserControl>

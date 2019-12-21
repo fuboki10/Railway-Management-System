@@ -35,15 +35,13 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-
-
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-</PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
@@ -61,8 +59,6 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-
-
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -125,6 +121,9 @@
     </Compile>
     <Compile Include="BookingClerk\Trip\AddTrip.xaml.cs">
       <DependentUpon>AddTrip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookingClerk\Trip\TimeControl.xaml.cs">
+      <DependentUpon>TimeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees\AddEmpContact.xaml.cs">
       <DependentUpon>AddEmpContact.xaml</DependentUpon>
@@ -225,6 +224,10 @@
     <Page Include="BookingClerk\Trip\AddTrip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookingClerk\Trip\TimeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Employees\AddEmpContact.xaml">
       <Generator>MSBuild:Compile</Generator>
