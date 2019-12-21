@@ -5,4 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RailwaySystem"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="900"/>
+             d:DesignHeight="200" d:DesignWidth="900">
+    <Grid>
+        <ComboBox HorizontalAlignment="Left" Margin="51,45,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="207,45,0,0" VerticalAlignment="Top" Width="97" Height="27"/>
+        <Button x:Name="BookSeatButton1" Content="Book Seat" HorizontalAlignment="Left" Margin="51,110,0,0" VerticalAlignment="Top" Width="120" Height="36"
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="BookSeatButton1_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</UserControl>

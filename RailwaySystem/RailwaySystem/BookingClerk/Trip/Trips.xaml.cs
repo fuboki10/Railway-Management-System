@@ -77,6 +77,11 @@ namespace RailwaySystem
                 ManagerDashboard Manager = new ManagerDashboard(UserID);
                 Manager.Show();
             }
+            else
+            {
+                Welcome WelcomeWindow = new Welcome(UserID);
+                WelcomeWindow.Show();
+            }
             this.Close();
         }
         private void XClicked(object sender, RoutedEventArgs e)

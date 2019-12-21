@@ -46,9 +46,6 @@ namespace RailwaySystem
         public static string Unassign_Trains = "Unassign_Trains";
         public static string GetAllSubs = "GetAllSubs";
         public static string InsertPsub = "InsertPsub";
-        public static string TicketID = "getticketatt";
-        public static string TicketPrice = "getticketprice";
-        public static string ConnectTicket = "connectTicket";
 
 
         // Employee procedures
