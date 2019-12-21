@@ -23,12 +23,45 @@ namespace RailwaySystem
     {
         private int UserID;
         Controller ControllerObj;
+        private string job;
+        private int EmpID;
+        private int StationID;
         public Trains(int U)
         {
             ControllerObj = new Controller();
 
             InitializeComponent();
             UserID = U;
+            job = ControllerObj.GetUserJob(UserID);
+                
+            if (job == "Station Manager")
+            {
+                ColorComboBox.Visibility = Visibility.Hidden;
+                AddTrains.Visibility = Visibility.Hidden;
+                DeleteTrain.Visibility = Visibility.Hidden;
+                ModelTextBox.Visibility = Visibility.Hidden;
+                SpeedTextBox.Visibility = Visibility.Hidden;
+                CoachYardComboBox.Visibility = Visibility.Hidden;
+                ModelLabel.Visibility = Visibility.Hidden;
+                ColorLabel.Visibility = Visibility.Hidden;
+                IDLabel.Visibility = Visibility.Hidden;
+                DateLabel.Visibility = Visibility.Hidden;
+                CoachYardLabel.Visibility = Visibility.Hidden;
+                AddButton.Visibility = Visibility.Hidden;
+                DeleteButton.Visibility = Visibility.Hidden;
+                No_CarsTextBox.Visibility = Visibility.Hidden;
+                No_SeatsTextBox.Visibility = Visibility.Hidden;
+                TrainsID_ComboBox.Visibility = Visibility.Hidden;
+                TrainDatePicker.Visibility = Visibility.Hidden;
+                label1.Visibility = Visibility.Hidden;
+                label2.Visibility = Visibility.Hidden;
+                label3.Visibility = Visibility.Hidden;
+            }
+            if (job != "Admin")
+            {
+                EmpID = ControllerObj.get_emp_id_userId(UserID);
+                StationID = ControllerObj.EmployeeStation(EmpID);
+            }
         }
 
         private void BindCoachYard()
@@ -63,7 +96,13 @@ namespace RailwaySystem
 
         private void BindTrains()
         {
-            DataTable dt = ControllerObj.GetAllTrains();
+            DataTable dt;
+            if (job == "Station Manager")
+            {
+                dt = ControllerObj.GetAllTrains(StationID);
+            }
+            else
+                dt = ControllerObj.GetAllTrains();
             if (dt != null)
             {
                 TrainsID_ComboBox.ItemsSource = dt.DefaultView;
@@ -97,7 +136,6 @@ namespace RailwaySystem
 
         private void GoHome()
         {
-            string job = ControllerObj.GetUserJob(UserID);
             if (job == "Admin")
             {
                 AdminDashboard AdminDashboard = new AdminDashboard(UserID);

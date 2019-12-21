@@ -65,7 +65,8 @@ namespace RailwaySystem
         public static string GetAllEmpPhones = "GetAllEmpPhones";
         public static string DeleteEmpPhone = "DeleteEmpPhone";
         public static string GetAllDrivers = "GetAllDrivers";
-
+        public static string EmployeeStation = "EmployeeStation";
+        public static string get_emp_id_userId = "get_emp_id_userId";
 
 
         // Trips procedures

@@ -131,11 +131,33 @@ namespace RailwaySystem
             return dbMan.ExecuteReader(StoredProcedureName, null);
         }
 
-        public DataTable GetAllTrains()
+        public DataTable GetAllTrains(int StationID = 0)
         {
             string StoredProcedureName = StoredProcedures.GetAllTrains;
-            return dbMan.ExecuteReader(StoredProcedureName, null);
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            if (StationID != 0)
+                Parameters.Add("@StationID", StationID);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
+
+        // Get Employee ID from UserID
+        public int get_emp_id_userId(int UserID)
+        {
+            string StoredProcedureName = StoredProcedures.get_emp_id_userId;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@UserID", UserID);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+        }
+
+        // Get Employee Station Pass EmployeeID
+        public int EmployeeStation(int EmployeeID)
+        {
+            string StoredProcedureName = StoredProcedures.EmployeeStation;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@EmpID", EmployeeID);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+        }
+
         public DataTable GetAllTrips()
         {
             string StoredProcedureName = StoredProcedures.GetAllTrips;

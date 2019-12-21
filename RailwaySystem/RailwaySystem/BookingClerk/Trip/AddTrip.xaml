@@ -44,7 +44,7 @@
         <TextBox Name="priceC" HorizontalAlignment="Left" Height="24" Margin="633,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
         <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="371,215,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="293,210,0,0" VerticalAlignment="Top" Width="64"/>
-        <xctk:DateTimePicker Name="dep" Margin="92,52,578,341.6" Visibility="Visible" ></xctk:DateTimePicker>
-        <xctk:DateTimeUpDown Margin="535,248,112,167.6" Visibility="Visible" ></xctk:DateTimeUpDown>
+        <DatePicker x:Name="dep" Margin="87,64,631,359.6" RenderTransformOrigin="0.5,0.5">
+        </DatePicker>
     </Grid>
 </UserControl>

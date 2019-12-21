@@ -113,27 +113,30 @@
                   CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
                   >
         </DataGrid>
-        <GroupBox Header="Add Train" HorizontalAlignment="Left" Height="109" Margin="264,103,0,0" VerticalAlignment="Top" Width="500" BorderBrush="#FF080226">
+        <GroupItem Name="Group">
+            
+        </GroupItem>
+        <GroupBox x:Name="AddTrains" Header="Add Train" HorizontalAlignment="Left" Height="109" Margin="264,103,0,0" VerticalAlignment="Top" Width="500" BorderBrush="#FF080226">
             <TextBox x:Name="ModelTextBox" HorizontalAlignment="Left" Height="21" Margin="6,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
         </GroupBox>
-        <Label Content="Model" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="367,124,0,0"/>
+        <Label Name="ModelLabel" Content="Model" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="366,129,0,0"/>
         <ComboBox x:Name="ColorComboBox" HorizontalAlignment="Left" Margin="279,171,0,0" VerticalAlignment="Top" Width="82" BorderBrush="#FF080226"/>
-        <Label Content="Color" HorizontalAlignment="Left" Margin="370,170,0,0" VerticalAlignment="Top"/>
+        <Label Name="ColorLabel" Content="Color" HorizontalAlignment="Left" Margin="370,170,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="No_SeatsTextBox" HorizontalAlignment="Left" Height="18" Margin="414,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label Content="NoSeats" HorizontalAlignment="Left" Margin="417,148,0,0" VerticalAlignment="Top"/>
+        <Label Name="label1" Content="NoSeats" HorizontalAlignment="Left" Margin="417,148,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="No_CarsTextBox" HorizontalAlignment="Left" Height="18" Margin="494,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label Content="NoCars" HorizontalAlignment="Left" Margin="502,148,0,0" VerticalAlignment="Top"/>
+        <Label Name="label2" Content="NoCars" HorizontalAlignment="Left" Margin="502,148,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="SpeedTextBox" HorizontalAlignment="Left" Height="18" Margin="574,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" BorderBrush="#FFABADB3"/>
-        <Label Content="Speed" HorizontalAlignment="Left" Margin="581,148,0,0" VerticalAlignment="Top"/>
+        <Label Name="label3" Content="Speed" HorizontalAlignment="Left" Margin="581,148,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="TrainDatePicker" HorizontalAlignment="Left" Margin="420,125,0,0" VerticalAlignment="Top" Cursor="Arrow"/>
-        <Label Content="Date" HorizontalAlignment="Left" Margin="531,124,0,0" VerticalAlignment="Top"/>
+        <Label Name="DateLabel" Content="Date" HorizontalAlignment="Left" Margin="531,124,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="CoachYardComboBox" HorizontalAlignment="Left" Margin="575,125,0,0" VerticalAlignment="Top" Width="95"
                   ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectedIndex="0"/>
-        <Label Content="CoachYard" HorizontalAlignment="Left" Margin="685,125,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Delete Train" HorizontalAlignment="Left" Margin="768,105,0,0" VerticalAlignment="Top" Height="107" Width="185" BorderBrush="#FF080226"/>
+        <Label Name="CoachYardLabel" Content="CoachYard" HorizontalAlignment="Left" Margin="685,125,0,0" VerticalAlignment="Top"/>
+        <GroupBox x:Name="DeleteTrain" Header="Delete Train" HorizontalAlignment="Left" Margin="768,105,0,0" VerticalAlignment="Top" Height="107" Width="185" BorderBrush="#FF080226"/>
         <ComboBox x:Name="TrainsID_ComboBox" HorizontalAlignment="Left" Margin="785,131,0,0" VerticalAlignment="Top" Width="120"
                   ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectedIndex="0"/>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="919,128,0,0" VerticalAlignment="Top"/>
+        <Label Name="IDLabel" Content="ID" HorizontalAlignment="Left" Margin="919,128,0,0" VerticalAlignment="Top"/>
         <Button x:Name="DeleteButton" Cursor="Hand" Content="Delete" HorizontalAlignment="Left" Margin="820,181,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226" Click="DeleteButton_Click" Background="#FF080226" Foreground="#FFFAF5F5">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
