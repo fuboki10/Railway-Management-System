@@ -873,7 +873,6 @@ GO
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[InsertTrain]
 		@Model = N'JP212',
@@ -895,7 +894,6 @@ GO
 USE [RailWaySystemDB]
 GO
 
-DECLARE	@return_value int
 
 EXEC	@return_value = [dbo].[InsertTrain]
 		@Model = N'JP1',
@@ -989,7 +987,6 @@ USE [RailWaySystemDB]
 GO
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 8:15:09 PM', 
-	@Arr_Time =N'11/13/2019 2:15:09 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,
@@ -997,7 +994,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/10/2019 9:00:09 PM', 
-	@Arr_Time =N'11/11/2019 3:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 5,
 	@Source_ID= 3,
@@ -1005,7 +1001,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/15/2019 5:00:09 PM', 
-	@Arr_Time =N'11/15/2019 9:00:09 PM',
 	@Type=1 , 
 	@Destination_ID= 5,
 	@Source_ID= 1,
@@ -1013,7 +1008,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 8:30:09 PM', 
-	@Arr_Time =N'11/13/2019 2:45:09 AM',
 	@Type=3 , 
 	@Destination_ID= 2,
 	@Source_ID= 4,
@@ -1021,7 +1015,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 11:00:09 PM', 
-	@Arr_Time =N'11/13/2019 5:00:09 AM',
 	@Type=2 , 
 	@Destination_ID= 3,
 	@Source_ID= 5,
@@ -1029,7 +1022,6 @@ EXEC [dbo].InsertTrip
 	@St_Manager_ID =1
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'11/12/2019 11:30 PM', 
-	@Arr_Time =N'11/13/2019 4:00 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,
@@ -1038,7 +1030,6 @@ EXEC [dbo].InsertTrip
 
 EXEC [dbo].InsertTrip
 	@Dept_Time =N'12/12/2019 11:30 PM', 
-	@Arr_Time =N'12/13/2019 4:00 AM',
 	@Type=1 , 
 	@Destination_ID= 1,
 	@Source_ID= 2,

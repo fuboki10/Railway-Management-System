@@ -99,17 +99,6 @@ namespace RailwaySystem
                 StManagerDashboard stManager = new StManagerDashboard(UserID);
                 stManager.Show();
             }
-            else
-            {
-                /*
-                 * TODO
-                 * BOOKING CLERK
-                 * MANAGER 
-                 * STATION MANAGER
-                 */
-                Welcome WelcomeWindow = new Welcome(UserID);
-                WelcomeWindow.Show();
-            }
             this.Close();
         }
         private void BookSeatButton_Click(object sender, RoutedEventArgs e)

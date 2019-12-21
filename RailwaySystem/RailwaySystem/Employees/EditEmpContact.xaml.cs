@@ -58,6 +58,10 @@ namespace RailwaySystem
                 {
 
                 }
+                else if ("Manager" == mycontroller.GetUserJob(Employee.GetUserId()))
+                {
+
+                }
                 else
                 {
                     int userStId = int.Parse(station);

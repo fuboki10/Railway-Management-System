@@ -9,6 +9,8 @@ namespace RailwaySystem
     {
         // User procedures
         public static string InsertUser = "InsertUser";
+        public static string GetUserStationId = "GetUserstId";
+        public static string GetUserStationName = "GetUserStationName";
         public static string GetUsername = "GetUsername";
         public static string DeleteUser = "DeleteUser";
         public static string GetUserJob = "GetUserJob";
@@ -65,7 +67,6 @@ namespace RailwaySystem
         public static string GetAllEmps = "getAllEmps";
         public static string UpdateSalary = "UpdateSalary";
         public static string GetAllJobs = "GetAllJobs";
-        public static string GetUserStationId = "GetUserstId";
         public static string GetEmployeeStationId = "GetEmployeeStID";
         public static string DeleteEmpContact = "DeleteEmpContact";
         public static string GetAllEmpPhones = "GetAllEmpPhones";

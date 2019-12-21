@@ -19,14 +19,13 @@ namespace RailwaySystem
             dbMan.CloseConnection();
         }
       
-        public int InsertTrip(string Dept_Time, string Arr_Time, int type, int Destination_ID, int Source_ID,
+        public int InsertTrip(string Dept_Time, int type, int Destination_ID, int Source_ID,
                                int Train_ID, int Driver_ID, int St_Manager_ID, int NumClassA, int PriceClassA,
                                 int NumClassB, int PriceClassB, int NumClassC, int PriceClassC)
         {
             string StoredProceureName = StoredProcedures.InsertTrip;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@Dept_Time", Dept_Time); 
-	        Parameters.Add("@Arr_Time", Arr_Time);
 	        Parameters.Add("@Type", type); 
 	        Parameters.Add("@Destination_ID", Destination_ID);
 	        Parameters.Add("@Source_ID", Source_ID);
@@ -155,12 +154,12 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.EmployeeStation;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@EmpID", EmployeeID);
-            int x = Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+            string x = dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
             if(x == null)
             {
                 return 0;
             }
-            return x;
+            return int.Parse(x);
         }
 
         public DataTable GetAllTrips()
@@ -202,7 +201,13 @@ namespace RailwaySystem
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
-
+        public string GetUserStationName(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetUserStationName;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
         public string GetEmployeeStationId(int ID)
         {
             string StoredProcedureName = StoredProcedures.GetEmployeeStationId;

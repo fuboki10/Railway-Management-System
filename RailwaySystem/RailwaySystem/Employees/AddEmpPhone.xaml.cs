@@ -45,6 +45,10 @@ namespace RailwaySystem
                 {
 
                 }
+                else if ("Manager" == mycontroller.GetUserJob(Employee.GetUserId()))
+                {
+
+                }
                 else
                 {
                     int userStId = int.Parse(station);
@@ -80,6 +84,10 @@ namespace RailwaySystem
                 int station_id = int.Parse(mycontroller.GetEmployeeStationId(int.Parse(EmployeeID.SelectedValue.ToString())));
                 string station = mycontroller.GetUserStationId(Employee.GetUserId());
                 if (station == "admin")
+                {
+
+                }
+                else if ("Manager" == mycontroller.GetUserJob(Employee.GetUserId()))
                 {
 
                 }
