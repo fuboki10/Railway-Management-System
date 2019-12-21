@@ -19,13 +19,14 @@ namespace RailwaySystem
             dbMan.CloseConnection();
         }
       
-        public int InsertTrip(string Dept_Time, int type, int Destination_ID, int Source_ID,
+        public int InsertTrip(string Dept_Time, string Arr_Time, int type, int Destination_ID, int Source_ID,
                                int Train_ID, int Driver_ID, int St_Manager_ID, int NumClassA, int PriceClassA,
                                 int NumClassB, int PriceClassB, int NumClassC, int PriceClassC)
         {
             string StoredProceureName = StoredProcedures.InsertTrip;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@Dept_Time", Dept_Time); 
+	        Parameters.Add("@Arr_Time", Arr_Time);
 	        Parameters.Add("@Type", type); 
 	        Parameters.Add("@Destination_ID", Destination_ID);
 	        Parameters.Add("@Source_ID", Source_ID);
@@ -540,6 +541,7 @@ namespace RailwaySystem
             Parameters.Add("@expire", expdate);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
         public object TicketPrice(int source, int desnitation, string date1,string date2,string Class )
         {
             string StoredProcedureName = StoredProcedures.TicketPrice;
@@ -589,6 +591,7 @@ namespace RailwaySystem
             Parameters.Add("@BookingClerkID", BookingClerkID);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
         public DataTable GetAllSubscriptions()
         {
             string StoredProcedureName = StoredProcedures.GetAllSubscriptions;

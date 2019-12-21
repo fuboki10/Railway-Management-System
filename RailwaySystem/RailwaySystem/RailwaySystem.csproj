@@ -15,7 +15,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+
 
   <PropertyGroup>
     <StartupObject>
@@ -61,10 +62,15 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 
+
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="ReachFramework" />
     <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -93,9 +99,6 @@
     <Reference Include="Xceed.Wpf.AvalonDock">
       <HintPath>Extended.WPF.Toolkit.Binaries.NET.4.x\Extended.WPF.Toolkit.Binaries.NET.4.x\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.resources">
-      <HintPath>Extended.WPF.Toolkit.Binaries.NET.4.x\sv\Xceed.Wpf.AvalonDock.resources.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
       <HintPath>Extended.WPF.Toolkit.Binaries.NET.4.x\Extended.WPF.Toolkit.Binaries.NET.4.x\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
     </Reference>
@@ -122,9 +125,6 @@
     </Compile>
     <Compile Include="BookingClerk\Trip\AddTrip.xaml.cs">
       <DependentUpon>AddTrip.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="BookingClerk\Trip\TimeControl.xaml.cs">
-      <DependentUpon>TimeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees\AddEmpContact.xaml.cs">
       <DependentUpon>AddEmpContact.xaml</DependentUpon>
@@ -194,9 +194,6 @@
     <Compile Include="Stations.xaml.cs">
       <DependentUpon>Stations.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Station_stats.xaml.cs">
-      <DependentUpon>Station_stats.xaml</DependentUpon>
-    </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
     </Compile>
@@ -226,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BookingClerk\Trip\AddTrip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BookingClerk\Trip\TimeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,10 +331,6 @@
     <Page Include="Stations.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Station_stats.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StManagerDashboard.xaml">
       <SubType>Designer</SubType>
