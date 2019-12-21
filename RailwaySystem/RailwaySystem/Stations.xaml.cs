@@ -42,6 +42,7 @@ namespace RailwaySystem
                 m.Top -= 200;
                 Update_canvas.Margin = m;
                 Route.Visibility = Visibility.Hidden;
+                Routes.Visibility = Visibility.Hidden;
             }
 
             DataTable dt = c.GetallStations();
@@ -253,7 +254,7 @@ namespace RailwaySystem
             else
             {
                 MessageBox.Show("Successfull");
-                refresh();
+                RefreshStations();
             }
         }
 

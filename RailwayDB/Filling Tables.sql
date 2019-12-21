@@ -312,7 +312,7 @@ EXEC	[dbo].[InsertEmp]
 EXEC	[dbo].[InsertUser]
 		@Username = N'sorady',
 		@Password = N'1234',
-		@EmployeeID = 9,
+		@EmployeeID = 16,
 		@IsAdmin = 0
 GO
 
