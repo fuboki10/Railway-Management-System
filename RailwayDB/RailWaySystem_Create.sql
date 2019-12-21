@@ -220,8 +220,8 @@ go
 
 CREATE TABLE [Trip] (
 	ID integer IDENTITY(1,1) NOT NULL,
-	Dept_Time date NOT NULL,
-	Arr_Time date NOT NULL,
+	Dept_Time datetime NOT NULL,
+	Arr_Time datetime NOT NULL,
 	[Type] integer NOT NULL,
 	Source_ID integer NOT NULL,
 	Destintaion_ID integer NOT NULL,
@@ -574,6 +574,8 @@ BEGIN
 	-- Returning The Id of the inserted user
 END
 
+
+
 SET ANSI_NULLS ON
 GO
 
@@ -582,8 +584,7 @@ GO
 
 -- Inserting a new clerk into the DB
 CREATE Procedure [dbo].[InsertTrip]
-	@Dept_Time date, 
-	@Arr_Time date,
+	@Dept_Time datetime, 
 	@Type int, 
 	@Destination_ID int,
 	@Source_ID int,
@@ -600,6 +601,13 @@ As
 Begin
 	DECLARE @I int
 	
+	DECLARE @Arr_Time datetime;
+	DECLARE @Distance INT = (SELECT Distance FROM [Route] WHERE Source_ID=@Source_ID AND Destination_ID=@Destination_ID)
+	DECLARE @Speed INT = (SELECT Speed FROM Train WHERE ID=@Train_ID)
+	DECLARE @T float = (CAST(@Distance AS float) / CAST(@Speed AS float)) -- HOURS IN FLOAT
+	SET @T = @T * 60 * 60
+	SET @Arr_Time = DATEADD(SECOND, @T, @Dept_Time)
+
 	-- Inserting into the Trip table
 	insert into [Trip] values(@Dept_Time , @Arr_Time ,@Type , @Source_ID ,@Destination_ID,@Train_ID ,@St_Manager_ID )
 	---------------------------------
@@ -651,10 +659,10 @@ Begin
 	------------------------------
 	UPDATE Train SET Driver_ID=@DriverID, Coach_Yard_ID=null
 	WHERE ID=@Train_ID
-
 End
 
 GO
+
 
 use RailWaySystemDB
 go
