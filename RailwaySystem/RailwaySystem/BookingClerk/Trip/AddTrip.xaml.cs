@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit; 
 
+
 namespace RailwaySystem
 {
     /// <summary>
@@ -84,7 +85,17 @@ namespace RailwaySystem
             CA = Convert.ToInt32(classA.Text);
             CB = Convert.ToInt32(classB.Text);
             CC = Convert.ToInt32(classC.Text);
+
+
             int train_id = (int)train.SelectedValue;
+            int seats = (int)c.GetNoSeats(train_id);
+
+            if ((CA + CB + CC) != seats)
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("The sum of the classes numbers should equal to the number of seats of the selected train");
+                return;
+            }
+
             int driver = (int)Driver.SelectedValue;
 
             int x;
