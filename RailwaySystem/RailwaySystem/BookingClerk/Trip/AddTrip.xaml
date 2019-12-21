@@ -1,19 +1,20 @@
-﻿<UserControl x:Class="RailwaySystem.AddTrip"
+﻿<UserControl
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RailwaySystem"
+             xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="RailwaySystem.AddTrip"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label Content="Source" HorizontalAlignment="Left" Height="34" Margin="25,10,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="Destination" HorizontalAlignment="Left" Height="34" Margin="274,11,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.54,-0.526"/>
-        <ComboBox Name="source" HorizontalAlignment="Left" Height="26" Margin="86,11,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bDest"/>
-        <ComboBox Name="dest" HorizontalAlignment="Left" Height="26" Margin="373,10,0,0" VerticalAlignment="Top" Width="141"/>
+        <ComboBox x:Name="source" HorizontalAlignment="Left" Height="26" Margin="86,11,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bDest"/>
+        <ComboBox x:Name="dest" HorizontalAlignment="Left" Height="26" Margin="373,10,0,0" VerticalAlignment="Top" Width="141"/>
         <Label Content="Dep.time" HorizontalAlignment="Left" Height="34" Margin="7,63,0,0" VerticalAlignment="Top" Width="63"/>
-        <ComboBox Name="type" HorizontalAlignment="Left" Height="26" Margin="86,113,0,0" VerticalAlignment="Top" Width="140">
+        <ComboBox x:Name="type" HorizontalAlignment="Left" Height="26" Margin="86,113,0,0" VerticalAlignment="Top" Width="140">
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
             <ComboBoxItem Content="3"/>
@@ -27,7 +28,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <ComboBox Name="train" HorizontalAlignment="Left" Height="26" Margin="86,152,0,0" VerticalAlignment="Top" Width="140"/>
+        <ComboBox x:Name="train" HorizontalAlignment="Left" Height="26" Margin="86,152,0,0" VerticalAlignment="Top" Width="140"/>
         <Label Content="Train" HorizontalAlignment="Left" Height="34" Margin="25,149,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class A" HorizontalAlignment="Left" Height="34" Margin="567,30,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class B" HorizontalAlignment="Left" Height="34" Margin="567,60,0,0" VerticalAlignment="Top" Width="117"/>
@@ -36,15 +37,16 @@
         <Label Content="Price B" HorizontalAlignment="Left" Height="34" Margin="567,150,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="Price C" HorizontalAlignment="Left" Height="34" Margin="567,180,0,0" VerticalAlignment="Top" Width="117"/>
         <GroupBox Header="Tickets Number and prices" HorizontalAlignment="Left" Height="203" Margin="561,11,0,0" VerticalAlignment="Top" Width="229" BorderBrush="Black"/>
-        <TextBox Name="classA"  HorizontalAlignment="Left" Height="24" Margin="633,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
-        <TextBox Name="classB" HorizontalAlignment="Left" Height="24" Margin="633,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
-        <TextBox Name="classC" HorizontalAlignment="Left" Height="24" Margin="633,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
-        <TextBox Name="priceA" HorizontalAlignment="Left" Height="24" Margin="633,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
-        <TextBox Name="priceB" HorizontalAlignment="Left" Height="24" Margin="633,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
-        <TextBox Name="priceC" HorizontalAlignment="Left" Height="24" Margin="633,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="classA"  HorizontalAlignment="Left" Height="24" Margin="633,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="classB" HorizontalAlignment="Left" Height="24" Margin="633,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="classC" HorizontalAlignment="Left" Height="24" Margin="633,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="priceA" HorizontalAlignment="Left" Height="24" Margin="633,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="priceB" HorizontalAlignment="Left" Height="24" Margin="633,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="priceC" HorizontalAlignment="Left" Height="24" Margin="633,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
         <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="371,215,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="293,210,0,0" VerticalAlignment="Top" Width="64"/>
-        <DatePicker x:Name="dep" Margin="87,64,631,359.6" SelectedDateFormat="Long"/>
+        <DatePicker Name="dep" HorizontalAlignment="Left" Height="27" Margin="86,67,0,0" VerticalAlignment="Top" Width="140" DisplayDate="2019-12-21"/>
+
 
     </Grid>
 </UserControl>

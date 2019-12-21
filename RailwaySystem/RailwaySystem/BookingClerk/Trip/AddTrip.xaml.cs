@@ -76,6 +76,7 @@ namespace RailwaySystem
                 System.Windows.MessageBox.Show("Please enter the required data");
                 return;
             }
+            dep.Text = dep.Text.Replace('/', '-');
             int pA, pB, pC, CA, CB, CC;
             pA = Convert.ToInt32(priceA.Text);
             pB = Convert.ToInt32(priceB.Text);
