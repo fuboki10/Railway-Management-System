@@ -151,17 +151,6 @@ namespace RailwaySystem
                 ManagerDashboard M = new ManagerDashboard(UserID);
                 M.Show();
             }
-            else
-            {
-                /*
-                 * TODO
-                 * BOOKING CLERK
-                 * MANAGER 
-                 * STATION MANAGER
-                 */
-                Welcome WelcomeWindow = new Welcome(UserID);
-                WelcomeWindow.Show();
-            }
             this.Close();
         }
 
@@ -211,7 +200,8 @@ namespace RailwaySystem
 
         private void GoStatistics()
         {
-            throw new NotImplementedException();
+            TrainStatistics1 TS = new TrainStatistics1();
+            TS.Show();
         }
 
         private void StatisticsButton_Click(object sender, RoutedEventArgs e)
