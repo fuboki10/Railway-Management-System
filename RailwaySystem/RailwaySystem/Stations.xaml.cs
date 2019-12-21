@@ -428,5 +428,10 @@ namespace RailwaySystem
                 MessageBox.Show("Successful");
             }
         }
+
+        private void stats_click(object sender, RoutedEventArgs e)
+        {
+            // go to statistics form
+        }
     }
 }

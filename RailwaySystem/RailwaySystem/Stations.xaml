@@ -52,6 +52,11 @@
                     <Button Name="HomeTextButton" Content="Home" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}"
                             Cursor="Hand" Click="HomeTextButton_Click"/>
                 </Canvas>
+
+                <Canvas Width="70" Height="14" Margin="0,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Name="Stats_button" Content="Statistics" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="55" Background="{x:Null}" BorderBrush="{x:Null}"
+                            Cursor="Hand" Click="stats_click"/>
+                </Canvas>
                 <Canvas  Width="44" Height="19" Margin="0,155,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="Logout"  Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click" Cursor="Hand" />
                 </Canvas>
@@ -68,6 +73,19 @@
                             <Image Width="24" Height="24">
                                 <Image.Source>
                                     <BitmapImage UriSource="Resources\home.png"/>
+                                </Image.Source>
+                            </Image>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Canvas>
+            <Canvas  Width="24" Height="24" Canvas.Left="30" Canvas.Top="210" >
+                <Button Name="Stats_ic" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="stats_click" Canvas.Top="4" >
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Width="24" Height="24">
+                                <Image.Source>
+                                    <BitmapImage UriSource="Resources\statistics.png"/>
                                 </Image.Source>
                             </Image>
                         </ControlTemplate>
