@@ -215,8 +215,8 @@
     <Compile Include="Stations.xaml.cs">
       <DependentUpon>Stations.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StationStats.xaml.cs">
-      <DependentUpon>StationStats.xaml</DependentUpon>
+    <Compile Include="Stations_stat.xaml.cs">
+      <DependentUpon>Stations_stat.xaml</DependentUpon>
     </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
@@ -380,9 +380,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StationStats.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Stations_stat.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="StManagerDashboard.xaml">
       <SubType>Designer</SubType>
