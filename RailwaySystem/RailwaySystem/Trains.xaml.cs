@@ -57,7 +57,7 @@ namespace RailwaySystem
                 label2.Visibility = Visibility.Hidden;
                 label3.Visibility = Visibility.Hidden;
             }
-            if (job != "Admin")
+            if (job != "Admin" && job != "Manager")
             {
                 EmpID = ControllerObj.get_emp_id_userId(UserID);
                 StationID = ControllerObj.EmployeeStation(EmpID);

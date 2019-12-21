@@ -193,7 +193,7 @@
             <TextBox x:Name="uprsize" HorizontalAlignment="Left" Height="16" Margin="540,600,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" />
             <TextBlock x:Name="sizeR" HorizontalAlignment="Left" Height="20" Margin="500,600,0,0" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="25" RenderTransformOrigin="0.188,0.595" />
         </Canvas>
-        <Canvas x:Name="Route" Visibility="Visible">
+        <Canvas x:Name="Route" Visibility="Hidden">
             <ComboBox Name="source" Height="37" Canvas.Left="381" Canvas.Top="249" Width="224" IsReadOnly="True"/>
             <ComboBox Name="dest" Height="37" Canvas.Left="381" Canvas.Top="314" Width="224" IsReadOnly="True"/>
             <Label Content="Source" Height="32" Canvas.Left="277" Canvas.Top="249" Width="137"/>
