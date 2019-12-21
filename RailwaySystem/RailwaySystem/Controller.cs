@@ -535,7 +535,38 @@ namespace RailwaySystem
             Parameters.Add("@expire", expdate);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-
+        public object TicketPrice(int source, int desnitation, string date1,string date2,string Class )
+        {
+            string StoredProcedureName = StoredProcedures.TicketPrice;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@source", source);
+            Parameters.Add("@Destination", desnitation);
+            Parameters.Add("@date1", date1);
+            Parameters.Add("@date2", date2);
+            Parameters.Add("@class", Class);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
+        public object TicketID(int source, int desnitation, string date1, string date2, string Class)
+        {
+            string StoredProcedureName = StoredProcedures.TicketID;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@source", source);
+            Parameters.Add("@Destination", desnitation);
+            Parameters.Add("@date1", date1);
+            Parameters.Add("@date2", date2);
+            Parameters.Add("@class", Class);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
+        public int ConnectTicket(int PassengerID, int BookingClerkID, string date,int TicketID)
+        {
+            string StoredProcedureName = StoredProcedures.ConnectTicket;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@PassengerID", PassengerID);
+            Parameters.Add("@ID", TicketID);
+            Parameters.Add("@Date", date);
+            Parameters.Add("@BookingClerkID",BookingClerkID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public DataTable GetAllSubscriptions()
         {
             string StoredProcedureName = StoredProcedures.GetAllSubscriptions;
