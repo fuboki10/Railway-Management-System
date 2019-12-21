@@ -165,6 +165,9 @@
     <Compile Include="Stations.xaml.cs">
       <DependentUpon>Stations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Station_stats.xaml.cs">
+      <DependentUpon>Station_stats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
     </Compile>
@@ -302,6 +305,10 @@
     <Page Include="Stations.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Station_stats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StManagerDashboard.xaml">
       <SubType>Designer</SubType>

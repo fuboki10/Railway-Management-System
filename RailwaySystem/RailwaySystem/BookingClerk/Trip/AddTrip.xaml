@@ -28,7 +28,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <ComboBox x:Name="train" HorizontalAlignment="Left" Height="26" Margin="86,152,0,0" VerticalAlignment="Top" Width="140"/>
+        <ComboBox x:Name="train" HorizontalAlignment="Left" Height="26" Margin="86,152,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="train_SelectionChanged"/>
         <Label Content="Train" HorizontalAlignment="Left" Height="34" Margin="25,149,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class A" HorizontalAlignment="Left" Height="34" Margin="567,30,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class B" HorizontalAlignment="Left" Height="34" Margin="567,60,0,0" VerticalAlignment="Top" Width="117"/>
@@ -46,6 +46,7 @@
         <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="371,215,0,0" VerticalAlignment="Top" Width="144"/>
         <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="293,210,0,0" VerticalAlignment="Top" Width="64"/>
         <DatePicker Name="dep" HorizontalAlignment="Left" Height="27" Margin="86,67,0,0" VerticalAlignment="Top" Width="140" DisplayDate="2019-12-21"/>
+        <TextBox x:Name="seats"  HorizontalAlignment="Left" Height="24" Margin="248,152,0,0" TextWrapping="Wrap" Text="No. of seats" VerticalAlignment="Top" Width="139" IsReadOnly="True"/>
 
 
     </Grid>

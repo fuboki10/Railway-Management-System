@@ -50,6 +50,8 @@ namespace RailwaySystem
                 train.ItemsSource = dt.DefaultView;
                 train.DisplayMemberPath = "Model";
                 train.SelectedValuePath = "ID";
+                train.SelectedIndex = 1;
+                train.SelectedIndex = 0;
             }
 
             dt = c.GetAllDrivers();
@@ -63,6 +65,7 @@ namespace RailwaySystem
             {
                 Driver.ItemsSource = null;
             }
+            
         }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -137,5 +140,12 @@ namespace RailwaySystem
             }
         }
 
+        private void train_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (train.Text != "")
+            {
+                seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));
+            }
+        }
     }
 }
