@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,15 +27,68 @@ namespace RailwaySystem
             T = t;
             mycontroller = new Controller();
             InitializeComponent();
-            source.ItemsSource = mycontroller.GetallStations().DefaultView;
-            Desntaion.ItemsSource = mycontroller.GetallStations().DefaultView;
+            DataTable dt =mycontroller.GetSoucre();
+            if (dt != null)
+            {
+                source.ItemsSource = dt.DefaultView;
+                source.DisplayMemberPath = "Name";
+                source.SelectedValuePath = "ID";
+                source.SelectedIndex = 1;
+                source.SelectedIndex = 0;
+            }
+            else
+            {
+                source.ItemsSource = null;
+            }
 
         }
-
         private void BookSeatButton1_Click(object sender, RoutedEventArgs e)
         {
-            TicketClass Tc = new TicketClass();
-            this.Chosseclassoptions.Children.Add(Tc);
+            if (Date1.Text == "" || Date2.Text == "" || source.Text == "" || dest.Text == "" || PassengerID.Text == "" || type.Text == "")
+            {
+                MessageBox.Show("Type all of the information");
+            }
+            else
+            {
+               // Date 
+                //ViewPrice.Content = mycontroller.ConnectTicket(Convert.ToInt32(PassengerID.Text),,.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
+                //    Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text);
+            }
+        }
+        private void bDest(object sender, SelectionChangedEventArgs e)
+        {
+            bindDest();
+        }
+        private void bindDest()
+        {
+            if (source.Text == "")
+            {
+                return;
+            }
+            DataTable dt = mycontroller.GetDest((int)source.SelectedValue);
+            if (dt != null)
+            {
+                dest.ItemsSource = dt.DefaultView;
+                dest.DisplayMemberPath = "Name";
+                dest.SelectedValuePath = "ID";
+            }
+            else
+            {
+                dest.ItemsSource = null;
+            }
+        }
+
+        private void ViewPrice_Click(object sender, RoutedEventArgs e)
+        {
+            if (Date1.Text == "" || Date2.Text == "" || source.Text == "" || dest.Text == "" || PassengerID.Text == "" || type.Text == "")
+            {
+                MessageBox.Show("Type all of the information");
+            }
+            else
+            {
+                ViewPrice.Content = mycontroller.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
+                    Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text);
+            }
         }
     }
 }

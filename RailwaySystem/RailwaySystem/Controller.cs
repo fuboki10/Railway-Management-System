@@ -19,14 +19,13 @@ namespace RailwaySystem
             dbMan.CloseConnection();
         }
       
-        public int InsertTrip(string Dept_Time, string Arr_Time, int type, int Destination_ID, int Source_ID,
+        public int InsertTrip(string Dept_Time, int type, int Destination_ID, int Source_ID,
                                int Train_ID, int Driver_ID, int St_Manager_ID, int NumClassA, int PriceClassA,
                                 int NumClassB, int PriceClassB, int NumClassC, int PriceClassC)
         {
             string StoredProceureName = StoredProcedures.InsertTrip;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@Dept_Time", Dept_Time); 
-	        Parameters.Add("@Arr_Time", Arr_Time);
 	        Parameters.Add("@Type", type); 
 	        Parameters.Add("@Destination_ID", Destination_ID);
 	        Parameters.Add("@Source_ID", Source_ID);
@@ -541,7 +540,38 @@ namespace RailwaySystem
             Parameters.Add("@expire", expdate);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
-
+        public object TicketPrice(int source, int desnitation, string date1,string date2,string Class )
+        {
+            string StoredProcedureName = StoredProcedures.TicketPrice;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@source", source);
+            Parameters.Add("@Destination", desnitation);
+            Parameters.Add("@date1", date1);
+            Parameters.Add("@date2", date2);
+            Parameters.Add("@class", Class);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
+        public object TicketID(int source, int desnitation, string date1, string date2, string Class)
+        {
+            string StoredProcedureName = StoredProcedures.TicketID;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@source", source);
+            Parameters.Add("@Destination", desnitation);
+            Parameters.Add("@date1", date1);
+            Parameters.Add("@date2", date2);
+            Parameters.Add("@class", Class);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
+        public int ConnectTicket(int PassengerID, int BookingClerkID, string date,int TicketID)
+        {
+            string StoredProcedureName = StoredProcedures.ConnectTicket;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@PassengerID", PassengerID);
+            Parameters.Add("@ID", TicketID);
+            Parameters.Add("@Date", date);
+            Parameters.Add("@BookingClerkID",BookingClerkID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public DataTable GetAllSubscriptions()
         {
             string StoredProcedureName = StoredProcedures.GetAllSubscriptions;

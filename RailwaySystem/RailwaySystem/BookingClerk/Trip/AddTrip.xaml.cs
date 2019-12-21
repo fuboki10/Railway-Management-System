@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Xceed.Wpf.Toolkit; 
 
 
 namespace RailwaySystem
@@ -24,13 +23,21 @@ namespace RailwaySystem
     {
         Controller c;
         Trips trip;
+        TimeControl TC;
         public AddTrip(Trips T)
         {
             InitializeComponent();
             c = new Controller();
             trip = T;
-            DataTable dt = c.GetSoucre();
+            //this.newButtons.Children.Clear();
+            TC = new TimeControl();
+            TC.Name = "DepTime";
+            TC.Width = 100;
+            TC.Height = 24;
+            TC.Margin = new Thickness(-400, -120, 0, 0);
+            this.newButtons.Children.Add(TC);
 
+            DataTable dt = c.GetSoucre();
             trip.BindTripsGrid();
             if (dt != null)
             {
@@ -50,6 +57,8 @@ namespace RailwaySystem
                 train.ItemsSource = dt.DefaultView;
                 train.DisplayMemberPath = "Model";
                 train.SelectedValuePath = "ID";
+                train.SelectedIndex = 1;
+                train.SelectedIndex = 0;
             }
 
             dt = c.GetAllDrivers();
@@ -63,9 +72,11 @@ namespace RailwaySystem
             {
                 Driver.ItemsSource = null;
             }
+            
         }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            DateTime dep_time = TC.DateTimeValue.Value;
             //source.SelectedValue, dest.SelectedValue, arr.SelectedDate.ToString(), dep.SelectedDate.ToString(), type.Text, train.SelectedValue
             if (source.Text == "" || dest.Text == "" || dep.Text == "" || type.Text == "" || train.Text == ""|| Driver.Text == "")
             {
@@ -86,11 +97,11 @@ namespace RailwaySystem
             CB = Convert.ToInt32(classB.Text);
             CC = Convert.ToInt32(classC.Text);
 
-
+            
             int train_id = (int)train.SelectedValue;
             int seats = (int)c.GetNoSeats(train_id);
 
-            if ((CA + CB + CC) != seats)
+            if ((CA + CB + CC) > seats)
             {
                 Xceed.Wpf.Toolkit.MessageBox.Show("The sum of the classes numbers should equal to the number of seats of the selected train");
                 return;
@@ -99,8 +110,11 @@ namespace RailwaySystem
             int driver = (int)Driver.SelectedValue;
 
             int x;
-            string arrival = "";
-            x = c.InsertTrip(dep.Text, arrival, Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
+            DateTime result = dep.SelectedDate.Value.Date.Add(dep_time.TimeOfDay);
+            Console.WriteLine(dep_time);
+            Console.WriteLine(dep);
+            Console.WriteLine(result);
+            x = c.InsertTrip(result.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
                train_id, driver, trip.UserID, CA, pA, CB, pB, CC, pC);
             if (x == 0)
             {
@@ -137,5 +151,12 @@ namespace RailwaySystem
             }
         }
 
+        private void train_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (train.Text != "")
+            {
+                seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));
+            }
+        }
     }
 }
