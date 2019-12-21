@@ -61,13 +61,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="ReachFramework" />
     <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -218,8 +215,8 @@
     <Compile Include="Stations.xaml.cs">
       <DependentUpon>Stations.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StationStats.xaml.cs">
-      <DependentUpon>StationStats.xaml</DependentUpon>
+    <Compile Include="Stations_stat.xaml.cs">
+      <DependentUpon>Stations_stat.xaml</DependentUpon>
     </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
@@ -228,11 +225,23 @@
     <Compile Include="BookingClerk\Ticket\TicketClass.xaml.cs">
       <DependentUpon>TicketClass.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrainNoSeats.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainNoSeats.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Trains.xaml.cs">
       <DependentUpon>Trains.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees\UserControlEmp.xaml.cs">
       <DependentUpon>UserControlEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrainStatistics1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainStatistics1.Designer.cs">
+      <DependentUpon>TrainStatistics1.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="BookingClerk\Trip\Trips.xaml.cs">
@@ -371,9 +380,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StationStats.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Stations_stat.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="StManagerDashboard.xaml">
       <SubType>Designer</SubType>
@@ -429,6 +438,13 @@
     <EmbeddedResource Include="Stationreport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Stationreport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainNoSeats.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TrainNoSeats.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainStatistics1.resx">
+      <DependentUpon>TrainStatistics1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">

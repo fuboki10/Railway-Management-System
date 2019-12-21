@@ -471,7 +471,9 @@ namespace RailwaySystem
 
         private void stats_click(object sender, RoutedEventArgs e)
         {
-            StationStats s = new StationStats(UserID);
+            Stations_stat s = new Stations_stat(UserID);
+            s.Show();
+            this.Close();
         }
     }
 }
