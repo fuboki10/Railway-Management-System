@@ -121,7 +121,7 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-            </Canvas>
+            </Canvas>   
             <Canvas  Width="24" Height="24" Canvas.Left="26" Canvas.Top="246" />
             <Canvas  Width="24" Height="24" Canvas.Left="25" Canvas.Top="199" >
                 <Button Name="StatisticsButton" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="StatisticsButton_Click">

@@ -1578,6 +1578,34 @@ BEGIN
 	SELECT StationID from Employee where ID = @id;
 END
 GO
+--------------------------------------------------------------------------
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE GetUserStationName
+@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	IF ((SELECT IsAdmin FROM [USER] WHERE ID=@id) = 1)
+	BEGIN
+		SELECT 'admin'
+	END
+	ELSE
+	BEGIN
+		DECLARE @EmpID INT = (SELECT EmployeeID FROM [USER] WHERE ID=@id)
+		select S.Name from Station S where ID = (SELECT E.StationID  FROM Employee E WHERE ID=@EmpID)
+	 
+	END
+    
+	
+END
+GO
+---------------------------------------------------------------------------------------
+
 create PROCEDURE [dbo].[GetUserstId]
 	-- Add the parameters for the stored procedure here
 	@UserID INT
@@ -1590,7 +1618,7 @@ BEGIN
     -- Insert statements for procedure here
 	IF ((SELECT IsAdmin FROM [USER] WHERE ID=@UserID) = 1)
 	BEGIN
-		SELECT 'Admin'
+		SELECT 'admin'
 	END
 	ELSE
 	BEGIN

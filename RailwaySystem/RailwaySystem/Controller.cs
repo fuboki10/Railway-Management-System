@@ -155,12 +155,12 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.EmployeeStation;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@EmpID", EmployeeID);
-            int x = Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+            string x = dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
             if(x == null)
             {
                 return 0;
             }
-            return x;
+            return int.Parse(x);
         }
 
         public DataTable GetAllTrips()
@@ -202,7 +202,13 @@ namespace RailwaySystem
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
-
+        public string GetUserStationName(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetUserStationName;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
         public string GetEmployeeStationId(int ID)
         {
             string StoredProcedureName = StoredProcedures.GetEmployeeStationId;

@@ -31,7 +31,7 @@ namespace RailwaySystem
             RefreshStations();
             refresh();
             Station.Visibility = Visibility.Hidden;
-            Yards.Visibility = Visibility.Hidden;
+            Yards.Visibility = Visibility.Visible;
 
             job = c.GetUserJob(UserID);
 
@@ -234,7 +234,7 @@ namespace RailwaySystem
                 MessageBox.Show("Please Fill in all the data");
                 return;
             }
-
+            
             int x = c.InsertStation(SName.Text, SCity.Text, SState.Text, System.Convert.ToInt32(SStreet.Text));
             if (x == 0)
             {
@@ -259,7 +259,16 @@ namespace RailwaySystem
                 MessageBox.Show("Please enter the new name of the station");
                 return;
             }
+            if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                string stname = c.GetUserStationName(UserID);
+                if (stname != stationsbox.Text)
+                {
+                    MessageBox.Show("You aren't allowed to manipulate other stations", "Inavlid Insertion");
+                    return;
+                }
 
+            }
             int x = c.UpdateStation(stationsbox.Text, UPName.Text);
             if (x == 0)
             {
@@ -289,7 +298,16 @@ namespace RailwaySystem
                 MessageBox.Show("Please select the type of the yard");
                 return;
             }
-               
+            if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                int stid = int.Parse(c.GetUserStationId(UserID));
+                if (stid != int.Parse(stationcombo.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("You aren't allowed to add yards to other stations", "Inavlid Insertion");
+                    return;
+                }
+
+            }
             int x = c.InsertYard(Int32.Parse(stationcombo.SelectedValue.ToString()), Convert.ToInt32(size.Text), iscoach);
             if (x != 0)
             {
@@ -324,6 +342,16 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Please choose a station first");
                 return;
+            }
+            if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                int stid = int.Parse(c.GetUserStationId(UserID));
+                if (stid != int.Parse(stationcombo.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("You aren't allowed to view yards from other stations", "Inavlid Insertion");
+                    return;
+                }
+
             }
             refresh();
         }
