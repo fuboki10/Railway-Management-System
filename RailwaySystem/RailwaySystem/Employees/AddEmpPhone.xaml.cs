@@ -33,12 +33,28 @@ namespace RailwaySystem
 
         private void DeletePhoneButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PhCode.Text == "" || Phone.Text == "")
+            if (PhCode.Text == "" || Phone.Text == "" || EmployeeID.Text == "")
             {
                 MessageBox.Show("type all information");
             }
             else
             {
+                int station_id = int.Parse(mycontroller.GetEmployeeStationId(int.Parse(EmployeeID.SelectedValue.ToString())));
+                string station = mycontroller.GetUserStationId(Employee.GetUserId());
+                if (station == "admin")
+                {
+
+                }
+                else
+                {
+                    int userStId = int.Parse(station);
+                    if (!(userStId == 0 || userStId == station_id))
+                    {
+                        MessageBox.Show("You can't UPdate Employees From other stations", "Invalid Input");
+
+                        return;
+                    }
+                }
 
                 try
                 {
@@ -61,7 +77,22 @@ namespace RailwaySystem
             }
             else
             {
+                int station_id = int.Parse(mycontroller.GetEmployeeStationId(int.Parse(EmployeeID.SelectedValue.ToString())));
+                string station = mycontroller.GetUserStationId(Employee.GetUserId());
+                if (station == "admin")
+                {
 
+                }
+                else
+                {
+                    int userStId = int.Parse(station);
+                    if (!(userStId == 0 || userStId == station_id))
+                    {
+                        MessageBox.Show("You can't UPdate Employees From other stations", "Invalid Input");
+
+                        return;
+                    }
+                }
                 try
                 {
                     mycontroller.AddEmpPhone(int.Parse(EmployeeID.Text), PhCode.Text, Phone.Text);

@@ -52,6 +52,21 @@ namespace RailwaySystem
             }
             else
             {
+                int station_id = int.Parse(mycontroller.GetEmployeeStationId(int.Parse(EmployeeID.SelectedValue.ToString())));
+                string station = mycontroller.GetUserStationId(Employee.GetUserId());
+                if (station == "admin")
+                {
+
+                }
+                else
+                {
+                    int userStId = int.Parse(station);
+                    if (!(userStId == 0 || userStId == station_id))
+                    {
+                        MessageBox.Show("You can't Update Employees data From other stations", "Invalid Input");
+                        return;
+                    }
+                }
                 mycontroller.ChangeEmpContact(Convert.ToInt32(this.EmployeeID.Text), this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
             }
             Employee.BindContactsDataGrid();
