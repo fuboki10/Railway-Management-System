@@ -486,6 +486,7 @@ namespace RailwaySystem
             Parameters.Add("@PassengerID", PassengerID);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
+
         public DataTable Getsubs()
         {
             string StoredProcedureName = StoredProcedures.GetAllSubs;
@@ -500,6 +501,13 @@ namespace RailwaySystem
             Parameters.Add("@SubID", SUBID);
             Parameters.Add("@expire", expdate);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+
+        public DataTable GetAllSubscriptions()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllSubscriptions;
+            return dbMan.ExecuteReader(StoredProcedureName, null);
+
         }
 
         // iscoach is a boolean to determine the kind of the yard (if not coach then repair)
@@ -633,6 +641,15 @@ namespace RailwaySystem
         {
             string StoredProcedureName = StoredProcedures.GetAllDrivers;
             return dbMan.ExecuteReader(StoredProcedureName, null);
+        }
+        public int Add_route(int source_id, int dest_id, int dist)
+        {
+            string StoredProcedureName = StoredProcedures.AddRoute;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@source_id", source_id);
+            Parameters.Add("@dest_id", dest_id);
+            Parameters.Add("@distance", dist);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
     }
 

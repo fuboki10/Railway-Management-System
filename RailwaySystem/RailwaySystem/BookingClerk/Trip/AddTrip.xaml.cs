@@ -29,11 +29,15 @@ namespace RailwaySystem
             c = new Controller();
             trip = T;
             DataTable dt = c.GetSoucre();
+
+            trip.BindTripsGrid();
             if (dt != null)
             {
                 source.ItemsSource = dt.DefaultView;
                 source.DisplayMemberPath = "Name";
                 source.SelectedValuePath = "ID";
+                source.SelectedIndex = 1;
+                source.SelectedIndex = 0;
             }
             else
             {
@@ -59,7 +63,6 @@ namespace RailwaySystem
                 Driver.ItemsSource = null;
             }
         }
-
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             //source.SelectedValue, dest.SelectedValue, arr.SelectedDate.ToString(), dep.SelectedDate.ToString(), type.Text, train.SelectedValue
@@ -97,9 +100,13 @@ namespace RailwaySystem
                 trip.BindTripsGrid();
             }
         }
-        
 
-        private void bindDest(object sender, SelectionChangedEventArgs e)
+
+        private void bDest(object sender, SelectionChangedEventArgs e)
+        {
+            bindDest();
+        }
+        private void bindDest()
         {
             if (source.Text == "")
             {

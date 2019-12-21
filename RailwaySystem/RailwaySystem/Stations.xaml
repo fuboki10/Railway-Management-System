@@ -52,7 +52,7 @@
                     <Button Name="HomeTextButton" Content="Home" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}"
                             Cursor="Hand" Click="HomeTextButton_Click"/>
                 </Canvas>
-                <Canvas  Width="44" Height="19" Margin="0,295,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Canvas  Width="44" Height="19" Margin="0,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="Logout"  Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click" Cursor="Hand" />
                 </Canvas>
             </Grid>
@@ -74,7 +74,7 @@
                     </Button.Template>
                 </Button>
             </Canvas>
-            <Canvas Width="24" Height="24" Canvas.Left="30" Canvas.Top="410">
+            <Canvas Width="24" Height="24" Canvas.Left="30" Canvas.Top="215">
                 <Button x:Name="logoutbutton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click">
                     <Button.Template>
                         <ControlTemplate>
@@ -121,7 +121,7 @@
                 </Button.Resources>
             </Button>
         </Canvas>
-        <Canvas x:Name="Yards" >
+        <Canvas x:Name="Yards" Visibility="Hidden">
             <Button x:Name="Addcouch" Cursor="Hand"  Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,120,0,0" 
                  Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-95" Canvas.Top="312" Click="Addcouch_Click" >
                 <Button.Resources>
@@ -193,11 +193,36 @@
             <TextBox x:Name="uprsize" HorizontalAlignment="Left" Height="16" Margin="540,600,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" />
             <TextBlock x:Name="sizeR" HorizontalAlignment="Left" Height="20" Margin="500,600,0,0" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="25" RenderTransformOrigin="0.188,0.595" />
         </Canvas>
+        <Canvas x:Name="Route" Visibility="Visible">
+            <ComboBox Name="source" Height="37" Canvas.Left="381" Canvas.Top="249" Width="224" IsReadOnly="True"/>
+            <ComboBox Name="dest" Height="37" Canvas.Left="381" Canvas.Top="314" Width="224" IsReadOnly="True"/>
+            <Label Content="Source" Height="32" Canvas.Left="277" Canvas.Top="249" Width="137"/>
+            <Label Content="Destination" Height="32" Canvas.Left="277" Canvas.Top="319" Width="137"/>
+            <Button x:Name="Route_Add" Cursor="Hand"  Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Click="Add_route" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="328" RenderTransformOrigin="0.5,0.5" Height="42" Canvas.Left="277" Canvas.Top="426">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Label Content="Distance" Height="32" Canvas.Left="277" Canvas.Top="373" Width="137"/>
+            <TextBox x:Name="Dist" Height="24" Canvas.Left="381" Canvas.Top="373" Width="124" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        </Canvas>
         <GroupBox x:Name="GBox" Header="Stations" HorizontalAlignment="Left" Margin="261,205,0,0" VerticalAlignment="Top" Height="561" Width="900" BorderBrush="#FF080226" ScrollViewer.VerticalScrollBarVisibility="Hidden" Visibility="Hidden"/>
 
         <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,120,0,0">
             <Button x:Name="StationButton" Cursor="Hand"  Content="Stations" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Click="Station_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37">
+                Click="Station_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="-56">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Routes" Cursor="Hand"  Content="Routes" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Click="Route_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Canvas.Left="213">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -208,7 +233,7 @@
         </Canvas>
         <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="850,120,0,0">
             <Button x:Name="YardButton" Cursor="Hand"  Content="Yards" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Click="Yard_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
+                Click="Yard_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37" Canvas.Left="43" Canvas.Top="2">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>

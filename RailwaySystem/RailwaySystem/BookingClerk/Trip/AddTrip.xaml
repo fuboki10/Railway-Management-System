@@ -10,16 +10,16 @@
     <Grid>
         <Label Content="Source" HorizontalAlignment="Left" Height="34" Margin="25,10,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="Destination" HorizontalAlignment="Left" Height="34" Margin="274,11,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.54,-0.526"/>
-        <ComboBox Name="source" HorizontalAlignment="Left" Height="26" Margin="86,11,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bindDest"/>
+        <ComboBox Name="source" HorizontalAlignment="Left" Height="26" Margin="86,11,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bDest"/>
         <ComboBox Name="dest" HorizontalAlignment="Left" Height="26" Margin="373,10,0,0" VerticalAlignment="Top" Width="141"/>
-        <Label Content="Dep.time" HorizontalAlignment="Left" Height="34" Margin="7,52,0,0" VerticalAlignment="Top" Width="63"/>
-        <ComboBox Name="type" HorizontalAlignment="Left" Height="26" Margin="86,95,0,0" VerticalAlignment="Top" Width="140">
+        <Label Content="Dep.time" HorizontalAlignment="Left" Height="34" Margin="7,63,0,0" VerticalAlignment="Top" Width="63"/>
+        <ComboBox Name="type" HorizontalAlignment="Left" Height="26" Margin="86,113,0,0" VerticalAlignment="Top" Width="140">
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
             <ComboBoxItem Content="3"/>
         </ComboBox>
-        <Label Content="Type" HorizontalAlignment="Left" Height="34" Margin="25,95,0,0" VerticalAlignment="Top" Width="117"/>
-        <Button x:Name="Add" Cursor="Hand"  Content="ADD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="93,184,0,0"
+        <Label Content="Type" HorizontalAlignment="Left" Height="34" Margin="25,108,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="Add" Cursor="Hand"  Content="ADD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="93,202,0,0"
             Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="116" RenderTransformOrigin="0.5,0.5" Height="37" Click="Add_Click" >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -27,8 +27,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <ComboBox Name="train" HorizontalAlignment="Left" Height="26" Margin="86,142,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label Content="Train" HorizontalAlignment="Left" Height="34" Margin="25,134,0,0" VerticalAlignment="Top" Width="117"/>
+        <ComboBox Name="train" HorizontalAlignment="Left" Height="26" Margin="86,152,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Train" HorizontalAlignment="Left" Height="34" Margin="25,149,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class A" HorizontalAlignment="Left" Height="34" Margin="567,30,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class B" HorizontalAlignment="Left" Height="34" Margin="567,60,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="class C" HorizontalAlignment="Left" Height="34" Margin="567,87,0,0" VerticalAlignment="Top" Width="117"/>
@@ -42,8 +42,9 @@
         <TextBox Name="priceA" HorizontalAlignment="Left" Height="24" Margin="633,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
         <TextBox Name="priceB" HorizontalAlignment="Left" Height="24" Margin="633,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
         <TextBox Name="priceC" HorizontalAlignment="Left" Height="24" Margin="633,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
-        <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="372,49,0,0" VerticalAlignment="Top" Width="144"/>
-        <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="283,42,0,0" VerticalAlignment="Top" Width="64"/>
-        <xctk:DateTimePicker Name="dep" Height="24" Format="ShortDate" Margin="87,57,573,368.6"/>
+        <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="371,215,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="293,210,0,0" VerticalAlignment="Top" Width="64"/>
+        <xctk:DateTimePicker Name="dep" Margin="92,52,578,341.6" Visibility="Visible" ></xctk:DateTimePicker>
+        <xctk:DateTimeUpDown Margin="535,248,112,167.6" Visibility="Visible" ></xctk:DateTimeUpDown>
     </Grid>
 </UserControl>
