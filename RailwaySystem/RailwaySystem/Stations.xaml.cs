@@ -21,6 +21,7 @@ namespace RailwaySystem
     {
         int UserID;
         Controller c;
+        string job;
         public Stations(int id)
         {
             InitializeComponent();
@@ -31,6 +32,17 @@ namespace RailwaySystem
             refresh();
             Station.Visibility = Visibility.Hidden;
             Yards.Visibility = Visibility.Hidden;
+
+            job = c.GetUserJob(UserID);
+
+            if (job != "Admin" && job != "Manager")
+            {
+                Add_stations.Visibility = Visibility.Hidden;
+                Thickness m = Update_canvas.Margin;
+                m.Top -= 200;
+                Update_canvas.Margin = m;
+                Route.Visibility = Visibility.Hidden;
+            }
 
             DataTable dt = c.GetallStations();
             if (dt != null)
@@ -63,7 +75,6 @@ namespace RailwaySystem
 
         private void GoHome()
         {
-            string job = c.GetUserJob(UserID);
             if (job == "Admin")
             {
                 AdminDashboard AdminDashboard = new AdminDashboard(UserID);

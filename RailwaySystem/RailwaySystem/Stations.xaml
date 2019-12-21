@@ -52,7 +52,7 @@
                     <Button Name="HomeTextButton" Content="Home" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}"
                             Cursor="Hand" Click="HomeTextButton_Click"/>
                 </Canvas>
-                <Canvas  Width="44" Height="19" Margin="0,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Canvas  Width="44" Height="19" Margin="0,155,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="Logout"  Content="Logout" FontFamily="Roboto"  FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click" Cursor="Hand" />
                 </Canvas>
             </Grid>
@@ -74,7 +74,7 @@
                     </Button.Template>
                 </Button>
             </Canvas>
-            <Canvas Width="24" Height="24" Canvas.Left="30" Canvas.Top="215">
+            <Canvas Width="24" Height="24" Canvas.Left="30" Canvas.Top="265">
                 <Button x:Name="logoutbutton" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Click="Logout_Click">
                     <Button.Template>
                         <ControlTemplate>
@@ -88,38 +88,41 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <Canvas x:Name="Station" Visibility="Hidden">
-            <TextBox x:Name="SName" HorizontalAlignment="Left" Height="25" Margin="371,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
-            <TextBox x:Name="SCity" HorizontalAlignment="Left" Height="25" Margin="371,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
-            <TextBox x:Name="SState" HorizontalAlignment="Left" Height="25" Margin="371,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
-            <TextBox x:Name="SStreet" HorizontalAlignment="Left" Height="25" Margin="371,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
+        <Canvas x:Name="Station" Visibility="Visible">
+            <Canvas x:Name="Add_stations">
+                <TextBox x:Name="SName" HorizontalAlignment="Left" Height="25" Margin="371,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
+                <TextBox x:Name="SCity" HorizontalAlignment="Left" Height="25" Margin="371,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
+                <TextBox x:Name="SState" HorizontalAlignment="Left" Height="25" Margin="371,355,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
+                <TextBox x:Name="SStreet" HorizontalAlignment="Left" Height="25" Margin="371,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" />
 
-            <TextBlock x:Name="nameblock" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,257,0,0" TextWrapping="Wrap" />
-            <TextBlock x:Name="cityblock" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,307,0,0" TextWrapping="Wrap" />
-            <TextBlock x:Name="stateblock" Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,357,0,0" TextWrapping="Wrap" />
-            <TextBlock x:Name="streetblock" Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,407,0,0" TextWrapping="Wrap" />
-            <Button x:Name="ADDButton" Cursor="Hand"  Content="ADD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,450,0,0"
+                <TextBlock x:Name="nameblock" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,257,0,0" TextWrapping="Wrap" />
+                <TextBlock x:Name="cityblock" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,307,0,0" TextWrapping="Wrap" />
+                <TextBlock x:Name="stateblock" Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,357,0,0" TextWrapping="Wrap" />
+                <TextBlock x:Name="streetblock" Text="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,407,0,0" TextWrapping="Wrap" />
+                <Button x:Name="ADDButton" Cursor="Hand"  Content="ADD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,450,0,0"
                 Click="ADD_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" >
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </Canvas>
             <DataGrid x:Name="stations_grid" HorizontalAlignment="Left" Height="499" Margin="569,244,0,0" VerticalAlignment="Top" Width="570" />
-
-            <ComboBox x:Name="stationsbox" Height="25" Margin="325,610" Width="171" />
-
-            <TextBox x:Name="UPName" HorizontalAlignment="Left" Height="25" Margin="325,570,0,0"  Text="" VerticalAlignment="Top" Width="165" />
-            <TextBlock x:Name="updateblock" Text="Update Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,540,0,0" TextWrapping="Wrap" />
-            <Button x:Name="UPdateButton" Cursor="Hand"  Content="Update Name" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Click="Update_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Margin="325,650,0,0">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Canvas x:Name="Update_canvas" Margin="310,500,0,0" Width="240" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBox x:Name="UPName" HorizontalAlignment="Left" Height="25" Margin="15,70,0,0"  Text="" VerticalAlignment="Top" Width="165" />
+                <TextBlock x:Name="updateblock" Text="Update Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,40,0,0" TextWrapping="Wrap" />
+                <Button x:Name="UPdateButton" Cursor="Hand"  Content="Update Name" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Click="Update_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.5,0.5" Height="37" Margin="15,150,0,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <ComboBox x:Name="stationsbox" Height="25" Margin="15,110" Width="171" />
+            </Canvas>
         </Canvas>
         <Canvas x:Name="Yards" Visibility="Hidden">
             <Button x:Name="Addcouch" Cursor="Hand"  Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="390,120,0,0" 
