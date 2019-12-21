@@ -262,6 +262,7 @@ CREATE TABLE [Subscription] (
 	Fees integer NOT NULL,
 	Class varchar(1) NOT NULL,
 	No_Trips integer NOT NULL,
+	unique(Class, No_Trips),
   CONSTRAINT [PK_SUBSCRIPTION] PRIMARY KEY CLUSTERED
   (
   [ID] ASC
