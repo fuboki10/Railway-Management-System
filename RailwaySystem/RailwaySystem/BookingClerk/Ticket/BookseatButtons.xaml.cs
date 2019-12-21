@@ -19,9 +19,16 @@ namespace RailwaySystem
     /// </summary>
     public partial class BookseatButtons : UserControl
     {
-        public BookseatButtons()
+        Ticket T;
+        Controller mycontroller;
+        public BookseatButtons(Ticket t)
         {
+            T = t;
+            mycontroller = new Controller();
             InitializeComponent();
+            source.ItemsSource = mycontroller.GetallStations().DefaultView;
+            Desntaion.ItemsSource = mycontroller.GetallStations().DefaultView;
+
         }
 
         private void BookSeatButton1_Click(object sender, RoutedEventArgs e)

@@ -115,7 +115,7 @@ namespace RailwaySystem
         private void BookSeatButton_Click(object sender, RoutedEventArgs e)
         {
             this.newButtons.Children.Clear();
-            BookseatButtons b = new BookseatButtons();
+            BookseatButtons b = new BookseatButtons(this);
             this.newButtons.Children.Add(b);
         }
 
@@ -134,6 +134,11 @@ namespace RailwaySystem
             this.newButtons.Children.Add(E);
         }
 
-        
+        private void Add_sub_Click(object sender, RoutedEventArgs e)
+        {
+            this.newButtons.Children.Clear();
+            connectsubscription Connect = new connectsubscription(this);
+            this.newButtons.Children.Add(Connect);
+        }
     }
 }

@@ -486,7 +486,21 @@ namespace RailwaySystem
             Parameters.Add("@PassengerID", PassengerID);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
-
+        public DataTable Getsubs()
+        {
+            string StoredProcedureName = StoredProcedures.GetAllSubs;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+        public int InsertPsub(int PassengerID, int SUBID, string expdate)
+        {
+            string StoredProcedureName = StoredProcedures.InsertPsub;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@PassengerID", PassengerID);
+            Parameters.Add("@SubID", SUBID);
+            Parameters.Add("@expire", expdate);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
 
         // iscoach is a boolean to determine the kind of the yard (if not coach then repair)
         public int InsertYard(int stationid, int size, bool iscoach)
