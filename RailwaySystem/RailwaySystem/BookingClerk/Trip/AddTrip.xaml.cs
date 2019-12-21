@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit; 
 
+
 namespace RailwaySystem
 {
     /// <summary>
@@ -76,6 +77,7 @@ namespace RailwaySystem
                 System.Windows.MessageBox.Show("Please enter the required data");
                 return;
             }
+            dep.Text = dep.Text.Replace('/', '-');
             int pA, pB, pC, CA, CB, CC;
             pA = Convert.ToInt32(priceA.Text);
             pB = Convert.ToInt32(priceB.Text);
@@ -83,7 +85,17 @@ namespace RailwaySystem
             CA = Convert.ToInt32(classA.Text);
             CB = Convert.ToInt32(classB.Text);
             CC = Convert.ToInt32(classC.Text);
+
+
             int train_id = (int)train.SelectedValue;
+            int seats = (int)c.GetNoSeats(train_id);
+
+            if ((CA + CB + CC) != seats)
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("The sum of the classes numbers should equal to the number of seats of the selected train");
+                return;
+            }
+
             int driver = (int)Driver.SelectedValue;
 
             int x;

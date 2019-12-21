@@ -684,6 +684,14 @@ namespace RailwaySystem
             Parameters.Add("@distance", dist);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+
+        public object GetNoSeats(int tid)
+        {
+            string StoredProcedureName = StoredProcedures.GetNoSeats;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@Tid", tid);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
+        }
     }
 
 }

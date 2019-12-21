@@ -28,7 +28,8 @@ namespace RailwaySystem
         public static string RemoveTrain = "RemoveTrain";
         public static string InsertTrain = "InsertTrain";
         public static string GetAllTrains = "GetAllTrains";
-        
+        public static string GetNoSeats = "GetNoSeats";
+
         // Passenger Procedures
         public static string AddPassenger = "InsertPassenger";
         public static string AddPContact = "AddPContact";
