@@ -1556,7 +1556,27 @@ BEGIN
 
 END
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		lido22
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE GetEmployeeStID
+		@id int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
+    -- Insert statements for procedure here
+	SELECT StationID from Employee where ID = @id;
+END
+GO
 create PROCEDURE [dbo].[GetUserstId]
 	-- Add the parameters for the stored procedure here
 	@UserID INT

@@ -62,6 +62,7 @@ namespace RailwaySystem
         public static string UpdateSalary = "UpdateSalary";
         public static string GetAllJobs = "GetAllJobs";
         public static string GetUserStationId = "GetUserstId";
+        public static string GetEmployeeStationId = "GetEmployeeStID";
         public static string DeleteEmpContact = "DeleteEmpContact";
         public static string GetAllEmpPhones = "GetAllEmpPhones";
         public static string DeleteEmpPhone = "DeleteEmpPhone";

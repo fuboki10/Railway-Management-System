@@ -83,8 +83,22 @@ namespace RailwaySystem
                 MessageBox.Show("Select Employee ID");
                 return;
             }
+            int station_id = int.Parse(mycontroller.GetEmployeeStationId(int.Parse(EmployeeID1.SelectedValue.ToString())));
+            string station = mycontroller.GetUserStationId(Employee.GetUserId());
+            if (station == "admin")
+            {
+
+            }
+            else
+            {
+                int userStId = int.Parse(station);
+                if (!(userStId == 0 || userStId == station_id))
+                {
+                    MessageBox.Show("You can't Dismiss Employees From other stations", "Invalid Input");
+                    return;
+                }
+            }
             mycontroller.DeleteEmployee(int.Parse(EmployeeID1.SelectedValue.ToString()));
-            
             Employee.BindEmployeesGrid();
             BindEmployeesID();
         }
@@ -100,6 +114,21 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Enter The New Salary", "Incomplete Data");
                 return;
+            }
+            int station_id = int.Parse(mycontroller.GetEmployeeStationId(int.Parse(EmployeeID2.SelectedValue.ToString())));
+            string station = mycontroller.GetUserStationId(Employee.GetUserId());
+            if (station == "admin")
+            {
+
+            }
+            else
+            {
+                int userStId = int.Parse(station);
+                if (!(userStId == 0 || userStId == station_id))
+                {
+                    MessageBox.Show("You update salaries of other stations employees", "Invalid Update");
+                    return;
+                }
             }
             mycontroller.UpdateEmployeeSalary(int.Parse(EmployeeID2.SelectedValue.ToString()), int.Parse(NewSalaryText.Text));
             Employee.BindEmployeesGrid();
@@ -151,12 +180,26 @@ namespace RailwaySystem
             }
 
             int station_id = Int32.Parse(StationComboBox.SelectedValue.ToString());
+            string station = mycontroller.GetUserStationId(Employee.GetUserId());
+            if (station == "admin")
+            {
 
+            }
+            else
+            {
+                int userStId = int.Parse(station);
+                if (!(userStId == 0 || userStId == station_id))
+                {
+                    MessageBox.Show("You can't Insert Employees to other stations", "Invalid Insertion");
+                    return;
+                }
+            }
             if (Salary.Text == "")
             {
                 MessageBox.Show("Please Enter salary");
                 return;
             }
+
             int salary;
             if (!Int32.TryParse(Salary.Text, out salary))
             {

@@ -28,7 +28,10 @@ namespace RailwaySystem
             ControllerObj = new Controller();
 
         }
-
+        public int GetUserId()
+        {
+            return UserID;
+        }
         private void Canvas_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
