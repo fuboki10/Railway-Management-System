@@ -158,6 +158,20 @@ namespace RailwaySystem
                 stationsbox.DisplayMemberPath = "Name";
                 stationcombo.DisplayMemberPath = "Name";
                 stationcombo.SelectedValuePath = "ID";
+                source.ItemsSource = dt.DefaultView;
+                source.DisplayMemberPath = "Name";
+                source.SelectedValuePath = "ID";
+                dest.ItemsSource = dt.DefaultView;
+                dest.DisplayMemberPath = "Name";
+                dest.SelectedValuePath = "ID";
+            }
+            else
+            {
+                source.ItemsSource = null;
+                dest.ItemsSource = null;
+                stations_grid.ItemsSource = null;
+                stationsbox.ItemsSource = null;
+                stationcombo.ItemsSource = null;
             }
         }
 
