@@ -36,6 +36,8 @@ namespace RailwaySystem
                 source.ItemsSource = dt.DefaultView;
                 source.DisplayMemberPath = "Name";
                 source.SelectedValuePath = "ID";
+                source.SelectedIndex = 1;
+                source.SelectedIndex = 0;
             }
             else
             {
@@ -98,9 +100,13 @@ namespace RailwaySystem
                 trip.BindTripsGrid();
             }
         }
-        
 
-        private void bindDest(object sender, SelectionChangedEventArgs e)
+
+        private void bDest(object sender, SelectionChangedEventArgs e)
+        {
+            bindDest();
+        }
+        private void bindDest()
         {
             if (source.Text == "")
             {

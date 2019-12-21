@@ -41,7 +41,8 @@ namespace RailwaySystem
         public static string AddPPhone = "AddPPhone";
         public static string veiwPPhone = "VeiwPPhone";
         public static string Unassign_Trains = "Unassign_Trains";
-
+        public static string GetAllSubs = "GetAllSubs";
+        public static string InsertPsub = "InsertPsub";
 
 
         // Employee procedures
@@ -95,6 +96,8 @@ namespace RailwaySystem
         public static string RemoveCoachYard = "RemoveCoachYard";
         public static string RemoveRepairYard = "RemoveRepairYard";
 
+        // Routes Procedures
+        public static string AddRoute = "AddRoute";
         // Subscription
         public static string GetAllSubscriptions = "GetAllSubscriptions";
 

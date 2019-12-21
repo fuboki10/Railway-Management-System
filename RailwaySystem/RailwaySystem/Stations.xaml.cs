@@ -31,6 +31,22 @@ namespace RailwaySystem
             refresh();
             Station.Visibility = Visibility.Hidden;
             Yards.Visibility = Visibility.Hidden;
+
+            DataTable dt = c.GetallStations();
+            if (dt != null)
+            {
+                source.ItemsSource = dt.DefaultView;
+                source.DisplayMemberPath = "Name";
+                source.SelectedValuePath = "ID";
+                dest.ItemsSource = dt.DefaultView;
+                dest.DisplayMemberPath = "Name";
+                dest.SelectedValuePath = "ID";
+            }
+            else
+            {
+                source.ItemsSource = null;
+                dest.ItemsSource = null;
+            }
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -97,10 +113,8 @@ namespace RailwaySystem
             GBox.Visibility = Visibility.Visible;
             GBox.Header = "Stations";
             Station.Visibility = Visibility.Visible;
-            if (Yards.Visibility == Visibility.Visible)
-            {
-                Yards.Visibility = Visibility.Hidden;
-            }
+            Route.Visibility = Visibility.Hidden;
+            Yards.Visibility = Visibility.Hidden;
         }
 
         private void Yard_Click(object sender, RoutedEventArgs e)
@@ -108,12 +122,18 @@ namespace RailwaySystem
             GBox.Visibility = Visibility.Visible;
             GBox.Header = "Yards";
             Yards.Visibility = Visibility.Visible;
-            if (Station.Visibility == Visibility.Visible)
-            {
-                Station.Visibility = Visibility.Hidden;
-            }
+            Station.Visibility = Visibility.Hidden;
+            Route.Visibility = Visibility.Hidden;
         }
 
+        private void Route_Click(object sender, RoutedEventArgs e)
+        {
+            GBox.Visibility = Visibility.Visible;
+            GBox.Header = "Routes";
+            Station.Visibility = Visibility.Hidden;
+            Yards.Visibility = Visibility.Hidden;
+            Route.Visibility = Visibility.Visible;
+        }
         private void RefreshStations()
         {
             // Update the combobox of the stations
@@ -357,6 +377,29 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 refresh();
+            }
+        }
+
+        private void Add_route(object sender, RoutedEventArgs e)
+        {
+            if (source.Text == "" || dest.Text == "" || Dist.Text == "")
+            {
+                MessageBox.Show("Please fill in the required data");
+                return;
+            }
+            if (source.SelectedValue == dest.SelectedValue)
+            {
+                MessageBox.Show("You can't add a route to the same station D:");
+                return;
+            }
+            int x = c.Add_route((int)source.SelectedValue, (int)dest.SelectedValue, Convert.ToInt32(Dist.Text));
+            if (x == 0)
+            {
+                MessageBox.Show("Something Went wrong");
+            }
+            else
+            {
+                MessageBox.Show("Successful");
             }
         }
     }

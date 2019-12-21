@@ -10,7 +10,7 @@
     <Grid>
         <Label Content="Source" HorizontalAlignment="Left" Height="34" Margin="25,10,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="Destination" HorizontalAlignment="Left" Height="34" Margin="274,11,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.54,-0.526"/>
-        <ComboBox Name="source" HorizontalAlignment="Left" Height="26" Margin="86,11,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bindDest"/>
+        <ComboBox Name="source" HorizontalAlignment="Left" Height="26" Margin="86,11,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bDest"/>
         <ComboBox Name="dest" HorizontalAlignment="Left" Height="26" Margin="373,10,0,0" VerticalAlignment="Top" Width="141"/>
         <Label Content="Dep.time" HorizontalAlignment="Left" Height="34" Margin="7,63,0,0" VerticalAlignment="Top" Width="63"/>
         <ComboBox Name="type" HorizontalAlignment="Left" Height="26" Margin="86,113,0,0" VerticalAlignment="Top" Width="140">
