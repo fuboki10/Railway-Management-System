@@ -93,12 +93,11 @@ namespace RailwaySystem
         }
         private void StatisticsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            TripsStat T = new TripsStat(UserID);
+            T.Show();
+            this.Close();
         }
-        private void StatisticsTextButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
         private void HomeTextButton_Click(object sender ,RoutedEventArgs e)
         {
             GoHome();
