@@ -50,12 +50,20 @@ namespace RailwaySystem
             }
             else
             {
-                string today = DateTime.Now.ToString();
-                int ticketID = Convert.ToInt32(mycontroller.TicketID(Convert.ToInt32(source.SelectedValue),
-                 Convert.ToInt32(dest.SelectedValue),
-                 Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text));
-                  mycontroller.ConnectTicket(Convert.ToInt32(PassengerID.Text),mycontroller.get_emp_id_userId(T.UserID),
-                 today,ticketID);
+                try
+                {
+                    string today = DateTime.Now.ToString();
+                    int ticketID = Convert.ToInt32(mycontroller.TicketID(Convert.ToInt32(source.SelectedValue),
+                     Convert.ToInt32(dest.SelectedValue),
+                     Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text));
+                    mycontroller.ConnectTicket(Convert.ToInt32(PassengerID.Text), mycontroller.get_emp_id_userId(T.UserID),
+                   today, ticketID);
+                    MessageBox.Show("succesful");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
         private void bDest(object sender, SelectionChangedEventArgs e)

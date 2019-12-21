@@ -19,14 +19,38 @@ namespace RailwaySystem
     /// </summary>
     public partial class EditTicket : UserControl
     {
-        public EditTicket()
+        Ticket T;
+        Controller mycontroller;
+        public EditTicket(Ticket t)
         {
+            T = t;
+            mycontroller = new Controller();
             InitializeComponent();
+
+
         }
 
         private void EditTicketButton1_Click(object sender, RoutedEventArgs e)
         {
-
+            if (TicketID.Text==""||type.Text=="")
+            {
+                MessageBox.Show("Type all data");
+            }
+            else {
+                try
+                {
+                    string today = DateTime.Now.ToString();
+                    mycontroller.EditTicket(Convert.ToInt32(TicketID.Text), type.Text, mycontroller.get_emp_id_userId(T.UserID)
+                        , today);
+                    MessageBox.Show("succesful");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
+
+        
     }
 }

@@ -19,24 +19,42 @@ namespace RailwaySystem
     /// </summary>
     public partial class CancelTicketButton : UserControl
     {
-        public CancelTicketButton()
+        Ticket T;
+        Controller mycontroller;
+        public CancelTicketButton(Ticket t)
         {
+            T = t;
+            mycontroller = new Controller();
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+            
 
         }
+
+
 
         private void CancelTicketButton_Click(object sender, RoutedEventArgs e)
         {
+            if (ticketid.Text == "")
+            {
+                MessageBox.Show("insert all data");
+            }
+            else
+            {
+                try
+                {
+                    mycontroller.CancelTicket(Convert.ToInt32(ticketid.Text));
+                    MessageBox.Show("succesful");
 
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
         }
 
-        private void CancelTicketButton1_Click(object sender, RoutedEventArgs e)
-        {
+        
 
-        }
+       
     }
 }

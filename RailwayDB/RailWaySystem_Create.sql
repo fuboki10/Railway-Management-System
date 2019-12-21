@@ -997,6 +997,27 @@ GO
 -- =============================================
 -- Author:		ali abozied
 -- Create date: 21/12/2019
+-- Description:	cancel ticket
+-- =============================================
+create PROCEDURE CancelTicket2
+@ticketID int
+AS
+BEGIN
+	update Ticket set Passenger_ID=null,Booking_Clerk_ID=null,Date=null where ID=@ticketID
+END
+GO
+
+
+
+
+use RailWaySystemDB
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali abozied
+-- Create date: 21/12/2019
 -- Description:	connect ticket to passenger
 -- =============================================
 alter PROCEDURE connectTicket

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="900">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="21" Margin="76,90,0,0" TextWrapping="Wrap" Text="Type Ticket ID" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
+        <TextBox x:Name="TicketID" HorizontalAlignment="Left" Height="21" Margin="57,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
         <Button x:Name="EditTicketButton1" Content="Edit Ticket" HorizontalAlignment="Left" Margin="299,137,0,0" VerticalAlignment="Top" Width="216" Height="36"
                 Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="EditTicketButton1_Click">
             <Button.Resources>
@@ -18,7 +18,11 @@
         </Button>
         <Label Content="Ticket ID" HorizontalAlignment="Left" Margin="76,45,0,0" VerticalAlignment="Top" Width="117"/>
         <Label Content="Class" HorizontalAlignment="Left" Margin="515,45,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="515,89,0,0" VerticalAlignment="Top" Width="216"/>
+        <ComboBox x:Name="type" HorizontalAlignment="Left" Height="21" Margin="522,89,0,0" VerticalAlignment="Top" Width="140">
+            <ComboBoxItem Content="A"/>
+            <ComboBoxItem Content="B"/>
+            <ComboBoxItem Content="C"/>
+        </ComboBox>
 
     </Grid>
 </UserControl>

@@ -123,14 +123,14 @@ namespace RailwaySystem
         private void CancelTicktButton_Click(object sender, RoutedEventArgs e)
         {
             this.newButtons.Children.Clear();
-            CancelTicketButton c = new CancelTicketButton();
+            CancelTicketButton c = new CancelTicketButton(this);
             this.newButtons.Children.Add(c);
         }
 
         private void EditTicktButton_Click(object sender, RoutedEventArgs e)
         {
             this.newButtons.Children.Clear();
-            EditTicket E = new EditTicket();
+            EditTicket E = new EditTicket(this);
             this.newButtons.Children.Add(E);
         }
 

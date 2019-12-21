@@ -567,6 +567,23 @@ namespace RailwaySystem
             Parameters.Add("@BookingeClerkID", BookingClerkID);
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
+        public int CancelTicket(int ticketID)
+        {
+            string StoredProcedureName = StoredProcedures.CancelTicket;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@ticketID", ticketID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
+        public int EditTicket(int ticketID,string Class,int BookingClerkID,string today)
+        {
+            string StoredProcedureName = StoredProcedures.EditTicket;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@ticketID", ticketID);
+            Parameters.Add("@class", Class);
+            Parameters.Add("@date", today);
+            Parameters.Add("@BookingClerkID", BookingClerkID);
+            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+        }
         public DataTable GetAllSubscriptions()
         {
             string StoredProcedureName = StoredProcedures.GetAllSubscriptions;

@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="900">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="21" Margin="76,90,0,0" TextWrapping="Wrap" Text="Type Ticket ID" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
+        <TextBox x:Name="ticketid" HorizontalAlignment="Left" Height="21" Margin="76,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.489,0.599"/>
         <Button x:Name="CancelTicketButton1" Content="Cancel Ticket" HorizontalAlignment="Left" Margin="76,135,0,0" VerticalAlignment="Top" Width="216" Height="36"
-                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="CancelTicketButton1_Click">
+                Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="CancelTicketButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>

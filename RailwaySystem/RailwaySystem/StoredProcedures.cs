@@ -47,8 +47,8 @@ namespace RailwaySystem
         public static string TicketID = "getticketatt";
         public static string TicketPrice = "getticketprice";
         public static string ConnectTicket = "connectTicket";
-
-
+        public static string CancelTicket = "CancelTicket2";
+        public static string EditTicket = "EditTicket";
         // Employee procedures
 
         public static string Insert_Emp_Phone = "Insert_Emp_Phone";
