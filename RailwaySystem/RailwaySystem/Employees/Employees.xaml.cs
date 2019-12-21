@@ -160,7 +160,9 @@ namespace RailwaySystem
 
         private void GoStatistics()
         {
-            //throw new NotImplementedException();
+            EmpStats s = new EmpStats(UserID);
+            s.Show();
+            this.Close();
         }
 
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)

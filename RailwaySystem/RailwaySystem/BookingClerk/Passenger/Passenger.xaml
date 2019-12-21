@@ -52,7 +52,7 @@
                 </Canvas>
                 <Canvas  Width="74" Height="19" Margin="0,46,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button x:Name="StatisticsTextButton" Content="Statistics" Cursor="Hand" FontFamily="Roboto" Background="{x:Null}" 
-                            BorderBrush="{x:Null}" FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="StatisticsTextButton_Click"  />
+                            BorderBrush="{x:Null}" FontSize="14" Foreground="#ff000307" Canvas.Left="0" Canvas.Top="0" Click="StatisticsButton_Click"  />
                 </Canvas>
                 <Canvas  Width="39" Height="19" Margin="0,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Canvas  Width="44" Height="19" Margin="0,142,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">

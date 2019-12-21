@@ -16,14 +16,14 @@ namespace RailwaySystem {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class EmpStatistics : ReportClass {
         
-        public CrystalReport1() {
+        public EmpStatistics() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "EmpStatistics.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace RailwaySystem {
         
         public override string FullResourceName {
             get {
-                return "RailwaySystem.CrystalReport1.rpt";
+                return "RailwaySystem.EmpStatistics.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace RailwaySystem {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedEmpStatistics : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedEmpStatistics() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace RailwaySystem {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            EmpStatistics rpt = new EmpStatistics();
             rpt.Site = this.Site;
             return rpt;
         }

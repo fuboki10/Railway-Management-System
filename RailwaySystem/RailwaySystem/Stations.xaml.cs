@@ -459,7 +459,7 @@ namespace RailwaySystem
 
         private void stats_click(object sender, RoutedEventArgs e)
         {
-            // go to statistics form
+            StationStats s = new StationStats(UserID);
         }
     }
 }
