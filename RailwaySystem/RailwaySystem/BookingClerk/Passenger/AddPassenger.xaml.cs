@@ -35,10 +35,19 @@ namespace RailwaySystem
                 MessageBox.Show("type first name and last name");
             }
             else {
-                int passenger = 0;
+                try
+                {
                 passenger=Convert.ToInt32(mycontroller.AddPassenger(this.First_Name.Text, this.Last_Name.Text));
                 Passenger.BindPassengersGrid(Passenger.veiwPassenger);
                 mycontroller.AddPContact(passenger, this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
+                    MessageBox.Show("Successful");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                int passenger = 0;
+
             } 
         }
     }

@@ -39,8 +39,18 @@ namespace RailwaySystem
             else
             {
                 int passenger = 0;
-                passenger=Convert.ToInt32(mycontroller.EditPContact(City.Text,Email.Text,State.Text,Street.Text));
-                P.BindPassengersGrid(P.veiwPassengerContact, passenger);
+                try
+                {
+                    passenger = Convert.ToInt32(mycontroller.EditPContact(City.Text,Email.Text,State.Text,Street.Text));
+                    P.BindPassengersGrid(P.veiwPassengerContact, passenger);
+                    MessageBox.Show("Successful");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                
             }
         }
 

@@ -42,10 +42,19 @@ namespace RailwaySystem
             }
             else
             {
-                var today = DateTime.Now;
-                
-                mycontroller.InsertPsub(Convert.ToInt32(PassenegerID.Text), Convert.ToInt32(Attributes.SelectedValue),
-                    Convert.ToString(today.AddMonths(Convert.ToInt32(monthes.Text))));
+                try
+                {
+                    var today = DateTime.Now;
+
+                    mycontroller.InsertPsub(Convert.ToInt32(PassenegerID.Text), Convert.ToInt32(Attributes.SelectedValue),
+                        Convert.ToString(today.AddMonths(Convert.ToInt32(monthes.Text))));
+                    MessageBox.Show("Successful");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
             }
         }
     }

@@ -97,6 +97,7 @@ namespace RailwaySystem
             }
             else
             {
+
                 var textprice = mycontroller.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
                     Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text);
                 if (textprice != null)

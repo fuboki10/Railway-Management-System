@@ -40,11 +40,17 @@ namespace RailwaySystem
             {
 
 
+                try {
+                    mycontroller.AddPContact(Convert.ToInt32(this.PassengerID.Text), this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
+                    P.BindPassengersGrid(P.veiwPassengerContact, Convert.ToInt32(PassengerID.Text));
+                    MessageBox.Show("Successful");
+                }
+                catch (Exception ex )
+                {
+                    MessageBox.Show(ex.ToString());
+                }
                 
-
-                mycontroller.AddPContact(Convert.ToInt32(this.PassengerID.Text), this.City.Text, this.Email.Text, this.State.Text, this.Street.Text);
-                P.BindPassengersGrid(P.veiwPassengerContact, Convert.ToInt32(PassengerID.Text));
-                
+               
                 
             }
         }
