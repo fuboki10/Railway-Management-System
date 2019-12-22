@@ -24,6 +24,9 @@ The first three in addition to the "Admin" can use the application to:
 -stations
 -Passengers, there tickets and there subscribtions
 
+#database
+1-run create file
+2-run script file
 
 #How to use the application
 -when you start the program the log in page will show up

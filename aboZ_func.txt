@@ -1,3 +1,0 @@
-Add trips
-function to get Employee ID from User ID
-Add/Reemove Subscription
