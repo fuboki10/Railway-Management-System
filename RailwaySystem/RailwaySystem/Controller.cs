@@ -201,6 +201,20 @@ namespace RailwaySystem
             Parameters.Add("@UserID", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
+        public string GetCoachStationId(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetCoachYardStationId;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
+        public string GetRepairStationId(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetRepairYardStationId;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
         public string GetUserStationName(int ID)
         {
             string StoredProcedureName = StoredProcedures.GetUserStationName;

@@ -106,7 +106,8 @@ namespace RailwaySystem
         public static string GetAllCyards = "GetAllCyards";
         public static string RemoveCoachYard = "RemoveCoachYard";
         public static string RemoveRepairYard = "RemoveRepairYard";
-
+        public static string GetCoachYardStationId = "GetCyardStationId";
+        public static string GetRepairYardStationId = "GetRyardStationId";
         // Routes Procedures
         public static string AddRoute = "AddRoute";
         // Subscription

@@ -314,6 +314,7 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 refresh();
+                RefreshStations();
 
             }
             else
@@ -366,16 +367,16 @@ namespace RailwaySystem
                 MessageBox.Show("Please select the car id and insert the new size");
                 return;
             }
-           /* if ("Station Manager" == c.GetUserJob(UserID))
+            if ("Station Manager" == c.GetUserJob(UserID))
             {
-                string stname = c.GetUserStationName(UserID);
-                if (stname != )
+                string stid = c.GetUserStationId(UserID);
+                if (stid != c.GetCoachStationId(int.Parse(cYardscombo.SelectedValue.ToString())))
                 {
                     MessageBox.Show("You aren't allowed to manipulate other stations", "Inavlid Insertion");
                     return;
                 }
 
-            }*/
+            }
             int x = c.UpdateCSize(Convert.ToInt32(cYardscombo.SelectedValue), Convert.ToInt32(upcsize.Text));
             if (x == 0)
             {
@@ -384,7 +385,8 @@ namespace RailwaySystem
             else
             {
                 MessageBox.Show("Successful");
-                refresh();
+                this.refresh();
+
             }
         }
 
@@ -395,7 +397,16 @@ namespace RailwaySystem
                 MessageBox.Show("Please select the yard id and insert the new size");
                 return;
             }
+            if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                string stid = c.GetUserStationId(UserID);
+                if (stid != c.GetRepairStationId(int.Parse(rYards.SelectedValue.ToString())))
+                {
+                    MessageBox.Show("You aren't allowed to manipulate other stations", "Inavlid Insertion");
+                    return;
+                }
 
+            }
             int x = c.UpdateRSize(Convert.ToInt32(rYards.SelectedValue), Convert.ToInt32(uprsize.Text));
             if (x == 0)
             {
@@ -405,6 +416,7 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 refresh();
+
             }
         }
 
@@ -415,6 +427,16 @@ namespace RailwaySystem
                 MessageBox.Show("Please select the yard id");
                 return;
             }
+            if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                string stid = c.GetUserStationId(UserID);
+                if (stid != c.GetCoachStationId(int.Parse(cYardscombo.SelectedValue.ToString())))
+                {
+                    MessageBox.Show("You aren't allowed to manipulate other stations", "Inavlid Insertion");
+                    return;
+                }
+
+            }
             int x = c.RemoveCyard(Convert.ToInt32(cYardscombo.SelectedValue));
             if (x == 0)
             {
@@ -424,6 +446,7 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 refresh();
+
             }
         }
 
@@ -433,6 +456,16 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Please select the yard id");
                 return;
+            }
+            if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                string stid = c.GetUserStationId(UserID);
+                if (stid != c.GetRepairStationId(int.Parse(rYards.SelectedValue.ToString())))
+                {
+                    MessageBox.Show("You aren't allowed to manipulate other stations", "Inavlid Insertion");
+                    return;
+                }
+
             }
             int x = c.RemoveRyard(Convert.ToInt32(rYards.SelectedValue));
             if (x == 0)
