@@ -170,7 +170,7 @@
             </Button.Resources>
         </Button>
         <GroupBox Header="Contact" HorizontalAlignment="Left" Height="419" Margin="304,314,0,0" VerticalAlignment="Top" Width="860" BorderBrush="#FF080226"/>
-        <Canvas x:Name="AddContact" Visibility="Hidden">
+        <Canvas x:Name="AddContact" Visibility="Visible">
             <Label Content="Employee ID" HorizontalAlignment="Left" Margin="70,4,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="Email" HorizontalAlignment="Left" Height="21" Margin="338,352,0,0" TextWrapping="Wrap" Text="" 
             VerticalAlignment="Top" Width="276" RenderTransformOrigin="0.489,0.599"/>
@@ -180,10 +180,10 @@
             VerticalAlignment="Top" Width="276" RenderTransformOrigin="0.489,0.599"/>
             <TextBox x:Name="State" HorizontalAlignment="Left" Height="21" Margin="688,394,0,0" TextWrapping="Wrap" Text="" 
             VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.489,0.599"/>
-            <Label Content="Email" HorizontalAlignment="Left" Margin="337,329,0,0" VerticalAlignment="Top" Width="30"/>
-            <Label Content="City" HorizontalAlignment="Left" Margin="688,329,0,0" VerticalAlignment="Top" Width="24"/>
-            <Label Content="Street" HorizontalAlignment="Left" Margin="337,368,0,0" VerticalAlignment="Top" Width="33"/>
-            <Label Content="State" HorizontalAlignment="Left" Margin="688,373,0,0" VerticalAlignment="Top" Width="29"/>
+            <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Canvas.Left="337" Canvas.Top="329"/>
+            <Label Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Canvas.Left="688" Canvas.Top="329"/>
+            <Label Content="Street" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Canvas.Left="337" Canvas.Top="368"/>
+            <Label Content="State" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Canvas.Left="688" Canvas.Top="373"/>
         </Canvas>
         <Button x:Name="AddContactButton" Content="Add Contact" HorizontalAlignment="Left" Margin="335,432,0,0" VerticalAlignment="Top" Width="216" Height="36"
             Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="AddContactButton_Click">
