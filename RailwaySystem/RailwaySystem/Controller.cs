@@ -776,7 +776,7 @@ namespace RailwaySystem
         {
             string StoredProcedureName = StoredProcedures.TripArrived;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("@TrainID", TrainID);
+            Parameters.Add("@ID", TrainID);
             return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
         }
     }
