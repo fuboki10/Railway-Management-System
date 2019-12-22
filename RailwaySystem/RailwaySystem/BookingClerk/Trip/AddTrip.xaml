@@ -42,8 +42,8 @@
         <TextBox x:Name="priceA" HorizontalAlignment="Left" Height="24" Margin="633,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
         <TextBox x:Name="priceB" HorizontalAlignment="Left" Height="24" Margin="633,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="139"/>
         <TextBox x:Name="priceC" HorizontalAlignment="Left" Height="24" Margin="633,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
-        <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="371,215,0,0" VerticalAlignment="Top" Width="144"/>
-        <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="293,210,0,0" VerticalAlignment="Top" Width="64"/>
+        <ComboBox x:Name="Driver" HorizontalAlignment="Left" Height="26" Margin="373,64,0,0" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Driver" HorizontalAlignment="Left" Height="34" Margin="323,60,0,0" VerticalAlignment="Top" Width="64"/>
         <TextBox x:Name="seats"  HorizontalAlignment="Left" Height="24" Margin="274,154,0,0" TextWrapping="Wrap" Text="No. of seats" VerticalAlignment="Top" Width="139" IsReadOnly="True"/>
         <DatePicker Name="dep" HorizontalAlignment="Left" Margin="86,64,0,0" VerticalAlignment="Top"/>
         <Label Content="NoSeats" HorizontalAlignment="Left" Margin="435,155,0,0" VerticalAlignment="Top"/>
