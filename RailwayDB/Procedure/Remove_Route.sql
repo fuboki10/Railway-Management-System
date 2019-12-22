@@ -20,6 +20,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     Delete from Route where Source_ID = @source_id and Destination_ID = @dest_id
+
 	
 END
 GO
