@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen" Icon="..\train_icon.ico"
         WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Loaded="Window_Loaded_1">
 
-    <Grid Uid="Dashboard"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,4,0,0.2" >
+    <Grid Uid="Dashboard"  Width="1200" Background="#ffeeeeee" ClipToBounds="True" Margin="0,0,0,0" >
         <Canvas  Width="1200" Height="64" Margin="0,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Path  Width="1200" Height="64" Stretch="uniform" Data="M 1280 0 L 0 0 L 0 64 L 1280 64 L 1280 0 Z" Fill="#ffd7d7d7" Canvas.Left="0" Canvas.Top="0"  />
             <Canvas  Width="24" Height="24" Canvas.Left="1153" Canvas.Top="22" >
@@ -119,23 +119,56 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <GroupBox Header="Account" HorizontalAlignment="Left" Margin="643,192,0,0" VerticalAlignment="Top" Height="84" Width="432" BorderBrush="#FF080226">
-        <TextBox Name="NewUsernameTextbox" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Margin="10,10,0,0"/>
+
+        <Label Content="New Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="273,125,0,0" Height="23"/>
+        <Button Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="550,125,0,0" Click="ChangeUsernameButton_Click" Height="24" Content="Change Username" BorderBrush="#FF080226" Background="#FF080226" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="750,125,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click" Foreground="#FFF8F7FB" Background="#FF080226" Height="24">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <GroupBox Header="Account" HorizontalAlignment="Left" Margin="261,101,0,0" VerticalAlignment="Top" Height="82" Width="769" BorderBrush="#FF080226">
+            <TextBox Name="NewUsernameTextbox" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Margin="103,10,0,0"/>
         </GroupBox>
-        <Label Content="New Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="810,215,0,0" Height="23"/>
-        <Button Name="ChangeUsernameButton" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Margin="661,248,0,0" Click="ChangeUsernameButton_Click" Height="19" Content="Change Username" BorderBrush="#FF080226" Background="#FF080226" Foreground="White">
+        <GroupBox Header="Contact" HorizontalAlignment="Left" Height="418" Margin="262,244,0,0" VerticalAlignment="Top" Width="860" BorderBrush="#FF080226"/>
+        <TextBlock Text="New email" FontSize="14" FontFamily="roboto" Height="18" TextWrapping="Wrap" Margin="281,290,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="newemail" HorizontalAlignment="Left" Height="26" Margin="377,282,0,0" Text="" VerticalAlignment="Top" Width="217"/>
+        <Button x:Name="ChangeemailButton" Cursor="Hand" Content="Change Email" HorizontalAlignment="Left" Margin="608,286,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangeemailButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Name="ChangePasswordButton" Cursor="Hand" Content="Change Password" HorizontalAlignment="Left" Margin="932,218,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ChangePasswordButton_Click" Foreground="#FFF8F7FB" Background="#FF080226">
+        <DataGrid x:Name="Address" HorizontalAlignment="Left" Height="46" Margin="783,282,0,0" VerticalAlignment="Top" Width="311" />
+        <DataGrid x:Name="Phones" HorizontalAlignment="Left" Height="200" Margin="783,440,0,0" VerticalAlignment="Top" Width="311" />
+        <GroupBox Header="Addresses" HorizontalAlignment="Left" Height="88" Margin="761,262,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
+        <GroupBox Header="Phone Numbers" HorizontalAlignment="Left" Height="224" Margin="761,420,0,0" VerticalAlignment="Top" Width="350" BorderBrush="#FF080226"/>
+        <ComboBox x:Name="Phone_Numbers" HorizontalAlignment="Left" Height="44" Margin="307,512,0,0" VerticalAlignment="Top" Width="195" IsDropDownOpen="True" IsReadOnly="True"/>
+        <TextBlock Text="New Phone number" FontSize="14" FontFamily="roboto" Height="18" TextWrapping="Wrap" Margin="278,440,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="newphone" HorizontalAlignment="Left" Height="26" Margin="488,434,0,0" Text="" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="Addphone" Cursor="Hand" Content="Add phone number" HorizontalAlignment="Left" Margin="608,440,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="ADDphone">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <Button x:Name="DeleteNumber" Cursor="Hand" Content="Delete phone number" HorizontalAlignment="Left" Margin="525,524,0,0" VerticalAlignment="Top" Width="131" BorderBrush="#FF080226" Click="DeletePhone">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="code" HorizontalAlignment="Left" Height="26" Margin="418,434,0,0" Text="" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Window>

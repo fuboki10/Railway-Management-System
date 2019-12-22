@@ -114,7 +114,7 @@ namespace RailwaySystem
             Console.WriteLine(dep_time);
             Console.WriteLine(dep);
             Console.WriteLine(result);
-            x = c.InsertTrip(result.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
+            x = c. InsertTrip(result.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
                train_id, driver, trip.UserID, CA, pA, CB, pB, CC, pC);
             if (x == 0)
             {
