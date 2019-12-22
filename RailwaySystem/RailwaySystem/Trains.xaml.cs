@@ -38,20 +38,17 @@ namespace RailwaySystem
             {
                 ColorComboBox.Visibility = Visibility.Hidden;
                 AddTrains.Visibility = Visibility.Hidden;
-                DeleteTrain.Visibility = Visibility.Hidden;
                 ModelTextBox.Visibility = Visibility.Hidden;
                 SpeedTextBox.Visibility = Visibility.Hidden;
                 CoachYardComboBox.Visibility = Visibility.Hidden;
                 ModelLabel.Visibility = Visibility.Hidden;
                 ColorLabel.Visibility = Visibility.Hidden;
-                IDLabel.Visibility = Visibility.Hidden;
                 DateLabel.Visibility = Visibility.Hidden;
                 CoachYardLabel.Visibility = Visibility.Hidden;
                 AddButton.Visibility = Visibility.Hidden;
                 DeleteButton.Visibility = Visibility.Hidden;
                 No_CarsTextBox.Visibility = Visibility.Hidden;
                 No_SeatsTextBox.Visibility = Visibility.Hidden;
-                TrainsID_ComboBox.Visibility = Visibility.Hidden;
                 TrainDatePicker.Visibility = Visibility.Hidden;
                 label1.Visibility = Visibility.Hidden;
                 label2.Visibility = Visibility.Hidden;
@@ -277,8 +274,12 @@ namespace RailwaySystem
 
             string date = TrainDatePicker.SelectedDate.ToString();
 
-            ControllerObj.InsertTrain(model, true, color, No_Seats, No_Cars, date, speed, 0, 0, Coach_Yard_ID, 0);
-
+            int ret = ControllerObj.InsertTrain(model, true, color, No_Seats, No_Cars, date, speed, 0, 0, Coach_Yard_ID, 0);
+            if (ret == 0)
+            {
+                MessageBox.Show("Coach Yard Is Full");
+                return;
+            }
             // Update
             BindTrains();
         }
@@ -289,6 +290,27 @@ namespace RailwaySystem
             BindColorComboBox();
             BindCoachYard();
             NameTextBox.Text = ControllerObj.GetUsername(UserID);
+        }
+
+        private void ChangeStatusButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (TrainsID_ComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Enter Train ID");
+            }
+            else
+            {
+                int trainID = Int32.Parse(TrainsID_ComboBox.SelectedValue.ToString());
+                int ret = ControllerObj.ChangeTrainStatus(trainID);
+                if (ret == 0)
+                {
+                    MessageBox.Show("Error : Don't Have Enough Yards");
+                }
+                else 
+                {
+                    BindTrains();
+                } 
+            }
         }
     }
 }

@@ -97,7 +97,7 @@ namespace RailwaySystem
                 Parameters.Add("@BoughtByID", BoughtByID);
 
 
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
         }
         
         public int RemoveTrain(int ID)
@@ -761,6 +761,13 @@ namespace RailwaySystem
             Parameters.Add("@Tid", tid);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
         }
-    }
 
+        public int ChangeTrainStatus(int TrainID)
+        {
+            string StoredProcedureName = StoredProcedures.ChangeTrainStatus;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@TrainID", TrainID);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+        }
+    }
 }

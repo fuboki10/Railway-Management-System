@@ -1,23 +1,11 @@
--- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
 use RailWaySystemDB
 go
-
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		<Author,,Name>
+-- Author:		abdelrahman
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
@@ -41,10 +29,14 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	INSERT INTO Train
-	(Model, [Status], Color, No_Seats, Speed, No_Cars, [Date], Driver_ID, Repair_Yard_ID, Coach_Yard_ID, BoughtByID)
-	VALUES
-	(@Model, @Status, @Color, @No_Seats, @Speed, @No_Cars, @Date, @Driver_ID, @Repair_Yard_ID, @Coach_Yard_ID, @BoughtByID)
-	return @@rowcount
+	DECLARE @NO_TRAINS INT = (SELECT COUNT(*) FROM Train WHERE Coach_Yard_ID=@Coach_Yard_ID)
+	IF @NO_TRAINS < (SELECT Size FROM Coach_Yard WHERE ID=@Coach_Yard_ID)
+	BEGIN
+		INSERT INTO Train
+		(Model, [Status], Color, No_Seats, Speed, No_Cars, [Date], Driver_ID, Repair_Yard_ID, Coach_Yard_ID, BoughtByID)
+		VALUES
+		(@Model, @Status, @Color, @No_Seats, @Speed, @No_Cars, @Date, @Driver_ID, @Repair_Yard_ID, @Coach_Yard_ID, @BoughtByID)
+	END
+	SELECT @@rowcount
 END
 GO
