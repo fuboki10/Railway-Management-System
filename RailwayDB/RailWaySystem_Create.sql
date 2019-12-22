@@ -197,7 +197,7 @@ CREATE TABLE [Train] (
 	BoughtByID int,                    -- Manager ID --
 	foreign key(Repair_Yard_ID) references Repair_Yard(ID),
 	foreign key(Coach_Yard_ID) references Coach_Yard(ID),
-	foreign key(BoughtByID) references Employee(ID),  
+	foreign key(BoughtByID) references Employee(ID) on delete set null,  
 	foreign key(Driver_ID) references Employee(ID),
 	CONSTRAINT [TrainCheck] check(
 		(Driver_ID is not null and Repair_Yard_ID is null and Coach_Yard_ID is null) or
@@ -248,7 +248,7 @@ CREATE TABLE [Ticket] (
 	Trip_ID integer NOT NULL,
 	foreign key(Booking_Clerk_ID) references Employee(ID) on delete set null on update cascade,
 	foreign key(Passenger_ID) references Passenger(ID) on delete set null on update cascade,
-	foreign key(Trip_ID) references Trip(ID) on delete no action on update no action,
+	foreign key(Trip_ID) references Trip(ID) on delete cascade,
   CONSTRAINT [PK_TICKET] PRIMARY KEY CLUSTERED
   (
   [ID] ASC
