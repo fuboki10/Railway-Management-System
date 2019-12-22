@@ -14,14 +14,15 @@ using System.Windows.Shapes;
 namespace RailwaySystem
 {
     /// <summary>
-    /// Interaction logic for StationStats.xaml
+    /// Interaction logic for Stations_stat.xaml
     /// </summary>
-    public partial class StationStats : Window
+    public partial class Stations_stat : Window
     {
         int UserID;
         Controller c;
         string job;
-        public StationStats(int id)
+
+        public Stations_stat(int id)
         {
             InitializeComponent();
             c = new Controller();
@@ -30,6 +31,7 @@ namespace RailwaySystem
             Stationreport n = new Stationreport();
             view.ViewerCore.ReportSource = n;
         }
+
         private void XClicked(object sender, RoutedEventArgs e)
         {
             Close();

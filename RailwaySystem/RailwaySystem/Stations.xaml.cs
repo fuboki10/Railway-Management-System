@@ -31,7 +31,7 @@ namespace RailwaySystem
             RefreshStations();
             refresh();
             Station.Visibility = Visibility.Hidden;
-            Yards.Visibility = Visibility.Visible;
+            Yards.Visibility = Visibility.Hidden;
 
             job = c.GetUserJob(UserID);
 
@@ -244,6 +244,7 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Inserted Successfully");
                 refresh();
+                RefreshStations();
             }
         }
 
@@ -313,6 +314,7 @@ namespace RailwaySystem
             {
                 MessageBox.Show("Successful");
                 refresh();
+
             }
             else
             {
@@ -354,6 +356,7 @@ namespace RailwaySystem
 
             }
             refresh();
+            RefreshStations();
         }
 
         private void updatecyard_Click(object sender, RoutedEventArgs e)
@@ -363,7 +366,16 @@ namespace RailwaySystem
                 MessageBox.Show("Please select the car id and insert the new size");
                 return;
             }
+           /* if ("Station Manager" == c.GetUserJob(UserID))
+            {
+                string stname = c.GetUserStationName(UserID);
+                if (stname != )
+                {
+                    MessageBox.Show("You aren't allowed to manipulate other stations", "Inavlid Insertion");
+                    return;
+                }
 
+            }*/
             int x = c.UpdateCSize(Convert.ToInt32(cYardscombo.SelectedValue), Convert.ToInt32(upcsize.Text));
             if (x == 0)
             {
@@ -459,7 +471,9 @@ namespace RailwaySystem
 
         private void stats_click(object sender, RoutedEventArgs e)
         {
-            StationStats s = new StationStats(UserID);
+            Stations_stat s = new Stations_stat(UserID);
+            s.Show();
+            this.Close();
         }
     }
 }

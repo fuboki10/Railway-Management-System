@@ -215,8 +215,8 @@
     <Compile Include="Stations.xaml.cs">
       <DependentUpon>Stations.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StationStats.xaml.cs">
-      <DependentUpon>StationStats.xaml</DependentUpon>
+    <Compile Include="Stations_stat.xaml.cs">
+      <DependentUpon>Stations_stat.xaml</DependentUpon>
     </Compile>
     <Compile Include="StManagerDashboard.xaml.cs">
       <DependentUpon>StManagerDashboard.xaml</DependentUpon>
@@ -242,6 +242,15 @@
     </Compile>
     <Compile Include="TrainStatistics1.Designer.cs">
       <DependentUpon>TrainStatistics1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TripsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TripsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TripsStat.xaml.cs">
+      <DependentUpon>TripsStat.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="BookingClerk\Trip\Trips.xaml.cs">
@@ -380,9 +389,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StationStats.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Stations_stat.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="StManagerDashboard.xaml">
       <SubType>Designer</SubType>
@@ -403,6 +412,10 @@
     <Page Include="Employees\UserControlEmp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TripsStat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>
@@ -445,6 +458,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TrainStatistics1.resx">
       <DependentUpon>TrainStatistics1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TripsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TripsReport.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">
