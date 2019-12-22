@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="230" d:DesignWidth="900">
 
-    <Grid>
+    <Grid Margin="0,0,0,-93.6">
         <GroupBox Header="Edit Trips Time" HorizontalAlignment="Left" Height="162" Margin="10,10,0,0" VerticalAlignment="Top" Width="520" BorderBrush="#FF080226"/>
         <GroupBox Header="Edit Trips Class" HorizontalAlignment="Left" Height="162" Margin="540,10,0,0" VerticalAlignment="Top" Width="355" BorderBrush="#FF080226"/>
 
@@ -30,6 +30,16 @@
             </Button.Resources>
         </Button>
         <Button Name="ChangeClassButton" Content="Change Class" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="775,125,0,0" BorderBrush="#FF080226" Click="ChangeClassButton_Click" Background="#FF080226" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <GroupBox Header="Trip Finish" HorizontalAlignment="Left" Margin="274,189,0,0" VerticalAlignment="Top" Height="97" Width="339"/>
+        <TextBox x:Name="ID_Copy" HorizontalAlignment="Left" Height="23" Margin="366,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62"  RenderTransformOrigin="1.739,0.493"/>
+        <Label Content="Trip Id" HorizontalAlignment="Left" Margin="300,237,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.926,0.565"/>
+        <Button x:Name="ArriveButton" Content="Arrived" Cursor="Hand" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="75" Margin="473,237,0,0" BorderBrush="#FF080226" Background="#FF080226" Foreground="White" Click="ArriveButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>

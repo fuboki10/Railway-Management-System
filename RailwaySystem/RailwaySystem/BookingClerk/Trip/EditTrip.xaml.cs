@@ -59,7 +59,7 @@ namespace RailwaySystem
         private void Class_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
+        }   
 
         private void ChangeClassButton_Click(object sender, RoutedEventArgs e)
         {
@@ -80,6 +80,22 @@ namespace RailwaySystem
                 return;
             }
             mycontroller.ChangeTripClass(int.Parse(IDC.Text), cl);
+            Trip.BindTripsGrid();
+        }
+
+        private void ArriveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ID_Copy.Text == "")
+            {
+                MessageBox.Show("Please Enter Trip ID", "Incomplete Data");
+                return;
+            }
+            int ret = mycontroller.TripArrived(Int32.Parse(ID_Copy.Text));
+            if (ret == 0)
+            {
+                MessageBox.Show("Trip Can't Be Deleted Now");
+                return;
+            }
             Trip.BindTripsGrid();
         }
     }

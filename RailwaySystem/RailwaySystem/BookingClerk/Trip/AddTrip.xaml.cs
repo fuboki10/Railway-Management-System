@@ -139,6 +139,18 @@ namespace RailwaySystem
         private void bDest(object sender, SelectionChangedEventArgs e)
         {
             bindDest();
+            if (source.Text != "")
+            {
+                DataTable dt;
+                dt = c.unassin_Trains((int)source.SelectedValue);
+                if (dt != null)
+                {
+                    train.ItemsSource = dt.DefaultView;
+                    train.DisplayMemberPath = "Model";
+                    train.SelectedValuePath = "ID";
+                }
+                else train.ItemsSource = null;
+            }
         }
         private void bindDest()
         {
@@ -163,22 +175,13 @@ namespace RailwaySystem
         {
             if (train.Text != "")
             {
-                seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));
-            }
-            if (source.Text != "")
-            {
-                DataTable dt;
-                dt = c.unassin_Trains((int)source.SelectedValue);
-                if (dt != null)
+                if (train.SelectedValue == null)
                 {
-                    train.ItemsSource = dt.DefaultView;
-                    train.DisplayMemberPath = "Model";
-                    train.SelectedValuePath = "ID";
-                    train.SelectedIndex = 1;
-                    train.SelectedIndex = 0;
+                    seats.Text = "No. of seats";
                 }
-            }
-            
+                else
+                    seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));
+            }    
         }
     }
 }

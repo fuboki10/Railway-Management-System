@@ -88,6 +88,7 @@ namespace RailwaySystem
         public static string GetAllTrips = "GetAllTrips";
         public static string InsertTrip = "InsertTrip";
         public static string Add_Subscription = "Add_Subscription";
+        public static string TripArrived = "TripArrived";
         
         // Station procedures
         public static string InsertStation = "InsertStation";

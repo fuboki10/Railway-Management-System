@@ -713,11 +713,11 @@ namespace RailwaySystem
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
 
-        public DataTable unassin_Trains(int Coach_id)
+        public DataTable unassin_Trains(int StationID)
         {
             string StoredProcedureName = StoredProcedures.Unassign_Trains;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("@coach_id", Coach_id);
+            Parameters.Add("@station_id", StationID);
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
         public DataTable GetAllEmployeePhones()
@@ -767,6 +767,14 @@ namespace RailwaySystem
         public int ChangeTrainStatus(int TrainID)
         {
             string StoredProcedureName = StoredProcedures.ChangeTrainStatus;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@TrainID", TrainID);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+        }
+
+        public int TripArrived(int TrainID)
+        {
+            string StoredProcedureName = StoredProcedures.TripArrived;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@TrainID", TrainID);
             return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
