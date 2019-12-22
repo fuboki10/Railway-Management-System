@@ -101,3 +101,14 @@ coach_yard_Id if it is in any, Bought_BY(The id of the manager who bought it)
 17-User "table of users who have access to the application"(Id of the user(PK), username, hashed password, EmployeeID(FK to Employee), IsAdmin (if equal to one the he is an admin))
 
 
+
+# ScreenShots
+
+![Login Page 12_22_2019 7_13_08 AM](https://user-images.githubusercontent.com/35429211/71317951-2141b180-2492-11ea-97f2-0d6e99749dc3.png)
+
+
+
+![AdminDashboard 12_22_2019 7_13_17 AM](https://user-images.githubusercontent.com/35429211/71317959-4b936f00-2492-11ea-861b-eb35dc516f33.png)
+
+
+![Employees 12_22_2019 7_13_28 AM](https://user-images.githubusercontent.com/35429211/71317960-577f3100-2492-11ea-8325-c5338da7f023.png)
