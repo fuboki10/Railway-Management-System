@@ -209,7 +209,7 @@
                 </Button.Resources>
             </Button>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="203" Margin="476,540,0,0" VerticalAlignment="Top" Width="1" />
-            <TextBlock x:Name="selectlabel_Copy" HorizontalAlignment="Left" Height="20" Margin="495,557,0,0" TextWrapping="Wrap" Text="Select coach yard:" VerticalAlignment="Top" Width="104" />
+            <TextBlock x:Name="selectlabel_Copy" HorizontalAlignment="Left" Height="20" Margin="495,557,0,0" TextWrapping="Wrap" Text="Select repair yard:" VerticalAlignment="Top" Width="104" />
             <ComboBox x:Name="rYards" HorizontalAlignment="Left" Height="20" Margin="621,557,0,0" VerticalAlignment="Top" Width="35"/>
             <TextBox x:Name="uprsize" HorizontalAlignment="Left" Height="16" Margin="540,600,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" />
             <TextBlock x:Name="sizeR" HorizontalAlignment="Left" Height="20" Margin="500,600,0,0" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Width="25" RenderTransformOrigin="0.188,0.595" />

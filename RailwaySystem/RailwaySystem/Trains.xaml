@@ -113,9 +113,7 @@
                   CanUserResizeColumns="False" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
                   >
         </DataGrid>
-        <GroupItem Name="Group">
-            
-        </GroupItem>
+        <GroupItem Name="Group"/>
         <GroupBox x:Name="AddTrains" Header="Add Train" HorizontalAlignment="Left" Height="109" Margin="264,103,0,0" VerticalAlignment="Top" Width="500" BorderBrush="#FF080226">
             <TextBox x:Name="ModelTextBox" HorizontalAlignment="Left" Height="21" Margin="6,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
         </GroupBox>
@@ -133,11 +131,11 @@
         <ComboBox x:Name="CoachYardComboBox" HorizontalAlignment="Left" Margin="575,125,0,0" VerticalAlignment="Top" Width="95"
                   ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectedIndex="0"/>
         <Label Name="CoachYardLabel" Content="CoachYard" HorizontalAlignment="Left" Margin="685,125,0,0" VerticalAlignment="Top"/>
-        <GroupBox x:Name="DeleteTrain" Header="Delete Train" HorizontalAlignment="Left" Margin="768,105,0,0" VerticalAlignment="Top" Height="107" Width="185" BorderBrush="#FF080226"/>
+        <GroupBox x:Name="UpdateTrain" Header="Update Train" HorizontalAlignment="Left" Margin="768,105,0,0" VerticalAlignment="Top" Height="107" Width="185" BorderBrush="#FF080226"/>
         <ComboBox x:Name="TrainsID_ComboBox" HorizontalAlignment="Left" Margin="785,131,0,0" VerticalAlignment="Top" Width="120"
                   ItemsSource="{Binding}" DisplayMemberPath="ID" SelectedValuePath="ID" SelectedIndex="0"/>
         <Label Name="IDLabel" Content="ID" HorizontalAlignment="Left" Margin="919,128,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="DeleteButton" Cursor="Hand" Content="Delete" HorizontalAlignment="Left" Margin="820,181,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226" Click="DeleteButton_Click" Background="#FF080226" Foreground="#FFFAF5F5">
+        <Button x:Name="DeleteButton" Cursor="Hand" Content="Delete" HorizontalAlignment="Left" Margin="781,176,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226" Click="DeleteButton_Click" Background="#FF080226" Foreground="#FFFAF5F5">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -145,6 +143,13 @@
             </Button.Resources>
         </Button>
         <Button x:Name="AddButton" Cursor="Hand" Content="Add" HorizontalAlignment="Left" Margin="663,172,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226" Click="AddButton_Click" Background="#FF080226" Foreground="#FFFAF5F5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="ChangeStatusButton" Cursor="Hand" Content="ChangeStatus" HorizontalAlignment="Left" Margin="865,176,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF080226" Background="#FF080226" Foreground="#FFFAF5F5" Click="ChangeStatusButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>

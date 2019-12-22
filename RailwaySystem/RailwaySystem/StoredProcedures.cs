@@ -31,6 +31,7 @@ namespace RailwaySystem
         public static string InsertTrain = "InsertTrain";
         public static string GetAllTrains = "GetAllTrains";
         public static string GetNoSeats = "GetNoSeats";
+        public static string ChangeTrainStatus = "ChangeTrainStatus";
 
         // Passenger Procedures
         public static string AddPassenger = "InsertPassenger";
@@ -106,7 +107,8 @@ namespace RailwaySystem
         public static string GetAllCyards = "GetAllCyards";
         public static string RemoveCoachYard = "RemoveCoachYard";
         public static string RemoveRepairYard = "RemoveRepairYard";
-
+        public static string GetCoachYardStationId = "GetCyardStationId";
+        public static string GetRepairYardStationId = "GetRyardStationId";
         // Routes Procedures
         public static string AddRoute = "AddRoute";
         // Subscription

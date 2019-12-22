@@ -97,7 +97,7 @@ namespace RailwaySystem
                 Parameters.Add("@BoughtByID", BoughtByID);
 
 
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
         }
         
         public int RemoveTrain(int ID)
@@ -199,6 +199,20 @@ namespace RailwaySystem
             string StoredProcedureName = StoredProcedures.GetUserStationId;
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("@UserID", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
+        public string GetCoachStationId(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetCoachYardStationId;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
+            return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
+        }
+        public string GetRepairStationId(int ID)
+        {
+            string StoredProcedureName = StoredProcedures.GetRepairYardStationId;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@id", ID);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString();
         }
         public string GetUserStationName(int ID)
@@ -747,6 +761,13 @@ namespace RailwaySystem
             Parameters.Add("@Tid", tid);
             return dbMan.ExecuteScalar(StoredProcedureName, Parameters);
         }
-    }
 
+        public int ChangeTrainStatus(int TrainID)
+        {
+            string StoredProcedureName = StoredProcedures.ChangeTrainStatus;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@TrainID", TrainID);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
+        }
+    }
 }
