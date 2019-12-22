@@ -119,6 +119,8 @@ namespace RailwaySystem
                 TripsDataGrid.ItemsSource = dt.DefaultView;
             else
                 TripsDataGrid.ItemsSource = null;
+
+            TripsDataGrid.ItemsSource = dt.DefaultView;
         }
 
         private void edit_trip_Click(object sender, RoutedEventArgs e)
