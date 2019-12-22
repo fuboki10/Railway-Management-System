@@ -120,6 +120,12 @@ namespace RailwaySystem
 
         private void ChangeemailButton_Click(object sender, RoutedEventArgs e)
         {
+            if (ChangeCanvas.Visibility != Visibility.Visible)
+            {
+                ChangeCanvas.Visibility = Visibility.Visible;
+                AddContact.Visibility = Visibility.Hidden;
+                return;
+            }
             if (newemail.Text == "")
             {
                 MessageBox.Show("Please enter a valid E-mail");
@@ -182,6 +188,33 @@ namespace RailwaySystem
             }
 
             int x = controllerobj.DeleteUserPhone(userid, Phone_Numbers.Text);
+            if (x != 0)
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
+
+        private void AddContactButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (AddContact.Visibility != Visibility.Visible)
+            {
+                ChangeCanvas.Visibility = Visibility.Hidden;
+                AddContact.Visibility = Visibility.Visible;
+                return;
+            }
+            if (Email.Text == "" || City.Text == "" || State.Text == "" || Street.Text =="")
+            {
+                MessageBox.Show("Please fill in all data");
+                return;
+            }
+            int empid = controllerobj.get_emp_id_userId(userid);
+
+            int x = controllerobj.AddEmpContact(empid, City.Text, Email.Text, State.Text, Street.Text);
             if (x != 0)
             {
                 MessageBox.Show("Successful!");
