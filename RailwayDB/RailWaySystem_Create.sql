@@ -228,7 +228,7 @@ CREATE TABLE [Trip] (
 	Train_ID integer NOT NULL,
 	StManager_ID integer,
 	foreign key(Train_ID) references Train on delete cascade on update cascade,
-	foreign key(StManager_ID) references Employee on delete set null on update cascade,
+	foreign key(StManager_ID) references Employee on delete no action on update cascade,
 	foreign key(Source_ID, Destintaion_ID) references [Route],
     CONSTRAINT [PK_TRIP] PRIMARY KEY CLUSTERED
     (
@@ -438,10 +438,12 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    Delete from Route where Source_ID = @source_id and Destination_ID = @dest_id
+    Delete from [Route] where Source_ID = @source_id and Destination_ID = @dest_id
+	Delete from Trip where Source_ID=@source_id and Destintaion_ID=@dest_id
 	
 END
 GO
+
 
 use RailWaySystemDB
 
@@ -871,7 +873,7 @@ GO
 -- Create date: 21/12/2019
 -- Description:	edit ticket
 -- =============================================
-alter PROCEDURE EditTicket
+create PROCEDURE EditTicket
 @ticketID int,
 @class varchar(50),
 @date varchar(50),
@@ -2566,6 +2568,7 @@ GO
 -- =============================================
 CREATE PROCEDURE Unassign_Trains 
 	-- Add the parameters for the stored procedure here
+	@station_id int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -2573,7 +2576,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT distinct * from Train where Coach_Yard_ID is not null
+	SELECT * from Train where Coach_Yard_ID in (select ID from Coach_Yard where Station_ID = @station_id) 
 END
 GO
 
@@ -2862,4 +2865,17 @@ BEGIN
 	END
 	SELECT @@ROWCOUNT
 END
+GO
+Insert into Job (ID, Job_Description) values (1, 'Manager')
+Insert into Job (ID, Job_Description) values (2, 'Station Manager')
+Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
+Insert into Job (ID, Job_Description) values (4, 'Driver')
+
+EXEC	[dbo].[InsertUser]
+		@Username = N'admin',
+		@Password = N'admin',
+		@EmployeeID = NULL,
+		@IsAdmin = 1
+
+USE [RailWaySystemDB]
 GO
