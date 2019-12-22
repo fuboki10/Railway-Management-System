@@ -228,7 +228,7 @@ CREATE TABLE [Trip] (
 	Train_ID integer NOT NULL,
 	StManager_ID integer,
 	foreign key(Train_ID) references Train on delete cascade on update cascade,
-	foreign key(StManager_ID) references Employee on delete set null on update cascade,
+	foreign key(StManager_ID) references Employee on delete no action on update cascade,
 	foreign key(Source_ID, Destintaion_ID) references [Route],
     CONSTRAINT [PK_TRIP] PRIMARY KEY CLUSTERED
     (
@@ -438,10 +438,12 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    Delete from Route where Source_ID = @source_id and Destination_ID = @dest_id
+    Delete from [Route] where Source_ID = @source_id and Destination_ID = @dest_id
+	Delete from Trip where Source_ID=@source_id and Destintaion_ID=@dest_id
 	
 END
 GO
+
 
 use RailWaySystemDB
 

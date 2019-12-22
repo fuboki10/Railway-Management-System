@@ -71,16 +71,10 @@ namespace RailwaySystem
                 ManagerDashboard M = new ManagerDashboard(UserID);
                 M.Show();
             }
-            else
+            else if (job == "Booking Clerk")
             {
-                /*
-                 * TODO
-                 * BOOKING CLERK
-                 * MANAGER 
-                 * STATION MANAGER
-                 */
-                Welcome WelcomeWindow = new Welcome(UserID);
-                WelcomeWindow.Show();
+                BookingClerk B = new BookingClerk(UserID);
+                B.Show();
             }
             this.Close();
         }

@@ -19,8 +19,8 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    Delete from Route where Source_ID = @source_id and Destination_ID = @dest_id
-
+    Delete from [Route] where Source_ID = @source_id and Destination_ID = @dest_id
+	Delete from Trip where Source_ID=@source_id and Destintaion_ID=@dest_id
 	
 END
 GO

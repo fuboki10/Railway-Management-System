@@ -24,8 +24,8 @@ namespace RailwaySystem
         private int UserID;
         Controller ControllerObj;
         private string job;
-        private int EmpID;
-        private int StationID;
+        private int EmpID = 0;
+        private int StationID = 0;
         public Trains(int U)
         {
             ControllerObj = new Controller();
@@ -54,7 +54,7 @@ namespace RailwaySystem
                 label2.Visibility = Visibility.Hidden;
                 label3.Visibility = Visibility.Hidden;
             }
-            if (job != "Admin" && job != "Manager")
+            if (job != "Admin")
             {
                 EmpID = ControllerObj.get_emp_id_userId(UserID);
                 StationID = ControllerObj.EmployeeStation(EmpID);
@@ -273,8 +273,7 @@ namespace RailwaySystem
             int Coach_Yard_ID = Int32.Parse(CoachYardComboBox.SelectedValue.ToString());
 
             string date = TrainDatePicker.SelectedDate.ToString();
-
-            int ret = ControllerObj.InsertTrain(model, true, color, No_Seats, No_Cars, date, speed, 0, 0, Coach_Yard_ID, 0);
+            int ret = ControllerObj.InsertTrain(model, true, color, No_Seats, No_Cars, date, speed, 0, 0, Coach_Yard_ID, EmpID);
             if (ret == 0)
             {
                 MessageBox.Show("Coach Yard Is Full");
