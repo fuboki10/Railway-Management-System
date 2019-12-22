@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -27,7 +28,9 @@ namespace RailwaySystem
             T = t;
             mycontroller = new Controller();
             InitializeComponent();
-            Attributes.ItemsSource = mycontroller.Getsubs().DefaultView;
+            DataTable dt = mycontroller.Getsubs();
+            if (dt != null)
+                Attributes.ItemsSource = dt.DefaultView;
 
         }
 
