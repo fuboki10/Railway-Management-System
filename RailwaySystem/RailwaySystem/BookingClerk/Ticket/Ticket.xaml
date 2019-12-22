@@ -105,7 +105,7 @@
                 </Button>
             </Canvas>
         </Canvas>
-        <Button x:Name="BookSeatButton" Cursor="Hand"  Content="Book Seat" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" 
+        <Button x:Name="BookSeatButton" Cursor="Hand"  Content="Book Seat" HorizontalAlignment="Left" Margin="317,142,0,0" VerticalAlignment="Top" 
                 Click="BookSeatButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="0.662,0.5" Height="37">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -113,7 +113,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="CancelTicktButton" Content="Cancel Ticket" HorizontalAlignment="Left" Margin="522,165,0,0" VerticalAlignment="Top"
+        <Button x:Name="CancelTicktButton" Content="Cancel Ticket" HorizontalAlignment="Left" Margin="629,142,0,0" VerticalAlignment="Top"
                 Click="CancelTicktButton_Click" Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Width="175" RenderTransformOrigin="-0.037,0.696" Height="37">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -121,7 +121,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="EditTicktButton" Content="Edit Ticket" HorizontalAlignment="Left" Margin="769,165,0,0" 
+        <Button x:Name="EditTicktButton" Content="Edit Ticket" HorizontalAlignment="Left" Margin="956,142,0,0" 
                  Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Click="EditTicktButton_Click" VerticalAlignment="Top" Width="175" Height="37" RenderTransformOrigin="0.776,0.541">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -130,7 +130,7 @@
             </Button.Resources>
         </Button>
         <Grid x:Name="newButtons"  HorizontalAlignment="Left" Height="200" Margin="261,281,0,0"  VerticalAlignment="Top" Width="900"/>
-        <Button x:Name="Add_sub" Content="add subscription" HorizontalAlignment="Left" Margin="1015,165,0,0" 
+        <Button x:Name="Add_sub" Content="add subscription" HorizontalAlignment="Left" Margin="629,207,0,0" 
             Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226"  Click="Add_sub_Click" VerticalAlignment="Top" Width="175" Height="37" RenderTransformOrigin="0.776,0.541">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
