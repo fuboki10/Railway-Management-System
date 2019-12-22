@@ -23,7 +23,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="EditPhoneButton" Content="Edit Phone" HorizontalAlignment="Left" Margin="651,142,0,0" VerticalAlignment="Top" Width="216" Height="36"
+        <Button x:Name="EditPhoneButton" Content="Edit Phone" HorizontalAlignment="Left" Margin="651,142,0,0" VerticalAlignment="Top" Width="216" Height="36" Visibility="Hidden"
             Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="EditPhoneButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

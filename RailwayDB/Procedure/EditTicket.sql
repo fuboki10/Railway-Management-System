@@ -20,7 +20,12 @@ BEGIN
 	if(select count(*) from Ticket where Trip_ID=@Tripid and Class=@class and Passenger_ID is null)>0
 	
 	begin
-		
+		if(select Passenger_id from Ticket where ID=@ticketID) is null
+		begin
+		select -1;
+		end
+		else
+		begin
 		declare @passngerID int ;
 		set @passngerID=(select Passenger_id from Ticket where ID=@ticketID);
 		exec CancelTicket2
@@ -32,7 +37,7 @@ BEGIN
 		@BookingeClerkID =@BookingClerkID,
 		@Date =@date,
 		@ID =@newticketid
-		
+		end
 	end 
 END
 GO
