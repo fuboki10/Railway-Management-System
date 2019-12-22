@@ -170,7 +170,7 @@
             </Button.Resources>
         </Button>
         <GroupBox Header="Contact" HorizontalAlignment="Left" Height="419" Margin="304,314,0,0" VerticalAlignment="Top" Width="860" BorderBrush="#FF080226"/>
-        <Canvas x:Name="AddContact" Visibility="Visible">
+        <Canvas x:Name="AddContact" Visibility="Hidden">
             <Label Content="Employee ID" HorizontalAlignment="Left" Margin="70,4,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="Email" HorizontalAlignment="Left" Height="21" Margin="338,352,0,0" TextWrapping="Wrap" Text="" 
             VerticalAlignment="Top" Width="276" RenderTransformOrigin="0.489,0.599"/>

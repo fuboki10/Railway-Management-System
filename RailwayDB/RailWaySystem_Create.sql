@@ -2523,6 +2523,7 @@ GO
 -- =============================================
 CREATE PROCEDURE Unassign_Trains 
 	-- Add the parameters for the stored procedure here
+	@station_id int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -2530,7 +2531,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT distinct * from Train where Coach_Yard_ID is not null
+	SELECT * from Train where Coach_Yard_ID in (select ID from Coach_Yard where Station_ID = @station_id) 
 END
 GO
 
@@ -2819,4 +2820,17 @@ BEGIN
 	END
 	SELECT @@ROWCOUNT
 END
+GO
+Insert into Job (ID, Job_Description) values (1, 'Manager')
+Insert into Job (ID, Job_Description) values (2, 'Station Manager')
+Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
+Insert into Job (ID, Job_Description) values (4, 'Driver')
+
+EXEC	[dbo].[InsertUser]
+		@Username = N'admin',
+		@Password = N'admin',
+		@EmployeeID = NULL,
+		@IsAdmin = 1
+
+USE [RailWaySystemDB]
 GO
