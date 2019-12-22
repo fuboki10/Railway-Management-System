@@ -51,9 +51,16 @@ namespace RailwaySystem
             {
                 source.ItemsSource = null;
             }
+            
+            BindTrains();
+            BindDrivers();
+        }
+
+        private void BindTrains()
+        {
             if (source.Text != "")
             {
-                dt = c.unassin_Trains((int) source.SelectedValue);
+                DataTable dt = c.unassin_Trains((int)source.SelectedValue);
                 if (dt != null)
                 {
                     train.ItemsSource = dt.DefaultView;
@@ -67,9 +74,11 @@ namespace RailwaySystem
                     train.ItemsSource = null;
                 }
             }
-            
+        }
 
-            dt = c.GetAllDrivers();
+        private void BindDrivers()
+        {
+            DataTable dt = c.GetAllDrivers();
             if (dt != null)
             {
                 Driver.ItemsSource = dt.DefaultView;
@@ -80,7 +89,6 @@ namespace RailwaySystem
             {
                 Driver.ItemsSource = null;
             }
-            
         }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -132,6 +140,8 @@ namespace RailwaySystem
             {
                 System.Windows.MessageBox.Show("Successful");
                 trip.BindTripsGrid();
+                BindDrivers();
+                BindTrains();
             }
         }
 
@@ -141,15 +151,7 @@ namespace RailwaySystem
             bindDest();
             if (source.Text != "")
             {
-                DataTable dt;
-                dt = c.unassin_Trains((int)source.SelectedValue);
-                if (dt != null)
-                {
-                    train.ItemsSource = dt.DefaultView;
-                    train.DisplayMemberPath = "Model";
-                    train.SelectedValuePath = "ID";
-                }
-                else train.ItemsSource = null;
+                BindTrains();
             }
         }
         private void bindDest()
@@ -173,15 +175,12 @@ namespace RailwaySystem
 
         private void train_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (train.Text != "")
+            if (train.SelectedValue == null)
             {
-                if (train.SelectedValue == null)
-                {
-                    seats.Text = "No. of seats";
-                }
-                else
-                    seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));
-            }    
+                seats.Text = "No. of seats";
+            }
+            else
+                seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));  
         }
     }
 }
