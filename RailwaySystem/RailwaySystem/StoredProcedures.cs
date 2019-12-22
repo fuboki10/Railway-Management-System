@@ -31,6 +31,7 @@ namespace RailwaySystem
         public static string InsertTrain = "InsertTrain";
         public static string GetAllTrains = "GetAllTrains";
         public static string GetNoSeats = "GetNoSeats";
+        public static string ChangeTrainStatus = "ChangeTrainStatus";
 
         // Passenger Procedures
         public static string AddPassenger = "InsertPassenger";
