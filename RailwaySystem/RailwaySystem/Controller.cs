@@ -713,10 +713,12 @@ namespace RailwaySystem
             return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
         }
 
-        public DataTable unassin_Trains()
+        public DataTable unassin_Trains(int Coach_id)
         {
             string StoredProcedureName = StoredProcedures.Unassign_Trains;
-            return dbMan.ExecuteReader(StoredProcedureName, null);
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@coach_id", Coach_id);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
         public DataTable GetAllEmployeePhones()
         {
