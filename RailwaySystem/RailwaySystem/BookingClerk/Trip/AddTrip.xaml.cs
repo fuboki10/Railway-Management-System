@@ -51,15 +51,23 @@ namespace RailwaySystem
             {
                 source.ItemsSource = null;
             }
-            dt = c.unassin_Trains();
-            if (dt != null)
+            if (source.Text != "")
             {
-                train.ItemsSource = dt.DefaultView;
-                train.DisplayMemberPath = "Model";
-                train.SelectedValuePath = "ID";
-                train.SelectedIndex = 1;
-                train.SelectedIndex = 0;
+                dt = c.unassin_Trains((int) source.SelectedValue);
+                if (dt != null)
+                {
+                    train.ItemsSource = dt.DefaultView;
+                    train.DisplayMemberPath = "Model";
+                    train.SelectedValuePath = "ID";
+                    train.SelectedIndex = 1;
+                    train.SelectedIndex = 0;
+                }
+                else
+                {
+                    train.ItemsSource = null;
+                }
             }
+            
 
             dt = c.GetAllDrivers();
             if (dt != null)
@@ -114,7 +122,7 @@ namespace RailwaySystem
             Console.WriteLine(dep_time);
             Console.WriteLine(dep);
             Console.WriteLine(result);
-            x = c.InsertTrip(result.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
+            x = c. InsertTrip(result.ToString(), Convert.ToInt32(type.Text), (int)dest.SelectedValue, (int)source.SelectedValue,
                train_id, driver, trip.UserID, CA, pA, CB, pB, CC, pC);
             if (x == 0)
             {
@@ -157,6 +165,20 @@ namespace RailwaySystem
             {
                 seats.Text = Convert.ToString(c.GetNoSeats((int)train.SelectedValue));
             }
+            if (source.Text != "")
+            {
+                DataTable dt;
+                dt = c.unassin_Trains((int)source.SelectedValue);
+                if (dt != null)
+                {
+                    train.ItemsSource = dt.DefaultView;
+                    train.DisplayMemberPath = "Model";
+                    train.SelectedValuePath = "ID";
+                    train.SelectedIndex = 1;
+                    train.SelectedIndex = 0;
+                }
+            }
+            
         }
     }
 }

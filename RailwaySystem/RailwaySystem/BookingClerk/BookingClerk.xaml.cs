@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -138,6 +139,79 @@ namespace RailwaySystem
         {
             ChangePassword CP = new ChangePassword(UserID);
             CP.Show();
+        }
+
+        private void ChangeemailButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (newemail.Text == "")
+            {
+                MessageBox.Show("Please enter a valid E-mail");
+                return;
+            }
+            int x = 0;
+            x = ControllerObj.ChangeEmail(UserID, newemail.Text);
+            if (x == 0)
+            {
+                MessageBox.Show("Please enter a valid E-mail");
+            }
+            else
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
+        }
+        private void ADDphone(object sender, RoutedEventArgs e)
+        {
+            if (code.Text == "" || newphone.Text == "")
+            {
+                MessageBox.Show("Please fill in all data");
+                return;
+            }
+            int x = 0;
+            x = ControllerObj.AddUserphone(UserID, code.Text, newphone.Text);
+            if (x == 0)
+            {
+                MessageBox.Show("Invalid phone number or code");
+            }
+            else
+            {
+                MessageBox.Show("Succeed !");
+                refresh();
+            }
+        }
+        private void refresh()
+        {
+            DataTable dt = ControllerObj.GetUserAdress(UserID);
+            if (dt != null)
+                Address.ItemsSource = dt.DefaultView;
+            dt = ControllerObj.GetUserPhones(UserID);
+            if (dt != null)
+            {
+                Phones.ItemsSource = dt.DefaultView;
+                Phone_Numbers.ItemsSource = dt.DefaultView;
+                Phone_Numbers.DisplayMemberPath = "Phone_numbers";
+            }
+
+        }
+
+        private void DeletePhone(object sender, RoutedEventArgs e)
+        {
+            if (Phone_Numbers.Text == "")
+            {
+                MessageBox.Show("Please choose a number to delete");
+                return;
+            }
+
+            int x = ControllerObj.DeleteUserPhone(UserID, Phone_Numbers.Text);
+            if (x != 0)
+            {
+                MessageBox.Show("Successful!");
+                refresh();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }
     }
 }

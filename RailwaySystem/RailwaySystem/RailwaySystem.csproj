@@ -503,6 +503,5 @@
   <ItemGroup>
     <Resource Include="Resources\statistics.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

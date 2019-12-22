@@ -197,7 +197,7 @@ CREATE TABLE [Train] (
 	BoughtByID int,                    -- Manager ID --
 	foreign key(Repair_Yard_ID) references Repair_Yard(ID),
 	foreign key(Coach_Yard_ID) references Coach_Yard(ID),
-	foreign key(BoughtByID) references Employee(ID),  
+	foreign key(BoughtByID) references Employee(ID) on delete set null,  
 	foreign key(Driver_ID) references Employee(ID),
 	CONSTRAINT [TrainCheck] check(
 		(Driver_ID is not null and Repair_Yard_ID is null and Coach_Yard_ID is null) or
@@ -248,7 +248,7 @@ CREATE TABLE [Ticket] (
 	Trip_ID integer NOT NULL,
 	foreign key(Booking_Clerk_ID) references Employee(ID) on delete set null on update cascade,
 	foreign key(Passenger_ID) references Passenger(ID) on delete set null on update cascade,
-	foreign key(Trip_ID) references Trip(ID) on delete no action on update no action,
+	foreign key(Trip_ID) references Trip(ID) on delete cascade,
   CONSTRAINT [PK_TICKET] PRIMARY KEY CLUSTERED
   (
   [ID] ASC
@@ -2521,6 +2521,7 @@ GO
 -- =============================================
 CREATE PROCEDURE Unassign_Trains 
 	-- Add the parameters for the stored procedure here
+	@station_id int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -2528,7 +2529,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT distinct * from Train where Coach_Yard_ID is not null
+	SELECT * from Train where Coach_Yard_ID in (select ID from Coach_Yard where Station_ID = @station_id) 
 END
 GO
 
