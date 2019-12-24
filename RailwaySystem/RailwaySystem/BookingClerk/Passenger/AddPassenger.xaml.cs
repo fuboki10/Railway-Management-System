@@ -35,6 +35,7 @@ namespace RailwaySystem
                 MessageBox.Show("type first name and last name");
             }
             else {
+                int passenger = 0;
                 try
                 {
                 passenger=Convert.ToInt32(mycontroller.AddPassenger(this.First_Name.Text, this.Last_Name.Text));
@@ -46,7 +47,7 @@ namespace RailwaySystem
                 {
                     MessageBox.Show(ex.ToString());
                 }
-                int passenger = 0;
+                
 
             } 
         }
