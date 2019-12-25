@@ -40,8 +40,9 @@ namespace RailwaySystem
                 try
                 {
                     string today = DateTime.Now.ToString();
-                    mycontroller.EditTicket(Convert.ToInt32(TicketID.Text), type.Text, mycontroller.get_emp_id_userId(T.UserID)
+                    int id = mycontroller.EditTicket(Convert.ToInt32(TicketID.Text), type.Text, mycontroller.get_emp_id_userId(T.UserID)
                         , today);
+                    T.TicketData.ItemsSource = mycontroller.GetPassengerTicket(id).DefaultView;
                     MessageBox.Show("succesful");
                 }
                 catch (Exception ex)

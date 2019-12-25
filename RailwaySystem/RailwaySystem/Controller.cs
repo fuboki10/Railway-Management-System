@@ -139,6 +139,14 @@ namespace RailwaySystem
             return dbMan.ExecuteReader(StoredProcedureName, Parameters);
         }
 
+        public DataTable GetPassengerTicket(int PassengerID)
+        {
+            string StoredProcedureName = StoredProcedures.getpassengerticket;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@PassengerID", PassengerID);
+            return dbMan.ExecuteReader(StoredProcedureName, Parameters);
+        }
+
         // Get Employee ID from UserID
         public int get_emp_id_userId(int UserID)
         {
@@ -602,7 +610,7 @@ namespace RailwaySystem
             Parameters.Add("@class", Class);
             Parameters.Add("@date", today);
             Parameters.Add("@BookingClerkID", BookingClerkID);
-            return dbMan.ExecuteNonQuery(StoredProcedureName, Parameters);
+            return Int32.Parse(dbMan.ExecuteScalar(StoredProcedureName, Parameters).ToString());
         }
 
         public DataTable GetAllSubscriptions()

@@ -9,7 +9,7 @@
     <Grid Margin="0,0,0,-166" >
         <TextBox x:Name="Date1" HorizontalAlignment="Left" Margin="100,35,0,0" VerticalAlignment="Top" Width="117" Height="26"/>
         <TextBox x:Name="Date2" HorizontalAlignment="Left" Margin="100,88,0,0" VerticalAlignment="Top" Width="117" Height="26"/>
-        <Button x:Name="BookSeatButton1" Content="book seat" HorizontalAlignment="Left" Margin="651,121,0,0" VerticalAlignment="Top" Width="216" Height="36"
+        <Button x:Name="BookSeatButton1" Content="book seat" HorizontalAlignment="Left" Margin="623,119,0,0" VerticalAlignment="Top" Width="216" Height="36"
                 Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="BookSeatButton1_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -17,23 +17,6 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid HorizontalAlignment="Left" Height="151" Margin="0,200,0,0" VerticalAlignment="Top" Width="900" x:Name="Chosseclassoptions">
-            <Grid Margin="0,0,0,-49">
-                <Label x:Name="price" Content="Price" HorizontalAlignment="Left" Margin="491,-122,0,0" VerticalAlignment="Top" Width="197" Height="27"/>
-                <Button x:Name="ViewPrice" Content="view price" HorizontalAlignment="Left" Margin="354,-73,0,0" VerticalAlignment="Top" Width="120" Height="36"
-                    Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="ViewPrice_Click">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-                <Label Content="Class" HorizontalAlignment="Left" Margin="486,-192,0,0" VerticalAlignment="Top" Width="97" Height="28"/>
-                <Label Content="Passenger ID" HorizontalAlignment="Left" Margin="654,-187,0,0" VerticalAlignment="Top" Width="97" Height="27"/>
-
-            </Grid>
-
-        </Grid>
         <Label Content="Source" HorizontalAlignment="Left" Margin="255,4,0,0" VerticalAlignment="Top"/>
         <Label Content="Desntaion" HorizontalAlignment="Left" Margin="255,57,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="source" HorizontalAlignment="Left" Height="26" Margin="255,35,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="bDest"/>
@@ -46,5 +29,14 @@
         </ComboBox>
         <Label Content="MM-dd-yyyy" HorizontalAlignment="Left" Margin="100,61,0,0" VerticalAlignment="Top"/>
         <Label Content="MM-dd-yyyy" HorizontalAlignment="Left" Margin="100,4,0,0" VerticalAlignment="Top"/>
+        <Label Name="Price" Content="Price" HorizontalAlignment="Left" Margin="439,89,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ViewPrice" Content="View Price" HorizontalAlignment="Left" Margin="501,120,0,0" VerticalAlignment="Top" Width="93" Height="29"
+        	Background="#FF080226" Foreground="#FFFEFBFB" BorderBrush="#FF080226" Click="ViewPrice_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </UserControl>

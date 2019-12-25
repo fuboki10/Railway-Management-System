@@ -53,7 +53,7 @@ namespace RailwaySystem
         public static string ConnectTicket = "connectTicket";
         public static string CancelTicket = "CancelTicket2";
         public static string EditTicket = "EditTicket";
-
+        public static string  getpassengerticket = "getpassengerticket";
 
 
 

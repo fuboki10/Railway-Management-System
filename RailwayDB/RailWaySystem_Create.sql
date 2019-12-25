@@ -863,51 +863,6 @@ BEGIN
 END
 GO
 
-use RailWaySystemDB
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		ali abozied
--- Create date: 21/12/2019
--- Description:	edit ticket
--- =============================================
-create PROCEDURE EditTicket
-@ticketID int,
-@class varchar(50),
-@date varchar(50),
-@BookingClerkID int
-AS
-BEGIN
-	declare @Tripid int ;
-	set @Tripid=(select Trip_ID from Ticket where ID =@ticketID)
-	if(select count(*) from Ticket where Trip_ID=@Tripid and Class=@class and Passenger_ID is null)>0
-	
-	begin
-		if(select Passenger_id from Ticket where ID=@ticketID) is null
-		begin
-		select -1;
-		end
-		else
-		begin
-		declare @passngerID int ;
-		set @passngerID=(select Passenger_id from Ticket where ID=@ticketID);
-		exec CancelTicket2
-		@ticketID=@ticketID;
-		declare @newticketid int ;
-		set @newticketid =(select top 1 ID from Ticket where Trip_ID=@Tripid and Class=@class);
-		exec connectTicket
-		@PassengerID =@passngerID,
-		@BookingeClerkID =@BookingClerkID,
-		@Date =@date,
-		@ID =@newticketid
-		end
-	end 
-END
-GO
-
-use RailWaySystemDB
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -932,6 +887,7 @@ GO
 
 
 use RailWaySystemDB
+go
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2908,14 +2864,66 @@ BEGIN
 END
 GO
 
-Insert into Job (ID, Job_Description) values (1, 'Manager')
-Insert into Job (ID, Job_Description) values (2, 'Station Manager')
-Insert into Job (ID, Job_Description) values (3, 'Booking Clerk')
-Insert into Job (ID, Job_Description) values (4, 'Driver')
+USE [RailWaySystemDB]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[getpassengerticket]
+@PassengerID int
+AS
+BEGIN
+select* from Ticket where Passenger_ID=@PassengerID
+END
 
-EXEC	[dbo].[InsertUser]
-		@Username = N'admin',
-		@Password = N'admin',
-		@EmployeeID = NULL,
-		@IsAdmin = 1
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		ali abozied
+-- Create date: 21/12/2019
+-- Description:	edit ticket
+-- =============================================
+CREATE PROCEDURE [dbo].[EditTicket]
+@ticketID int,
+@class varchar(50),
+@date varchar(50),
+@BookingClerkID int
+AS
+BEGIN
+	declare @Tripid int ;
+	set @Tripid=(select Trip_ID from Ticket where ID =@ticketID)
+	if(select count(*) from Ticket where Trip_ID=@Tripid and Class=@class and Passenger_ID is null)>0
+	
+	begin
+		if(select Passenger_id from Ticket where ID=@ticketID) is null
+		begin
+		select -1;
+		end
+		else
+		begin
+		declare @passngerID int ;
+		set @passngerID=(select Passenger_id from Ticket where ID=@ticketID);
+		exec CancelTicket2
+		@ticketID=@ticketID;
+		declare @newticketid int ;
+		set @newticketid =(select top 1 ID from Ticket where Trip_ID=@Tripid and Class=@class);
+		exec connectTicket
+		@PassengerID =@passngerID,
+		@BookingeClerkID =@BookingClerkID,
+		@Date =@date,
+		@ID =@newticketid
+		select @passngerID
+		end
+	end 
+END
+
 

@@ -44,6 +44,7 @@ namespace RailwaySystem
                 {
                     mycontroller.CancelTicket(Convert.ToInt32(ticketid.Text));
                     MessageBox.Show("succesful");
+                    T.TicketData.ItemsSource = null;
 
                 }
                 catch (Exception ex) {

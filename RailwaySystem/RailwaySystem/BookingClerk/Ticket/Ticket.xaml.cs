@@ -69,14 +69,6 @@ namespace RailwaySystem
             LoginPage.Show();
             this.Close();
         }
-        private void StatisticsButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void StatisticsTextButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void HomeTextButton_Click(object sender, RoutedEventArgs e)
         {
             GoHome();

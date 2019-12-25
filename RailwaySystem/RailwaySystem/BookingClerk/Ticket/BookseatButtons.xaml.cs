@@ -58,6 +58,7 @@ namespace RailwaySystem
                      Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text));
                     mycontroller.ConnectTicket(Convert.ToInt32(PassengerID.Text), mycontroller.get_emp_id_userId(T.UserID),
                    today, ticketID);
+                    T.TicketData.ItemsSource = mycontroller.GetPassengerTicket(Convert.ToInt32(PassengerID.Text)).DefaultView;
                     MessageBox.Show("succesful");
                 }
                 catch(Exception ex)
@@ -101,8 +102,8 @@ namespace RailwaySystem
                 var textprice = mycontroller.TicketPrice(Convert.ToInt32(source.SelectedValue), Convert.ToInt32(dest.SelectedValue),
                     Convert.ToString(Date1.Text), Convert.ToString(Date2.Text), type.Text);
                 if (textprice != null)
-                    price.Content = textprice.ToString();
-                else price.Content = "no ticket with this attributes";
+                    Price.Content = textprice.ToString();
+                else Price.Content = "no ticket with this attributes";
             }
         }
     }
