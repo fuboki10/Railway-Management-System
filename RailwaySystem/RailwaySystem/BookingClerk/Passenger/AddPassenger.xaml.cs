@@ -47,8 +47,6 @@ namespace RailwaySystem
                 {
                     MessageBox.Show(ex.ToString());
                 }
-               
-
             } 
         }
     }
